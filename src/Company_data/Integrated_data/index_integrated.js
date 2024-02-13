@@ -2,7 +2,7 @@ import React from 'react';
 
 const DataIntegrated = () => {
   return (
-    <div div className = "ml-[300px]" >
+    <div div className = "" >
       <h1>Data Integrated</h1>
     </div>
   );
