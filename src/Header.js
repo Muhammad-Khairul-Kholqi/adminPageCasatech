@@ -14,7 +14,7 @@ const Header = () => {
     };
 
     return (
-        <div className="flex justify-between flex-wrap gap-[50px] px-[5%] items-center">
+        <div className = "flex justify-between flex-wrap gap-[50px] px-[5%] items-center " >
             <div>
                 Welcome back, <br />
                 <span className="text-[25px] font-bold">Alfar Ramazan</span>
@@ -27,7 +27,7 @@ const Header = () => {
                 </div>
 
                 {isDropdownOpen && (
-                    <div className="absolute top-full right-0 bg-white shadow-md rounded-md p-5 text-[15px]">
+                    <div className="absolute top-full right-0 bg-white shadow-md rounded-md p-5 text-[15px] z-10">
                         <ul>
                             <li>
                                 <Link to="">
