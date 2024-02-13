@@ -13,7 +13,11 @@ const Sidebar = () => {
   };
 
   return (
-    <div className = "bg-white text-black w-[270px] p-4 h-screen fixed top-0 left-0 overflow-y-auto shadow-lg shadow-black" >
+    <>
+    <div className="bg-red-500 z-10 w-screen">
+        <h1>tessss</h1>
+    </div>
+    <div className = "bg-white text-black w-[270px] p-4 h-screen fixed top-0 left-0 overflow-y-auto shadow-lg shadow-black z-20" >
       <div className="flex justify-center mb-8 mt-[20px]">
         <img className="w-[150px]" src={Logo} alt="My Image" />
       </div>
@@ -112,6 +116,7 @@ const Sidebar = () => {
         </li>
       </ul>
     </div>
+    </>
   );
 };
 
