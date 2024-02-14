@@ -4,6 +4,7 @@ import Sidebar from './Template/Side';
 import Header from './Header';
 import Dashboard from './Dashboard';
 import DataIntegrated from './Company_data/Integrated_data/index_integrated';
+import AccountAdmin from './AccountAdmin';
 
 const App = () => {
     return (
@@ -19,6 +20,7 @@ const App = () => {
                     <Routes>
                         <Route path="/" element={<Dashboard />} />
                         <Route path="/company-data/integrated-data" element={<DataIntegrated />} />
+                        <Route path="/account-admin" element={<AccountAdmin />} />
                     </Routes>
                 </div>
             </div>

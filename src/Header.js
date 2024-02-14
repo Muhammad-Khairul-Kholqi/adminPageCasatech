@@ -30,7 +30,7 @@ const Header = () => {
                     <div className="absolute top-full right-0 bg-white shadow-md rounded-md p-5 text-[15px] z-10">
                         <ul>
                             <li>
-                                <Link to="">
+                                <Link to="/account-admin">
                                     <div className = "flex items-center gap-[5px] hover:bg-[#1A9FA3] p-[5px] rounded-[5px] hover:text-white" >
                                         <MdOutlineAccountCircle className="text-[17px]" />
                                         <p>Account</p>
@@ -39,7 +39,7 @@ const Header = () => {
                             </li>
                             <li>
                                  <Link to="">
-                                    <div className = "flex items-center gap-[5px] mt-[5px] hover:bg-[#1A9FA3] p-[5px] rounded-[5px] hover:text-white" >
+                                    <div className = "flex items-center gap-[5px] mt-[5px] hover:bg-red-500 p-[5px] rounded-[5px] hover:text-white" >
                                         <BiLogOut className="text-[17px]" />
                                         <p>Logout</p>
                                     </div>
