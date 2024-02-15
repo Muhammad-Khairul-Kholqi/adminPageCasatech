@@ -7,59 +7,46 @@ import { TbMilitaryRank } from "react-icons/tb";
 
 const AccountAdmin = () => {
     return (
-        <div className="bg-white rounded-[20px] mt-[30px]">
-            <div className="flex justify-between py-[40px] px-[10%]">
-                <div className = "block bg-[#F0F3FF] p-[40px] rounded-[20px]" >
-                    <div className="w-[170px]">
-                        <img src={profile} className="rounded-[10px] flex" />
-                    </div>
-                    <div className="blok">
-                        <div className = "flex gap-[5px] items-center border-solid border-2 border-black bg-white px-[10px] rounded-[4px] mt-[20px] shadow-md" >
-                            <MdDriveFileRenameOutline />
-                            <p className="mb-[2px]">Muhammad Alfar Ramazhan</p>
-                        </div>
-
-                        <div className = "flex gap-[5px] items-center border-solid border-2 border-black bg-white px-[10px] rounded-[4px] mt-[20px] shadow-md" >
-                            <MdOutlineDateRange />
-                            <p className="mb-[2px]">Bogor, 56-januari-1998</p>
-                        </div>
-
-                        <div className = "flex gap-[5px] items-center border-solid border-2 border-black bg-white px-[10px] rounded-[4px] mt-[20px] shadow-md" >
-                            <FaRegAddressCard />
-                            <p className="mb-[2px]">Bogor, Jawa Barat, Indonesia</p>
-                        </div>
-
-                        <div className = "flex gap-[5px] items-center border-solid border-2 border-black bg-white px-[10px] rounded-[4px] mt-[20px] shadow-md" >
-                            <TbMilitaryRank />
-                            <p className="mb-[2px]">Backend Defelopper</p>
-                        </div>
-                    </div>
+        <div className="bg-white rounded-[20px] mt-[30px] p-[30px]">
+            <div className="bg-[#2D50C5] h-[200px] rounded-[10px]"></div>
+            <div className="flex justify-between px-[5%] gap-[50px]">
+                <div className="bg-white shadow-md text-center py-[20px] px-[30px] rounded-[5px] mt-[-60px] flex flex-col items-center">
+                    <img className="w-[120px] rounded-[50%] mt-[-60px]" src={profile} />
+                    <p className="font-bold mt-[10px]">Alfar Ramazhan</p>
+                    <p className="text-gray-500 mt-[5px]">Backend Developer</p>
+                    <p className="mt-[30px] border-solid border-2 border-gray-600 px-[30px] py-[7px] rounded-[5px]">Bogor, 56-januari-1998</p>
+                    <p className="mt-[20px] border-solid border-2 border-gray-600 px-[30px] py-[7px] rounded-[5px] mb-[20px]">Bogor, Jawa Barat, Indonesia</p>
                 </div>
 
-                <div>
-                    <form form className = "bg-[#F0F3FF] p-[40px] block rounded-[20px]" >
-                        <div className="" >
-                            <input type="file" />
-                        </div>
-                        <div className = "" >
-                            <input type="text" placeholder="Fullname.." className="w-[300px] px-[10px] py-[7px] rounded-[5px] mt-[20px]" />
-                        </div>
-                        <div className = "" >
-                            <input type="text" placeholder="Place and date of birth.." className="w-[300px] px-[10px] py-[7px] rounded-[5px] mt-[20px]" />
-                        </div>
-                        <div className = "" >
-                            <input type="text" placeholder="Address.." className="w-[300px] px-[10px] py-[7px] rounded-[5px] mt-[20px]" />
-                        </div>
-                        <div className = "" >
-                            <input type="text" placeholder="Position.." className="w-[300px] px-[10px] py-[7px] rounded-[5px] mt-[20px]" />
-                        </div>
-                        <div>
-                            <button className="bg-blue-600 hover:bg-blue-700 text-white w-[300px] px-[10px] py-[7px] rounded-[5px] mt-[20px]">Submit changes</button>
-                        </div>
-                    </form>
+                <div className = "bg-white shadow py-[20px] px-[30px] rounded-[5px] mt-[-60px]" >
+                    <div class="text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
+                        <ul class="flex flex-wrap -mb-px">
+                            <li class="me-2">
+                                <a href="#image" data-bs-toggle="tab" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Image</a>
+                            </li>
+                            <li class="me-2">
+                                <a href="#name" data-bs-toggle="tab" class="inline-block p-4 text-blue-600 border-b-2 border-blue-600 rounded-t-lg active dark:text-blue-500 dark:border-blue-500" aria-current="page">Name</a>
+                            </li>
+                            <li class="me-2">
+                                <a href="#" data-bs-toggle="tab" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Settings</a>
+                            </li>
+                            <li class="me-2">
+                                <a href="#" data-bs-toggle="tab" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Contacts</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div id="image">
+                        <p>haiiii</p>
+                    </div>
+
+                    <div id = "name" >
+                        <p>haiiii</p>
+                    </div>
                 </div>
             </div>
         </div>
+
     )
 }
 
