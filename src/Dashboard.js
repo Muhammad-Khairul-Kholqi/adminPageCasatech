@@ -8,7 +8,7 @@ const Dashboard = () => {
     <>
     <div className="">
         <div div className = "bg-[#237CE2] mt-[30px] rounded-[20px]">
-          <div className="flex justify-between flex-wrap py-[5px] px-[10%]">
+          <div className="flex justify-between gap-[50px] flex-wrap py-[5px] px-[10%]">
             <div className = "block text-white mt-[20px]" >
               <h1 className="text-[40px] leading-10 font-bold">This is the <br /> Admin Page</h1>
               <p className="mt-[20px]">Access all configurations and customize <br />
