@@ -25,9 +25,8 @@ const DataIntegrated = () => {
             <div>
               <form className="flex">
                 <input type="text" placeholder="Search all data.." className="px-[8px] rounded-l-[5px] py-[7px] w-[250px]"></input>
-                <button className = "flex items-center bg-blue-600 hover:bg-blue-700 text-white px-[7px] rounded-r-[5px] py-[7px] gap-[5px]" >
+                <button className = "items-center bg-blue-600 hover:bg-blue-700 text-white px-[10px] rounded-r-[5px] py-[7px]" >
                   <IoSearch className="text-[20px]" />
-                  <p>Search</p>
                 </button>
               </form>
             </div>
@@ -43,10 +42,13 @@ const DataIntegrated = () => {
           </div>
       </div>
 
-      <div className="bg-[#fff] p-[20px] mt-[20px] rounded-[10px]">
-        <div className = "relative overflow-x-auto" >
-            <table table className = "w-full text-sm text-left rtl:text-right border-solid border-2 border-black" >
-                <thead thead className = "text-xs text-black uppercase bg-[#E5E5E5]" >
+      <div className="bg-white p-[30px] mt-[30px] rounded-[10px]">
+        <h1 className = "text italic mb-[10px]" >
+          This is integrated data_
+        </h1>
+        <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+            <table className="w-full text-sm text-left rtl:text-right text-black">
+                <thead className="text-xs text-black uppercase bg-blue-100">
                     <tr>
                         <th scope="col" className="px-6 py-3">
                             Company Name
@@ -65,71 +67,120 @@ const DataIntegrated = () => {
                         </th>
                     </tr>
                 </thead>
+
                 <tbody>
-                    <tr className="bg-white">
+                    <tr className="">
                         <td className="px-6 py-4">
-                            PT. Catur Sangkara Tekhnologi
+                            PT.Catur Sangkara Tekhnologi
                         </td>
                         <td className="px-6 py-4">
-                            <img src={Logo} className="w-[100px]" />
+                            <img className="w-[100px]" src={Logo} />
                         </td>
                         <td className="px-6 py-4">
                             Deep Understanding, Inspirational Solutions
                         </td>
                         <td className="px-6 py-4">
-                            Trusted IT Consultation for Business Growth, Partner with us to navigate the digital landscape and unlock your business's full potential
+                            Trusted IT Consultation for Business Growth. Partner with us to navigate the digital landscape and unlock your business's full potential.
                         </td>
                         <td className="px-6 py-4 flex gap-[10px]">
-                            <Link>
-                              <p className="font-medium text-blue-600">Edit</p>
-                            </Link>
-                            <Link>
-                              <p className="font-medium text-red-600">Delete</p>
-                            </Link>
+                          <Link>
+                            <p className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</p>
+                          </Link>
+                          <Link>
+                            <p className="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</p>
+                          </Link>
                         </td>
                     </tr>
-                    <tr className="bg-white">
+
+                    <tr className="">
                         <td className="px-6 py-4">
-                            PT. Catur Sangkara Tekhnologi
+                            PT.Catur Sangkara Tekhnologi
                         </td>
                         <td className="px-6 py-4">
-                            <img src={Logo} className="w-[100px]" />
+                            <img className="w-[100px]" src={Logo} />
                         </td>
                         <td className="px-6 py-4">
                             Deep Understanding, Inspirational Solutions
                         </td>
                         <td className="px-6 py-4">
-                            Trusted IT Consultation for Business Growth, Partner with us to navigate the digital landscape and unlock your business's full potential
+                            Trusted IT Consultation for Business Growth. Partner with us to navigate the digital landscape and unlock your business's full potential.
                         </td>
                         <td className="px-6 py-4 flex gap-[10px]">
-                            <Link>
-                              <p className="font-medium text-blue-600">Edit</p>
-                            </Link>
-                            <Link>
-                              <p className="font-medium text-red-600">Delete</p>
-                            </Link>
+                          <Link>
+                            <p className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</p>
+                          </Link>
+                          <Link>
+                            <p className="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</p>
+                          </Link>
                         </td>
                     </tr>
-                    <tr className="bg-white">
+
+                    <tr className="">
                         <td className="px-6 py-4">
-                            PT. Catur Sangkara Tekhnologi
+                            PT.Catur Sangkara Tekhnologi
                         </td>
                         <td className="px-6 py-4">
-                            <img src={Logo} className="w-[100px]" />
+                            <img className="w-[100px]" src={Logo} />
                         </td>
                         <td className="px-6 py-4">
                             Deep Understanding, Inspirational Solutions
                         </td>
                         <td className="px-6 py-4">
-                            Trusted IT Consultation for Business Growth, Partner with us to navigate the digital landscape and unlock your business's full potential
+                            Trusted IT Consultation for Business Growth. Partner with us to navigate the digital landscape and unlock your business's full potential.
                         </td>
                         <td className="px-6 py-4 flex gap-[10px]">
-                            <Link>
-                              <p className="font-medium text-blue-600">Edit</p>
-                            </Link>
-                            <Link>
-                              <p className="font-medium text-red-600">Delete</p>
-                            </Link>
+                          <Link>
+                            <p className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</p>
+                          </Link>
+                          <Link>
+                            <p className="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</p>
+                          </Link>
+                        </td>
+                    </tr>
+
+                    <tr className="">
+                        <td className="px-6 py-4">
+                            PT.Catur Sangkara Tekhnologi
+                        </td>
+                        <td className="px-6 py-4">
+                            <img className="w-[100px]" src={Logo} />
+                        </td>
+                        <td className="px-6 py-4">
+                            Deep Understanding, Inspirational Solutions
+                        </td>
+                        <td className="px-6 py-4">
+                            Trusted IT Consultation for Business Growth. Partner with us to navigate the digital landscape and unlock your business's full potential.
+                        </td>
+                        <td className="px-6 py-4 flex gap-[10px]">
+                          <Link>
+                            <p className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</p>
+                          </Link>
+                          <Link>
+                            <p className="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</p>
+                          </Link>
+                        </td>
+                    </tr>
+
+                    <tr className="">
+                        <td className="px-6 py-4">
+                            PT.Catur Sangkara Tekhnologi
+                        </td>
+                        <td className="px-6 py-4">
+                            <img className="w-[100px]" src={Logo} />
+                        </td>
+                        <td className="px-6 py-4">
+                            Deep Understanding, Inspirational Solutions
+                        </td>
+                        <td className="px-6 py-4 overflow-auto">
+                            Trusted IT Consultation for Business Growth. Partner with us to navigate the digital landscape and unlock your business's full potential.
+                        </td>
+                        <td className="px-6 py-4 flex gap-[10px]">
+                          <Link>
+                            <p className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</p>
+                          </Link>
+                          <Link>
+                            <p className="font-medium text-red-600 dark:text-red-500 hover:underline">Delete</p>
+                          </Link>
                         </td>
                     </tr>
                 </tbody>

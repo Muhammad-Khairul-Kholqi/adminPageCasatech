@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../Assets/logo.png';
-import { IoClose } from "react-icons/io5";
+import { IoMenuSharp } from "react-icons/io5";
 import { MdDashboard } from 'react-icons/md';
 import { AiFillDatabase } from "react-icons/ai";
 import { FaRegCircle } from "react-icons/fa";
@@ -15,16 +15,16 @@ const Side = () => {
 
     return (
         <>
-        <div div className = "bg-white shadow-lg shadow-gray-400 h-screen w-[230px] overflow-auto px-[15px] fixed" >
-            <div div className = "flex justify-between mt-[20px]" >
+         <div className = "bg-white shadow-lg shadow-gray-400 h-screen w-[230px] overflow-auto px-[15px] fixed" >
+            <div className = "flex justify-between mt-[20px]" >
                 <img className="w-[120px]" src={Logo} alt="Deskripsi Gambar" draggable="false" />
                 <div className='bg-blue-600 p-[2px] rounded-lg hover:bg-blue-700'>
-                    <IoClose className="text-[20px] cursor-pointer text-white mt-[1px]"/>
+                    <IoMenuSharp className="text-[20px] cursor-pointer text-white mt-[1px]"/>
                 </div>
             </div>
             <div>
                <ul>
-                    <li li className = "text-black mb-2 mt-[70px] hover:bg-[#1762EF] py-[10px] rounded-[10px] hover:text-white transition duration-75" >
+                    <li className = "text-black mb-2 mt-[70px] hover:bg-[#1762EF] py-[10px] rounded-[10px] hover:text-white transition duration-75" >
                          <Link to="/">
                             <div className="flex items-center mx-[10px]">
                                 <MdDashboard className="mr-2 text-[20px]" />
@@ -112,7 +112,7 @@ const Side = () => {
             </div>
         </div>
         </>
-    )
-}
+    );
+};
 
 export default Side;
