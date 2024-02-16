@@ -70,3 +70,9 @@
         font-size: 15px;
     }
 }
+
+@media (max-width:415px) {
+    .title-edit {
+        font-size: 10px;
+    }
+}
