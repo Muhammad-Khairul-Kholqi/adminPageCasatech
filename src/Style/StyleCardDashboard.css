@@ -1,0 +1,31 @@
+@media (max-width:435px) {
+    .card {
+        width: 170px;
+        height: 80px;
+    }
+
+    .icon {
+        font-size: 30px;
+    }
+
+    .title-card {
+        font-size: 15px;
+    }
+
+    .jumlah {
+        font-size: 25px;
+    }
+}
+
+@media (max-width:390px) {
+    .card {
+        flex-direction: column;
+        align-items: center;
+        height: 200px;
+        width: 100px;
+    }
+
+    .text-jml {
+        text-align: center;
+    }
+}
