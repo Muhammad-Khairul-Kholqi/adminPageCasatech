@@ -4,6 +4,8 @@ import Sidebar from './Template/Side';
 import Header from './Header';
 import Dashboard from './Dashboard';
 import AccountAdmin from './AccountAdmin';
+import CompanyData from './Data/Company/CompanyData';
+import SolutionsData from './Data/Solutioins/SolutionsData';
 import './Style/StyleApp.css';
 
 const App = () => {
@@ -19,6 +21,8 @@ const App = () => {
                     </div>
                     <Routes>
                         <Route path="/" element={<Dashboard />} />
+                         <Route path="company-data" element={<CompanyData />} />
+                         <Route path="data-solutions" element={<SolutionsData />} />
                         <Route path="/account-admin" element={<AccountAdmin />} />
                     </Routes>
                 </div>
