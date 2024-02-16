@@ -65,3 +65,15 @@
         font-size: 10px;
     }
 }
+
+@media (max-width:445px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .teks-header {
+        text-align: center;
+    }
+}
