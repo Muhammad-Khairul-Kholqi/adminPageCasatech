@@ -1,0 +1,27 @@
+@media (max-width:720px) {
+    .sidebar {
+        width: 150px;
+    }
+
+    .menu-link {
+        font-size: 10px;
+    }
+}
+
+@media (max-width:520px) {
+    .logo-company {
+        width: 70px;
+    }
+
+    .icon-link {
+        margin-left: 10px;
+    }
+
+    .sidebar {
+        width: 90px;
+    }
+
+    .menu-link {
+        display: none;
+    }
+}
