@@ -2,8 +2,6 @@
 import React from 'react';
 import './Style/StyleDashboard.css'
 import background from "./Assets/bg.png"
-import singleLogo from "./Assets/single-logo.png"
-import Ilustrasi from './Assets/ilustrasi.png';
 import DashboardCard from './Card/DashboardCard';
 import profile from './Assets/profile.png'
 
@@ -11,22 +9,16 @@ const Dashboard = () => {
   return (
     <>
     <div className="">
-        <div className = "container bg-cover bg-center mt-[30px] rounded-[20px] px-[10%] py-[10px]"
+        <div className = "container bg-cover bg-center mt-[30px] rounded-[20px] px-[10%] py-[30px] text-center text-white"
         style = {
           {
             backgroundImage: `url(${background})`
           }
         }>
-          <div className="wrapper flex justify-between items-center flex-wrap px-[5%]">
-            <div className = "text-title block text-white" >
-              <h1 className="title-header text-[40px] leading-10 font-bold">This is the <br /> Admin Page</h1>
-              <p className="description mt-[20px]">Access all configurations and customize <br />
-                the app according to your preferences</p>
-            </div>
-            <div className = "ilustrasi flex justify-center items-center" >
-              <img className="w-[160px]" src={singleLogo} alt="Deskripsi Gambar" draggable="false" />
-            </div>
-          </div>
+          <h1 className = "title-header text-[40px] leading-10 font-bold" > This is the <br /> Admin Page </h1>
+          <p className="description mt-[20px] text-[18px]">
+            Access all configurations and customize the app according to your preferences
+          </p>
         </div>
 
         <div>
