@@ -9,8 +9,8 @@ const AccountAdmin = () => {
     return (
         <div className="bg-white rounded-[20px] mt-[30px] p-[30px]">
             <div className="bg-[#2D50C5] h-[200px] rounded-[10px]"></div>
-            <div className="flex justify-between px-[5%] gap-[50px]">
-                <div className="bg-white shadow-md text-center py-[20px] px-[30px] rounded-[5px] mt-[-60px] flex flex-col items-center">
+            <div className="flex justify-between px-[5%] gap-[50px] flex-wrap ">
+                <div className = "bg-white shadow-md text-center py-[20px] px-[30px] rounded-[5px] mt-[-60px] flex flex-col items-center mb-[20px]" >
                     <img className="w-[120px] rounded-[50%] mt-[-60px]" src={profile} />
                     <p className="font-bold mt-[10px]">Alfar Ramazhan</p>
                     <p className="text-gray-500 mt-[5px]">Backend Developer</p>

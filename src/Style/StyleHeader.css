@@ -1,0 +1,67 @@
+@media (max-width:665px) {
+    .name-admin {
+        font-size: 20px;
+    }
+
+    .icon-admin {
+        font-size: 13px;
+    }
+
+    .admin {
+        font-size: 13px;
+    }
+
+    .account-logout {
+        font-size: 10px;
+    }
+
+    .icon-log-acc {
+        font-size: 15px;
+    }
+}
+
+@media (max-width:605px) {
+    .name-admin {
+        font-size: 15px;
+    }
+
+    .teks-header {
+        font-size: 12px;
+    }
+
+    .icon-admin {
+        font-size: 10px;
+    }
+
+    .admin {
+        font-size: 10px;
+    }
+
+    .account-logout {
+        font-size: 10px;
+    }
+
+    .icon-log-acc {
+        font-size: 15px;
+    }
+}
+
+@media (max-width:540px) {
+    .admin {
+        display: none;
+    }
+
+    .account-logout {
+        padding: 5px;
+    }
+}
+
+@media (max-width:470px) {
+    .name-admin {
+        font-size: 12px;
+    }
+
+    .teks-header {
+        font-size: 10px;
+    }
+}
