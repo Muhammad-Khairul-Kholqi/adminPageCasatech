@@ -10,7 +10,7 @@ const DashboardCard = () => {
     return (
         <div className="container flex justify-center flex-wrap gap-[30px] mt-[30px]">
           <Link to="">
-            <div className = "card bg-white rounded-[10px] flex justify-center items-center gap-[30px] py-[5px] px-[20px] w-[220px] h-[120px] shadow-md hover:scale-105" >
+            <div className = "card bg-white rounded-[10px] flex justify-center items-center gap-[30px] py-[5px] px-[20px] w-[220px] h-[120px] shadow-md hover:scale-105">
               <div className = "bg-icon bg-[#BBF7D0] p-[10px] rounded-[50%] items-center" >
                 <FaUsers className="icon text-[40px] text-[#16A34A]" />
               </div> 
@@ -22,7 +22,7 @@ const DashboardCard = () => {
           </Link> 
 
           <Link to="">
-            <div className = "card bg-white rounded-[10px] flex justify-center items-center gap-[30px] py-[5px] px-[20px] w-[220px] h-[120px] shadow-md hover:scale-105" >
+            <div className = "card bg-white rounded-[10px] flex justify-center items-center gap-[30px] py-[5px] px-[20px] w-[220px] h-[120px] shadow-md hover:scale-105">
               <div className = "bg-icon bg-[#FECACA] p-[10px] rounded-[50%] items-center" >
                 <IoExtensionPuzzle className="icon text-[40px] text-[#DC2626]" />
               </div> 
@@ -34,7 +34,7 @@ const DashboardCard = () => {
           </Link> 
 
           <Link to="">
-            <div className = "card bg-white rounded-[10px] flex justify-center items-center gap-[30px] py-[5px] px-[20px] w-[220px] h-[120px] shadow-md hover:scale-105" >
+            <div className = "card bg-white rounded-[10px] flex justify-center items-center gap-[30px] py-[5px] px-[20px] w-[220px] h-[120px] shadow-md hover:scale-105">
               <div className = "bg-icon bg-[#BFDBFE] p-[10px] rounded-[50%] items-center" >
                 <FaStar className="icon text-[40px] text-[#2563EB]" />
               </div> 
@@ -46,7 +46,7 @@ const DashboardCard = () => {
           </Link> 
 
           <Link to="">
-            <div className = "card bg-white rounded-[10px] flex justify-center items-center gap-[30px] py-[5px] px-[20px] w-[220px] h-[120px] shadow-md hover:scale-105" >
+            <div className = "card bg-white rounded-[10px] flex justify-center items-center gap-[30px] py-[5px] px-[20px] w-[220px] h-[120px] shadow-md hover:scale-105">
               <div className = "bg-icon bg-[#FFCF96] p-[10px] rounded-[50%] items-center" >
                 <IoHeart  className="icon text-[40px] text-[#FF8911]" />
               </div>

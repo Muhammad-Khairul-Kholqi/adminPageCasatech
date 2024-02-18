@@ -11,7 +11,8 @@ const CompanyData = () => {
                     {
                         backgroundImage: `url(${backgImg})`
                     }
-                }><h1 className="title text-center item-center text-white text-[40px] font-bold px-[20px]"> Company Data </h1></div>
+                } data-aos="flip-down" data-aos-duration="1300">
+                <h1 className="title text-center item-center text-white text-[40px] font-bold px-[20px]"> Company Data </h1></div>
 
                 <div className="bg-white p-[20px] rounded-[10px] mt-[20px]"> 
                     
