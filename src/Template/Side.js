@@ -31,7 +31,7 @@ const Side = () => {
                         </Link>
                     </li>
                     <li className = "text-black mb-2 hover:bg-[#1762EF] py-[10px] rounded-[10px] hover:text-white transition duration-75" >
-                         <Link to="company-data">
+                         <Link to="/company-data">
                             <div className="icon-teks flex items-center mx-[10px]">
                                 <AiFillDatabase className="icon-link mr-2 text-[18px]" />
                                 <p className="menu-link text-[13px]">Company Data</p>
@@ -39,7 +39,7 @@ const Side = () => {
                         </Link>
                     </li>
                     <li className = "text-black mb-2 hover:bg-[#1762EF] py-[10px] rounded-[10px] hover:text-white transition duration-75" >
-                         <Link to="data-solutions">
+                         <Link to="/data-solutions">
                             <div className="icon-teks flex items-center mx-[10px]">
                                 <IoMdHelpCircle  className="icon-link mr-2 text-[18px]" />
                                 <p className="menu-link text-[13px]">Data Solutions</p>
