@@ -9,7 +9,7 @@ const Dashboard = () => {
   return (
     <>
     <div className="">
-        <div className = "container bg-cover bg-center mt-[30px] rounded-[20px] px-[10%] py-[30px] text-center text-white"
+        <div className = "container bg-cover bg-center mt-[20px] rounded-[10px] px-[10%] py-[30px] text-center text-white"
         style = {
           {
             backgroundImage: `url(${background})`

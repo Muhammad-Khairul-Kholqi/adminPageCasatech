@@ -1,6 +1,6 @@
-@media (max-width:435px) {
+@media (max-width:655px) {
     .card {
-        width: 170px;
+        width: 180px;
         height: 80px;
     }
 
@@ -17,6 +17,45 @@
     }
 }
 
+@media (max-width:575px) {
+    .card {
+        width: 150px;
+        height: 80px;
+    }
+
+    .icon {
+        font-size: 30px;
+    }
+
+    .title-card {
+        font-size: 13px;
+    }
+
+    .jumlah {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 452px) {
+    .card {
+        gap: 20px;
+        width: 200px;
+        height: 120px;
+    }
+
+    .icon {
+        font-size: 30px;
+    }
+
+    .title-card {
+        font-size: 20px;
+    }
+
+    .jumlah {
+        font-size: 30px;
+    }
+}
+
 @media (max-width:390px) {
     .card {
         flex-direction: column;
@@ -27,5 +66,11 @@
 
     .text-jml {
         text-align: center;
+    }
+}
+
+@media (max-width:270px) {
+    .card {
+        width: 120px;
     }
 }

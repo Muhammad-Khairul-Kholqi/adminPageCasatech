@@ -76,3 +76,9 @@
         font-size: 10px;
     }
 }
+
+@media (max-width:320px) {
+    .account-container {
+        background-color: transparent;
+    }
+}

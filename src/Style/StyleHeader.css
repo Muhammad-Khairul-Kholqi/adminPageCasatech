@@ -68,6 +68,12 @@
 
 @media (max-width:445px) {
     .container {
+        gap: 20px;
+    }
+}
+
+@media (max-width:280px) {
+    .container {
         flex-direction: column;
         align-items: center;
         gap: 20px;
