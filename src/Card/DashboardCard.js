@@ -1,5 +1,5 @@
 import React from "react";
-import '../Style/StyleCardDashboard.css';
+import '../Style/Dashboard/StyleCardDashboard.css';
 import { FaUsers } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { IoExtensionPuzzle } from "react-icons/io5";

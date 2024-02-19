@@ -2,7 +2,7 @@ import React from "react";
 import backgImg from '../../Assets/bg.png';
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { Link } from "react-router-dom";
-import '../../Style/StylePreviewCompany.css';
+import '../../Style/Company/StylePreviewCompany.css';
 import profile from '../../Assets/profile.png';
 import { FaRegPenToSquare } from "react-icons/fa6";
 
@@ -230,7 +230,7 @@ const PreviewData = () => {
                 </div>
 
                 <div className="mt-[20px]">
-                    <h1 className="mb-[20px] text-[20px] italic">Phone number & Sosmed</h1>
+                    <h1 className="mb-[20px] text-[20px] italic">Contact Catalog_</h1>
                     <div className="relative overflow-x-auto shadow-md rounded-[5px]">
                         <table className="w-full text-sm text-left rtl:text-right">
                             <thead className="text-[15px] bg-blue-100">
