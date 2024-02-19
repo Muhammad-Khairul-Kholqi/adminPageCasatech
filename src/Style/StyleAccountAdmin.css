@@ -5,7 +5,7 @@
     }
 
     .account-right {
-        margin-top: 20px;
+        margin-top: 10px;
     }
 }
 
@@ -25,27 +25,13 @@
     }
 }
 
-@media (max-width:445px) {
-    .teks-name {
-        font-size: 12px;
-    }
-
-    .teks-poition {
-        font-size: 12px;
-    }
-
-    .teks-birht {
-        font-size: 12px;
-    }
-
+@media (max-width:650px) {
     .teks-address {
-        font-size: 12px;
+        width: 200px;
     }
+}
 
-    .account-right {
-        margin-top: -40px;
-    }
-
+@media (max-width:500px) {
     .back-img {
         height: 80px;
     }
@@ -53,32 +39,38 @@
     .account-left {
         margin-top: 120px;
     }
-}
 
-@media (max-width:365px) {
-    .title-account {
-        font-size: 15px;
-    }
-
-    .back-img {
-        height: 60px;
+    ::placeholder {
+        font-size: 12px;
     }
 }
 
-@media (max-width:560px) {
-    .title-edit {
-        font-size: 15px;
-    }
-}
-
-@media (max-width:415px) {
-    .title-edit {
-        font-size: 10px;
-    }
-}
-
-@media (max-width:320px) {
+@media (max-width:400px) {
     .account-container {
         background-color: transparent;
+    }
+
+    .input-account {
+        width: 200px;
+    }
+}
+
+@media (max-width:380px) {
+    .teks-address {
+        width: 150px;
+    }
+
+    .teks-birht {
+        width: 150px;
+    }
+
+    .input-account {
+        width: 150px;
+    }
+}
+
+@media (max-width:460px) {
+    .title-edit {
+        font-size: 15px;
     }
 }
