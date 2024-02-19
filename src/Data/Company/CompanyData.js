@@ -1,6 +1,6 @@
 import React from "react";
 import backgImg from '../../Assets/bg.png';
-import '../../Style/StyleCompany.css';
+import '../../Style/Company/StyleCompany.css';
 import { Link } from 'react-router-dom';
 import profile from '../../Assets/profile.png';
 import { FaEye } from "react-icons/fa";

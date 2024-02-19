@@ -30,10 +30,10 @@ const AccountAdmin = () => {
                     </div>
                     <form className="flex flex-col items-center w-full max-w-md"> 
                         <input className="mt-[30px] w-full mb-5 text-sm text-black border-2 border-gray-600 p-[5px] rounded-[5px] cursor-pointer" type="file" />
-                        <input className="input-account text-black block w-full border-2 border-gray-600 rounded-[5px] p-[5px]" placeholder="Fullname.." />
-                        <input className="input-account text-black block mt-[20px] w-full border-2 border-gray-600 rounded-[5px] p-[5px]" placeholder="Position.." />
-                        <input className="input-account text-black block mt-[20px] w-full border-2 border-gray-600 rounded-[5px] p-[5px]" placeholder="Place and date of birth.." />
-                        <input className="input-account text-black block mt-[20px] w-full border-2 border-gray-600 rounded-[5px] p-[5px]" placeholder="Address.." />
+                        <input className="input-account text-black block w-full border-2 border-gray-600 rounded-[5px] p-[5px]" type="text" placeholder="Fullname.." />
+                        <input className="input-account text-black block mt-[20px] w-full border-2 border-gray-600 rounded-[5px] p-[5px]" type="text" placeholder="Position.." />
+                        <input className="input-account text-black block mt-[20px] w-full border-2 border-gray-600 rounded-[5px] p-[5px]" type="text" placeholder="Place and date of birth.." />
+                        <input className="input-account text-black block mt-[20px] w-full border-2 border-gray-600 rounded-[5px] p-[5px]" type="text" placeholder="Address.." />
                         <button className="bg-blue-600 mt-[20px] text-white hover:bg-blue-700 px-[10px] py-[5px] rounded-[5px]">Save Changes</button>
                     </form>
                 </div>

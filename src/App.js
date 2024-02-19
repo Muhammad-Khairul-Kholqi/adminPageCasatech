@@ -37,6 +37,7 @@ const App = () => {
         <>
             <Router>
                 <Routes>
+                    {/* dashboard */}
                     <Route
                         path="/"
                         element={
@@ -45,6 +46,7 @@ const App = () => {
                             </DefaultLayout>
                         }
                     />
+                    {/* company */}
                     <Route
                         path="/company-data"
                         element={
@@ -69,6 +71,8 @@ const App = () => {
                             </DefaultLayout>
                         }
                     />
+
+                    {/* solutions */}
                     <Route
                         path="/data-solutions"
                         element={
@@ -77,6 +81,8 @@ const App = () => {
                             </DefaultLayout>
                         }
                     />
+
+                    {/* account admin */}
                     <Route
                         path="/account-admin"
                         element={
@@ -85,8 +91,11 @@ const App = () => {
                             </DefaultLayout>
                         }
                     />
+                    {/* sign in & sign up */}
                     <Route path="/signin" element={<Signin />} />
                     <Route path="/signup" element={<Signup />} />
+
+                    {/* not found */}
                     <Route path="*" element={<NotFound />} />
                 </Routes>
             </Router>

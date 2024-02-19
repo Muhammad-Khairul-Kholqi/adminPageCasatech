@@ -1,6 +1,6 @@
 // Dashboard.js
 import React from 'react';
-import './Style/StyleDashboard.css'
+import './Style/Dashboard/StyleDashboard.css';
 import background from "./Assets/bg.png"
 import DashboardCard from './Card/DashboardCard';
 import profile from './Assets/profile.png'
