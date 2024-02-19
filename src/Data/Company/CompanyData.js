@@ -20,7 +20,7 @@ const CompanyData = () => {
 
                 <div className="bg-white p-[20px] rounded-[10px] mt-[20px]">
                     <div className="flex gap-[10px] justify-end">
-                        <Link>
+                        <Link to="/edit-data-company">
                             <div className="icon-text flex gap-[5px] items-center text-blue-600 bg-[#DCE6F5] hover:bg-blue-200 px-[10px] rounded-[3px] w-[70px] py-[5px]">
                                 <FaRegPenToSquare />
                                 <p className="text-link">Edit</p>

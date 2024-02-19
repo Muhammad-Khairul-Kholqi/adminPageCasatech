@@ -16,7 +16,7 @@ const Header = () => {
 
     return (
         <div className = "container flex justify-between flex-wrap gap-[50px] px-[5%] items-center " >
-            <div className="teks-header">
+            <div className = "teks-header" >
                 Welcome back, <br />
                 <span className="name-admin text-[25px] font-bold">Alfar Ramazan</span>
             </div>

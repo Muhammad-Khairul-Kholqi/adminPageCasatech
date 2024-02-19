@@ -5,10 +5,11 @@ import Header from './Header';
 import Dashboard from './Dashboard';
 import AccountAdmin from './AccountAdmin';
 import CompanyData from './Data/Company/CompanyData';
+import PreviewData from './Data/Company/PreviewData';
+import EditData from './Data/Company/EditData';
 import SolutionsData from './Data/Solutioins/SolutionsData';
 import Signin from './Signin';
 import Signup from './Signup';
-import PreviewData from './Data/Company/PreviewData';
 import NotFound from './NotFound';
 import './Style/StyleApp.css';
 
@@ -57,6 +58,14 @@ const App = () => {
                         element={
                             <DefaultLayout>
                                 <PreviewData />
+                            </DefaultLayout>
+                        }
+                    />
+                    <Route
+                        path = "/edit-data-company"
+                        element={
+                            <DefaultLayout>
+                                <EditData />
                             </DefaultLayout>
                         }
                     />
