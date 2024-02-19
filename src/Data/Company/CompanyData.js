@@ -26,10 +26,10 @@ const CompanyData = () => {
                                 <p className="text-link">Edit</p>
                             </div>
                         </Link>
-                        <Link>
-                            <div className="icon-text flex gap-[5px] items-center text-blue-600 bg-[#DCE6F5] hover:bg-blue-200 px-[10px] rounded-[3px] w-[96px] py-[5px]">
-                                <FaEye />
-                                <p className="text-link">Preview</p>
+                        <Link to='/preview-data-company'>
+                            <div className="icon-text flex gap-[5px] items-center text-blue-600 bg-[#DCE6F5] hover:bg-blue-200 px-[10px] rounded-[3px] w-[110px] py-[5px]">
+                                <FaEye className="mt-[3px]" />
+                                <p className="text-link">See more</p>
                             </div>
                         </Link>
                     </div>
@@ -83,26 +83,28 @@ const CompanyData = () => {
                                 <thead class="text-[15px] bg-blue-100">
                                     <tr>
                                         <th scope="col" class="px-6 py-3">
-                                            Amount Clients
+                                            Vision
                                         </th>
                                         <th scope="col" class="px-6 py-3">
-                                            Amount Sponsors
+                                            Mision
                                         </th>
-                                        <th scope="col" class="px-6 py-3">
-                                            Amount Ratings
-                                        </th> 
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr className="text-[13px]">
                                         <td class="px-6 py-4">
-                                            350
+                                            Lorem ipsum dolor sit amet consectetur
+                                            adipisicing elit.Excepturi provident, cum
+                                            ratione itaque doloribus blanditiis obcae
+                                            cati saepe molestias debitis dolor dicta
+                                            earum ? Praesentium
                                         </td>
                                         <td class="px-6 py-4">
-                                            200
-                                        </td>
-                                        <td class = "px-6 py-4 w-[300px]" >
-                                           4.8
+                                            Lorem ipsum dolor sit amet consectetur
+                                            adipisicing elit.Excepturi provident, cum
+                                            ratione itaque doloribus blanditiis obcae
+                                            cati saepe molestias debitis dolor dicta
+                                            earum ? Praesentium
                                         </td>
                                     </tr>
                                 </tbody>
@@ -152,36 +154,32 @@ const CompanyData = () => {
                                 <thead class="text-[15px] bg-blue-100">
                                     <tr>
                                         <th scope="col" class="px-6 py-3">
-                                            Vision
+                                            Amount Clients
                                         </th>
                                         <th scope="col" class="px-6 py-3">
-                                            Mision
+                                            Amount Sponsors
                                         </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            Average Ratings
+                                        </th> 
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr className="text-[13px]">
                                         <td class="px-6 py-4">
-                                            Lorem ipsum dolor sit amet consectetur
-                                            adipisicing elit.Excepturi provident, cum
-                                            ratione itaque doloribus blanditiis obcae
-                                            cati saepe molestias debitis dolor dicta
-                                            earum ? Praesentium
+                                            350
                                         </td>
                                         <td class="px-6 py-4">
-                                            Lorem ipsum dolor sit amet consectetur
-                                            adipisicing elit.Excepturi provident, cum
-                                            ratione itaque doloribus blanditiis obcae
-                                            cati saepe molestias debitis dolor dicta
-                                            earum ? Praesentium
+                                            200
+                                        </td>
+                                        <td class = "px-6 py-4 w-[300px]" >
+                                           4.8
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </>

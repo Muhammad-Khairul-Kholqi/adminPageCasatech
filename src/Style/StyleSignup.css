@@ -1,0 +1,14 @@
+@media (max-width:375px) {
+    .input-signup,
+    .button-signup {
+        width: 200px;
+    }
+
+    .title-signup {
+        font-size: 25px;
+    }
+
+    .desc {
+        font-size: 12px;
+    }
+}

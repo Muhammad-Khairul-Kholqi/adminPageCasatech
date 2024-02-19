@@ -21,7 +21,8 @@ const Signin = () => {
                 </form>
                 <p className = "for-signup mt-[20px]" >
                     Don't have an account yet?
-                    <Link to="/signup" className="text-blue-600 ml-1">
+                    <Link Link to = "/signup"
+                    className = "text-blue-600 ml-1 hover:underline" >
                         <span>Sign Up</span>
                     </Link>
                 </p>
