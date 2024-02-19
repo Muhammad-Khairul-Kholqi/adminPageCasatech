@@ -2,6 +2,15 @@
     .title {
         font-size: 30px;
     }
+
+    .icon-text {
+        width: 39px;
+        font-size: 20px;
+    }
+
+    .text-link {
+        display: none;
+    }
 }
 
 @media (max-width:300px) {

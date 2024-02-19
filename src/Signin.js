@@ -17,7 +17,7 @@ const Signin = () => {
                 <form className="mt-5">
                     <input placeholder="Username.." type="text" className="type-input block border-solid border-2 border-gray-400 px-4 w-[300px] rounded-[3px] h-[30px] mb-4" />
                     <input placeholder="Password.." type="password" className="type-input block border-solid border-2 border-gray-400 px-4 w-[300px] rounded-[3px] h-[30px] mb-4" />
-                    <button className="button w-[300px] rounded-[3px] h-[30px] bg-blue-600 hover:bg-blue-700 text-white text-lg">Log In</button>
+                    <button className="button w-[300px] rounded-[3px] h-[30px] bg-blue-600 hover:bg-blue-700 text-white">Sign In</button>
                 </form>
                 <p className = "for-signup mt-[20px]" >
                     Don't have an account yet?

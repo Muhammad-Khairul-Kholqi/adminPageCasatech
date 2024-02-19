@@ -7,6 +7,7 @@ import AccountAdmin from './AccountAdmin';
 import CompanyData from './Data/Company/CompanyData';
 import SolutionsData from './Data/Solutioins/SolutionsData';
 import Signin from './Signin';
+import NotFound from './NotFound';
 import './Style/StyleApp.css';
 
 const DefaultLayout = ({ children }) => {
@@ -66,6 +67,7 @@ const App = () => {
                         }
                     />
                     <Route path="/signin" element={<Signin />} />
+                    <Route path="*" element={<NotFound />} />
                 </Routes>
             </Router>
         </>
