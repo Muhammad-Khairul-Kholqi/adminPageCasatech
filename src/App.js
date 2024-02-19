@@ -7,6 +7,9 @@ import AccountAdmin from './AccountAdmin';
 import CompanyData from './Data/Company/CompanyData';
 import SolutionsData from './Data/Solutioins/SolutionsData';
 import Signin from './Signin';
+import Signup from './Signup';
+import PreviewData from './Data/Company/PreviewData';
+import NotFound from './NotFound';
 import './Style/StyleApp.css';
 
 const DefaultLayout = ({ children }) => {
@@ -50,6 +53,14 @@ const App = () => {
                         }
                     />
                     <Route
+                        path = "/preview-data-company"
+                        element={
+                            <DefaultLayout>
+                                <PreviewData />
+                            </DefaultLayout>
+                        }
+                    />
+                    <Route
                         path="/data-solutions"
                         element={
                             <DefaultLayout>
@@ -66,6 +77,8 @@ const App = () => {
                         }
                     />
                     <Route path="/signin" element={<Signin />} />
+                    <Route path="/signup" element={<Signup />} />
+                    <Route path="*" element={<NotFound />} />
                 </Routes>
             </Router>
         </>
