@@ -21,7 +21,7 @@ const DashboardCard = () => {
             </div>
           </Link> 
 
-          <Link to="">
+          <Link to = "/company-data" >
             <div className = "card bg-white rounded-[10px] flex justify-center items-center gap-[30px] py-[5px] px-[20px] w-[220px] h-[120px] shadow-md hover:scale-105">
               <div className = "bg-icon bg-[#FECACA] p-[10px] rounded-[50%] items-center" >
                 <IoExtensionPuzzle className="icon text-[40px] text-[#DC2626]" />
@@ -33,7 +33,7 @@ const DashboardCard = () => {
             </div>
           </Link> 
 
-          <Link to="">
+          <Link to="/company-data">
             <div className = "card bg-white rounded-[10px] flex justify-center items-center gap-[30px] py-[5px] px-[20px] w-[220px] h-[120px] shadow-md hover:scale-105">
               <div className = "bg-icon bg-[#BFDBFE] p-[10px] rounded-[50%] items-center" >
                 <FaStar className="icon text-[40px] text-[#2563EB]" />
@@ -45,7 +45,7 @@ const DashboardCard = () => {
             </div>
           </Link> 
 
-          <Link to="">
+          <Link to="/company-data">
             <div className = "card bg-white rounded-[10px] flex justify-center items-center gap-[30px] py-[5px] px-[20px] w-[220px] h-[120px] shadow-md hover:scale-105">
               <div className = "bg-icon bg-[#FFCF96] p-[10px] rounded-[50%] items-center" >
                 <IoHeart  className="icon text-[40px] text-[#FF8911]" />

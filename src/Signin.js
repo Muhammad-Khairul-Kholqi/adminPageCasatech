@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from 'react';
 import Logo from './Assets/logo.png';
 import { Link } from 'react-router-dom';
 import './Style/StyleSignin.css';
 import ilustrasiLogin from './Assets/ilustrasi-login.png'
 
 const Signin = () => {
+     useEffect(() => {
+         document.title = "SignIn Admin | Casatech";
+     }, []);
     return(
         <div className="content-login flex justify-between py-[20px] px-[10%] gap-[30px] flex-wrap mt-[100px]">
             <div className="flex flex-col items-center justify-center">

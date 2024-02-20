@@ -1,13 +1,26 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Sidebar from './Template/Side';
+
 import Header from './Header';
+
 import Dashboard from './Dashboard';
+
 import AccountAdmin from './AccountAdmin';
+
 import CompanyData from './Data/Company/CompanyData';
 import PreviewData from './Data/Company/PreviewData';
 import EditData from './Data/Company/EditData';
+
 import SolutionsData from './Data/Solutioins/SolutionsData';
+import EditDataSolutions from './Data/Solutioins/EditDataSolutions'
+
+import DataInnovation from './Data/Innovation/DataInnovation';
+import EditDataInnovation from './Data/Innovation/EditDataInnovation';
+
+import TestimonialData from './Data/Testimonial/TestimonialData';
+import EditDataTestimoni from './Data/Testimonial/EditDataTestimoni';
+
 import Signin from './Signin';
 import Signup from './Signup';
 import NotFound from './NotFound';
@@ -78,6 +91,50 @@ const App = () => {
                         element={
                             <DefaultLayout>
                                 <SolutionsData />
+                            </DefaultLayout>
+                        }
+                    />
+                     <Route
+                        path="/edit-data-solutions"
+                        element={
+                            <DefaultLayout>
+                                <EditDataSolutions />
+                            </DefaultLayout>
+                        }
+                    />
+
+                    {/* innovation */}
+                    <Route
+                        path = "/data-innovation"
+                        element={
+                            <DefaultLayout>
+                                <DataInnovation />
+                            </DefaultLayout>
+                        }
+                    />
+                    <Route
+                        path = "/edit-data-innovation"
+                        element={
+                            <DefaultLayout>
+                                <EditDataInnovation />
+                            </DefaultLayout>
+                        }
+                    />
+
+                    {/* testimonial */}
+                    <Route
+                        path = "/testimonial-data"
+                        element={
+                            <DefaultLayout>
+                                <TestimonialData />
+                            </DefaultLayout>
+                        }
+                    />
+                    <Route
+                        path = "/edit-data-testimonial"
+                        element={
+                            <DefaultLayout>
+                                <EditDataTestimoni />
                             </DefaultLayout>
                         }
                     />

@@ -47,7 +47,7 @@ const Side = () => {
                         </Link>
                     </li>
                     <li className = "text-black mb-2 hover:bg-[#1762EF] py-[10px] rounded-[10px] hover:text-white transition duration-75" >
-                         <Link to="/">
+                         <Link to="/data-innovation">
                             <div className="icon-teks flex items-center mx-[10px]">
                                 <FaLightbulb  className="icon-link mr-2 text-[18px]" />
                                 <p className="menu-link text-[13px]">Data Innovation</p>
@@ -55,7 +55,7 @@ const Side = () => {
                         </Link>
                     </li>
                     <li className = "text-black mb-2 hover:bg-[#1762EF] py-[10px] rounded-[10px] hover:text-white transition duration-75" >
-                         <Link to="/">
+                         <Link to = "/testimonial-data" >
                             <div className="icon-teks flex items-center mx-[10px]">
                                 <AiFillMessage className="icon-link mr-2 text-[18px]" />
                                 <p className="menu-link text-[13px]">Testimonial Data</p>
