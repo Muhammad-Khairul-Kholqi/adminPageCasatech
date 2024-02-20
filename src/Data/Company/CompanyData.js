@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from 'react';
 import backgImg from '../../Assets/bg.png';
 import '../../Style/Company/StyleCompany.css';
 import { Link } from 'react-router-dom';
@@ -7,6 +7,9 @@ import { FaEye } from "react-icons/fa";
 import { FaRegPenToSquare } from "react-icons/fa6";
 
 const CompanyData = () => {
+    useEffect(() => {
+        document.title = "Integrated Data | Casatech";
+    }, []);
     return (
         <>
             <div>
@@ -35,9 +38,9 @@ const CompanyData = () => {
                     </div>
 
                     <div className="mt-[20px]">
-                        <div class="relative overflow-x-auto shadow-md rounded-[5px]">
-                            <table class="w-full text-sm text-left rtl:text-right">
-                                <thead class="text-[15px] bg-blue-100">
+                        <div class = "relative overflow-x-auto border-solid border-2 border-black rounded-[10px]" >
+                            <table class = "w-full text-sm text-left rtl:text-right" >
+                                <thead class = "text-[15px] bg-blue-100 border-b-2 border-black" >
                                     <tr>
                                         <th scope="col" class="px-6 py-3">
                                             Company Name
@@ -78,9 +81,9 @@ const CompanyData = () => {
                     </div>
 
                     <div className="mt-[20px]">
-                        <div class="relative overflow-x-auto shadow-md rounded-[5px]">
+                        <div class = "relative overflow-x-auto border-solid border-2 border-black rounded-[10px]" >
                             <table class="w-full text-sm text-left rtl:text-right">
-                                <thead class="text-[15px] bg-blue-100">
+                                <thead class="text-[15px] bg-blue-100 border-b-2 border-black">
                                     <tr>
                                         <th scope="col" class="px-6 py-3">
                                             Vision
@@ -113,9 +116,9 @@ const CompanyData = () => {
                     </div>
 
                     <div className="mt-[20px]">
-                        <div class="relative overflow-x-auto shadow-md rounded-[5px]">
+                        <div class="relative overflow-x-auto border-solid border-2 border-black rounded-[10px]">
                             <table class="w-full text-sm text-left rtl:text-right">
-                                <thead class="text-[15px] bg-blue-100">
+                                <thead class="text-[15px] bg-blue-100 border-b-2 border-black">
                                     <tr>
                                         <th scope="col" class="px-6 py-3">
                                             About Title
@@ -149,9 +152,9 @@ const CompanyData = () => {
                     </div>
 
                     <div className="mt-[20px]">
-                        <div class="relative overflow-x-auto shadow-md rounded-[5px]">
+                        <div class="relative overflow-x-auto border-solid border-2 border-black rounded-[10px]">
                             <table class="w-full text-sm text-left rtl:text-right">
-                                <thead class="text-[15px] bg-blue-100">
+                                <thead class="text-[15px] bg-blue-100 border-b-2 border-black">
                                     <tr>
                                         <th scope="col" class="px-6 py-3">
                                             Amount Clients

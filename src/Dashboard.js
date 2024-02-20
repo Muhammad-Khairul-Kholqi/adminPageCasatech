@@ -1,5 +1,5 @@
 // Dashboard.js
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Style/Dashboard/StyleDashboard.css';
 import background from "./Assets/bg.png"
 import DashboardCard from './Card/DashboardCard';
@@ -8,6 +8,10 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const Dashboard = () => {
+   useEffect(() => {
+       document.title = "Dashboard | Casatech";
+   }, []);
+
   AOS.init();
   return (
     <>
@@ -37,9 +41,9 @@ const Dashboard = () => {
 
           <div className = "bg-white p-[20px] rounded-md mt-[30px]" >
               <h1 className="text-center text-[30px] mb-[10px] mt-[-10px]">Our Teams</h1>
-              <div className = "relative overflow-x-auto border-solid border-2 border-greyy-300 sm:rounded-lg" >
+              <div className = "relative overflow-x-auto border-solid border-2 border-black rounded-[10px]" >
                 <table className="w-full text-sm text-left rtl:text-righ">
-                    <thead className = "bg-[#F0F3FF]" >
+                    <thead className = "bg-[#F0F3FF] border-b-2 border-black" >
                         <tr>
                             <th scope="col" className="px-6 py-3">
                                 No

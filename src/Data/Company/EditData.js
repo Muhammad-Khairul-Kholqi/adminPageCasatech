@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import backgImg from '../../Assets/bg.png';
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { Link } from "react-router-dom";
@@ -6,14 +6,18 @@ import 'react-quill/dist/quill.snow.css';
 import 'react-quill/dist/quill.bubble.css';
 import '../../Style/Company/StyleEditCompany.css';
 
-import Integrated from './TableEdit/Integragted';
-import VisiMisi from './TableEdit/VisiMisi';
-import About from './TableEdit/About';
-import Sponsorship from './TableEdit/Sponsorship';
-import Culture from './TableEdit/Culture';
-import ContactCatalog from './TableEdit/ContactCatalog';
+import Integrated from './FormEdit/Integragted';
+import VisiMisi from './FormEdit/VisiMisi';
+import About from './FormEdit/About';
+import Sponsorship from './FormEdit/Sponsorship';
+import Culture from './FormEdit/Culture';
+import ContactCatalog from './FormEdit/ContactCatalog';
 
 const EditData = () => {
+    useEffect(() => {
+        document.title = "Edit Integrated Data | Casatech";
+    }, []);
+
     const [activeTab, setActiveTab] = useState(1);
 
     const handleTabClick = (tabNumber) => {

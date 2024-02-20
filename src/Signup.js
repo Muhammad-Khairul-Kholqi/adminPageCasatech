@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from 'react';
 import Logo from './Assets/logo.png';
 import { Link } from 'react-router-dom';
 import './Style/StyleSignup.css';
 
 const Signup = () => {
+    useEffect(() => {
+        document.title = "SignUp Admin | Casatech";
+    }, []);
     return (
         <div className="bg-white p-[20px] min-h-screen flex items-center justify-center">
             <div className = "bg-[#ECEDF2] p-[30px] rounded-[10px]" >

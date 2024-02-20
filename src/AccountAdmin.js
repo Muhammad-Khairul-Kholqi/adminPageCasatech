@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from 'react';
 import profile from "./Assets/profile.png"
 import background from "./Assets/bg.png"
 import './Style/StyleAccountAdmin.css';
 import { FaPenToSquare } from "react-icons/fa6";
 
 const AccountAdmin = () => {
+     useEffect(() => {
+         document.title = "Account Admin | Casatech";
+     }, []);
     return (
         <div className = "account-container bg-white rounded-[20px] mt-[30px] p-[30px]" >
             <div className = "back-img bg-cover bg-center h-[200px] rounded-[10px] text-center"
@@ -16,7 +19,7 @@ const AccountAdmin = () => {
                 <h1 className="title-account text-white text-[40px] font-bold py-[20px]">Account Admin</h1>
             </div>
             <div className="account-left flex justify-center gap-[50px] px-[5%] gap-[50px] flex-wrap ">
-                <div className = " bg-white shadow-md text-center py-[20px] px-[30px] rounded-[5px] mt-[-60px] flex flex-col items-center mb-[20px]" >
+                <div className = "child-left bg-white shadow-md text-center py-[20px] px-[30px] rounded-[5px] mt-[-60px] flex flex-col items-center mb-[20px]" >
                     <img className="profile w-[100px] rounded-[50%] mt-[-60px]" src={profile} />
                     <p className="teks-name font-bold mt-[10px] w-[200px]">Alfar Ramazhan</p>
                     <p className="teks-poition text-gray-500 mt-[5px]">Backend Developer</p>
