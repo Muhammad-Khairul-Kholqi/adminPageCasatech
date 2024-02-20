@@ -21,6 +21,12 @@ import EditDataInnovation from './Data/Innovation/EditDataInnovation';
 import TestimonialData from './Data/Testimonial/TestimonialData';
 import EditDataTestimoni from './Data/Testimonial/EditDataTestimoni';
 
+import DataPortfolio from './Data/Portfolio/DataPortfolio';
+import EditDataPortfolio from './Data/Portfolio/EditDataPortfolio';
+
+import DataTeams from './Data/Teams/DataTeams';
+import EditDataTeams from './Data/Teams/EditDataTeams';
+
 import Signin from './Signin';
 import Signup from './Signup';
 import NotFound from './NotFound';
@@ -138,6 +144,45 @@ const App = () => {
                             </DefaultLayout>
                         }
                     />
+
+                    {/* portfolio */}
+                    <Route
+                        path = "/data-portfolio"
+                        element={
+                            <DefaultLayout>
+                                <DataPortfolio />
+                            </DefaultLayout>
+                        }
+                    />
+
+                    <Route
+                        path = "/edit-data-portfolio"
+                        element={
+                            <DefaultLayout>
+                                <EditDataPortfolio />
+                            </DefaultLayout>
+                        }
+                    />
+
+                    {/* teams */}
+                     <Route
+                        path = "/data-teams"
+                        element={
+                            <DefaultLayout>
+                                <DataTeams />
+                            </DefaultLayout>
+                        }
+                    />
+
+                    <Route
+                        path = "/edit-data-teams"
+                        element={
+                            <DefaultLayout>
+                                <EditDataTeams />
+                            </DefaultLayout>
+                        }
+                    />
+
 
                     {/* account admin */}
                     <Route
