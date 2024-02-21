@@ -4,9 +4,9 @@ import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { Link } from "react-router-dom";
 import backgImg from '../../Assets/bg.png';
 
-const EditDataService = () => {
+const AddDataService = () => {
      useEffect(() => {
-         document.title = "Edit Data Services | Casatech";
+         document.title = "Add Data Services | Casatech";
      }, []);
 
     const [editorContent, setEditorContent] = useState('');
@@ -49,18 +49,18 @@ const EditDataService = () => {
                 className="container bg-cover bg-center mt-[20px] py-[50px] rounded-[10px]"
                 style={{ backgroundImage: `url(${backgImg})` }}>
                 <h1 className="title text-center item-center text-white text-[40px] font-bold px-[20px]">
-                    Edit Data Services
+                    Add Data Services
                 </h1>
                 <div className = "link flex flex-wrap px-[10px] items-center text-white gap-[5px] justify-center mt-[15px]" >
                     <Link to = "/data-services" >
                         <p className="hover:underline">Data Services</p>
                     </Link>
                     <MdOutlineKeyboardArrowRight className="mt-[3px]" />
-                    <p className="text-blue-600">Edit Data Services</p>
+                    <p className="text-blue-600">Add Data Services</p>
                 </div>
             </div>
             <div className="bg-white p-[20px] rounded-[10px] mt-[20px]">
-                    <h1 className="text-center font-bold text-[20px] mb-[20px]">Edit Data Services</h1>
+                    <h1 className="text-center font-bold text-[20px] mb-[20px]">Add Data Services</h1>
                     <form>
                         <div className="mt-[10px]">
                             <span for="image">Image:</span>
@@ -81,11 +81,11 @@ const EditDataService = () => {
                                 formats={formats}
                             />
                         </div>
-                        <button className="mt-[20px] rounded-[3px] w-full bg-gray-500 hover:bg-gray-600 text-white py-[5px]">Save Changes</button>
+                        <button className="mt-[20px] rounded-[3px] w-full bg-gray-500 hover:bg-gray-600 text-white py-[5px]">Submit</button>
                     </form>
             </div>
         </div>
     )
 }
 
-export default EditDataService;
+export default AddDataService;
