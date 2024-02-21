@@ -25,12 +25,15 @@ import AddDataTestimoni from './Data/Testimonial/AddDataTestimonial';
 import EditDataTestimoni from './Data/Testimonial/EditDataTestimoni';
 
 import DataPortfolio from './Data/Portfolio/DataPortfolio';
+import AddDataPortfolio from './Data/Portfolio/AddDataPortfolio';
 import EditDataPortfolio from './Data/Portfolio/EditDataPortfolio';
 
 import DataTeams from './Data/Teams/DataTeams';
+import AddDataTeams from './Data/Teams/AddDataTeams';
 import EditDataTeams from './Data/Teams/EditDataTeams';
 
 import DataService from './Data/Service/DataService';
+import AddDataService from './Data/Service/AddDataService';
 import EditDataService from './Data/Service/EditDataService';
 
 import CategoryBlog from './Data/Blog/CategoryBlog';
@@ -188,6 +191,15 @@ const App = () => {
                     />
 
                     <Route
+                        path = "/add-data-portfolio"
+                        element={
+                            <DefaultLayout>
+                                <AddDataPortfolio />
+                            </DefaultLayout>
+                        }
+                    />
+
+                    <Route
                         path = "/edit-data-portfolio"
                         element={
                             <DefaultLayout>
@@ -207,6 +219,15 @@ const App = () => {
                     />
 
                     <Route
+                        path = "/add-data-teams"
+                        element={
+                            <DefaultLayout>
+                                <AddDataTeams />
+                            </DefaultLayout>
+                        }
+                    />
+
+                    <Route
                         path = "/edit-data-teams"
                         element={
                             <DefaultLayout>
@@ -221,6 +242,15 @@ const App = () => {
                         element={
                             <DefaultLayout>
                                 <DataService />
+                            </DefaultLayout>
+                        }
+                    />
+
+                    <Route
+                        path = "/add-data-service"
+                        element={
+                            <DefaultLayout>
+                                <AddDataService />
                             </DefaultLayout>
                         }
                     />
