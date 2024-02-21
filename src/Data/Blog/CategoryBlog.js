@@ -21,35 +21,35 @@ const CategoryBlog = () => {
                 <div div className = "bg-white p-[20px] rounded-[10px] mt-[20px]" >
                     <h1 className="text-center text-[30px] italic mb-[20px]">This is the category name of the blog</h1>
                     <div className="flex justify-center gap-[20px] p-[20px]">
-                        <Link>
+                        <Link to="/data-blog">
                             <div className="flex flex-col items-center p-[20px] bg-white shadow-md rounded-[5px] text-center hover:scale-105">
                                 <FaFolderOpen className="text-blue-600 text-[35px]" />
                                 <p className="text-[18px] mt-[15px] text-blue-900">Judul Category</p>
                             </div>
                         </Link>
 
-                        <Link>
+                        <Link to="/data-blog">
                             <div className="flex flex-col items-center p-[20px] bg-white shadow-md rounded-[5px] text-center hover:scale-105">
                                 <FaFolderOpen className="text-blue-600 text-[35px]" />
                                 <p className="text-[18px] mt-[15px] text-blue-900">Judul Category</p>
                             </div>
                         </Link>
 
-                        <Link>
+                        <Link to="/data-blog">
                             <div className="flex flex-col items-center p-[20px] bg-white shadow-md rounded-[5px] text-center hover:scale-105">
                                 <FaFolderOpen className="text-blue-600 text-[35px]" />
                                 <p className="text-[18px] mt-[15px] text-blue-900">Judul Category</p>
                             </div>
                         </Link>
 
-                        <Link>
+                        <Link to="/data-blog">
                             <div className="flex flex-col items-center p-[20px] bg-white shadow-md rounded-[5px] text-center hover:scale-105">
                                 <FaFolderOpen className="text-blue-600 text-[35px]" />
                                 <p className="text-[18px] mt-[15px] text-blue-900">Judul Category</p>
                             </div>
                         </Link>
 
-                        <Link>
+                        <Link to="/data-blog">
                             <div className="flex flex-col items-center p-[20px] bg-white shadow-md rounded-[5px] text-center hover:scale-105">
                                 <FaFolderOpen className="text-blue-600 text-[35px]" />
                                 <p className="text-[18px] mt-[15px] text-blue-900">Judul Category</p>

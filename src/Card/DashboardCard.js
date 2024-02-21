@@ -9,7 +9,7 @@ import { IoHeart } from "react-icons/io5";
 const DashboardCard = () => {
     return (
         <div className="container flex justify-center flex-wrap gap-[30px] mt-[30px]">
-          <Link to="">
+          <Link to = "/data-teams" >
             <div className = "card bg-white rounded-[10px] flex justify-center items-center gap-[30px] py-[5px] px-[20px] w-[220px] h-[120px] shadow-md hover:scale-105">
               <div className = "bg-icon bg-[#BBF7D0] p-[10px] rounded-[50%] items-center" >
                 <FaUsers className="icon text-[40px] text-[#16A34A]" />
