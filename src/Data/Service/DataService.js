@@ -4,6 +4,7 @@ import profile from '../../Assets/profile.png';
 import { Link } from 'react-router-dom';
 import { FaRegPenToSquare } from "react-icons/fa6";
 import { FiPlusCircle } from "react-icons/fi";
+import { IoTrashOutline } from "react-icons/io5";
 
 const DataService = () => {
     useEffect(() => {
@@ -61,13 +62,18 @@ const DataService = () => {
                                             Partner with us to navigate the digital landscape
                                             and unlock your business 's full potential
                                         </td>
-                                        <td className = "px-6 py-4" >
+                                        <td className = "px-6 py-4 flex gap-[10px]" >
                                             <Link to="/edit-data-services">
                                                 <div className="icon-text text-[15px] flex gap-[5px] items-center text-blue-600 hover:underline">
                                                     <FaRegPenToSquare />
                                                     <p className="text-link">Edit</p>
                                                 </div>
                                             </Link>
+                                            <p>|</p>
+                                            <div className = "icon-text cursor-pointer text-[15px] flex gap-[5px] items-center text-red-600 hover:underline" >
+                                                <IoTrashOutline />
+                                                <p className="text-link">Delete</p>
+                                            </div>
                                         </td>
                                     </tr>
                                 </tbody>
