@@ -37,6 +37,9 @@ import AddDataService from './Data/Service/AddDataService';
 import EditDataService from './Data/Service/EditDataService';
 
 import CategoryBlog from './Data/Blog/CategoryBlog';
+import DataBlog from './Data/Blog/DataBlog';
+import AddDataBlog from './Data/Blog/AddDataBlog';
+import EditDataBlog from './Data/Blog/EditDataBlog';
 
 import Signin from './Signin';
 import Signup from './Signup';
@@ -270,6 +273,32 @@ const App = () => {
                         element={
                             <DefaultLayout>
                                 <CategoryBlog />
+                            </DefaultLayout>
+                        }
+                    />
+                    <Route
+                        path = "/data-blog"
+                        element={
+                            <DefaultLayout>
+                                <DataBlog />
+                            </DefaultLayout>
+                        }
+                    />
+
+                    <Route
+                        path = "/add-data-blog"
+                        element={
+                            <DefaultLayout>
+                                <AddDataBlog />
+                            </DefaultLayout>
+                        }
+                    />
+
+                    <Route
+                        path = "/edit-data-blog"
+                        element={
+                            <DefaultLayout>
+                                <EditDataBlog />
                             </DefaultLayout>
                         }
                     />

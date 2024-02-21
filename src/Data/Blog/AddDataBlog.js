@@ -4,9 +4,9 @@ import backgImg from '../../Assets/bg.png';
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { Link } from "react-router-dom";
 
-const EditDataBlog = () => {
+const AddDataBlog = () => {
     useEffect(() => {
-        document.title = "Edit Data Blog | Casatech";
+        document.title = "Add Data Blog | Casatech";
     }, []);
 
     const [editorContent, setEditorContent] = useState('');
@@ -48,19 +48,19 @@ const EditDataBlog = () => {
                 className="container bg-cover bg-center mt-[20px] py-[50px] rounded-[10px]"
                 style={{ backgroundImage: `url(${backgImg})` }}>
                 <h1 className="title text-center item-center text-white text-[40px] font-bold px-[20px]">
-                    Edit Data Blog
+                    Add Data Blog
                 </h1>
                 <div className = "link flex flex-wrap px-[10px] items-center text-white gap-[5px] justify-center mt-[15px]" >
                     <Link to = "/data-blog" >
                         <p className="hover:underline">Data Blog</p>
                     </Link>
                     <MdOutlineKeyboardArrowRight className="mt-[3px]" />
-                    <p className="text-blue-600">Edit Data Blog</p>
+                    <p className="text-blue-600">Add Data Blog</p>
                 </div>
             </div>
 
             <div className="bg-white p-[20px] rounded-[10px] mt-[20px]">
-                    <h1 className="text-center font-bold text-[20px] mb-[20px]">Edit Data Blog</h1>
+                    <h1 className="text-center font-bold text-[20px] mb-[20px]">Add Data Blog</h1>
                     <form>
                         <div className="mt-[10px]">
                             <span for="image">Image:</span>
@@ -81,11 +81,20 @@ const EditDataBlog = () => {
                                 formats={formats}
                             />
                         </div>
-                        <button className="mt-[20px] rounded-[3px] w-full bg-gray-500 hover:bg-gray-600 text-white py-[5px]">Save Changes</button>
+                        <div className = "mt-[15px]">
+                            <span>Category Name:</span>
+                            <select className = "w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px]">
+                                <option selected disabled hidden>Choose</option>
+                                <option>Nama Category</option>
+                                <option>Nama Category</option>
+                                <option>Nama Category</option>
+                            </select>
+                        </div>
+                        <button className="mt-[20px] rounded-[3px] w-full bg-gray-500 hover:bg-gray-600 text-white py-[5px]">Submit</button>
                     </form>
             </div>
         </div>
     )
 }
 
-export default EditDataBlog;
+export default AddDataBlog;
