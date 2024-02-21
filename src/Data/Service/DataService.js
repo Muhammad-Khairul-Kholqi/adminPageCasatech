@@ -3,11 +3,10 @@ import backgImg from '../../Assets/bg.png';
 import profile from '../../Assets/profile.png';
 import { Link } from 'react-router-dom';
 import { FaRegPenToSquare } from "react-icons/fa6";
-import { FiPlusCircle } from "react-icons/fi";
 
-const TestimonialData = () => {
+const DataService = () => {
     useEffect(() => {
-        document.title = "Data Testimoni | Casatech";
+        document.title = "Data Services | Casatech";
     }, []);
     return (
         <div>
@@ -17,17 +16,9 @@ const TestimonialData = () => {
                         backgroundImage: `url(${backgImg})`
                     }
                 }>
-                <h1 className="title text-center item-center text-white text-[40px] font-bold px-[20px]">Testimonial Data</h1></div>
+                <h1 className="title text-center item-center text-white text-[40px] font-bold px-[20px]">Data Services</h1></div>
 
                 <div className = "bg-white p-[20px] rounded-[10px] mt-[20px]" >
-                        <div className="flex justify-end mb-[20px]">
-                            <Link to="/add-data-testimonial">
-                                <div className = "flex justify-center gap-[5px] py-[5px] px-[10px] items-center border-solid border-2 border-blue-600 rounded-[100px] hover:bg-blue-600 hover:text-white" >
-                                    <FiPlusCircle />
-                                    <div>Add Data</div>
-                                </div>
-                            </Link>
-                        </div>
                         <div div className = "relative overflow-x-auto border-solid border-2 border-black rounded-[10px]" >
                             <table className = "w-full text-sm text-left rtl:text-right" >
                                 <thead className = "text-[15px] bg-blue-100 border-b-2 border-black" >
@@ -36,10 +27,7 @@ const TestimonialData = () => {
                                             Image
                                         </th>
                                         <th scope="col" className="px-6 py-3">
-                                            Name
-                                        </th>
-                                        <th scope="col" className="px-6 py-3">
-                                            Position
+                                            Title
                                         </th>
                                         <th scope="col" className="px-6 py-3">
                                             Description
@@ -54,11 +42,9 @@ const TestimonialData = () => {
                                         <td className="px-6 py-4">
                                             <img className="w-[100px]" src={profile} />
                                         </td>
-                                        <td className = "px-6 py-4" >
-                                            Muhammad Khairul Kholqi
-                                        </td>
-                                        <td className = "px-6 py-4" >
-                                            Manager
+                                        <td className = "px-6 py-4 w-[300px]" >
+                                            Deep Understanding,
+                                            Inspirational Solutions
                                         </td>
                                         <td className = "px-6 py-4 w-[300px]" >
                                             Trusted IT Consultation
@@ -67,7 +53,7 @@ const TestimonialData = () => {
                                             and unlock your business 's full potential
                                         </td>
                                         <td className = "px-6 py-4" >
-                                            <Link to="/edit-data-testimonial">
+                                            <Link to="/edit-data-services">
                                                 <div className="icon-text text-[15px] flex gap-[5px] items-center text-blue-600 hover:underline">
                                                     <FaRegPenToSquare />
                                                     <p className="text-link">Edit</p>
@@ -83,4 +69,4 @@ const TestimonialData = () => {
     )
 }
 
-export default TestimonialData;
+export default DataService;

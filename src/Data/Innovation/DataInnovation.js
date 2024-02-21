@@ -3,6 +3,7 @@ import backgImg from '../../Assets/bg.png';
 import profile from '../../Assets/profile.png';
 import { Link } from 'react-router-dom';
 import { FaRegPenToSquare } from "react-icons/fa6";
+import { FiPlusCircle } from "react-icons/fi";
 
 const DataInnovation = () => {
     useEffect(() => {
@@ -19,6 +20,14 @@ const DataInnovation = () => {
                 <h1 className="title text-center item-center text-white text-[40px] font-bold px-[20px]">Data Innovation</h1></div>
 
                 <div className = "bg-white p-[20px] rounded-[10px] mt-[20px]" >
+                        <div className="flex justify-end mb-[20px]">
+                            <Link to="/add-data-innovation">
+                                <div className = "flex justify-center gap-[5px] py-[5px] px-[10px] items-center border-solid border-2 border-blue-600 rounded-[100px] hover:bg-blue-600 hover:text-white" >
+                                    <FiPlusCircle />
+                                    <div>Add Data</div>
+                                </div>
+                            </Link>
+                        </div>
                         <div div className = "relative overflow-x-auto border-solid border-2 border-black rounded-[10px]" >
                             <table className = "w-full text-sm text-left rtl:text-right" >
                                 <thead className = "text-[15px] bg-blue-100 border-b-2 border-black" >
