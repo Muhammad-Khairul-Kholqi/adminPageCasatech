@@ -13,12 +13,15 @@ import PreviewData from './Data/Company/PreviewData';
 import EditData from './Data/Company/EditData';
 
 import SolutionsData from './Data/Solutioins/SolutionsData';
+import AddDataSolutions from './Data/Solutioins/AddDataSolutions';
 import EditDataSolutions from './Data/Solutioins/EditDataSolutions'
 
 import DataInnovation from './Data/Innovation/DataInnovation';
+import AddDataInnovation from './Data/Innovation/AddDataInnovation';
 import EditDataInnovation from './Data/Innovation/EditDataInnovation';
 
 import TestimonialData from './Data/Testimonial/TestimonialData';
+import AddDataTestimoni from './Data/Testimonial/AddDataTestimonial';
 import EditDataTestimoni from './Data/Testimonial/EditDataTestimoni';
 
 import DataPortfolio from './Data/Portfolio/DataPortfolio';
@@ -26,6 +29,11 @@ import EditDataPortfolio from './Data/Portfolio/EditDataPortfolio';
 
 import DataTeams from './Data/Teams/DataTeams';
 import EditDataTeams from './Data/Teams/EditDataTeams';
+
+import DataService from './Data/Service/DataService';
+import EditDataService from './Data/Service/EditDataService';
+
+import CategoryBlog from './Data/Blog/CategoryBlog';
 
 import Signin from './Signin';
 import Signup from './Signup';
@@ -100,6 +108,14 @@ const App = () => {
                             </DefaultLayout>
                         }
                     />
+                    <Route
+                        path="/add-data-solutions"
+                        element={
+                            <DefaultLayout>
+                                <AddDataSolutions />
+                            </DefaultLayout>
+                        }
+                    />
                      <Route
                         path="/edit-data-solutions"
                         element={
@@ -119,6 +135,14 @@ const App = () => {
                         }
                     />
                     <Route
+                        path = "/add-data-innovation"
+                        element={
+                            <DefaultLayout>
+                                <AddDataInnovation />
+                            </DefaultLayout>
+                        }
+                    />
+                    <Route
                         path = "/edit-data-innovation"
                         element={
                             <DefaultLayout>
@@ -133,6 +157,14 @@ const App = () => {
                         element={
                             <DefaultLayout>
                                 <TestimonialData />
+                            </DefaultLayout>
+                        }
+                    />
+                    <Route
+                        path = "/add-data-testimonial"
+                        element={
+                            <DefaultLayout>
+                                <AddDataTestimoni />
                             </DefaultLayout>
                         }
                     />
@@ -179,6 +211,35 @@ const App = () => {
                         element={
                             <DefaultLayout>
                                 <EditDataTeams />
+                            </DefaultLayout>
+                        }
+                    />
+
+                    {/* service */}
+                    <Route
+                        path = "/data-services"
+                        element={
+                            <DefaultLayout>
+                                <DataService />
+                            </DefaultLayout>
+                        }
+                    />
+
+                    <Route
+                        path = "/edit-data-services"
+                        element={
+                            <DefaultLayout>
+                                <EditDataService />
+                            </DefaultLayout>
+                        }
+                    />
+
+                    {/* blog */}
+                    <Route
+                        path = "/category-blog"
+                        element={
+                            <DefaultLayout>
+                                <CategoryBlog />
                             </DefaultLayout>
                         }
                     />

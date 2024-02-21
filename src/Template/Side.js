@@ -63,7 +63,7 @@ const Side = () => {
                         </Link>
                     </li>
                     <li className = "text-black mb-2 hover:bg-[#1762EF] py-[10px] rounded-[10px] hover:text-white transition duration-75" >
-                         <Link to="/">
+                         <Link to="/category-blog">
                             <div className="icon-teks flex items-center mx-[10px]">
                                 <IoIosCamera className="icon-link mr-2 text-[18px]" />
                                 <p className="menu-link text-[13px]">Data Blog</p>
@@ -87,7 +87,7 @@ const Side = () => {
                         </Link>
                     </li>
                     <li className = "text-black mb-2 hover:bg-[#1762EF] py-[10px] rounded-[10px] hover:text-white transition duration-75" >
-                         <Link to="/">
+                         <Link to="/data-services">
                             <div className="icon-teks flex items-center mx-[10px]">
                                 <IoIosSettings className="icon-link mr-2 text-[18px]" />
                                 <p className="menu-link text-[13px]">Services Data</p>
