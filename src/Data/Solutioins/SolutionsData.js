@@ -29,12 +29,12 @@ const SolutionsData = () => {
                                 </div>
                             </Link>
                         </div>
-                        <div div className = "relative overflow-x-auto border-solid border-2 border-black rounded-[10px]" >
+                        <div div className = "relative overflow-x-auto border-solid border-[1px] border-black rounded-[10px]" >
                             <table className = "w-full text-sm text-left rtl:text-right" >
-                                <thead className = "text-[15px] bg-blue-100 border-b-2 border-black" >
+                                <thead className = "text-[15px] bg-blue-100 border-b-[1px] border-black" >
                                     <tr>
                                         <th scope="col" className="px-6 py-3">
-                                            Image
+                                            No
                                         </th>
                                         <th scope="col" className="px-6 py-3">
                                             Title
@@ -49,101 +49,14 @@ const SolutionsData = () => {
                                 </thead>
                                 <tbody>
                                     <tr className="text-[13px]">
-                                        <td className="px-6 py-4">
-                                            <img className="w-[100px]" src={profile} />
+                                        <td className='px-6 py-4'> 
+                                            1
                                         </td>
                                         <td className = "px-6 py-4 w-[300px]" >
                                             Deep Understanding,
                                             Inspirational Solutions
                                         </td>
-                                        <td className = "px-6 py-4 w-[300px]" >
-                                            Trusted IT Consultation
-                                            for Business Growth,
-                                            Partner with us to navigate the digital landscape
-                                            and unlock your business 's full potential
-                                        </td>
-                                        <td className = "px-6 py-4 flex gap-[10px]" >
-                                            <Link to="/edit-data-solutions">
-                                                <div className="icon-text text-[15px] flex gap-[5px] items-center text-blue-600 hover:underline">
-                                                    <FaRegPenToSquare />
-                                                    <p className="text-link">Edit</p>
-                                                </div>
-                                            </Link>
-                                            <p>|</p>
-                                            <div className = "icon-text cursor-pointer text-[15px] flex gap-[5px] items-center text-red-600 hover:underline" >
-                                                <IoTrashOutline />
-                                                <p className="text-link">Delete</p>
-                                            </div>
-                                        </td>
-                                    </tr>
-
-                                    <tr className="text-[13px]">
-                                        <td className="px-6 py-4">
-                                            <img className="w-[100px]" src={profile} />
-                                        </td>
-                                        <td className = "px-6 py-4 w-[300px]" >
-                                            Deep Understanding,
-                                            Inspirational Solutions
-                                        </td>
-                                        <td className = "px-6 py-4 w-[300px]" >
-                                            Trusted IT Consultation
-                                            for Business Growth,
-                                            Partner with us to navigate the digital landscape
-                                            and unlock your business 's full potential
-                                        </td>
-                                        <td className = "px-6 py-4 flex gap-[10px]" >
-                                            <Link to="/edit-data-solutions">
-                                                <div className="icon-text text-[15px] flex gap-[5px] items-center text-blue-600 hover:underline">
-                                                    <FaRegPenToSquare />
-                                                    <p className="text-link">Edit</p>
-                                                </div>
-                                            </Link>
-                                            <p>|</p>
-                                            <div className = "icon-text cursor-pointer text-[15px] flex gap-[5px] items-center text-red-600 hover:underline" >
-                                                <IoTrashOutline />
-                                                <p className="text-link">Delete</p>
-                                            </div>
-                                        </td>
-                                    </tr>
-
-                                    <tr className="text-[13px]">
-                                        <td className="px-6 py-4">
-                                            <img className="w-[100px]" src={profile} />
-                                        </td>
-                                        <td className = "px-6 py-4 w-[300px]" >
-                                            Deep Understanding,
-                                            Inspirational Solutions
-                                        </td>
-                                        <td className = "px-6 py-4 w-[300px]" >
-                                            Trusted IT Consultation
-                                            for Business Growth,
-                                            Partner with us to navigate the digital landscape
-                                            and unlock your business 's full potential
-                                        </td>
-                                        <td className = "px-6 py-4 flex gap-[10px]" >
-                                            <Link to="/edit-data-solutions">
-                                                <div className="icon-text text-[15px] flex gap-[5px] items-center text-blue-600 hover:underline">
-                                                    <FaRegPenToSquare />
-                                                    <p className="text-link">Edit</p>
-                                                </div>
-                                            </Link>
-                                            <p>|</p>
-                                            <div className = "icon-text cursor-pointer text-[15px] flex gap-[5px] items-center text-red-600 hover:underline" >
-                                                <IoTrashOutline />
-                                                <p className="text-link">Delete</p>
-                                            </div>
-                                        </td>
-                                    </tr>
-
-                                    <tr className="text-[13px]">
-                                        <td className="px-6 py-4">
-                                            <img className="w-[100px]" src={profile} />
-                                        </td>
-                                        <td className = "px-6 py-4 w-[300px]" >
-                                            Deep Understanding,
-                                            Inspirational Solutions
-                                        </td>
-                                        <td className = "px-6 py-4 w-[300px]" >
+                                        <td className = "px-6 py-4 w-[400px]" >
                                             Trusted IT Consultation
                                             for Business Growth,
                                             Partner with us to navigate the digital landscape

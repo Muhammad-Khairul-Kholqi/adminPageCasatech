@@ -72,7 +72,7 @@ const App = () => {
                 <Routes>
                     {/* dashboard */}
                     <Route
-                        path="/"
+                        path = "/dashboard-admin"
                         element={
                             <DefaultLayout>
                                 <Dashboard />

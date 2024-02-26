@@ -10,6 +10,10 @@ const Signin = () => {
      }, []);
     return(
         <div className="content-login flex justify-between py-[20px] px-[10%] gap-[30px] flex-wrap mt-[100px]">
+            <div className = "ilustrasi w-[400px]" >
+                <img src={ilustrasiLogin} />
+            </div>
+
             <div className="flex flex-col items-center justify-center">
                 <img className="w-[100px] mb-2" src={Logo} alt="Logo" />
                 <div className="flex items-center mt-[30px]">
@@ -30,12 +34,8 @@ const Signin = () => {
                     </Link>
                 </p>
             </div>
-
-            <div className = "ilustrasi w-[400px]" >
-                <img src={ilustrasiLogin} />
-            </div>
         </div>
     )
-}
+}  
 
 export default Signin;
