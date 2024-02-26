@@ -29,10 +29,13 @@ const DataTeams = () => {
                                 </div>
                             </Link>
                         </div>
-                        <div div className = "relative overflow-x-auto border-solid border-2 border-black rounded-[10px]" >
+                        <div div className = "relative overflow-x-auto border-solid border-[1px] border-black rounded-[10px]" >
                             <table className = "w-full text-sm text-left rtl:text-right" >
-                                <thead className = "text-[15px] bg-blue-100 border-b-2 border-black" >
+                                <thead className = "text-[15px] bg-blue-100 border-b-[1px] border-black" >
                                     <tr>
+                                        <th scope="col" className="px-6 py-3">
+                                            No
+                                        </th>
                                         <th scope="col" className="px-6 py-3">
                                             Image
                                         </th>
@@ -49,6 +52,9 @@ const DataTeams = () => {
                                 </thead>
                                 <tbody>
                                     <tr className="text-[13px]">
+                                        <td className="px-6 py-4">
+                                            1
+                                        </td>
                                         <td className="px-6 py-4">
                                             <img className="w-[100px]" src={profile} />
                                         </td>

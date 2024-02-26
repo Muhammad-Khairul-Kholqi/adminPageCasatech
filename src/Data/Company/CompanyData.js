@@ -38,9 +38,9 @@ const CompanyData = () => {
                     </div>
 
                     <div className="mt-[20px]">
-                        <div class = "relative overflow-x-auto border-solid border-2 border-black rounded-[10px]" >
+                        <div class = "relative overflow-x-auto border-solid border-[1px] border-black rounded-[10px]" >
                             <table class = "w-full text-sm text-left rtl:text-right" >
-                                <thead class = "text-[15px] bg-blue-100 border-b-2 border-black" >
+                                <thead class = "text-[15px] bg-blue-100 border-b-[1px] border-black" >
                                     <tr>
                                         <th scope="col" class="px-6 py-3">
                                             Company Name
@@ -81,9 +81,9 @@ const CompanyData = () => {
                     </div>
 
                     <div className="mt-[20px]">
-                        <div class = "relative overflow-x-auto border-solid border-2 border-black rounded-[10px]" >
+                        <div class = "relative overflow-x-auto border-solid border-[1px] border-black rounded-[10px]" >
                             <table class="w-full text-sm text-left rtl:text-right">
-                                <thead class="text-[15px] bg-blue-100 border-b-2 border-black">
+                                <thead class="text-[15px] bg-blue-100 border-b-[1px] border-black">
                                     <tr>
                                         <th scope="col" class="px-6 py-3">
                                             Vision
@@ -116,9 +116,9 @@ const CompanyData = () => {
                     </div>
 
                     <div className="mt-[20px]">
-                        <div class="relative overflow-x-auto border-solid border-2 border-black rounded-[10px]">
+                        <div class="relative overflow-x-auto border-solid border-[1px] border-black rounded-[10px]">
                             <table class="w-full text-sm text-left rtl:text-right">
-                                <thead class="text-[15px] bg-blue-100 border-b-2 border-black">
+                                <thead class="text-[15px] bg-blue-100 border-b-[1px] border-black">
                                     <tr>
                                         <th scope="col" class="px-6 py-3">
                                             About Title
@@ -152,9 +152,9 @@ const CompanyData = () => {
                     </div>
 
                     <div className="mt-[20px]">
-                        <div class="relative overflow-x-auto border-solid border-2 border-black rounded-[10px]">
+                        <div class="relative overflow-x-auto border-solid border-[1px] border-black rounded-[10px]">
                             <table class="w-full text-sm text-left rtl:text-right">
-                                <thead class="text-[15px] bg-blue-100 border-b-2 border-black">
+                                <thead class="text-[15px] bg-blue-100 border-b-[1px] border-black">
                                     <tr>
                                         <th scope="col" class="px-6 py-3">
                                             Amount Clients

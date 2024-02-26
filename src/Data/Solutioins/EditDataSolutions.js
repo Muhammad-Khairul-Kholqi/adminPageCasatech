@@ -62,11 +62,6 @@ const EditDataSolutions = () => {
             <div className="bg-white p-[20px] rounded-[10px] mt-[20px]">
                     <h1 className="text-center font-bold text-[20px] mb-[20px]">Edit Data Solutioins</h1>
                     <form>
-                        <div className="mt-[10px]">
-                            <span for="image">Image:</span>
-                            <br />
-                            <input id="image" className="mt-[10px] w-full mb-5 text-sm text-black border-2 border-gray-600 p-[5px] rounded-[3px] cursor-pointer" type="file" />
-                        </div>
                         <div>
                             <span for="title">Title:</span>
                             <br />

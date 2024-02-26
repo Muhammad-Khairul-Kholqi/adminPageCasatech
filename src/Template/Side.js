@@ -23,7 +23,7 @@ const Side = () => {
             <div className="sidebar-menus">
                <ul>
                     <li className = "text-black mb-2 mt-[30px] hover:bg-[#1762EF] py-[10px] rounded-[10px] hover:text-white transition duration-75" >
-                         <Link to="/">
+                         <Link to="/dashboard-admin">
                             <div className="icon-teks flex items-center mx-[10px]">
                                 <MdDashboard className="icon-link mr-2 text-[18px]" />
                                 <p className="menu-link text-[13px]">Dashboard</p>

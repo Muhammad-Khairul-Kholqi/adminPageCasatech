@@ -6,9 +6,9 @@ const TablePreview = () => {
         <div>
             <div className="mt-[20px]">
                     <h1 className="mb-[20px] text-[20px] italic">Data Integrated_</h1>
-                    <div className = "relative overflow-x-auto border-solid border-2 border-black rounded-[10px]" >
+                    <div className = "relative overflow-x-auto border-solid border-[1px] border-black rounded-[10px]" >
                         <table className = "w-full text-sm text-left rtl:text-right" >
-                            <thead className="text-[15px] bg-blue-100 border-b-2 border-black">
+                            <thead className="text-[15px] bg-blue-100 border-b-[1px] border-black">
                                 <tr>
                                     <th scope="col" className="px-6 py-3">
                                         Company Name
@@ -50,9 +50,9 @@ const TablePreview = () => {
 
                 <div className="mt-[20px]">
                     <h1 className="mb-[20px] text-[20px] italic">Vision & Mision_</h1>
-                    <div className="relative overflow-x-auto border-solid border-2 border-black rounded-[10px]">
+                    <div className="relative overflow-x-auto border-solid border-[1px] border-black rounded-[10px]">
                         <table className="w-full text-sm text-left rtl:text-right">
-                            <thead className="text-[15px] bg-blue-100 border-b-2 border-black">
+                            <thead className="text-[15px] bg-blue-100 border-b-[1px] border-black">
                                 <tr>
                                     <th scope="col" className="px-6 py-3">
                                         Vision
@@ -86,9 +86,9 @@ const TablePreview = () => {
 
                 <div className="mt-[20px]">
                     <h1 className="mb-[20px] text-[20px] italic">Data About_</h1>
-                    <div className="relative overflow-x-auto border-solid border-2 border-black rounded-[10px]">
+                    <div className="relative overflow-x-auto border-solid border-[1px] border-black rounded-[10px]">
                         <table className="w-full text-sm text-left rtl:text-right">
-                            <thead className="text-[15px] bg-blue-100 border-b-2 border-black">
+                            <thead className="text-[15px] bg-blue-100 border-b-[1px] border-black">
                                 <tr>
                                     <th scope="col" className="px-6 py-3">
                                         About Title
@@ -123,9 +123,9 @@ const TablePreview = () => {
 
                 <div className="mt-[20px]">
                     <h1 className="mb-[20px] text-[20px] italic">Data Sponsorship_</h1>
-                    <div className="relative overflow-x-auto border-solid border-2 border-black rounded-[10px]">
+                    <div className="relative overflow-x-auto border-solid border-[1px] border-black rounded-[10px]">
                         <table className="w-full text-sm text-left rtl:text-right">
-                            <thead className="text-[15px] bg-blue-100 border-b-2 border-black">
+                            <thead className="text-[15px] bg-blue-100 border-b-[1px] border-black">
                                 <tr>
                                     <th scope="col" className="px-6 py-3">
                                         Amount Clients
@@ -157,9 +157,9 @@ const TablePreview = () => {
 
                 <div className="mt-[20px]">
                     <h1 className="mb-[20px] text-[20px] italic">Data Culture_</h1>
-                    <div className="relative overflow-x-auto border-solid border-2 border-black rounded-[10px]">
+                    <div className="relative overflow-x-auto border-solid border-[1px] border-black rounded-[10px]">
                         <table className="w-full text-sm text-left rtl:text-right">
-                            <thead className="text-[15px] bg-blue-100 border-b-2 border-black">
+                            <thead className="text-[15px] bg-blue-100 border-b-[1px] border-black">
                                 <tr>
                                     <th scope="col" className="px-6 py-3">
                                         Image
@@ -200,9 +200,9 @@ const TablePreview = () => {
 
                 <div className="mt-[20px]">
                     <h1 className="mb-[20px] text-[20px] italic">Contact Catalog_</h1>
-                    <div className="relative overflow-x-auto border-solid border-2 border-black rounded-[10px]">
+                    <div className="relative overflow-x-auto border-solid border-[1px] border-black rounded-[10px]">
                         <table className="w-full text-sm text-left rtl:text-right">
-                            <thead className="text-[15px] bg-blue-100 border-b-2 border-black">
+                            <thead className="text-[15px] bg-blue-100 border-b-[1px] border-black">
                                 <tr>
                                     <th scope="col" className="px-6 py-3">
                                         No Whatsapp
