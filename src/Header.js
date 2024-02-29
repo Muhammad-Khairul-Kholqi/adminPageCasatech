@@ -39,7 +39,7 @@ const Header = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link to = "/signin" >
+                                <Link to = "/" >
                                     <div className = "flex items-center gap-[5px] mt-[5px] hover:bg-red-500 p-[5px] rounded-[5px] hover:text-white" >
                                         <BiLogOut className="icon-log-acc text-[17px]" />
                                         <p>Logout</p>

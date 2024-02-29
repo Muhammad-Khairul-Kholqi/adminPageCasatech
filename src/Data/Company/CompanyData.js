@@ -19,7 +19,7 @@ const CompanyData = () => {
                         backgroundImage: `url(${backgImg})`
                     }
                 }>
-                <h1 className="title text-center item-center text-white text-[40px] font-bold px-[20px]"> Company Data </h1></div>
+                <h1 className="title text-center item-center text-white text-[40px] font-bold px-[20px] font-roboto-slab tracking-[2px]"> Company Data </h1></div>
 
                 <div className="bg-white p-[20px] rounded-[10px] mt-[20px]">
                     <div className="flex gap-[10px] justify-end">

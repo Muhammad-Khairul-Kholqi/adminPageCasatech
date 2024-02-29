@@ -18,7 +18,7 @@ const PreviewData = () => {
                         backgroundImage: `url(${backgImg})`
                     }
                 }>
-                <h1 className="title-preview title item-center text-white text-[40px] font-bold px-[20px]">Complete Company Data </h1>
+                <h1 className="title-preview title item-center text-white text-[40px] font-bold px-[20px] font-roboto-slab tracking-[2px]">Complete Company Data </h1>
                 <div className = "link flex flex-wrap px-[10px] items-center text-white gap-[5px] justify-center mt-[15px]" >
                     <Link to = "/company-data" >
                         <p className="hover:underline">Company Data</p>

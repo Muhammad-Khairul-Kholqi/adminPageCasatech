@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import './Style/Dashboard/StyleDashboard.css';
 import background from "./Assets/bg.png"
 import DashboardCard from './Card/DashboardCard';
-import profile from './Assets/profile.png'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -22,8 +21,8 @@ const Dashboard = () => {
             backgroundImage: `url(${background})`
           }
         } data-aos="flip-down" data-aos-duration="1300">
-          <h1 className = "title-header text-[40px] leading-10 font-bold" > This is the <br /> Admin Page </h1>
-          <p className="description mt-[20px] text-[18px]">
+          <h1 className = "title-header text-[40px] leading-10 font-bold font-roboto-slab tracking-[2px]" > This is the <br /> Admin Page </h1>
+          <p className="description mt-[20px] text-[18px] font-inter">
             Access all configurations and customize the app according to your preferences
           </p>
         </div>

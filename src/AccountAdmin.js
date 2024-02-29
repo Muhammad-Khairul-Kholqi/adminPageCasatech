@@ -16,7 +16,7 @@ const AccountAdmin = () => {
                     backgroundImage: `url(${background})`
                 }
             } >
-                <h1 className="title-account text-white text-[40px] font-bold py-[20px]">Account Admin</h1>
+                <h1 className="title-account text-white text-[40px] font-bold py-[20px] font-roboto-slab tracking-[2px]">Account Admin</h1>
             </div>
             <div className="account-left flex justify-center gap-[50px] px-[5%] gap-[50px] flex-wrap ">
                 <div className = "child-left bg-white shadow-md text-center py-[20px] px-[30px] rounded-[5px] mt-[-60px] flex flex-col items-center mb-[20px]" >
