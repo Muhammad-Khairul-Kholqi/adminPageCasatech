@@ -18,7 +18,7 @@ const DataBlog = () => {
                         backgroundImage: `url(${backgImg})`
                     }
                 }>
-                <h1 className="title text-center item-center text-white text-[40px] font-bold px-[20px]">Data Blog</h1></div>
+                <h1 className="title text-center item-center text-white text-[40px] font-bold px-[20px] font-roboto-slab tracking-[2px]">Data Blog</h1></div>
 
                 <div className = "bg-white p-[20px] rounded-[10px] mt-[20px]" >
                         <div className="flex justify-end mb-[20px]">

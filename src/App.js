@@ -314,7 +314,7 @@ const App = () => {
                         }
                     />
                     {/* sign in & sign up */}
-                    <Route path="/signin" element={<Signin />} />
+                    <Route path="/" element={<Signin />} />
                     <Route path="/signup" element={<Signup />} />
 
                     {/* not found */}

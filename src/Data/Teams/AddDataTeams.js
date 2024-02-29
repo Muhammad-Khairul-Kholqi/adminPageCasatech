@@ -13,7 +13,7 @@ const AddDataTeams = () => {
             <div
                 className="container bg-cover bg-center mt-[20px] py-[50px] rounded-[10px]"
                 style={{ backgroundImage: `url(${backgImg})` }}>
-                <h1 className="title text-center item-center text-white text-[40px] font-bold px-[20px]">
+                <h1 className = "title text-center item-center text-white text-[40px] font-bold px-[20px] font-roboto-slab tracking-[2px]" >
                     Add Data Teams
                 </h1>
                 <div className = "link flex flex-wrap px-[10px] items-center text-white gap-[5px] justify-center mt-[15px]" >
