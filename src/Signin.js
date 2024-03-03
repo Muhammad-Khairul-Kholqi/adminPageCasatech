@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Logo from './Assets/logo.png';
 import { Link } from 'react-router-dom';
 import './Style/StyleSignin.css';
-import ilustrasiLogin from './Assets/ilustrasi-login.png'
+import ilustrasiLogin from './Assets/ilustrasi-login.png';
 
 const Signin = () => {
      useEffect(() => {
