@@ -10,6 +10,7 @@ import AccountAdmin from './AccountAdmin';
 
 import CompanyData from './Data/Company/CompanyData';
 import PreviewData from './Data/Company/PreviewData';
+import CreateDataCompany from './Data/Company/CreatData';
 import EditData from './Data/Company/EditData';
 
 import SolutionsData from './Data/Solutioins/SolutionsData';
@@ -93,6 +94,14 @@ const App = () => {
                         element={
                             <DefaultLayout>
                                 <PreviewData />
+                            </DefaultLayout>
+                        }
+                    />
+                    <Route
+                        path="/create-company-data"
+                        element={
+                            <DefaultLayout>
+                                <CreateDataCompany />
                             </DefaultLayout>
                         }
                     />
