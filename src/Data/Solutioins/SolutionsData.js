@@ -28,7 +28,7 @@ const SolutionsData = () => {
                                 </div>
                             </Link>
                         </div>
-                        <div div className = "relative overflow-x-auto border-solid border-[1px] border-black rounded-[10px]" >
+                        <div div className = "relative overflow-x-auto border-solid border-[1px] border-black" >
                             <table className = "w-full text-sm text-left rtl:text-right" >
                                 <thead className = "text-[15px] bg-blue-100 border-b-[1px] border-black" >
                                     <tr>

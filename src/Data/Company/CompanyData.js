@@ -38,7 +38,7 @@ const CompanyData = () => {
                     </div>
 
                     <div className="mt-[20px]">
-                        <div class = "relative overflow-x-auto border-solid border-[1px] border-black rounded-[10px]" >
+                        <div class = "relative overflow-x-auto border-solid border-[1px] border-black" >
                             <table class = "w-full text-sm text-left rtl:text-right" >
                                 <thead class = "text-[15px] bg-blue-100 border-b-[1px] border-black" >
                                     <tr>
@@ -81,7 +81,7 @@ const CompanyData = () => {
                     </div>
 
                     <div className="mt-[20px]">
-                        <div class = "relative overflow-x-auto border-solid border-[1px] border-black rounded-[10px]" >
+                        <div class = "relative overflow-x-auto border-solid border-[1px] border-black" >
                             <table class="w-full text-sm text-left rtl:text-right">
                                 <thead class="text-[15px] bg-blue-100 border-b-[1px] border-black">
                                     <tr>
@@ -116,7 +116,7 @@ const CompanyData = () => {
                     </div>
 
                     <div className="mt-[20px]">
-                        <div class="relative overflow-x-auto border-solid border-[1px] border-black rounded-[10px]">
+                        <div class="relative overflow-x-auto border-solid border-[1px] border-black">
                             <table class="w-full text-sm text-left rtl:text-right">
                                 <thead class="text-[15px] bg-blue-100 border-b-[1px] border-black">
                                     <tr>
@@ -152,7 +152,7 @@ const CompanyData = () => {
                     </div>
 
                     <div className="mt-[20px]">
-                        <div class="relative overflow-x-auto border-solid border-[1px] border-black rounded-[10px]">
+                        <div class="relative overflow-x-auto border-solid border-[1px] border-black">
                             <table class="w-full text-sm text-left rtl:text-right">
                                 <thead class="text-[15px] bg-blue-100 border-b-[1px] border-black">
                                     <tr>
