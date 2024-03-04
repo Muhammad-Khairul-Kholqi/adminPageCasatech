@@ -132,7 +132,7 @@ const App = () => {
                         }
                     />
                      <Route
-                        path="/edit-data-solutions"
+                        path="/edit-data-solutions/:id"
                         element={
                             <DefaultLayout>
                                 <EditDataSolutions />
