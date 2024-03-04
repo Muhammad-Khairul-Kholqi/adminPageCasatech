@@ -26,7 +26,7 @@ const Signup = () => {
                     <input placeholder="Password.." type="password" className="input-signup type-input block border-solid border-2 border-black px-4 w-[300px] rounded-[3px] h-[30px] mb-4" />
                     <button className="button-signup w-[300px] rounded-[3px] h-[30px] bg-blue-600 hover:bg-blue-700 text-white">Sign Up</button>
                 </form>
-                <Link to='/signin'>
+                <Link to='/'>
                     <p className="flex justify-end text-blue-600 mt-[10px] mr-[5px] text-[14px] hover:underline">Back to Sign In?</p>
                 </Link>
             </div>
