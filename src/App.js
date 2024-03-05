@@ -212,7 +212,7 @@ const App = () => {
                     />
 
                     <Route
-                        path = "/edit-data-portfolio"
+                        path = "/edit-data-portfolio/:id"
                         element={
                             <DefaultLayout>
                                 <EditDataPortfolio />
