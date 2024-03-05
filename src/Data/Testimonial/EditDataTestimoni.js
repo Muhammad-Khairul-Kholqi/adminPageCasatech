@@ -1,19 +1,57 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useParams } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import ReactQuill from 'react-quill';
+import Swal from 'sweetalert2';
+import 'react-quill/dist/quill.snow.css';
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-import { Link } from "react-router-dom";
 import backgImg from '../../Assets/bg.png';
 
 const EditDataTestimoni = () => {
-     useEffect(() => {
-         document.title = "Edit Data Testimoni | Casatech";
-     }, []);
+    const { id } = useParams();
+    const navigate = useNavigate();
 
+    useEffect(() => {
+        document.title = 'Edit Data Testimoni | Casatech';
+        axios.get(`http://localhost:4000/testimoni/${id}`)
+            .then(response => {
+                const {
+                    image,
+                    name,
+                    position,
+                    description
+                } = response.data;
+                setImage(image);
+                setName(name);
+                setPosition(position);
+                setEditorContent(description);
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    }, [id]);
+
+    const [image, setImage] = useState('');
+    const [name, setName] = useState('');
+    const [position, setPosition] = useState('');
     const [editorContent, setEditorContent] = useState('');
 
-    const handleChange = (content) => {
-        setEditorContent(content);
-    };
+     const handleImageChange = (event) => {
+         setImage(event.target.files[0]);
+     };
+
+     const handleChange = (content) => {
+         setEditorContent(content);
+     };
+
+     const handleNameChange = (event) => {
+         setName(event.target.value);
+     };
+
+     const handlePositionChange = (event) => {
+         setPosition(event.target.value);
+     };
 
     const modules = {
         toolbar: [
@@ -43,6 +81,56 @@ const EditDataTestimoni = () => {
         'link',
     ];
 
+    const handleUpdate = async (event) => {
+        event.preventDefault();
+
+        if (!image || !name.trim() || !position.trim() || !editorContent.trim()) {
+            Swal.fire({
+                title: 'Error!',
+                text: 'Image, Title dan Description harus diisi!',
+                icon: 'error',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'OK',
+            });
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('image', image);
+        formData.append('name', name);
+        formData.append('position', position);
+        formData.append('description', editorContent);
+
+        try {
+            const response = await axios.patch(`http://localhost:4000/testimoni/${id}`, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            });
+
+            console.log('Response from server:', response.data);
+            Swal.fire({
+                title: 'Sukses!',
+                text: 'Data berhasil diupdate.',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 1000
+            }).then(() => {
+                navigate('/testimonial-data');
+            });
+        } catch (error) {
+            console.error('Error updating data:', error);
+
+            Swal.fire({
+                title: 'Error!',
+                text: 'Terjadi kesalahan saat mengupdate data. Silakan coba lagi.',
+                icon: 'error',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'OK',
+            });
+        }
+    };
+
     return (
         <div>
             <div
@@ -61,21 +149,40 @@ const EditDataTestimoni = () => {
             </div>
             <div className="bg-white p-[20px] rounded-[10px] mt-[20px]">
                     <h1 className="text-center font-bold text-[20px] mb-[20px]">Edit Data Testimonial</h1>
-                    <form>
+                    <form onSubmit={handleUpdate}>
                         <div className="mt-[10px]">
                             <span for="image">Image:</span>
                             <br />
-                            <input id="image" className="mt-[10px] w-full mb-5 text-sm text-black border-2 border-gray-600 p-[5px] rounded-[3px] cursor-pointer" type="file" />
+                            <input 
+                                id="image" 
+                                className="mt-[10px] w-full mb-5 text-sm text-black border-2 border-gray-600 p-[5px] rounded-[3px] cursor-pointer" 
+                                type="file" 
+                                onChange={handleImageChange}
+                            />
                         </div>
                         <div>
                             <span for="name">Name:</span>
                             <br />
-                            <input className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px]" type="text" id="name" />
+                            <input 
+                                className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] pl-[10px] pr-[10px]" 
+                                type="text" 
+                                id="name" 
+                                value={name}   
+                                onChange={handleNameChange} 
+                                autoComplete="off"
+                                />
                         </div>
                         <div className = "mt-[15px]" >
                             <span for="position">Position:</span>
                             <br />
-                            <input className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px]" type="text" id="position" />
+                            <input 
+                                className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] pl-[10px] pr-[10px]" 
+                                type="text" 
+                                id="position" 
+                                value={position}
+                                onChange={handlePositionChange}
+                                autoComplete="off"
+                                />
                         </div>
                         <div className = "mt-[15px]" >
                             <span for="desc">Description:</span>
@@ -86,7 +193,9 @@ const EditDataTestimoni = () => {
                                 formats={formats}
                             />
                         </div>
-                        <button className="mt-[20px] rounded-[3px] w-full bg-gray-500 hover:bg-gray-600 text-white py-[5px]">Save Changes</button>
+                        <button className="mt-[20px] rounded-[3px] w-full bg-gray-500 hover:bg-gray-600 text-white py-[5px]" type="submit">
+                            Save Changes
+                        </button>
                     </form>
             </div>
         </div>

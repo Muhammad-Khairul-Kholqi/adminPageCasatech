@@ -184,7 +184,7 @@ const App = () => {
                         }
                     />
                     <Route
-                        path = "/edit-data-testimonial"
+                        path = "/edit-data-testimonial/:id"
                         element={
                             <DefaultLayout>
                                 <EditDataTestimoni />
