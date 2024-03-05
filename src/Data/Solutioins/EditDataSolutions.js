@@ -58,37 +58,48 @@ const EditDataSolutions = () => {
         'link',
     ];
 
-    const handleUpdate = async (event) => {
-        event.preventDefault();
+   const handleUpdate = async (event) => {
+       event.preventDefault();
 
-        try {
-            const response = await axios.patch(`http://localhost:4000/solution/${id}`, {
-                title: title,
-                description: editorContent,
-            });
+       if (!title.trim() || !editorContent.trim()) {
+           Swal.fire({
+               title: 'Error!',
+               text: 'Title dan Description harus diisi!',
+               icon: 'error',
+               confirmButtonColor: '#3085d6',
+               confirmButtonText: 'OK',
+           });
+           return;
+       }
 
-            console.log('Response from server:', response.data);
-            Swal.fire({
-                title: 'Sukses!',
-                text: 'Data berhasil diupdate.',
-                icon: 'success',
-                showConfirmButton: false,
-                timer: 1000
-            }).then(() => {
-                navigate('/data-solutions');
-            });
-        } catch (error) {
-            console.error('Error updating data:', error);
+       try {
+           const response = await axios.patch(`http://localhost:4000/solution/${id}`, {
+               title: title,
+               description: editorContent,
+           });
 
-            Swal.fire({
-                title: 'Error!',
-                text: 'Terjadi kesalahan saat mengupdate data. Silakan coba lagi.',
-                icon: 'error',
-                confirmButtonColor: '#3085d6',
-                confirmButtonText: 'OK',
-            });
-        }
-    };
+           console.log('Response from server:', response.data);
+           Swal.fire({
+               title: 'Sukses!',
+               text: 'Data berhasil diupdate.',
+               icon: 'success',
+               showConfirmButton: false,
+               timer: 1000
+           }).then(() => {
+               navigate('/data-solutions');
+           });
+       } catch (error) {
+           console.error('Error updating data:', error);
+
+           Swal.fire({
+               title: 'Error!',
+               text: 'Terjadi kesalahan saat mengupdate data. Silakan coba lagi.',
+               icon: 'error',
+               confirmButtonColor: '#3085d6',
+               confirmButtonText: 'OK',
+           });
+       }
+   };
 
     return (
         <div>
@@ -113,7 +124,7 @@ const EditDataSolutions = () => {
                         <label htmlFor="title">Title:</label>
                         <br />
                         <input
-                            className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px]"
+                            className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] pl-[10px] pr-[10px]"
                             type="text"
                             id="title"
                             value={title}

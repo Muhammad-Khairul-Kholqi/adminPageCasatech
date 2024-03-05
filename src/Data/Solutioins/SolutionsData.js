@@ -8,18 +8,20 @@ import { IoTrashOutline } from "react-icons/io5";
 import backgImg from '../../Assets/bg.png';
 
 const SolutionsData = () => {
+    const itemsPerPage = 5;
+
+    const [data, setData] = useState(null);
+    const [selectedItems, setSelectedItems] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+
     useEffect(() => {
         document.title = "Data Solutions | Casatech";
     }, []);
-
-    const [data, setData] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await axios.get("http://localhost:4000/solution");
-                console.log("API Response:", response.data);
-
                 const sortedData = response.data.data.sort((a, b) => b.id - a.id);
 
                 setData(sortedData);
@@ -31,8 +33,11 @@ const SolutionsData = () => {
         fetchData();
     }, []);
 
-    const handleDelete = (id, event) => {
-        event.preventDefault();
+    const handleDelete = async () => {
+        if (selectedItems.length === 0) {
+            Swal.fire('Error!', 'Pilih setidaknya satu data untuk dihapus.', 'error');
+            return;
+        }
 
         Swal.fire({
             title: 'Yakin mau hapus data?',
@@ -42,24 +47,50 @@ const SolutionsData = () => {
             cancelButtonColor: '#3085d6',
             confirmButtonText: 'Hapus',
             cancelButtonText: 'Batal'
-        }).then((result) => {
+        }).then(async (result) => {
             if (result.isConfirmed) {
-                deleteData(id);
+                try {
+                    await Promise.all(selectedItems.map(id => axios.delete(`http://localhost:4000/solution/${id}`)));
+
+                    Swal.fire('Terhapus!', 'Data telah dihapus.', 'success');
+
+                    const updatedData = data.filter(item => !selectedItems.includes(item.id));
+                    setData(updatedData);
+                    setSelectedItems([]);
+                } catch (error) {
+                    console.error("Error deleting data:", error);
+                    Swal.fire('Error!', 'Terjadi kesalahan saat menghapus data.', 'error');
+                }
             }
         });
     };
 
-    const deleteData = async (id) => {
-        try {
-            await axios.delete(`http://localhost:4000/solution/${id}`);
-            Swal.fire('Terhapus!', 'Data telah dihapus.', 'success');
+    const handleCheckboxChange = (id) => {
+        const updatedSelection = selectedItems.includes(id)
+            ? selectedItems.filter(item => item !== id)
+            : [...selectedItems, id];
 
-            const updatedData = data.filter(item => item.id !== id);
-            setData(updatedData);
-        } catch (error) {
-            console.error("Error deleting data:", error);
-            Swal.fire('Error!', 'Terjadi kesalahan saat menghapus data.', 'error');
+        setSelectedItems(updatedSelection);
+    };
+
+    const paginateData = () => {
+        if (!data) {
+            return [];
         }
+
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+
+        return data.slice(startIndex, endIndex).map((item, index) => ({
+            ...item,
+            pageNo: startIndex + index + 1
+        }));
+    };
+
+    const totalPages = Math.ceil((data?.length || 0) / itemsPerPage);
+
+    const changePage = (newPage) => {
+        setCurrentPage(newPage);
     };
 
     return (
@@ -94,13 +125,16 @@ const SolutionsData = () => {
                                 <th scope="col" className="px-6 py-3">
                                     Action
                                 </th>
+                                <th scope="col" className="px-6 py-3">
+                                    Select
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
-                            {data && data.map((item, index) => (
+                            {paginateData().map((item) => (
                                 <tr key={item.id} className="text-[13px]">
                                     <td className='px-6 py-4'>
-                                        {index + 1}
+                                        {item.pageNo}
                                     </td>
                                     <td className="px-6 py-4 w-[300px]">
                                         {item.title}
@@ -116,15 +150,47 @@ const SolutionsData = () => {
                                             </div>
                                         </Link>
                                         <p>|</p>
-                                        <button className="flex gap-[5px] items-center text-red-600 hover:underline" onClick={(e) => handleDelete(item.id, e)}>
+                                        <button
+                                            className="flex gap-[5px] items-center text-red-600 hover:underline"
+                                            onClick={(e) => handleDelete(item.id, e)}>
                                             <IoTrashOutline />
                                             <p>Delete</p>
                                         </button>
+                                    </td>
+                                    <td className="px-6 py-4">
+                                        <input
+                                            type="checkbox"
+                                            checked={selectedItems.includes(item.id)}
+                                            onChange={() => handleCheckboxChange(item.id)}
+                                            className="cursor-pointer"
+                                        />
                                     </td>
                                 </tr>
                             ))}
                         </tbody>
                     </table>
+                </div>
+                <div className="flex justify-between mt-[10px]">
+                    <button
+                        className="flex gap-[5px] items-center text-red-600 hover:underline"
+                        onClick={handleDelete}>
+                        <IoTrashOutline />
+                        <p className="text-[13px]">Delete</p>
+                    </button>
+                    <div className="flex gap-[5px] items-center">
+                        <button
+                            className={`text-blue-600 hover:underline ${currentPage === 1 ? 'cursor-not-allowed text-gray-400' : ''}`}
+                            onClick={() => changePage(currentPage - 1)}
+                            disabled={currentPage === 1}>
+                            Previous
+                        </button>
+                        <button
+                            className={`text-blue-600 hover:underline ${currentPage === totalPages ? 'cursor-not-allowed text-gray-400' : ''}`}
+                            onClick={() => changePage(currentPage + 1)}
+                            disabled={currentPage === totalPages}>
+                            Next
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
