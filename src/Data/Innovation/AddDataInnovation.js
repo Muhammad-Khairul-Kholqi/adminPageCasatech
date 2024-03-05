@@ -113,11 +113,12 @@ const AddDataInnovation = () => {
                         <label htmlFor="tittle">Title:</label>
                         <br />
                         <input
-                            className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px]"
+                            className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] pl-[10px] pr-[10px]"
                             type="text"
                             id="tittle"
                             value={tittle}
                             onChange={handleTitleChange}
+                            autoComplete="off"
                         />
                     </div>
                     <div className="mt-[15px]">

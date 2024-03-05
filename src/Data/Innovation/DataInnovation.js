@@ -35,12 +35,18 @@ const DataInnovation = () => {
 
     const handleDelete = async () => {
         if (selectedItems.length === 0) {
-            Swal.fire('Error!', 'Pilih setidaknya satu data untuk dihapus.', 'error');
+            Swal.fire({
+                title: 'Peringatan!',
+                text: 'Pilih setidaknya satu data untuk dihapus.',
+                icon: 'warning',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'OK',
+            });
             return;
         }
 
         Swal.fire({
-            title: 'Yakin mau hapus data?',
+            title: `Yakin mau hapus ${selectedItems.length} data?`,
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#d33',
@@ -52,7 +58,7 @@ const DataInnovation = () => {
                 try {
                     await Promise.all(selectedItems.map(id => axios.delete(`http://localhost:4000/innovation/${id}`)));
 
-                    Swal.fire('Terhapus!', 'Data telah dihapus.', 'success');
+                    Swal.fire('Terhapus!', `${selectedItems.length} Data telah dihapus.`, 'success');
 
                     const updatedData = data.filter(item => !selectedItems.includes(item.id));
                     setData(updatedData);
@@ -113,6 +119,8 @@ const DataInnovation = () => {
                                 </div>
                             </Link>
                         </div>
+                        <p className="pb-[5px]">{data ? `${data.length}` : 0} Data Innovation</p>
+                        <p className="pb-[10px] italic">Klik checkbox untuk hapus data</p>
                         <div div className = "relative overflow-x-auto border-solid border-[1px] border-black" >
                             <table className = "w-full text-sm text-left rtl:text-right" >
                                 <thead className = "text-[15px] bg-blue-100 border-b-[1px] border-black" >
@@ -133,7 +141,6 @@ const DataInnovation = () => {
                                             Action
                                         </th>
                                         <th scope="col" className="px-6 py-3">
-                                            Select
                                         </th>
                                     </tr>
                                 </thead>
