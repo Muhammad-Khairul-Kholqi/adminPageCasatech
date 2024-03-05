@@ -148,22 +148,22 @@ const EditDataInnovation = () => {
                             <span for="image">Image:</span>
                             <br />
                             <input 
-                            id="image" 
-                            className="mt-[10px] w-full mb-5 text-sm text-black border-2 border-gray-600 p-[5px] rounded-[3px] cursor-pointer" 
-                            type="file" 
-                            onChange={handleImageChange}
+                                id="image" 
+                                className="mt-[10px] w-full mb-5 text-sm text-black border-2 border-gray-600 p-[5px] rounded-[3px] cursor-pointer" 
+                                type="file" 
+                                onChange={handleImageChange}
                             />
                         </div>
                         <div>
                             <span for="tittle">Title:</span>
                             <br />
                             <input
-                            className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] pl-[10px] pr-[10px]"
-                            type="text"
-                            id="tittle"
-                            value={tittle}
-                            onChange={handleTitleChange}
-                            autoComplete="off"
+                                className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] pl-[10px] pr-[10px]"
+                                type="text"
+                                id="tittle"
+                                value={tittle}
+                                onChange={handleTitleChange}
+                                autoComplete="off"
                         />
                         </div>
                         <div className="mt-[15px]">
