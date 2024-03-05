@@ -129,6 +129,7 @@ const EditDataSolutions = () => {
                             id="title"
                             value={title}
                             onChange={handleTitleChange}
+                            autoComplete="off"
                         />
                     </div>
                     <div className="mt-[15px]">
