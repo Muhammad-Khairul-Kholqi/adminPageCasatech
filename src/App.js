@@ -268,7 +268,7 @@ const App = () => {
                     />
 
                     <Route
-                        path = "/edit-data-services"
+                        path = "/edit-data-services/:id"
                         element={
                             <DefaultLayout>
                                 <EditDataService />
