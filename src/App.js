@@ -240,7 +240,7 @@ const App = () => {
                     />
 
                     <Route
-                        path = "/edit-data-teams"
+                        path = "/edit-data-teams/:id"
                         element={
                             <DefaultLayout>
                                 <EditDataTeams />
