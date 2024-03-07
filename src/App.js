@@ -42,6 +42,7 @@ import DataBlog from './Data/Blog/DataBlog';
 import AddDataBlog from './Data/Blog/AddDataBlog';
 import EditDataBlog from './Data/Blog/EditDataBlog';
 
+import DataAdmin from './DataAdmin';
 import Signin from './Signin';
 import Signup from './Signup';
 import NotFound from './NotFound';
@@ -322,6 +323,17 @@ const App = () => {
                             </DefaultLayout>
                         }
                     />
+
+                    {/* data admin */}
+                    <Route
+                        path="/data-admin"
+                        element={
+                            <DefaultLayout>
+                                <DataAdmin />
+                            </DefaultLayout>
+                        }
+                    />
+
                     {/* sign in & sign up */}
                     <Route path="/" element={<Signin />} />
                     <Route path="/signup" element={<Signup />} />

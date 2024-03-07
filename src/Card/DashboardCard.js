@@ -1,12 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import '../Style/Dashboard/StyleCardDashboard.css';
 import { FaUsers } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { IoExtensionPuzzle } from "react-icons/io5";
 import { FaStar } from "react-icons/fa6";
 import { IoHeart } from "react-icons/io5";
+import axios from 'axios';
 
 const DashboardCard = () => {
+     const [data, setData] = useState(null);
+
+     useEffect(() => {
+       const fetchData = async () => {
+         try {
+           const response = await axios.get("http://localhost:4000/team");
+           const sortedData = response.data.data.sort((a, b) => b.id - a.id);
+
+           setData(sortedData);
+         } catch (error) {
+           console.error("Error fetching data:", error);
+         }
+       };
+
+       fetchData();
+     }, []);
+
     return (
         <div className="container flex justify-center flex-wrap gap-[30px] mt-[30px]">
           <Link to = "/data-teams" >
@@ -16,7 +34,7 @@ const DashboardCard = () => {
               </div> 
               <div className="text-jml font-bold">
                  <p className="title-card text-[20px]">Teams</p>
-                 <h1 className="jumlah text-[30px] ">45</h1>
+                 <h1 className="jumlah text-[30px] ">{data ? `${data.length}` : 0}</h1>
               </div>
             </div>
           </Link> 

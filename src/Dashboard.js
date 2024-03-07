@@ -1,5 +1,5 @@
-// Dashboard.js
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import './Style/Dashboard/StyleDashboard.css';
 import background from "./Assets/bg.png"
 import DashboardCard from './Card/DashboardCard';
@@ -12,6 +12,28 @@ const Dashboard = () => {
    }, []);
 
   AOS.init();
+
+  useEffect(() => {
+        document.title = "Integrated Data | Casatech";
+    }, []);
+
+    const [data, setData] = useState(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get("http://localhost:4000/company");
+                const sortedData = response.data.data.sort((a, b) => b.id - a.id);
+
+                setData(sortedData);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
   return (
     <>
     <div className="">
@@ -28,10 +50,11 @@ const Dashboard = () => {
         </div>
 
         <div className="overflow-hidden bg-white p-[20px] mt-[20px] rounded-[10px]" >
-            <marquee className="text-[20px] text-blue-600 animate-marquee delay-5000">
-            PT. Catur Sangkara Tekhnologi, 
-            Jl Baranangsiang III Blok I No.7.
-            </marquee>
+          {data && data.map((item) => (
+              <marquee key={item.id} className="text-[20px] text-blue-600 animate-marquee delay-5000">
+                {item.company_name}, {item.addres}
+              </marquee>
+          ))}
         </div>
 
         <div>

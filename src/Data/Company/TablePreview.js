@@ -1,7 +1,25 @@
-import React from "react";
-import profile from '../../Assets/profile.png';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Link } from 'react-router-dom';
 
 const TablePreview = () => {
+    const [data, setData] = useState(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get("http://localhost:4000/company");
+                const sortedData = response.data.data.sort((a, b) => b.id - a.id);
+
+                setData(sortedData);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
     return(
         <div>
             <div className="mt-[20px]">
@@ -25,24 +43,22 @@ const TablePreview = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr className="text-[13px]">
-                                    <td className="px-6 py-4">
-                                        PT.Catur Sangkara Tekhnologi
-                                    </td>
-                                    <td className="px-6 py-4">
-                                        <img className="w-[100px]" src={profile} />
-                                    </td>
-                                    <td className = "px-6 py-4 w-[300px]" >
-                                        Deep Understanding,
-                                        Inspirational Solutions
-                                    </td>
-                                    <td className = "px-6 py-4 w-[300px]" >
-                                        Trusted IT Consultation
-                                        for Business Growth,
-                                        Partner with us to navigate the digital landscape
-                                        and unlock your business 's full potential
-                                    </td>
-                                </tr>
+                                {data && data.map((item) => (
+                                    <tr key={item.id} className="text-[13px]">
+                                        <td className="px-6 py-4">
+                                            {item.company_name}
+                                        </td>
+                                        <td className="px-6 py-4">
+                                            {item.image_company}
+                                        </td>
+                                        <td className = "px-6 py-4 w-[300px]" >
+                                            {item.tittle_company}
+                                        </td>
+                                        <td className = "px-6 py-4 w-[300px]" >
+                                            {item.description_company}
+                                        </td>
+                                    </tr>
+                                ))}
                             </tbody>
                         </table>
                     </div>
@@ -63,22 +79,16 @@ const TablePreview = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr className="text-[13px]">
-                                    <td className="px-6 py-4">
-                                        Lorem ipsum dolor sit amet consectetur
-                                        adipisicing elit.Excepturi provident, cum
-                                        ratione itaque doloribus blanditiis obcae
-                                        cati saepe molestias debitis dolor dicta
-                                        earum ? Praesentium
-                                    </td>
-                                    <td className="px-6 py-4">
-                                        Lorem ipsum dolor sit amet consectetur
-                                        adipisicing elit.Excepturi provident, cum
-                                        ratione itaque doloribus blanditiis obcae
-                                        cati saepe molestias debitis dolor dicta
-                                        earum ? Praesentium
-                                    </td>
-                                </tr>
+                                {data && data.map((item) => (
+                                    <tr key={item.id} className="text-[13px]">
+                                        <td className="px-6 py-4">
+                                            {item.visi}
+                                        </td>
+                                        <td className="px-6 py-4">
+                                            {item.misi}
+                                        </td>
+                                    </tr>
+                                ))}
                             </tbody>
                         </table>
                     </div>
@@ -91,9 +101,6 @@ const TablePreview = () => {
                             <thead className="text-[15px] bg-blue-100 border-b-[1px] border-black">
                                 <tr>
                                     <th scope="col" className="px-6 py-3">
-                                        About Title
-                                    </th>
-                                    <th scope="col" className="px-6 py-3">
                                         Image
                                     </th>
                                     <th scope="col" className="px-6 py-3">
@@ -102,20 +109,16 @@ const TablePreview = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr className="text-[13px]">
-                                    <td className="px-6 py-4">
-                                        About Us
-                                    </td>
-                                    <td className="px-6 py-4">
-                                        <img className="w-[100px]" src={profile} />
-                                    </td>
-                                    <td className = "px-6 py-4 w-[300px]" >
-                                        Lorem ipsum dolor sit amet consectetur adipisi
-                                        Excepturi provident, cum ratione itaque dolorib
-                                        ditiis obcaecati saepe molestias debitis dolor di
-                                        m ? Praesentium aliquid
-                                    </td>
-                                </tr>
+                                {data && data.map((item) => (
+                                    <tr key={item.id} className="text-[13px]">
+                                        <td className="px-6 py-4">
+                                            {item.image_about}
+                                        </td>
+                                        <td className = "px-6 py-4 w-[300px]" >
+                                            {item.description_about}
+                                        </td>
+                                    </tr>
+                                ))}
                             </tbody>
                         </table>
                     </div>
@@ -139,17 +142,19 @@ const TablePreview = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr className="text-[13px]">
-                                    <td className="px-6 py-4">
-                                        350
-                                    </td>
-                                    <td className="px-6 py-4">
-                                        200
-                                    </td>
-                                    <td className = "px-6 py-4 w-[300px]" >
-                                        4.8
-                                    </td>
-                                </tr>
+                                {data && data.map((item) => (
+                                    <tr key={item.id} className="text-[13px]">
+                                        <td className="px-6 py-4">
+                                            {item.client}
+                                        </td>
+                                        <td className="px-6 py-4">
+                                            {item.sponsor}
+                                        </td>
+                                        <td className = "px-6 py-4 w-[300px]" >
+                                            {item.rating}
+                                        </td>
+                                    </tr>
+                                ))}
                             </tbody>
                         </table>
                     </div>
@@ -168,31 +173,24 @@ const TablePreview = () => {
                                         Culture Title
                                     </th>
                                     <th scope="col" className="px-6 py-3">
-                                        Icon
-                                    </th>
-                                    <th scope="col" className="px-6 py-3">
                                         Description
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr className="text-[13px]">
-                                    <td className="px-6 py-4">
-                                        <img className="w-[100px]" src={profile} />
-                                    </td>
-                                    <td className="px-6 py-4">
-                                        Friendly
-                                    </td>
-                                    <td className="px-6 py-4">
-                                        <img className="w-[100px]" src={profile} />
-                                    </td>
-                                    <td className = "px-6 py-4 w-[300px]" >
-                                        Lorem ipsum dolor sit amet consectetur adipisi
-                                        Excepturi provident, cum ratione itaque dolorib
-                                        ditiis obcaecati saepe molestias debitis dolor di
-                                        m ? Praesentium aliquid
-                                    </td>
-                                </tr>
+                                {data && data.map((item) => (
+                                    <tr key={item.id} className="text-[13px]">
+                                        <td className="px-6 py-4">
+                                            {item.image_culture}
+                                        </td>
+                                        <td className="px-6 py-4">
+                                            {item.tittle_culture}
+                                        </td>
+                                        <td className = "px-6 py-4 w-[300px]" >
+                                            {item.description_culture}
+                                        </td>
+                                    </tr>
+                                ))}
                             </tbody>
                         </table>
                     </div>
@@ -234,35 +232,37 @@ const TablePreview = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr className="text-[13px]">
-                                    <td className="px-6 py-4">
-                                        08673583982763
-                                    </td>
-                                    <td className="px-6 py-4">
-                                        08937373393730
-                                    </td>
-                                    <td className="px-6 py-4">
-                                        catursangkaratekhnologi@gmail.com
-                                    </td>
-                                    <td className = "px-6 py-4" >
-                                       Jl Baranangsiang III Blok I No .7 Bogor Jawa Barat Indonesia
-                                    </td>
-                                    <td className="px-6 py-4">
-                                        <a href="http: //localhost:3000/preview-data-company" className="text-blue-600 hover:underline">http: //localhost:3000/preview-data-company</a>
-                                    </td>
-                                    <td className="px-6 py-4">
-                                        <a href="http: //localhost:3000/preview-data-company" className="text-blue-600 hover:underline">http: //localhost:3000/preview-data-company</a>
-                                    </td>
-                                    <td className="px-6 py-4">
-                                        <a href="http: //localhost:3000/preview-data-company" className="text-blue-600 hover:underline">http: //localhost:3000/preview-data-company</a>
-                                    </td>
-                                    <td className = "px-6 py-4" >
-                                       <a href="http: //localhost:3000/preview-data-company" className="text-blue-600 hover:underline">http: //localhost:3000/preview-data-company</a>
-                                    </td>
-                                    <td className = "px-6 py-4" >
-                                       <a href="http: //localhost:3000/preview-data-company" className="text-blue-600 hover:underline">http: //localhost:3000/preview-data-company</a>
-                                    </td>
-                                </tr>
+                                {data && data.map((item) => (
+                                    <tr key={item.id} className="text-[13px]">
+                                        <td className="px-6 py-4">
+                                            {item.no_wa}
+                                        </td>
+                                        <td className="px-6 py-4">
+                                            {item.no_telephone}
+                                        </td>
+                                        <td className="px-6 py-4">
+                                            {item.email}
+                                        </td>
+                                        <td className = "px-6 py-4" >
+                                            {item.addres}
+                                        </td>
+                                        <td className="px-6 py-4">
+                                            <a href={item.link_linkedin} className="text-blue-600 hover:underline">{item.link_linkedin}</a>
+                                        </td>
+                                        <td className="px-6 py-4">
+                                            <a href={item.link_ig} className="text-blue-600 hover:underline">{item.link_ig}</a>
+                                        </td>
+                                        <td className="px-6 py-4">
+                                            <a href={item.link_youtube} className="text-blue-600 hover:underline">{item.link_youtube}</a>
+                                        </td>
+                                        <td className = "px-6 py-4" >
+                                        <a href={item.link_telegram} className="text-blue-600 hover:underline">{item.link_telegram}</a>
+                                        </td>
+                                        <td className = "px-6 py-4" >
+                                        <a href={item.link_map} className="text-blue-600 hover:underline">{item.link_map}</a>
+                                        </td>
+                                    </tr>
+                                ))}
                             </tbody>
                         </table>
                     </div>

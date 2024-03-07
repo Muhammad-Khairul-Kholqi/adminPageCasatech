@@ -1,11 +1,12 @@
-import React from "react";
-import  { useState } from 'react';
+import React, { useState } from "react";
 import { Link } from 'react-router-dom';
 import './Style/StyleHeader.css';
 import { FaUser } from "react-icons/fa";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { MdOutlineAccountCircle } from "react-icons/md";
 import { BiLogOut } from "react-icons/bi";
+import { RiAdminLine } from "react-icons/ri";
+import Swal from 'sweetalert2';
 
 const Header = () => {
     const [isDropdownOpen, setDropdownOpen] = useState(false);
@@ -14,9 +15,23 @@ const Header = () => {
         setDropdownOpen(!isDropdownOpen);
     };
 
+    const handleLogout = (e) => {
+        e.preventDefault();
+
+        Swal.fire({
+            title: 'Yakin ingin logout?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Ya, Logout',
+            cancelButtonText: 'Batal'
+        })
+    };
+
     return (
-        <div className = "container flex justify-between flex-wrap gap-[50px] px-[5%] items-center " >
-            <div className = "teks-header" >
+        <div className="container flex justify-between flex-wrap gap-[50px] px-[5%] items-center">
+            <div className="teks-header">
                 Welcome back, <br />
                 <span className="name-admin text-[25px] font-bold">Alfar Ramazan</span>
             </div>
@@ -32,15 +47,23 @@ const Header = () => {
                         <ul>
                             <li>
                                 <Link to="/account-admin">
-                                    <div className = "flex items-center gap-[5px] hover:bg-[#1A9FA3] p-[5px] rounded-[5px] hover:text-white" >
+                                    <div className="flex items-center gap-[5px] hover:bg-[#1A9FA3] p-[5px] rounded-[5px] hover:text-white">
                                         <MdOutlineAccountCircle className="icon-log-acc text-[17px]" />
                                         <p>Account</p>
                                     </div>
                                 </Link>
                             </li>
                             <li>
-                                <Link to = "/" >
-                                    <div className = "flex items-center gap-[5px] mt-[5px] hover:bg-red-500 p-[5px] rounded-[5px] hover:text-white" >
+                                <Link to="/data-admin">
+                                    <div className="flex items-center gap-[5px] hover:bg-blue-500 p-[5px] rounded-[5px] hover:text-white">
+                                        <RiAdminLine  className="icon-log-acc text-[17px]" />
+                                        <p>Data</p>
+                                    </div>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/" onClick={handleLogout}>
+                                    <div className="flex items-center gap-[5px] mt-[5px] hover:bg-red-500 p-[5px] rounded-[5px] hover:text-white">
                                         <BiLogOut className="icon-log-acc text-[17px]" />
                                         <p>Logout</p>
                                     </div>
