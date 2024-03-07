@@ -42,7 +42,9 @@ import DataBlog from './Data/Blog/DataBlog';
 import AddDataBlog from './Data/Blog/AddDataBlog';
 import EditDataBlog from './Data/Blog/EditDataBlog';
 
-import DataAdmin from './DataAdmin';
+import DataAdmin from './Admin/DataAdmin';
+import EditDataAdmin from './Admin/EditDataAdmin';
+
 import Signin from './Signin';
 import Signup from './Signup';
 import NotFound from './NotFound';
@@ -107,7 +109,7 @@ const App = () => {
                         }
                     />
                     <Route
-                        path = "/edit-data-company"
+                        path = "/edit-data-company/:id"
                         element={
                             <DefaultLayout>
                                 <EditData />
@@ -330,6 +332,15 @@ const App = () => {
                         element={
                             <DefaultLayout>
                                 <DataAdmin />
+                            </DefaultLayout>
+                        }
+                    />
+
+                    <Route
+                        path="/edit-data-admin"
+                        element={
+                            <DefaultLayout>
+                                <EditDataAdmin />
                             </DefaultLayout>
                         }
                     />

@@ -40,20 +40,22 @@ const CompanyData = () => {
                 <h1 className="title text-center item-center text-white text-[40px] font-bold px-[20px] font-roboto-slab tracking-[2px]"> Company Data </h1></div>
 
                 <div className="bg-white p-[20px] rounded-[10px] mt-[20px]">
-                    <div className="flex gap-[10px] justify-end">
-                        <Link to="/edit-data-company">
-                            <div className="icon-text flex gap-[5px] items-center text-blue-600 bg-[#DCE6F5] hover:bg-blue-200 px-[10px] rounded-[3px] w-[70px] py-[5px]">
-                                <FaRegPenToSquare />
-                                <p className="text-link">Edit</p>
-                            </div>
-                        </Link>
-                        <Link to='/preview-data-company'>
-                            <div className="icon-text flex gap-[5px] items-center text-blue-600 bg-[#DCE6F5] hover:bg-blue-200 px-[10px] rounded-[3px] w-[110px] py-[5px]">
-                                <FaEye className="mt-[3px]" />
-                                <p className="text-link">See more</p>
-                            </div>
-                        </Link>
-                    </div>
+                    {data && data.map((item) => (
+                        <div className="flex gap-[10px] justify-end" key={item.id}>
+                            <Link to={`/edit-data-company/${item.id}`}>
+                                <div className = "icon-text flex gap-[5px] items-center text-blue-600 bg-[#DCE6F5] hover:bg-blue-200 px-[10px] rounded-[3px] w-[70px] py-[5px]" >
+                                    <FaRegPenToSquare />
+                                    <p className="text-link">Edit</p>
+                                </div>
+                            </Link>
+                            <Link to='/preview-data-company'>
+                                <div className="icon-text flex gap-[5px] items-center text-blue-600 bg-[#DCE6F5] hover:bg-blue-200 px-[10px] rounded-[3px] w-[110px] py-[5px]">
+                                    <FaEye className="mt-[3px]" />
+                                    <p className="text-link">See more</p>
+                                </div>
+                            </Link>
+                        </div>
+                    ))}
 
                     <div className="mt-[20px]">
                         <div class = "relative overflow-x-auto border-solid border-[1px] border-black" >

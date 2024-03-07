@@ -34,8 +34,6 @@ const EditDataInnovation = () => {
     const [tittle, setTitle] = useState('');
     const [editorContent, setEditorContent] = useState('');
 
-
-
     const handleChange = (content) => {
         setEditorContent(content);
     };

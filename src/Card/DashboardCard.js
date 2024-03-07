@@ -8,18 +8,23 @@ import { IoHeart } from "react-icons/io5";
 import axios from 'axios';
 
 const DashboardCard = () => {
-     const [data, setData] = useState(null);
+     const [dataTeam, setDataTeam] = useState(null);
+     const [threeData, setThreeData] = useState(null);
 
      useEffect(() => {
        const fetchData = async () => {
          try {
-           const response = await axios.get("http://localhost:4000/team");
-           const sortedData = response.data.data.sort((a, b) => b.id - a.id);
+          const responseTeam = await axios.get("http://localhost:4000/team");
+          const responseClientRatingSponsor = await axios.get("http://localhost:4000/company");
 
-           setData(sortedData);
-         } catch (error) {
-           console.error("Error fetching data:", error);
-         }
+          const sortedDataTeam = responseTeam.data.data.sort((a, b) => b.id - a.id);
+          const sortedData = responseClientRatingSponsor.data.data.sort((a, b) => b.id - a.id);
+
+          setDataTeam(sortedDataTeam);
+          setThreeData(sortedData);
+          } catch (error) {
+            console.error("Error fetching data:", error);
+          }
        };
 
        fetchData();
@@ -34,7 +39,7 @@ const DashboardCard = () => {
               </div> 
               <div className="text-jml font-bold">
                  <p className="title-card text-[20px]">Teams</p>
-                 <h1 className="jumlah text-[30px] ">{data ? `${data.length}` : 0}</h1>
+                 <h1 className="jumlah text-[30px] ">{dataTeam ? `${dataTeam.length}` : 0}</h1>
               </div>
             </div>
           </Link> 
@@ -44,10 +49,12 @@ const DashboardCard = () => {
               <div className = "bg-icon bg-[#FECACA] p-[10px] rounded-[50%] items-center" >
                 <IoExtensionPuzzle className="icon text-[40px] text-[#DC2626]" />
               </div> 
-              <div className="text-jml font-bold">
-                 <p className="title-card text-[20px]">Clients</p>
-                 <h1 className="jumlah text-[30px] ">67</h1>
-              </div>
+              {threeData && threeData.map((item) => (
+                <div key={item.id} className="text-jml font-bold">
+                  <p className="title-card text-[20px]">Clients</p>
+                  <h1 className="jumlah text-[30px] ">{item.client}</h1>
+                </div>
+              ))}
             </div>
           </Link> 
 
@@ -56,10 +63,12 @@ const DashboardCard = () => {
               <div className = "bg-icon bg-[#BFDBFE] p-[10px] rounded-[50%] items-center" >
                 <FaStar className="icon text-[40px] text-[#2563EB]" />
               </div> 
-              <div className="text-jml font-bold">
-                 <p className="title-card text-[20px]">Ratings</p>
-                 <h1 className="jumlah text-[30px] ">4.8</h1>
-              </div>
+              {threeData && threeData.map((item) => (
+                <div key={item.id} className="text-jml font-bold">
+                  <p className="title-card text-[20px]">Ratings</p>
+                  <h1 className="jumlah text-[30px] ">{item.rating}</h1>
+                </div>
+              ))}
             </div>
           </Link> 
 
@@ -68,10 +77,12 @@ const DashboardCard = () => {
               <div className = "bg-icon bg-[#FFCF96] p-[10px] rounded-[50%] items-center" >
                 <IoHeart  className="icon text-[40px] text-[#FF8911]" />
               </div>
-              <div className="text-jml font-bold">
-                 <p className="title-card text-[20px]">Sponsors</p>
-                 <h1 className="jumlah text-[30px] ">127</h1>
-              </div>
+              {threeData && threeData.map((item) => (
+                <div key={item.id} className="text-jml font-bold">
+                  <p className="title-card text-[20px]">Sponsors</p>
+                  <h1 className="jumlah text-[30px] ">{item.sponsor}</h1>
+                </div>
+              ))}
             </div>
           </Link> 
         </div>

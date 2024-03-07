@@ -15,7 +15,7 @@ import ContactCatalog from './FormEdit/ContactCatalog';
 
 const EditData = () => {
     useEffect(() => {
-        document.title = "Edit Integrated Data | Casatech";
+        document.title = "Edit Data Company | Casatech";
     }, []);
 
     const [activeTab, setActiveTab] = useState(1);
