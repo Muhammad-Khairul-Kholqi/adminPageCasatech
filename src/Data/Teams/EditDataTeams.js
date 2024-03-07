@@ -129,7 +129,7 @@ const EditDataTeams = () => {
                             <span for="name">Name:</span>
                             <br />
                             <input 
-                                className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px]" 
+                                className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] pl-[10px] pr-[10px]" 
                                 type="text" 
                                 id="name" 
                                 value={name}
@@ -141,7 +141,7 @@ const EditDataTeams = () => {
                             <span for="position">Position:</span>
                             <br />
                             <input 
-                                className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px]" 
+                                className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] pl-[10px] pr-[10px]" 
                                 type="text" 
                                 id="position" 
                                 value={position}

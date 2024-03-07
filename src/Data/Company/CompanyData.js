@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import backgImg from '../../Assets/bg.png';
 import '../../Style/Company/StyleCompany.css';
 import { Link } from 'react-router-dom';
-import profile from '../../Assets/profile.png';
 import { FaEye } from "react-icons/fa";
 import { FaRegPenToSquare } from "react-icons/fa6";
 
@@ -10,6 +10,24 @@ const CompanyData = () => {
     useEffect(() => {
         document.title = "Integrated Data | Casatech";
     }, []);
+
+    const [data, setData] = useState(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get("http://localhost:4000/company");
+                const sortedData = response.data.data.sort((a, b) => b.id - a.id);
+
+                setData(sortedData);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
     return (
         <>
             <div>
@@ -57,25 +75,23 @@ const CompanyData = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr className="text-[13px]">
-                                        <td class="px-6 py-4">
-                                            PT.Catur Sangkara Tekhnologi
+                                {data && data.map((item) => (
+                                    <tr key={item.id} className="text-[13px]">
+                                        <td className="px-6 py-4">
+                                            {item.company_name}
                                         </td>
-                                        <td class="px-6 py-4">
-                                            <img className="w-[100px]" src={profile} />
+                                        <td className="px-6 py-4">
+                                            {item.image_company}
                                         </td>
-                                        <td class = "px-6 py-4 w-[300px]" >
-                                            Deep Understanding,
-                                            Inspirational Solutions
+                                        <td className = "px-6 py-4 w-[300px]" >
+                                            {item.tittle_company}
                                         </td>
-                                        <td class = "px-6 py-4 w-[300px]" >
-                                            Trusted IT Consultation
-                                            for Business Growth,
-                                            Partner with us to navigate the digital landscape
-                                            and unlock your business 's full potential
+                                        <td className = "px-6 py-4 w-[300px]" >
+                                            {item.description_company}
                                         </td>
                                     </tr>
-                                </tbody>
+                                ))}
+                            </tbody>
                             </table>
                         </div>
                     </div>
@@ -94,23 +110,17 @@ const CompanyData = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr className="text-[13px]">
-                                        <td class="px-6 py-4">
-                                            Lorem ipsum dolor sit amet consectetur
-                                            adipisicing elit.Excepturi provident, cum
-                                            ratione itaque doloribus blanditiis obcae
-                                            cati saepe molestias debitis dolor dicta
-                                            earum ? Praesentium
+                                {data && data.map((item) => (
+                                    <tr key={item.id} className="text-[13px]">
+                                        <td className="px-6 py-4">
+                                            {item.visi}
                                         </td>
-                                        <td class="px-6 py-4">
-                                            Lorem ipsum dolor sit amet consectetur
-                                            adipisicing elit.Excepturi provident, cum
-                                            ratione itaque doloribus blanditiis obcae
-                                            cati saepe molestias debitis dolor dicta
-                                            earum ? Praesentium
+                                        <td className="px-6 py-4">
+                                            {item.misi}
                                         </td>
                                     </tr>
-                                </tbody>
+                                ))}
+                            </tbody>
                             </table>
                         </div>
                     </div>
@@ -121,9 +131,6 @@ const CompanyData = () => {
                                 <thead class="text-[15px] bg-blue-100 border-b-[1px] border-black">
                                     <tr>
                                         <th scope="col" class="px-6 py-3">
-                                            About Title
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
                                             Image
                                         </th>
                                         <th scope="col" class="px-6 py-3">
@@ -132,21 +139,17 @@ const CompanyData = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr className="text-[13px]">
-                                        <td class="px-6 py-4">
-                                            About Us
+                                {data && data.map((item) => (
+                                    <tr key={item.id} className="text-[13px]">
+                                        <td className="px-6 py-4">
+                                            {item.image_about}
                                         </td>
-                                        <td class="px-6 py-4">
-                                            <img className="w-[100px]" src={profile} />
-                                        </td>
-                                        <td class = "px-6 py-4 w-[300px]" >
-                                            Lorem ipsum dolor sit amet consectetur adipisi
-                                            Excepturi provident, cum ratione itaque dolorib
-                                            ditiis obcaecati saepe molestias debitis dolor di
-                                            m ? Praesentium aliquid
+                                        <td className = "px-6 py-4 w-[300px]" >
+                                            {item.description_about}
                                         </td>
                                     </tr>
-                                </tbody>
+                                ))}
+                            </tbody>
                             </table>
                         </div>
                     </div>
@@ -168,18 +171,20 @@ const CompanyData = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr className="text-[13px]">
-                                        <td class="px-6 py-4">
-                                            350
+                                {data && data.map((item) => (
+                                    <tr key={item.id} className="text-[13px]">
+                                        <td className="px-6 py-4">
+                                            {item.client}
                                         </td>
-                                        <td class="px-6 py-4">
-                                            200
+                                        <td className="px-6 py-4">
+                                            {item.sponsor}
                                         </td>
-                                        <td class = "px-6 py-4 w-[300px]" >
-                                           4.8
+                                        <td className = "px-6 py-4 w-[300px]" >
+                                            {item.rating}
                                         </td>
                                     </tr>
-                                </tbody>
+                                ))}
+                            </tbody>
                             </table>
                         </div>
                     </div>
