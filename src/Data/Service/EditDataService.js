@@ -8,13 +8,16 @@ import 'react-quill/dist/quill.snow.css';
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import backgImg from '../../Assets/bg.png';
 
+// api
+import BaseUrl from "../../Api/BaseUrl";
+
 const EditDataInnovation = () => {
     const { id } = useParams();
     const navigate = useNavigate();
 
     useEffect(() => {
         document.title = 'Edit Data Services | Casatech';
-        axios.get(`http://localhost:4000/service/${id}`)
+        axios.get(`${BaseUrl}service/${id}`)
             .then(response => {
                 const {
                     image,

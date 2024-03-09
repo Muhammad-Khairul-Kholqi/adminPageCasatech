@@ -6,13 +6,16 @@ import Swal from 'sweetalert2';
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import backgImg from '../../Assets/bg.png';
 
+// api
+import BaseUrl from "../../Api/BaseUrl";
+
 const EditDataTeams = () => {
     const { id } = useParams();
     const navigate = useNavigate();
 
      useEffect(() => {
          document.title = 'Edit Data Teams | Casatech';
-         axios.get(`http://localhost:4000/team/${id}`)
+         axios.get(`${BaseUrl}team/${id}`)
              .then(response => {
                  const {
                      image,

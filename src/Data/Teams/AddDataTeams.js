@@ -6,6 +6,9 @@ import backgImg from '../../Assets/bg.png';
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { Link } from "react-router-dom";
 
+// api
+import BaseUrl from "../../Api/BaseUrl";
+
 const AddDataTeams = () => {
      const [image, setImage] = useState('');
      const [name, setName] = useState('');
@@ -52,7 +55,7 @@ const AddDataTeams = () => {
          formData.append('position', position);
 
          try {
-             const response = await axios.post('http://localhost:4000/team', formData);
+             const response = await axios.post(`${BaseUrl}team`, formData);
 
              console.log('API Response:', response.data);
 

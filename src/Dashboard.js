@@ -35,7 +35,7 @@ const Dashboard = () => {
     }, []);
 
   return (
-    <>
+  <>
     <div className="">
         <div className = "container bg-cover bg-center mt-[20px] rounded-[10px] px-[10%] py-[30px] text-center text-white"
         style = {
