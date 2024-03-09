@@ -8,6 +8,9 @@ import backgImg from '../../Assets/bg.png';
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { Link } from "react-router-dom";
 
+// api
+import BaseUrl from '../../Api/BaseUrl';
+
 const AddDataService = () => {
     const [image, setImage] = useState('');
     const [tittle, setTitle] = useState('');
@@ -54,7 +57,7 @@ const AddDataService = () => {
         formData.append('description', editorContent);
 
         try {
-            const response = await axios.post('http://localhost:4000/service', formData);
+            const response = await axios.post(`${BaseUrl}service`, formData);
 
             console.log('API Response:', response.data);
 

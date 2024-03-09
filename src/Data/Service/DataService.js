@@ -7,6 +7,9 @@ import { FaRegPenToSquare } from "react-icons/fa6";
 import { FiPlusCircle } from "react-icons/fi";
 import { IoTrashOutline } from "react-icons/io5";
 
+// api
+import BaseUrl from "../../Api/BaseUrl";
+
 const DataService = () => {
     useEffect(() => {
         document.title = "Data Services | Casatech";
@@ -21,7 +24,7 @@ const DataService = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get("http://localhost:4000/service");
+                const response = await axios.get(`${BaseUrl}service`);
                 const sortedData = response.data.data.sort((a, b) => b.id - a.id);
 
                 setData(sortedData);
@@ -34,6 +37,7 @@ const DataService = () => {
     }, []);
 
     const handleDelete = async () => {
+        console.log('Selected Items:', selectedItems);
         if (selectedItems.length === 0) {
             Swal.fire({
                 title: 'Peringatan!',
@@ -56,7 +60,7 @@ const DataService = () => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-                    await Promise.all(selectedItems.map(id => axios.delete(`http://localhost:4000/service/${id}`)));
+                    await Promise.all(selectedItems.map(id => axios.delete(`${BaseUrl}service/${id}`)));
 
                     Swal.fire('Terhapus!', `${selectedItems.length} Data telah dihapus.`, 'success');
 
@@ -117,7 +121,7 @@ const DataService = () => {
                                 </div>
                             </Link>
                         </div>
-                        <p className="pb-[5px]">{data ? `${data.length}` : 0} Data Innovation</p>
+                        <p className="pb-[5px]">{data ? `${data.length}` : 0} Data Service</p>
                         <p className="pb-[10px] italic">Klik checkbox untuk hapus data</p>
                         <div div className = "relative overflow-x-auto border-solid border-[1px] border-black" >
                             <table className = "w-full text-sm text-left rtl:text-right" >
