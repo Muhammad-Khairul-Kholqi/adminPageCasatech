@@ -7,6 +7,9 @@ import { FaRegPenToSquare } from "react-icons/fa6";
 import { FiPlusCircle } from "react-icons/fi";
 import { IoTrashOutline } from "react-icons/io5";
 
+// api
+import BaseUrl from "../../Api/BaseUrl";
+
 const DataPortfolio = () => {
     const itemsPerPage = 5;
 
@@ -21,7 +24,7 @@ const DataPortfolio = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get("http://localhost:4000/portfolio");
+                const response = await axios.get(`${BaseUrl}portfolio`);
                 const sortedData = response.data.data.sort((a, b) => b.id - a.id);
 
                 setData(sortedData);
@@ -56,7 +59,7 @@ const DataPortfolio = () => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-                    await Promise.all(selectedItems.map(id => axios.delete(`http://localhost:4000/portfolio/${id}`)));
+                    await Promise.all(selectedItems.map(id => axios.delete(`${BaseUrl}portfolio/${id}`)));
 
                     Swal.fire('Terhapus!', `${selectedItems.length} Data telah dihapus.`, 'success');
 

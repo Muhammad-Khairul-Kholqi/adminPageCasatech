@@ -8,6 +8,9 @@ import backgImg from '../../Assets/bg.png';
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { Link } from "react-router-dom";
 
+// api
+import BaseUrl from "../../Api/BaseUrl";
+
 const AddDataPortfolio = () => {
      const [image, setImage] = useState('');
      const [title, setTitle] = useState('');
@@ -68,7 +71,7 @@ const AddDataPortfolio = () => {
         formData.append('description', editorContent);
 
         try {
-            const response = await axios.post('http://localhost:4000/portfolio', formData);
+            const response = await axios.post(`${BaseUrl}portfolio`, formData);
 
             console.log('API Response:', response.data);
 
@@ -144,6 +147,7 @@ const AddDataPortfolio = () => {
                                 id="software" 
                                 value={software_name}
                                 onChange={handleSoftwareChange}
+                                autoComplete="off"
                             />
                         </div>
                         <div className = "mt-[15px]" >
