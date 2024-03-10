@@ -6,6 +6,9 @@ import DashboardCard from './Card/DashboardCard';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+// api
+import BaseUrl from "./Api/BaseUrl";
+
 const Dashboard = () => {
    useEffect(() => {
        document.title = "Dashboard | Casatech";
@@ -22,7 +25,7 @@ const Dashboard = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get("http://localhost:4000/company");
+                const response = await axios.get(`${BaseUrl}company`);
                 const sortedData = response.data.data.sort((a, b) => b.id - a.id);
 
                 setData(sortedData);

@@ -7,6 +7,9 @@ import '../../Style/Company/StylePreviewCompany.css';
 import { FaRegPenToSquare } from "react-icons/fa6";
 import TablePreview from './TablePreview';
 
+// api
+import BaseUrl from "../../Api/BaseUrl";
+
 const PreviewData = () => {
     useEffect(() => {
         document.title = "Integrated Data Preview | Casatech";
@@ -17,7 +20,7 @@ const PreviewData = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get("http://localhost:4000/company");
+                const response = await axios.get(`${BaseUrl}company`);
                 const sortedData = response.data.data.sort((a, b) => b.id - a.id);
 
                 setData(sortedData);

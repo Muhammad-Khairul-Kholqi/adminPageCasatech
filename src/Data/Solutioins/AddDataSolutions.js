@@ -8,6 +8,9 @@ import { Link } from 'react-router-dom';
 import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
 import backgImg from '../../Assets/bg.png';
 
+// api
+import BaseUrl from "../../Api/BaseUrl";
+
 const AddDataSolutions = () => {
     const [title, setTitle] = useState('');
     const [editorContent, setEditorContent] = useState('');
@@ -44,7 +47,7 @@ const AddDataSolutions = () => {
 
 
         try {
-            const response = await axios.post('http://localhost:4000/solution', {
+            const response = await axios.post(`${BaseUrl}solution`, {
                 title: title,
                 description: editorContent,
             });
