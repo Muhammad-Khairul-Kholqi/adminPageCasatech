@@ -68,7 +68,7 @@ const EditDataTeams = () => {
         formData.append('position', position);
 
          try {
-             const response = await axios.patch(`http://localhost:4000/team/${id}`, formData, {
+             const response = await axios.patch(`${BaseUrl}team/${id}`, formData, {
                  headers: {
                      'Content-Type': 'multipart/form-data',
                  }
