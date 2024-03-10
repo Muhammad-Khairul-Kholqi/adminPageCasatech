@@ -8,13 +8,16 @@ import 'react-quill/dist/quill.snow.css';
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import backgImg from '../../Assets/bg.png';
 
+// api
+import BaseUrl from "../../Api/BaseUrl";
+
 const EditDataSolutions = () => {
     const { id } = useParams();
     const navigate = useNavigate();
 
     useEffect(() => {
         document.title = 'Edit Data Solutions | Casatech';
-        axios.get(`http://localhost:4000/solution/${id}`)
+        axios.get(`${BaseUrl}solution/${id}`)
             .then(response => {
                 const { title, description } = response.data;
                 setTitle(title);
@@ -73,7 +76,7 @@ const EditDataSolutions = () => {
        }
 
        try {
-           const response = await axios.patch(`http://localhost:4000/solution/${id}`, {
+           const response = await axios.patch(`${BaseUrl}solution/${id}`, {
                title: title,
                description: editorContent,
            });

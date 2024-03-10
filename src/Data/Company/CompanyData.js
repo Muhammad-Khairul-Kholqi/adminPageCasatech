@@ -6,6 +6,9 @@ import { Link } from 'react-router-dom';
 import { FaEye } from "react-icons/fa";
 import { FaRegPenToSquare } from "react-icons/fa6";
 
+// api
+import BaseUrl from "../../Api/BaseUrl";
+
 const CompanyData = () => {
     useEffect(() => {
         document.title = "Integrated Data | Casatech";
@@ -16,7 +19,7 @@ const CompanyData = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get("http://localhost:4000/company");
+                const response = await axios.get(`${BaseUrl}company`);
                 const sortedData = response.data.data.sort((a, b) => b.id - a.id);
 
                 setData(sortedData);

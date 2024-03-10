@@ -7,6 +7,9 @@ import { FaStar } from "react-icons/fa6";
 import { IoHeart } from "react-icons/io5";
 import axios from 'axios';
 
+// api
+import BaseUrl from "../Api/BaseUrl";
+
 const DashboardCard = () => {
      const [dataTeam, setDataTeam] = useState(null);
      const [threeData, setThreeData] = useState(null);
@@ -14,8 +17,8 @@ const DashboardCard = () => {
      useEffect(() => {
        const fetchData = async () => {
          try {
-          const responseTeam = await axios.get("http://localhost:4000/team");
-          const responseClientRatingSponsor = await axios.get("http://localhost:4000/company");
+          const responseTeam = await axios.get(`${BaseUrl}team`);
+          const responseClientRatingSponsor = await axios.get(`${BaseUrl}company`);
 
           const sortedDataTeam = responseTeam.data.data.sort((a, b) => b.id - a.id);
           const sortedData = responseClientRatingSponsor.data.data.sort((a, b) => b.id - a.id);

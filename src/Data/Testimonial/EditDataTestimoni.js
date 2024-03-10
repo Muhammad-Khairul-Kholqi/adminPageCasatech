@@ -8,13 +8,16 @@ import 'react-quill/dist/quill.snow.css';
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import backgImg from '../../Assets/bg.png';
 
+// api
+import BaseUrl from "../../Api/BaseUrl";
+
 const EditDataTestimoni = () => {
     const { id } = useParams();
     const navigate = useNavigate();
 
     useEffect(() => {
         document.title = 'Edit Data Testimoni | Casatech';
-        axios.get(`http://localhost:4000/testimoni/${id}`)
+        axios.get(`${BaseUrl}testimoni/${id}`)
             .then(response => {
                 const {
                     image,
@@ -102,7 +105,7 @@ const EditDataTestimoni = () => {
         formData.append('description', editorContent);
 
         try {
-            const response = await axios.patch(`http://localhost:4000/testimoni/${id}`, formData, {
+            const response = await axios.patch(`${BaseUrl}testimoni/${id}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

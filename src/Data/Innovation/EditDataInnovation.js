@@ -8,13 +8,16 @@ import 'react-quill/dist/quill.snow.css';
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import backgImg from '../../Assets/bg.png';
 
+// api
+import BaseUrl from "../../Api/BaseUrl";
+
 const EditDataInnovation = () => {
     const { id } = useParams();
     const navigate = useNavigate();
 
     useEffect(() => {
         document.title = 'Edit Data Innovation | Casatech';
-        axios.get(`http://localhost:4000/innovation/${id}`)
+        axios.get(`${BaseUrl}innovation/${id}`)
             .then(response => {
                 const {
                     image,
@@ -94,7 +97,7 @@ const EditDataInnovation = () => {
         formData.append('description', editorContent);
 
         try {
-            const response = await axios.patch(`http://localhost:4000/innovation/${id}`, formData, {
+            const response = await axios.patch(`${BaseUrl}innovation/${id}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
