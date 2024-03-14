@@ -46,7 +46,7 @@ import DataAdmin from './Admin/DataAdmin';
 import EditDataAdmin from './Admin/EditDataAdmin';
 
 import Signin from './Signin';
-import Signup from './Signup';
+import Registrasi from './Registrasi';
 import NotFound from './NotFound';
 import './Style/StyleApp.css';
 
@@ -347,7 +347,7 @@ const App = () => {
 
                     {/* sign in & sign up */}
                     <Route path="/" element={<Signin />} />
-                    <Route path="/signup" element={<Signup />} />
+                    <Route path="/registrasi" element={<Registrasi />} />
 
                     {/* not found */}
                     <Route path="*" element={<NotFound />} />

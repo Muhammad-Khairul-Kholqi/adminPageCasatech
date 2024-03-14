@@ -36,13 +36,13 @@ const DataAdmin = () => {
                                     Image
                                 </th>
                                 <th scope="col" className="px-6 py-3">
-                                    Name
+                                    Full Name
                                 </th>
                                 <th scope="col" className="px-6 py-3">
                                     Position
                                 </th>
                                 <th scope="col" className="px-6 py-3">
-                                    Place and date of birth
+                                    Place date of birth
                                 </th>
                                 <th scope="col" className="px-6 py-3">
                                     Address
