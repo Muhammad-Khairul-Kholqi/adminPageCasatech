@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Sidebar from './Template/Side';
 
@@ -70,6 +70,15 @@ const DefaultLayout = ({ children }) => {
 };
 
 const App = () => {
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    useEffect(() => {
+        // Cek apakah pengguna sudah login saat aplikasi dimuat
+        const token = localStorage.getItem('token');
+        if (token) {
+            setIsLoggedIn(true);
+        }
+    }, []);
     return (
         <>
             <Router>
