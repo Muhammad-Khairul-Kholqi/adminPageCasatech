@@ -24,7 +24,12 @@ const SolutionsData = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`${BaseUrl}solution`);
+                const token = localStorage.getItem('token');
+                const response = await axios.get(`${BaseUrl}solution`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
                 const sortedData = response.data.data.sort((a, b) => b.id - a.id);
 
                 setData(sortedData);
@@ -59,7 +64,12 @@ const SolutionsData = () => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-                    await Promise.all(selectedItems.map(id => axios.delete(`${BaseUrl}solution/${id}`)));
+                    const token = localStorage.getItem('token');
+                    await Promise.all(selectedItems.map(id => axios.delete(`${BaseUrl}solution/${id}`, {
+                        headers: {
+                            Authorization: `Bearer ${token}`
+                        }
+                    })));
 
                     Swal.fire('Terhapus!', `${selectedItems.length} Data telah dihapus.`, 'success');
 

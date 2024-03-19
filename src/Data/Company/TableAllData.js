@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from 'react-router-dom';
-
-// api
 import BaseUrl from "../../Api/BaseUrl";
 
-const TablePreview = () => {
-    const [data, setData] = useState(null);
+const TableAllData = () => {
+   const [data, setData] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`${BaseUrl}company`);
-                const sortedData = response.data.data.sort((a, b) => b.id - a.id);
+                const token = localStorage.getItem('token');
+                const responseAllDataCompany = await axios.get(`${BaseUrl}company`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+                const sortedData = responseAllDataCompany.data.data.sort((a, b) => b.id - a.id);
 
                 setData(sortedData);
             } catch (error) {
@@ -274,4 +277,4 @@ const TablePreview = () => {
     )
 }
 
-export default TablePreview;
+export default TableAllData;

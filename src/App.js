@@ -11,7 +11,6 @@ import Dashboard from './Dashboard';
 import AccountAdmin from './Admin/AccountAdmin';
 
 import CompanyData from './Data/Company/CompanyData';
-import PreviewData from './Data/Company/PreviewData';
 import CreateDataCompany from './Data/Company/CreatData';
 import EditData from './Data/Company/EditData';
 
@@ -98,14 +97,6 @@ const App = () => {
                             element={
                                 <DefaultLayout>
                                     <CompanyData />
-                                </DefaultLayout>
-                            }
-                        />
-                        <Route
-                            path = "/preview-data-company"
-                            element={
-                                <DefaultLayout>
-                                    <PreviewData />
                                 </DefaultLayout>
                             }
                         />

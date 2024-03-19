@@ -5,6 +5,7 @@ import '../../Style/Company/StyleCompany.css';
 import { Link } from 'react-router-dom';
 import { FaEye } from "react-icons/fa";
 import { FaRegPenToSquare } from "react-icons/fa6";
+import TableAllData from "./TableAllData";
 
 // api
 import BaseUrl from "../../Api/BaseUrl";
@@ -19,8 +20,13 @@ const CompanyData = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`${BaseUrl}company`);
-                const sortedData = response.data.data.sort((a, b) => b.id - a.id);
+                const token = localStorage.getItem('token');
+                const responseDataCompany = await axios.get(`${BaseUrl}company`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
+                const sortedData = responseDataCompany.data.data.sort((a, b) => b.id - a.id);
 
                 setData(sortedData);
             } catch (error) {
@@ -51,148 +57,10 @@ const CompanyData = () => {
                                     <p className="text-link">Edit</p>
                                 </div>
                             </Link>
-                            <Link to='/preview-data-company'>
-                                <div className="icon-text flex gap-[5px] items-center text-blue-600 bg-[#DCE6F5] hover:bg-blue-200 px-[10px] rounded-[3px] w-[110px] py-[5px]">
-                                    <FaEye className="mt-[3px]" />
-                                    <p className="text-link">See more</p>
-                                </div>
-                            </Link>
                         </div>
                     ))}
 
-                    <div className="mt-[20px]">
-                        <div class = "relative overflow-x-auto border-solid border-[1px] border-black" >
-                            <table class = "w-full text-sm text-left rtl:text-right" >
-                                <thead class = "text-[15px] bg-blue-100 border-b-[1px] border-black" >
-                                    <tr>
-                                        <th scope="col" class="px-6 py-3">
-                                            Company Name
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
-                                            Image
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
-                                            Title
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
-                                            Description
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                {data && data.map((item) => (
-                                    <tr key={item.id} className="text-[13px]">
-                                        <td className="px-6 py-4">
-                                            {item.company_name}
-                                        </td>
-                                        <td className="px-6 py-4">
-                                            {item.image_company}
-                                        </td>
-                                        <td className = "px-6 py-4 w-[300px]" >
-                                            {item.tittle_company}
-                                        </td>
-                                        <td className = "px-6 py-4 w-[300px]" >
-                                            {item.description_company}
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <div className="mt-[20px]">
-                        <div class = "relative overflow-x-auto border-solid border-[1px] border-black" >
-                            <table class="w-full text-sm text-left rtl:text-right">
-                                <thead class="text-[15px] bg-blue-100 border-b-[1px] border-black">
-                                    <tr>
-                                        <th scope="col" class="px-6 py-3">
-                                            Vision
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
-                                            Mision
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                {data && data.map((item) => (
-                                    <tr key={item.id} className="text-[13px]">
-                                        <td className="px-6 py-4">
-                                            {item.visi}
-                                        </td>
-                                        <td className="px-6 py-4">
-                                            {item.misi}
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <div className="mt-[20px]">
-                        <div class="relative overflow-x-auto border-solid border-[1px] border-black">
-                            <table class="w-full text-sm text-left rtl:text-right">
-                                <thead class="text-[15px] bg-blue-100 border-b-[1px] border-black">
-                                    <tr>
-                                        <th scope="col" class="px-6 py-3">
-                                            Image
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
-                                            Description
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                {data && data.map((item) => (
-                                    <tr key={item.id} className="text-[13px]">
-                                        <td className="px-6 py-4">
-                                            {item.image_about}
-                                        </td>
-                                        <td className = "px-6 py-4 w-[300px]" >
-                                            {item.description_about}
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <div className="mt-[20px]">
-                        <div class="relative overflow-x-auto border-solid border-[1px] border-black">
-                            <table class="w-full text-sm text-left rtl:text-right">
-                                <thead class="text-[15px] bg-blue-100 border-b-[1px] border-black">
-                                    <tr>
-                                        <th scope="col" class="px-6 py-3">
-                                            Amount Clients
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
-                                            Amount Sponsors
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
-                                            Average Ratings
-                                        </th> 
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                {data && data.map((item) => (
-                                    <tr key={item.id} className="text-[13px]">
-                                        <td className="px-6 py-4">
-                                            {item.client}
-                                        </td>
-                                        <td className="px-6 py-4">
-                                            {item.sponsor}
-                                        </td>
-                                        <td className = "px-6 py-4 w-[300px]" >
-                                            {item.rating}
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                            </table>
-                        </div>
-                    </div>
+                    <TableAllData />
                 </div>
             </div>
         </>
