@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
-import './Style/StyleHeader.css';
+import { Link, useNavigate } from 'react-router-dom';
+import '../Style/StyleHeader.css';
 import { FaUser } from "react-icons/fa";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { MdOutlineAccountCircle } from "react-icons/md";
@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
 
 const Header = () => {
     const [isDropdownOpen, setDropdownOpen] = useState(false);
+    const navigate = useNavigate(); // Definisikan navigate disini
 
     const toggleDropdown = () => {
         setDropdownOpen(!isDropdownOpen);
@@ -26,7 +27,11 @@ const Header = () => {
             cancelButtonColor: '#3085d6',
             confirmButtonText: 'Ya, Logout',
             cancelButtonText: 'Batal'
-        })
+        }).then((result) => {
+            if (result.isConfirmed) {
+                navigate('/'); // Redirect to homepage after logout
+            }
+        });
     };
 
     return (

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import profile from "./Assets/profile.png"
-import background from "./Assets/bg.png"
-import './Style/StyleAccountAdmin.css';
+import profile from "../Assets/profile.png"
+import background from "../Assets/bg.png"
+import '../Style/StyleAccountAdmin.css';
 import { FaPenToSquare } from "react-icons/fa6";
 
 const AccountAdmin = () => {
