@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+// import { AuthProvider } from './Controller/AuthContext';
+
 import Sidebar from './Template/Side';
 
-import Header from './Header';
+import Header from './Template/Header';
 
 import Dashboard from './Dashboard';
 
-import AccountAdmin from './AccountAdmin';
+import AccountAdmin from './Admin/AccountAdmin';
 
 import CompanyData from './Data/Company/CompanyData';
 import PreviewData from './Data/Company/PreviewData';
@@ -70,296 +72,287 @@ const DefaultLayout = ({ children }) => {
 };
 
 const App = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-    useEffect(() => {
-        // Cek apakah pengguna sudah login saat aplikasi dimuat
-        const token = localStorage.getItem('token');
-        if (token) {
-            setIsLoggedIn(true);
-        }
-    }, []);
     return (
         <>
             <Router>
                 <Routes>
-                    {/* dashboard */}
-                    <Route
-                        path = "/dashboard-admin"
-                        element={
-                            <DefaultLayout>
-                                <Dashboard />
-                            </DefaultLayout>
-                        }
-                    />
-                    {/* company */}
-                    <Route
-                        path="/company-data"
-                        element={
-                            <DefaultLayout>
-                                <CompanyData />
-                            </DefaultLayout>
-                        }
-                    />
-                    <Route
-                        path = "/preview-data-company"
-                        element={
-                            <DefaultLayout>
-                                <PreviewData />
-                            </DefaultLayout>
-                        }
-                    />
-                    <Route
-                        path="/create-company-data"
-                        element={
-                            <DefaultLayout>
-                                <CreateDataCompany />
-                            </DefaultLayout>
-                        }
-                    />
-                    <Route
-                        path = "/edit-data-company/:id"
-                        element={
-                            <DefaultLayout>
-                                <EditData />
-                            </DefaultLayout>
-                        }
-                    />
+                         {/* sign in & sign up */}
+                        <Route path="/registrasi" element={<Registrasi />} />
+                        <Route path="/" element={<Signin />} />
 
-                    {/* solutions */}
-                    <Route
-                        path="/data-solutions"
-                        element={
-                            <DefaultLayout>
-                                <SolutionsData />
-                            </DefaultLayout>
-                        }
-                    />
-                    <Route
-                        path="/add-data-solutions"
-                        element={
-                            <DefaultLayout>
-                                <AddDataSolutions />
-                            </DefaultLayout>
-                        }
-                    />
-                     <Route
-                        path="/edit-data-solutions/:id"
-                        element={
-                            <DefaultLayout>
-                                <EditDataSolutions />
-                            </DefaultLayout>
-                        }
-                    />
+                        {/* not found */}
+                        <Route path="*" element={<NotFound />} />
 
-                    {/* innovation */}
-                    <Route
-                        path = "/data-innovation"
-                        element={
-                            <DefaultLayout>
-                                <DataInnovation />
-                            </DefaultLayout>
-                        }
-                    />
-                    <Route
-                        path = "/add-data-innovation"
-                        element={
-                            <DefaultLayout>
-                                <AddDataInnovation />
-                            </DefaultLayout>
-                        }
-                    />
-                    <Route
-                        path = "/edit-data-innovation/:id"
-                        element={
-                            <DefaultLayout>
-                                <EditDataInnovation />
-                            </DefaultLayout>
-                        }
-                    />
+                        {/* dashboard */}
+                        <Route
+                            path = "/dashboard-admin"
+                            element={
+                                <DefaultLayout>
+                                    <Dashboard />
+                                </DefaultLayout>
+                            }
+                        />
+                        {/* company */}
+                        <Route
+                            path="/company-data"
+                            element={
+                                <DefaultLayout>
+                                    <CompanyData />
+                                </DefaultLayout>
+                            }
+                        />
+                        <Route
+                            path = "/preview-data-company"
+                            element={
+                                <DefaultLayout>
+                                    <PreviewData />
+                                </DefaultLayout>
+                            }
+                        />
+                        <Route
+                            path="/create-company-data"
+                            element={
+                                <DefaultLayout>
+                                    <CreateDataCompany />
+                                </DefaultLayout>
+                            }
+                        />
+                        <Route
+                            path = "/edit-data-company/:id"
+                            element={
+                                <DefaultLayout>
+                                    <EditData />
+                                </DefaultLayout>
+                            }
+                        />
 
-                    {/* testimonial */}
-                    <Route
-                        path = "/testimonial-data"
-                        element={
-                            <DefaultLayout>
-                                <TestimonialData />
-                            </DefaultLayout>
-                        }
-                    />
-                    <Route
-                        path = "/add-data-testimonial"
-                        element={
-                            <DefaultLayout>
-                                <AddDataTestimoni />
-                            </DefaultLayout>
-                        }
-                    />
-                    <Route
-                        path = "/edit-data-testimonial/:id"
-                        element={
-                            <DefaultLayout>
-                                <EditDataTestimoni />
-                            </DefaultLayout>
-                        }
-                    />
+                        {/* solutions */}
+                        <Route
+                            path="/data-solutions"
+                            element={
+                                <DefaultLayout>
+                                    <SolutionsData />
+                                </DefaultLayout>
+                            }
+                        />
+                        <Route
+                            path="/add-data-solutions"
+                            element={
+                                <DefaultLayout>
+                                    <AddDataSolutions />
+                                </DefaultLayout>
+                            }
+                        />
+                        <Route
+                            path="/edit-data-solutions/:id"
+                            element={
+                                <DefaultLayout>
+                                    <EditDataSolutions />
+                                </DefaultLayout>
+                            }
+                        />
 
-                    {/* portfolio */}
-                    <Route
-                        path = "/data-portfolio"
-                        element={
-                            <DefaultLayout>
-                                <DataPortfolio />
-                            </DefaultLayout>
-                        }
-                    />
+                        {/* innovation */}
+                        <Route
+                            path = "/data-innovation"
+                            element={
+                                <DefaultLayout>
+                                    <DataInnovation />
+                                </DefaultLayout>
+                            }
+                        />
+                        <Route
+                            path = "/add-data-innovation"
+                            element={
+                                <DefaultLayout>
+                                    <AddDataInnovation />
+                                </DefaultLayout>
+                            }
+                        />
+                        <Route
+                            path = "/edit-data-innovation/:id"
+                            element={
+                                <DefaultLayout>
+                                    <EditDataInnovation />
+                                </DefaultLayout>
+                            }
+                        />
 
-                    <Route
-                        path = "/add-data-portfolio"
-                        element={
-                            <DefaultLayout>
-                                <AddDataPortfolio />
-                            </DefaultLayout>
-                        }
-                    />
+                        {/* testimonial */}
+                        <Route
+                            path = "/testimonial-data"
+                            element={
+                                <DefaultLayout>
+                                    <TestimonialData />
+                                </DefaultLayout>
+                            }
+                        />
+                        <Route
+                            path = "/add-data-testimonial"
+                            element={
+                                <DefaultLayout>
+                                    <AddDataTestimoni />
+                                </DefaultLayout>
+                            }
+                        />
+                        <Route
+                            path = "/edit-data-testimonial/:id"
+                            element={
+                                <DefaultLayout>
+                                    <EditDataTestimoni />
+                                </DefaultLayout>
+                            }
+                        />
 
-                    <Route
-                        path = "/edit-data-portfolio/:id"
-                        element={
-                            <DefaultLayout>
-                                <EditDataPortfolio />
-                            </DefaultLayout>
-                        }
-                    />
+                        {/* portfolio */}
+                        <Route
+                            path = "/data-portfolio"
+                            element={
+                                <DefaultLayout>
+                                    <DataPortfolio />
+                                </DefaultLayout>
+                            }
+                        />
 
-                    {/* teams */}
-                     <Route
-                        path = "/data-teams"
-                        element={
-                            <DefaultLayout>
-                                <DataTeams />
-                            </DefaultLayout>
-                        }
-                    />
+                        <Route
+                            path = "/add-data-portfolio"
+                            element={
+                                <DefaultLayout>
+                                    <AddDataPortfolio />
+                                </DefaultLayout>
+                            }
+                        />
 
-                    <Route
-                        path = "/add-data-teams"
-                        element={
-                            <DefaultLayout>
-                                <AddDataTeams />
-                            </DefaultLayout>
-                        }
-                    />
+                        <Route
+                            path = "/edit-data-portfolio/:id"
+                            element={
+                                <DefaultLayout>
+                                    <EditDataPortfolio />
+                                </DefaultLayout>
+                            }
+                        />
 
-                    <Route
-                        path = "/edit-data-teams/:id"
-                        element={
-                            <DefaultLayout>
-                                <EditDataTeams />
-                            </DefaultLayout>
-                        }
-                    />
+                        {/* teams */}
+                        <Route
+                            path = "/data-teams"
+                            element={
+                                <DefaultLayout>
+                                    <DataTeams />
+                                </DefaultLayout>
+                            }
+                        />
 
-                    {/* service */}
-                    <Route
-                        path = "/data-services"
-                        element={
-                            <DefaultLayout>
-                                <DataService />
-                            </DefaultLayout>
-                        }
-                    />
+                        <Route
+                            path = "/add-data-teams"
+                            element={
+                                <DefaultLayout>
+                                    <AddDataTeams />
+                                </DefaultLayout>
+                            }
+                        />
 
-                    <Route
-                        path = "/add-data-service"
-                        element={
-                            <DefaultLayout>
-                                <AddDataService />
-                            </DefaultLayout>
-                        }
-                    />
+                        <Route
+                            path = "/edit-data-teams/:id"
+                            element={
+                                <DefaultLayout>
+                                    <EditDataTeams />
+                                </DefaultLayout>
+                            }
+                        />
 
-                    <Route
-                        path = "/edit-data-services/:id"
-                        element={
-                            <DefaultLayout>
-                                <EditDataService />
-                            </DefaultLayout>
-                        }
-                    />
+                        {/* service */}
+                        <Route
+                            path = "/data-services"
+                            element={
+                                <DefaultLayout>
+                                    <DataService />
+                                </DefaultLayout>
+                            }
+                        />
 
-                    {/* blog */}
-                    <Route
-                        path = "/category-blog"
-                        element={
-                            <DefaultLayout>
-                                <CategoryBlog />
-                            </DefaultLayout>
-                        }
-                    />
-                    <Route
-                        path = "/data-blog"
-                        element={
-                            <DefaultLayout>
-                                <DataBlog />
-                            </DefaultLayout>
-                        }
-                    />
+                        <Route
+                            path = "/add-data-service"
+                            element={
+                                <DefaultLayout>
+                                    <AddDataService />
+                                </DefaultLayout>
+                            }
+                        />
 
-                    <Route
-                        path = "/add-data-blog"
-                        element={
-                            <DefaultLayout>
-                                <AddDataBlog />
-                            </DefaultLayout>
-                        }
-                    />
+                        <Route
+                            path = "/edit-data-services/:id"
+                            element={
+                                <DefaultLayout>
+                                    <EditDataService />
+                                </DefaultLayout>
+                            }
+                        />
 
-                    <Route
-                        path = "/edit-data-blog"
-                        element={
-                            <DefaultLayout>
-                                <EditDataBlog />
-                            </DefaultLayout>
-                        }
-                    />
+                        {/* blog */}
+                        <Route
+                            path = "/category-blog"
+                            element={
+                                <DefaultLayout>
+                                    <CategoryBlog />
+                                </DefaultLayout>
+                            }
+                        />
+                        <Route
+                            path = "/data-blog"
+                            element={
+                                <DefaultLayout>
+                                    <DataBlog />
+                                </DefaultLayout>
+                            }
+                        />
+
+                        <Route
+                            path = "/add-data-blog"
+                            element={
+                                <DefaultLayout>
+                                    <AddDataBlog />
+                                </DefaultLayout>
+                            }
+                        />
+
+                        <Route
+                            path = "/edit-data-blog"
+                            element={
+                                <DefaultLayout>
+                                    <EditDataBlog />
+                                </DefaultLayout>
+                            }
+                        />
 
 
-                    {/* account admin */}
-                    <Route
-                        path="/account-admin"
-                        element={
-                            <DefaultLayout>
-                                <AccountAdmin />
-                            </DefaultLayout>
-                        }
-                    />
+                        {/* account admin */}
+                        <Route
+                            path="/account-admin"
+                            element={
+                                <DefaultLayout>
+                                    <AccountAdmin />
+                                </DefaultLayout>
+                            }
+                        />
 
-                    {/* data admin */}
-                    <Route
-                        path="/data-admin"
-                        element={
-                            <DefaultLayout>
-                                <DataAdmin />
-                            </DefaultLayout>
-                        }
-                    />
+                        {/* data admin */}
+                        <Route
+                            path="/data-admin"
+                            element={
+                                <DefaultLayout>
+                                    <DataAdmin />
+                                </DefaultLayout>
+                            }
+                        />
 
-                    <Route
-                        path="/edit-data-admin"
-                        element={
-                            <DefaultLayout>
-                                <EditDataAdmin />
-                            </DefaultLayout>
-                        }
-                    />
-
-                    {/* sign in & sign up */}
-                    <Route path="/" element={<Signin />} />
-                    <Route path="/registrasi" element={<Registrasi />} />
-
-                    {/* not found */}
-                    <Route path="*" element={<NotFound />} />
+                        <Route
+                            path="/edit-data-admin"
+                            element={
+                                <DefaultLayout>
+                                    <EditDataAdmin />
+                                </DefaultLayout>
+                            }
+                        />
                 </Routes>
             </Router>
         </>

@@ -137,48 +137,48 @@ const Registrasi = () => {
                                         id="fullname"
                                         type="text"
                                         autoComplete="off"
-                                        className="border rounded-[3px] mt-[5px] w-full pl-[5px] px-[5px]"
+                                        className="border rounded-[3px] mt-[10px] w-full pl-[5px] px-[5px]"
                                         onChange={handleFullnameChange}
                                     />
                                 </div>
 
-                                <div className="mt-[10px]">
+                                <div className="mt-[15px]">
                                     <label htmlFor="pdb">Place date of birth: </label>
                                     <input 
                                         id="pdb"
                                         type="date"
                                         autoComplete="off"
-                                        className="border rounded-[3px] mt-[5px] w-full pl-[5px] px-[5px]"
+                                        className="border rounded-[3px] mt-[10px] w-full pl-[5px] px-[5px]"
                                         onChange={handleBirthChange}
                                     />
                                 </div>
 
-                                <div className="mt-[10px]">
+                                <div className="mt-[15px]">
                                     <label htmlFor="position">Position: </label>
                                     <input 
                                         id="position"
                                         type="text"
                                         autoComplete="off"
-                                        className="border rounded-[3px] mt-[5px] w-full pl-[5px] px-[5px]"
+                                        className="border rounded-[3px] mt-[10px] w-full pl-[5px] px-[5px]"
                                         onChange={handlePositionChange}
                                     />
                                 </div>
 
-                                <div className="mt-[10px]">
+                                <div className="mt-[15px]">
                                     <label htmlFor="address">Address: </label>
                                     <input 
                                         id="address"
                                         type="text"
                                         autoComplete="off"
-                                        className="border rounded-[3px] mt-[5px] w-full pl-[5px] px-[5px]"
+                                        className="border rounded-[3px] mt-[10px] w-full pl-[5px] px-[5px]"
                                         onChange={handleAddresChange}
                                     />
                                 </div>
 
-                                <div className="mt-[10px]">
+                                <div className="mt-[15px]">
                                     <label htmlFor="image">Image: </label>
                                     <input
-                                        className="border rounded-[3px] mt-[5px] w-full"
+                                        className="border rounded-[3px] mt-[10px] w-full"
                                         type="file"
                                         id="image"
                                         onChange={handleImageChange}
@@ -193,19 +193,19 @@ const Registrasi = () => {
                                         id="username"
                                         type="text"
                                         autoComplete="off"
-                                        className="border rounded-[3px] mt-[5px] w-full pl-[5px] px-[5px]"
+                                        className="border rounded-[3px] mt-[10px] w-full pl-[5px] px-[5px]"
                                         onChange={handleUsernameChange}
                                     />
                                 </div>
 
-                                <div className="mt-[10px]">
+                                <div className="mt-[15px]">
                                     <label htmlFor="password">Password: </label>
                                     <div className="relative">
                                         <input 
                                             id="password"
                                             type={showPassword ? "text" : "password"}
                                             autoComplete="off"
-                                            className="border rounded-[3px] mt-[5px] w-full pl-[5px] px-[5px]"
+                                            className="border rounded-[3px] mt-[10px] w-full pl-[5px] px-[5px]"
                                             onChange={handlePasswordChange}
 
                                         />
@@ -215,9 +215,9 @@ const Registrasi = () => {
                                             onClick={togglePasswordVisibility}>
 
                                             {showPassword ? (
-                                                <HiEyeOff className="w-[15px] text-black mt-[5px]" />
+                                                <HiEyeOff className="w-[15px] text-black mt-[10px]" />
                                             ) : (
-                                                <HiEye className="w-[15px] text-black mt-[5px]" />
+                                                <HiEye className="w-[15px] text-black mt-[10px]" />
                                             )}
                                         </button>
                                     </div>
