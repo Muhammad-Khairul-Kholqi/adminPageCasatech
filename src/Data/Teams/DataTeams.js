@@ -24,7 +24,12 @@ const DataTeams = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`${BaseUrl}team`);
+                const token = localStorage.getItem('token');
+                const response = await axios.get(`${BaseUrl}team`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                });
                 const sortedData = response.data.data.sort((a, b) => b.id - a.id);
 
                 setData(sortedData);
@@ -59,7 +64,12 @@ const DataTeams = () => {
         }).then(async (result) => {
             if (result.isConfirmed) {
                 try {
-                    await Promise.all(selectedItems.map(id => axios.delete(`${BaseUrl}team/${id}`)));
+                    const token = localStorage.getItem('token');
+                    await Promise.all(selectedItems.map(id => axios.delete(`${BaseUrl}team/${id}`, {
+                        headers: {
+                            Authorization: `Bearer ${token}`
+                        }
+                    })));
 
                     Swal.fire('Terhapus!', `${selectedItems.length} Data telah dihapus.`, 'success');
 
@@ -123,7 +133,7 @@ const DataTeams = () => {
                         </div>
                         <p className="pb-[5px]">{data ? `${data.length}` : 0} Data Team</p>
                         <p className="pb-[10px] italic">Klik checkbox untuk hapus data</p>
-                        <div div className = "relative overflow-x-auto border-solid border-[1px] border-black" >
+                        <div className = "relative overflow-x-auto border-solid border-[1px] border-black" >
                             <table className = "w-full text-sm text-left rtl:text-right" >
                                 <thead className = "text-[15px] bg-blue-100 border-b-[1px] border-black" >
                                     <tr>
