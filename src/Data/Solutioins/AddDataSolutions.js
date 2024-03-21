@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import axios from 'axios';
@@ -9,7 +9,7 @@ import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
 import backgImg from '../../Assets/bg.png';
 
 // api
-import BaseUrl from "../../Api/BaseUrl";
+import BaseUrl from '../../Api/BaseUrl';
 
 const AddDataSolutions = () => {
     const [title, setTitle] = useState('');
@@ -17,17 +17,13 @@ const AddDataSolutions = () => {
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
-    useEffect(() => {
-        document.title = 'Add Data Solutions | Casatech';
-    }, []);
-
-    const handleChange = (content) => {
-        setEditorContent(content);
+    const handleTitleChange = (event) => {
+        setTitle(event.target.value);
         setError('');
     };
 
-    const handleTitleChange = (event) => {
-        setTitle(event.target.value);
+    const handleChange = (content) => {
+        setEditorContent(content);
         setError('');
     };
 
@@ -35,22 +31,24 @@ const AddDataSolutions = () => {
         event.preventDefault();
 
         if (!title.trim() || !editorContent.trim()) {
-            Swal.fire({
-                title: 'Error!',
-                text: 'Title dan Description harus diisi!',
-                icon: 'error',
-                confirmButtonColor: '#3085d6',
-                confirmButtonText: 'OK',
-            });
+            setError('Title dan Description harus diisi!');
             return;
         }
 
-
         try {
-            const response = await axios.post(`${BaseUrl}solution`, {
-                title: title,
-                description: editorContent,
-            });
+            const token = localStorage.getItem('token');
+            const response = await axios.post(
+                `${BaseUrl}solution`,
+                {
+                    title: title,
+                    description: editorContent,
+                },
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
 
             console.log('API Response:', response.data);
 
@@ -65,10 +63,10 @@ const AddDataSolutions = () => {
             });
         } catch (error) {
             console.error('Error creating data:', error);
-           
+
             Swal.fire({
                 title: 'Error!',
-                text: 'Terjadi kesalahan saat manambahkan data. Silakan coba lagi.',
+                text: 'Terjadi kesalahan saat menambahkan data. Silakan coba lagi.',
                 icon: 'error',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'OK',
@@ -103,7 +101,7 @@ const AddDataSolutions = () => {
                         <input
                             className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] pl-[10px] pr-[10px]"
                             type="text"
-                            id="title"  
+                            id="title"
                             value={title}
                             onChange={handleTitleChange}
                             autoComplete="off"
@@ -140,7 +138,10 @@ const AddDataSolutions = () => {
                         />
                         {error && <p className="text-red-500 mt-2">{error}</p>}
                     </div>
-                    <button type="submit" className="mt-[20px] rounded-[3px] w-full bg-gray-500 hover:bg-gray-600 text-white py-[5px]">
+                    <button
+                        type="submit"
+                        className="mt-[20px] rounded-[3px] w-full bg-gray-500 hover:bg-gray-600 text-white py-[5px]"
+                    >
                         Submit
                     </button>
                 </form>

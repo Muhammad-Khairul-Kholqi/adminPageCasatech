@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 // import { AuthProvider } from './Controller/AuthContext';
+// import ProtectedRoute from './ProtectedRoute';
 
 import Sidebar from './Template/Side';
 
@@ -84,7 +85,7 @@ const App = () => {
 
                         {/* dashboard */}
                         <Route
-                            path = "/dashboard-admin"
+                            path="/dashboard-admin"
                             element={
                                 <DefaultLayout>
                                     <Dashboard />
