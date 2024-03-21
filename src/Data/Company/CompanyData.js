@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { FaEye } from "react-icons/fa";
 import { FaRegPenToSquare } from "react-icons/fa6";
 import TableAllData from "./TableAllData";
+import Swal from 'sweetalert2';
 
 // api
 import BaseUrl from "../../Api/BaseUrl";

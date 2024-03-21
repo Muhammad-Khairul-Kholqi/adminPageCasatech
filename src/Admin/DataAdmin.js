@@ -123,8 +123,9 @@ const DataAdmin = () => {
                 <h1 className="title text-center item-center text-white text-[40px] font-bold px-[20px] font-roboto-slab tracking-[2px]">Data Admin</h1>
             </div>
 
-            <div className = "bg-white p-[20px] rounded-[10px] mt-[20px]" >
-                        
+            <div className = "bg-white p-[20px] rounded-[10px] mt-[20px]" >    
+                <p className="pb-[5px]">{data ? `${data.length}` : 0} Data Admin</p>
+                <p className="pb-[10px] italic">Klik checkbox untuk hapus data</p>
                 <div className = "relative overflow-x-auto border-solid border-[1px] border-black" >
                     <table className = "w-full text-sm text-left rtl:text-right" >
                         <thead className = "text-[15px] bg-blue-100 border-b-[1px] border-black" >

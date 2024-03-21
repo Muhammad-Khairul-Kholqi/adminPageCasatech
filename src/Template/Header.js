@@ -29,10 +29,15 @@ const Header = () => {
             cancelButtonText: 'Batal'
         }).then((result) => {
             if (result.isConfirmed) {
-                navigate('/'); // Redirect to homepage after logout
+                // Hapus token dari local storage
+                localStorage.removeItem('token');
+
+                // Redirect ke halaman login
+                navigate('/');
             }
         });
     };
+
 
     return (
         <div className="container flex justify-between flex-wrap gap-[50px] px-[5%] items-center">

@@ -17,19 +17,27 @@ const EditDataSolutions = () => {
 
     useEffect(() => {
         document.title = 'Edit Data Solutions | Casatech';
-        axios.get(`${BaseUrl}solution/${id}`)
-            .then(response => {
-                const { title, description } = response.data;
-                setTitle(title);
-                setEditorContent(description);
-            })
-            .catch(error => {
-                console.error('Error fetching data:', error);
-            });
-    }, [id]);
+        fetchData();
+    }, []);
 
     const [editorContent, setEditorContent] = useState('');
     const [title, setTitle] = useState('');
+
+    const fetchData = async () => {
+        try {
+            const token = localStorage.getItem('token');
+            const response = await axios.get(`${BaseUrl}solution/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            const { title, description } = response.data;
+            setTitle(title);
+            setEditorContent(description);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
 
     const handleChange = (content) => {
         setEditorContent(content);
@@ -76,9 +84,14 @@ const EditDataSolutions = () => {
        }
 
        try {
+           const token = localStorage.getItem('token');
            const response = await axios.patch(`${BaseUrl}solution/${id}`, {
                title: title,
                description: editorContent,
+           }, {
+               headers: {
+                   Authorization: `Bearer ${token}`
+               }
            });
 
            console.log('Response from server:', response.data);
