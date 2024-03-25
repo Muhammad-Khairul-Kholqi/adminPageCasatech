@@ -11,15 +11,15 @@ import { IoTrashOutline } from "react-icons/io5";
 import BaseUrl from "../../Api/BaseUrl";
 
 const DataInnovation = () => {
+    useEffect(() => {
+        document.title = "Data Innovation | Casatech";
+    }, []);
+    
     const itemsPerPage = 5;
 
     const [data, setData] = useState(null);
     const [selectedItems, setSelectedItems] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-
-    useEffect(() => {
-        document.title = "Data Innovation | Casatech";
-    }, []);
 
     useEffect(() => {
         const fetchData = async () => {

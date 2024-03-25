@@ -232,3 +232,4 @@ const DataAdmin = () => {
 }
 
 export default DataAdmin
+

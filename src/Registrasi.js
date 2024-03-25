@@ -240,3 +240,4 @@ const Registrasi = () => {
 };
 
 export default Registrasi;
+
