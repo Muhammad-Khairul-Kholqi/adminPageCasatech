@@ -12,6 +12,10 @@ import { Link } from "react-router-dom";
 import BaseUrl from "../../Api/BaseUrl";
 
 const AddDataPortfolio = () => {
+    useEffect(() => {
+         document.title = "Add Data Portfolio | Casatech";
+     }, []);
+
      const [image, setImage] = useState('');
      const [title, setTitle] = useState('');
      const [software_name, setSoftware] = useState('');
@@ -19,10 +23,6 @@ const AddDataPortfolio = () => {
      const [editorContent, setEditorContent] = useState('');
      const [error, setError] = useState('');
      const navigate = useNavigate();
-
-     useEffect(() => {
-         document.title = "Add Data Portfolio | Casatech";
-     }, []);
 
      const handleImageChange = (event) => {
          setImage(event.target.files[0]);
@@ -71,7 +71,13 @@ const AddDataPortfolio = () => {
         formData.append('description', editorContent);
 
         try {
-            const response = await axios.post(`${BaseUrl}portfolio`, formData);
+            const token = localStorage.getItem('token');
+            const response = await axios.post(`${BaseUrl}portfolio`, formData, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
 
             console.log('API Response:', response.data);
 
