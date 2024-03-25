@@ -11,6 +11,7 @@ import { AiFillPicture } from "react-icons/ai";
 import { FaUsers } from "react-icons/fa";
 import { IoIosSettings } from "react-icons/io";
 import { IoIosCamera } from "react-icons/io";
+import { FaBuildingFlag } from "react-icons/fa6";
 
 const Side = () => {
     return (
@@ -19,10 +20,10 @@ const Side = () => {
             <div className = "flex justify-center mt-[20px]" >
                 <img className="logo-company w-[100px]" src={Logo} alt="Deskripsi Gambar" draggable="false" />
             </div>
-            <hr className="mt-[30px] border-t-2 border-gray-200" />
+            <hr className="mt-[20px] border-t-2 border-gray-200" />
             <div className="sidebar-menus">
                <ul>
-                    <li className = "text-black mb-2 mt-[30px] hover:bg-[#1762EF] py-[10px] rounded-[10px] hover:text-white transition duration-75" >
+                    <li className = "text-black mb-2 mt-[10px] hover:bg-[#1762EF] py-[10px] rounded-[10px] hover:text-white transition duration-75" >
                          <Link to="/dashboard-admin">
                             <div className="icon-teks flex items-center mx-[10px]">
                                 <MdDashboard className="icon-link mr-2 text-[18px]" />
@@ -35,6 +36,14 @@ const Side = () => {
                             <div className="icon-teks flex items-center mx-[10px]">
                                 <AiFillDatabase className="icon-link mr-2 text-[18px]" />
                                 <p className="menu-link text-[13px]">Company Data</p>
+                            </div>
+                        </Link>
+                    </li>
+                    <li className = "text-black mb-2 hover:bg-[#1762EF] py-[10px] rounded-[10px] hover:text-white transition duration-75" >
+                         <Link to="/data-culture">
+                            <div className="icon-teks flex items-center mx-[10px]">
+                                <FaBuildingFlag className="icon-link mr-2 text-[18px]" />
+                                <p className="menu-link text-[13px]">Culture</p>
                             </div>
                         </Link>
                     </li>

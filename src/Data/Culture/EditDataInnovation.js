@@ -11,12 +11,12 @@ import backgImg from '../../Assets/bg.png';
 // api
 import BaseUrl from "../../Api/BaseUrl";
 
-const EditDataInnovation = () => {
+const EditDataCulture = () => {
     const { id } = useParams();
     const navigate = useNavigate();
 
     useEffect(() => {
-        document.title = 'Edit Data Innovation | Casatech';
+        document.title = 'Edit Data Culture | Casatech';
         fetchData();
     }, []);
 
@@ -136,18 +136,18 @@ const EditDataInnovation = () => {
                 className="container bg-cover bg-center mt-[20px] py-[50px] rounded-[10px]"
                 style={{ backgroundImage: `url(${backgImg})` }}>
                 <h1 className = "title text-center item-center text-white text-[40px] font-bold px-[20px] font-roboto-slab tracking-[2px]" >
-                    Edit Data Innovation
+                    Edit Data Culture
                 </h1>
                 <div className = "link flex flex-wrap px-[10px] items-center text-white gap-[5px] justify-center mt-[15px]" >
-                    <Link to = "/data-innovation" >
-                        <p className="hover:underline">Data Innovation</p>
+                    <Link to = "/data-culture" >
+                        <p className="hover:underline">Data Culture</p>
                     </Link>
                     <MdOutlineKeyboardArrowRight className="mt-[3px]" />
-                    <p className="text-blue-600">Edit Data Innovation</p>
+                    <p className="text-blue-600">Edit Data Culture</p>
                 </div>
             </div>
             <div className="bg-white p-[20px] rounded-[10px] mt-[20px]">
-                    <h1 className="text-center font-bold text-[20px] mb-[20px]">Edit Data Innovation</h1>
+                    <h1 className="text-center font-bold text-[20px] mb-[20px]">Edit Data Culture</h1>
                     <form onSubmit = {handleUpdate} >
                         <div className="mt-[10px]">
                             <span for="image">Image:</span>
@@ -191,4 +191,4 @@ const EditDataInnovation = () => {
     )
 }
 
-export default EditDataInnovation;
+export default EditDataCulture;

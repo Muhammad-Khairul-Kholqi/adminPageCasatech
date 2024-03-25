@@ -1,7 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-// import { AuthProvider } from './Controller/AuthContext';
-// import ProtectedRoute from './ProtectedRoute';
 
 import Sidebar from './Template/Side';
 
@@ -12,8 +10,11 @@ import Dashboard from './Dashboard';
 import AccountAdmin from './Admin/AccountAdmin';
 
 import CompanyData from './Data/Company/CompanyData';
-import CreateDataCompany from './Data/Company/CreatData';
 import EditData from './Data/Company/EditData';
+
+import DataCulture from './Data/Culture/DataCulture';
+import AddDataCulture from './Data/Culture/AddDataInnovation';
+import EditDataCulture from './Data/Culture/EditDataInnovation';
 
 import SolutionsData from './Data/Solutioins/SolutionsData';
 import AddDataSolutions from './Data/Solutioins/AddDataSolutions';
@@ -102,18 +103,36 @@ const App = () => {
                             }
                         />
                         <Route
-                            path="/create-company-data"
-                            element={
-                                <DefaultLayout>
-                                    <CreateDataCompany />
-                                </DefaultLayout>
-                            }
-                        />
-                        <Route
                             path = "/edit-data-company/:id"
                             element={
                                 <DefaultLayout>
                                     <EditData />
+                                </DefaultLayout>
+                            }
+                        />
+
+                        {/* culture */}
+                        <Route
+                            path="/data-culture"
+                            element={
+                                <DefaultLayout>
+                                    <DataCulture />
+                                </DefaultLayout>
+                            }
+                        />
+                        <Route
+                            path="/add-data-culture"
+                            element={
+                                <DefaultLayout>
+                                    <AddDataCulture />
+                                </DefaultLayout>
+                            }
+                        />
+                        <Route
+                            path="/edit-data-culture"
+                            element={
+                                <DefaultLayout>
+                                    <EditDataCulture />
                                 </DefaultLayout>
                             }
                         />

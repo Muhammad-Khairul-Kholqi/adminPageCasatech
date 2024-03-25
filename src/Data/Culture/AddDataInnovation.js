@@ -9,9 +9,9 @@ import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
 import backgImg from '../../Assets/bg.png';
 import BaseUrl from '../../Api/BaseUrl';
 
-const AddDataInnovation = () => {
+const AddDataCulture = () => {
     useEffect(() => {
-        document.title = "Add Data Innovation | Casatech";
+        document.title = "Add Data Culture | Casatech";
     }, []);
 
     const [image, setImage] = useState(null);
@@ -92,16 +92,16 @@ const AddDataInnovation = () => {
             <div className="container bg-cover bg-center mt-[20px] py-[50px] rounded-[10px]" style={{ backgroundImage: `url(${backgImg})` }}>
                 <h1 className="title text-center item-center text-white text-[40px] font-bold px-[20px] font-roboto-slab tracking-[2px]">Add Data Innovation</h1>
                 <div className="link flex flex-wrap px-[10px] items-center text-white gap-[5px] justify-center mt-[15px]">
-                    <Link to="/data-innovation">
-                        <p className="hover:underline">Data Innovation</p>
+                    <Link to="/data-culture">
+                        <p className="hover:underline">Data Culture</p>
                     </Link>
                     <MdOutlineKeyboardArrowRight className="mt-[3px]" />
-                    <p className="text-blue-600">Add Data Innovation</p>
+                    <p className="text-blue-600">Add Data Culture</p>
                 </div>
             </div>
 
             <div className="bg-white p-[20px] rounded-[10px] mt-[20px]">
-                <h1 className="text-center font-bold text-[20px] mb-[20px]">Add Data Innovation</h1>
+                <h1 className="text-center font-bold text-[20px] mb-[20px]">Add Data Culture</h1>
                 <form onSubmit={handleFormSubmit}>
                     <div className="mt-[10px]">
                         <label htmlFor="image">Image:</label>
@@ -164,4 +164,4 @@ const AddDataInnovation = () => {
     );
 };
 
-export default AddDataInnovation;
+export default AddDataCulture;
