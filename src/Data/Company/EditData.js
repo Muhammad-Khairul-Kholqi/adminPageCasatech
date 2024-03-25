@@ -10,7 +10,6 @@ import Integrated from './FormEdit/Integragted';
 import VisiMisi from './FormEdit/VisiMisi';
 import About from './FormEdit/About';
 import Sponsorship from './FormEdit/Sponsorship';
-import Culture from './FormEdit/Culture';
 import ContactCatalog from './FormEdit/ContactCatalog';
 
 const EditData = () => {
@@ -80,11 +79,6 @@ const EditData = () => {
             {/* sponsorship */}
             <div>
                 {activeTab === 4 && <Sponsorship /> }
-            </div>
-
-            {/* culture */}
-            <div>
-                {activeTab === 5 && <Culture /> }
             </div>
 
             {/* contact - catalog */}

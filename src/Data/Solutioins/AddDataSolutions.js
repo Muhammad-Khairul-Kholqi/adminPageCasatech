@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import axios from 'axios';
@@ -12,6 +12,10 @@ import backgImg from '../../Assets/bg.png';
 import BaseUrl from '../../Api/BaseUrl';
 
 const AddDataSolutions = () => {
+    useEffect(() => {
+        document.title = "Add Data Solutions | Casatech";
+    }, []);
+
     const [title, setTitle] = useState('');
     const [editorContent, setEditorContent] = useState('');
     const [error, setError] = useState('');
@@ -31,7 +35,13 @@ const AddDataSolutions = () => {
         event.preventDefault();
 
         if (!title.trim() || !editorContent.trim()) {
-            setError('Title dan Description harus diisi!');
+             Swal.fire({
+                title: 'Error!',
+                text: 'Title dan Description harus diisi!',
+                icon: 'error',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'OK',
+            });
             return;
         }
 
@@ -136,7 +146,6 @@ const AddDataSolutions = () => {
                             ]}
                             required
                         />
-                        {error && <p className="text-red-500 mt-2">{error}</p>}
                     </div>
                     <button
                         type="submit"

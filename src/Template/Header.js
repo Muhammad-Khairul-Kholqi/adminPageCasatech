@@ -29,10 +29,7 @@ const Header = () => {
             cancelButtonText: 'Batal'
         }).then((result) => {
             if (result.isConfirmed) {
-                // Hapus token dari local storage
                 localStorage.removeItem('token');
-
-                // Redirect ke halaman login
                 navigate('/');
             }
         });
@@ -88,3 +85,6 @@ const Header = () => {
 };
 
 export default Header;
+
+
+
