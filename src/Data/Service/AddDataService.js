@@ -12,15 +12,15 @@ import { Link } from "react-router-dom";
 import BaseUrl from '../../Api/BaseUrl';
 
 const AddDataService = () => {
+    useEffect(() => {
+         document.title = "Add Data Services | Casatech";
+     }, []);
+
     const [image, setImage] = useState('');
     const [tittle, setTitle] = useState('');
     const [editorContent, setEditorContent] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
-
-     useEffect(() => {
-         document.title = "Add Data Services | Casatech";
-     }, []);
 
      const handleChange = (content) => {
          setEditorContent(content);
@@ -57,7 +57,13 @@ const AddDataService = () => {
         formData.append('description', editorContent);
 
         try {
-            const response = await axios.post(`${BaseUrl}service`, formData);
+            const token = localStorage.getItem('token')
+            const response = await axios.post(`${BaseUrl}service`, formData, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
 
             console.log('API Response:', response.data);
 

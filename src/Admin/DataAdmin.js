@@ -177,7 +177,7 @@ const DataAdmin = () => {
                                         {item.address}
                                     </td>    
                                     <td className="px-6 py-4 flex gap-[10px]">
-                                        <Link to="/edit-data-admin">
+                                        <Link to={`/edit-data-admin/${item.id}`}>
                                             <div className="icon-text text-[15px] flex gap-[5px] items-center text-blue-600 hover:underline">
                                                 <FaRegPenToSquare />
                                                 <p className="text-link">Edit</p>
