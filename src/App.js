@@ -357,7 +357,7 @@ const App = () => {
                         />
 
                         <Route
-                            path="/edit-data-admin"
+                            path="/edit-data-admin/:id"
                             element={
                                 <DefaultLayout>
                                     <EditDataAdmin />

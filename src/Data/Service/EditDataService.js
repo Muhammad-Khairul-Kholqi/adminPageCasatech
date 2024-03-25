@@ -12,32 +12,15 @@ import backgImg from '../../Assets/bg.png';
 import BaseUrl from "../../Api/BaseUrl";
 
 const EditDataInnovation = () => {
+    useEffect(() => {
+        document.title = 'Edit Data Testimoni | Casatech';
+    }, []);
+
     const { id } = useParams();
     const navigate = useNavigate();
-
-    useEffect(() => {
-        document.title = 'Edit Data Services | Casatech';
-        axios.get(`${BaseUrl}service/${id}`)
-            .then(response => {
-                const {
-                    image,
-                    tittle,
-                    description
-                } = response.data;
-                setImage(image);
-                setTitle(tittle);
-                setEditorContent(description);
-            })
-            .catch(error => {
-                console.error('Error fetching data:', error);
-            });
-    }, [id]);
-
-    const [image, setImage] = useState('');
+     const [image, setImage] = useState('');
     const [tittle, setTitle] = useState('');
     const [editorContent, setEditorContent] = useState('');
-
-
 
     const handleChange = (content) => {
         setEditorContent(content);
@@ -49,6 +32,57 @@ const EditDataInnovation = () => {
 
     const handleImageChange = (event) => {
         setImage(event.target.files[0]);
+    };
+
+    const handleUpdate = async (event) => {
+        event.preventDefault();
+
+        if (!image || !tittle.trim() || !editorContent.trim()) {
+            Swal.fire({
+                title: 'Error!',
+                text: 'Image, Title dan Description harus diisi!',
+                icon: 'error',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'OK',
+            });
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('image', image);
+        formData.append('tittle', tittle);
+        formData.append('description', editorContent);
+
+        try {
+            const token = localStorage.getItem('token')
+            const response = await axios.patch(`http://localhost:4000/service/${id}`, formData, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'multipart/form-data'
+                },
+            });
+
+            console.log('Response from server:', response.data);
+            Swal.fire({
+                title: 'Sukses!',
+                text: 'Data berhasil diupdate.',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 1000
+            }).then(() => {
+                navigate('/data-services');
+            });
+        } catch (error) {
+            console.error('Error updating data:', error);
+
+            Swal.fire({
+                title: 'Error!',
+                text: 'Terjadi kesalahan saat mengupdate data. Silakan coba lagi.',
+                icon: 'error',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'OK',
+            });
+        }
     };
 
     const modules = {
@@ -78,55 +112,6 @@ const EditDataInnovation = () => {
         'bullet',
         'link',
     ];
-
-    const handleUpdate = async (event) => {
-        event.preventDefault();
-
-        if (!image || !tittle.trim() || !editorContent.trim()) {
-            Swal.fire({
-                title: 'Error!',
-                text: 'Image, Title dan Description harus diisi!',
-                icon: 'error',
-                confirmButtonColor: '#3085d6',
-                confirmButtonText: 'OK',
-            });
-            return;
-        }
-
-        const formData = new FormData();
-        formData.append('image', image);
-        formData.append('tittle', tittle);
-        formData.append('description', editorContent);
-
-        try {
-            const response = await axios.patch(`http://localhost:4000/service/${id}`, formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-            });
-
-            console.log('Response from server:', response.data);
-            Swal.fire({
-                title: 'Sukses!',
-                text: 'Data berhasil diupdate.',
-                icon: 'success',
-                showConfirmButton: false,
-                timer: 1000
-            }).then(() => {
-                navigate('/data-services');
-            });
-        } catch (error) {
-            console.error('Error updating data:', error);
-
-            Swal.fire({
-                title: 'Error!',
-                text: 'Terjadi kesalahan saat mengupdate data. Silakan coba lagi.',
-                icon: 'error',
-                confirmButtonColor: '#3085d6',
-                confirmButtonText: 'OK',
-            });
-        }
-    };
 
     return (
         <div>
