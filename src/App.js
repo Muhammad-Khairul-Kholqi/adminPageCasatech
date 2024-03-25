@@ -93,6 +93,7 @@ const App = () => {
                                 </DefaultLayout>
                             }
                         />
+
                         {/* company */}
                         <Route
                             path="/company-data"
@@ -309,7 +310,7 @@ const App = () => {
                             }
                         />
                         <Route
-                            path = "/data-blog"
+                            path = "/data-blog/:id"
                             element={
                                 <DefaultLayout>
                                     <DataBlog />
