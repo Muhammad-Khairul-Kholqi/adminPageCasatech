@@ -10,31 +10,15 @@ import backgImg from '../../Assets/bg.png';
 import BaseUrl from "../../Api/BaseUrl";
 
 const EditDataTeams = () => {
+    useEffect(() => {
+        document.title = 'Edit Data Team | Casatech';
+    }, []);
+
     const { id } = useParams();
     const navigate = useNavigate();
-
-     useEffect(() => {
-         document.title = 'Edit Data Teams | Casatech';
-         axios.get(`${BaseUrl}team/${id}`)
-             .then(response => {
-                 const {
-                     image,
-                     name,
-                     position
-                 } = response.data;
-                 setImage(image);
-                 setName(name);
-                 setPosition(position);
-             })
-             .catch(error => {
-                 console.error('Error fetching data:', error);
-             });
-     }, [id]);
-
-
-     const [image, setImage] = useState('');
-     const [name, setName] = useState('');
-     const [position, setPosition] = useState('');
+    const [image, setImage] = useState('');
+    const [name, setName] = useState('');
+    const [position, setPosition] = useState('');
 
      const handleImageChange = (event) => {
          setImage(event.target.files[0]);
@@ -68,14 +52,17 @@ const EditDataTeams = () => {
         formData.append('position', position);
 
          try {
-             const response = await axios.patch(`${BaseUrl}team/${id}`, formData, {
+            const token = localStorage.getItem('token');
+            const response = await axios.patch(`${BaseUrl}team/${id}`, formData, {
                  headers: {
-                     'Content-Type': 'multipart/form-data',
+                      Authorization: `Bearer ${token}`,
+                    'Content-Type': 'multipart/form-data'
                  }
 
-             });
+            });
 
              console.log('Response from server:', response.data);
+             
              Swal.fire({
                  title: 'Sukses!',
                  text: 'Data berhasil diupdate.',

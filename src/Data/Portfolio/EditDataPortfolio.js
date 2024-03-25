@@ -12,31 +12,12 @@ import backgImg from '../../Assets/bg.png';
 import BaseUrl from "../../Api/BaseUrl";
 
 const EditDataPortfolio = () => {
-    const { id } = useParams();
-    const navigate = useNavigate();
-
     useEffect(() => {
         document.title = 'Edit Data Portfolio | Casatech';
-        axios.get(`${BaseUrl}portfolio/${id}`)
-            .then(response => {
-                const {
-                    image,
-                    title,
-                    description,
-                    software_name,
-                    amount
-                } = response.data;
-                setImage(image);
-                setTitle(title);
-                setSoftware(software_name);
-                setAmount(amount)
-                setEditorContent(description);
-            })
-            .catch(error => {
-                console.error('Error fetching data:', error);
-            });
-    }, [id]);
+    }, []);
 
+    const { id } = useParams();
+    const navigate = useNavigate();
     const [image, setImage] = useState('');
     const [title, setTitle] = useState('');
     const [software_name, setSoftware] = useState('');
@@ -61,6 +42,60 @@ const EditDataPortfolio = () => {
 
     const handleChange = (content) => {
         setEditorContent(content);
+    };
+
+    const handleUpdate = async (event) => {
+        event.preventDefault();
+
+       if (!image || !title.trim() || !software_name.trim() || !editorContent.trim()) {
+           Swal.fire({
+               title: 'Error!',
+               text: 'Image, Title, Software, Amount dan Description harus diisi!',
+               icon: 'error',
+               confirmButtonColor: '#3085d6',
+               confirmButtonText: 'OK',
+           });
+           return;
+       }
+
+        const formData = new FormData();
+        formData.append('image', image);
+        formData.append('title', title);
+        formData.append('software_name', software_name);
+        formData.append('amount', amount);
+        formData.append('description', editorContent);
+
+        try {
+            const token = localStorage.getItem('token')
+            const response = await axios.patch(`${BaseUrl}portfolio/${id}`, formData, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+
+            console.log('Response from server:', response.data);
+
+            Swal.fire({
+                title: 'Sukses!',
+                text: 'Data berhasil diupdate.',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 1000
+            }).then(() => {
+                navigate('/data-portfolio');
+            });
+        } catch (error) {
+            console.error('Error updating data:', error);
+
+            Swal.fire({
+                title: 'Error!',
+                text: 'Terjadi kesalahan saat mengupdate data. Silakan coba lagi.',
+                icon: 'error',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'OK',
+            });
+        }
     };
 
     const modules = {
@@ -90,57 +125,6 @@ const EditDataPortfolio = () => {
         'bullet',
         'link',
     ];
-
-    const handleUpdate = async (event) => {
-        event.preventDefault();
-
-       if (!image || !title.trim() || !software_name.trim() || !editorContent.trim()) {
-           Swal.fire({
-               title: 'Error!',
-               text: 'Image, Title, Software, Amount dan Description harus diisi!',
-               icon: 'error',
-               confirmButtonColor: '#3085d6',
-               confirmButtonText: 'OK',
-           });
-           return;
-       }
-
-        const formData = new FormData();
-        formData.append('image', image);
-        formData.append('title', title);
-        formData.append('software_name', software_name);
-        formData.append('amount', amount);
-        formData.append('description', editorContent);
-
-        try {
-            const response = await axios.patch(`${BaseUrl}portfolio/${id}`, formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                },
-            });
-
-            console.log('Response from server:', response.data);
-            Swal.fire({
-                title: 'Sukses!',
-                text: 'Data berhasil diupdate.',
-                icon: 'success',
-                showConfirmButton: false,
-                timer: 1000
-            }).then(() => {
-                navigate('/data-portfolio');
-            });
-        } catch (error) {
-            console.error('Error updating data:', error);
-
-            Swal.fire({
-                title: 'Error!',
-                text: 'Terjadi kesalahan saat mengupdate data. Silakan coba lagi.',
-                icon: 'error',
-                confirmButtonColor: '#3085d6',
-                confirmButtonText: 'OK',
-            });
-        }
-    };
 
     return (
         <div>

@@ -10,15 +10,15 @@ import { Link } from "react-router-dom";
 import BaseUrl from "../../Api/BaseUrl";
 
 const AddDataTeams = () => {
+    useEffect(() => {
+         document.title = "Add Data Teams | Casatech";
+     }, []);
+
      const [image, setImage] = useState('');
      const [name, setName] = useState('');
      const [position, setPosition] = useState('');
      const [error, setError] = useState('');
      const navigate = useNavigate();
-
-     useEffect(() => {
-         document.title = "Add Data Teams | Casatech";
-     }, []);
 
      const handleImageChange = (event) => {
          setImage(event.target.files[0]);
@@ -55,7 +55,13 @@ const AddDataTeams = () => {
          formData.append('position', position);
 
          try {
-             const response = await axios.post(`${BaseUrl}team`, formData);
+            const token = localStorage.getItem('token');
+             const response = await axios.post(`${BaseUrl}team`, formData, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'multipart/form-data'
+                }
+             });
 
              console.log('API Response:', response.data);
 
