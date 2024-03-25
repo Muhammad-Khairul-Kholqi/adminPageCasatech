@@ -12,38 +12,31 @@ import { Link } from "react-router-dom";
 import BaseUrl from "../../Api/BaseUrl";
 
 const AddDataTestimoni = () => {
-    const [image, setImage] = useState('');
+    useEffect(() => {
+        document.title = 'Add Data Testimoni | Casatech';
+    }, []);
+
+    const [image, setImage] = useState(null);
     const [editorContent, setEditorContent] = useState('');
     const [name, setName] = useState('');
     const [position, setPosition] = useState('');
-    const [error, setError] = useState('');
     const navigate = useNavigate();
-
-     useEffect(() => {
-         document.title = "Add Data Testimoni | Casatech";
-     }, []);
 
     const handleImageChange = (event) => {
         setImage(event.target.files[0]);
-        setError('');
     };
 
-     const handleChange = (content) => {
-         setEditorContent(content);
-         setError('');
-     };
+    const handleChange = (content) => {
+        setEditorContent(content);
+    };
 
-     const handleNameChange = (event) => {
-         setName(event.target.value);
-         setError('');
-     };
+    const handleNameChange = (event) => {
+        setName(event.target.value);
+    };
 
-     const handlePositionChange = (event) => {
-         setPosition(event.target.value);
-         setError('');
-     };
-
-    
+    const handlePositionChange = (event) => {
+        setPosition(event.target.value);
+    };
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
@@ -59,7 +52,6 @@ const AddDataTestimoni = () => {
             return;
         }
 
-
         const formData = new FormData();
         formData.append('image', image);
         formData.append('name', name);
@@ -67,14 +59,20 @@ const AddDataTestimoni = () => {
         formData.append('description', editorContent);
 
         try {
-            const response = await axios.post(`${BaseUrl}testimoni`, formData);
+            const token = localStorage.getItem('token');
+            const response = await axios.post(`${BaseUrl}testimoni`, formData, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
 
             console.log('API Response:', response.data);
 
             Swal.fire({
                 icon: 'success',
                 title: 'Sukses!',
-                text: 'Berhasil menambah data Testimoni',
+                text: 'Berhasil menambah data Testimonial',
                 showConfirmButton: false,
                 timer: 1000,
             }).then(() => {
@@ -175,7 +173,6 @@ const AddDataTestimoni = () => {
                                 ]}
                                 required
                             />
-                            {error && <p className="text-red-500 mt-2">{error}</p>}
                         </div>
                         <button type="submit" className="mt-[20px] rounded-[3px] w-full bg-gray-500 hover:bg-gray-600 text-white py-[5px]">
                             Submit
