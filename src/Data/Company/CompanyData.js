@@ -3,10 +3,9 @@ import axios from "axios";
 import backgImg from '../../Assets/bg.png';
 import '../../Style/Company/StyleCompany.css';
 import { Link } from 'react-router-dom';
-import { FaEye } from "react-icons/fa";
 import { FaRegPenToSquare } from "react-icons/fa6";
 import TableAllData from "./TableAllData";
-import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 // api
 import BaseUrl from "../../Api/BaseUrl";
@@ -18,25 +17,30 @@ const CompanyData = () => {
 
     const [data, setData] = useState(null);
 
+    const navigate = useNavigate();
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const responseDataCompany = await axios.get(`${BaseUrl}company`, {
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    }
-                });
-                const sortedData = responseDataCompany.data.data.sort((a, b) => b.id - a.id);
+                if (!token) {
+                    navigate('/');
+                } else {
+                    const response = await axios.get(`${BaseUrl}company`, {
+                        headers: {
+                            Authorization: `Bearer ${token}`
+                        }
+                    });
+                    const sortedData = response.data.data.sort((a, b) => b.id - a.id);
 
-                setData(sortedData);
+                    setData(sortedData);
+                }
             } catch (error) {
                 console.error("Error fetching data:", error);
             }
         };
 
         fetchData();
-    }, []);
+    }, [navigate]);
 
     return (
         <>

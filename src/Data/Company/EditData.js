@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 import 'react-quill/dist/quill.snow.css';
 import 'react-quill/dist/quill.bubble.css';
 import '../../Style/Company/StyleEditCompany.css';
+import { useNavigate } from 'react-router-dom';
+import BaseUrl from '../../Api/BaseUrl';
+import axios from 'axios';
 
 import Integrated from './FormEdit/Integragted';
 import About from './FormEdit/About';
@@ -21,6 +24,32 @@ const EditData = () => {
     const handleTabClick = (tabNumber) => {
         setActiveTab(tabNumber);
     };
+
+    const [data, setData] = useState(null);
+    const navigate = useNavigate();
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const token = localStorage.getItem('token');
+                if (!token) {
+                    navigate('/');
+                } else {
+                    const response = await axios.get(`${BaseUrl}company`, {
+                        headers: {
+                            Authorization: `Bearer ${token}`
+                        }
+                    });
+                    const sortedData = response.data.data.sort((a, b) => b.id - a.id);
+
+                    setData(sortedData);
+                }
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        };
+
+        fetchData();
+    }, [navigate]);
 
     return (
         <div>
