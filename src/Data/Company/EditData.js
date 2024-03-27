@@ -53,9 +53,6 @@ const EditData = () => {
                 <button onClick={() => handleTabClick(4)} className="{activeTab === 3 ? 'active' : ''} text-blue-600 hover:text-blue-900 hover:underline underline-offset-8">
                 Sponsorship
                 </button>
-                <button onClick={() => handleTabClick(5)} className="{activeTab === 3 ? 'active' : ''} text-blue-600 hover:text-blue-900 hover:underline underline-offset-8">
-                Culture
-                </button>
                 <button onClick={() => handleTabClick(6)} className="{activeTab === 3 ? 'active' : ''} text-blue-600 hover:text-blue-900 hover:underline underline-offset-8">
                 Contact Catalog
                 </button>

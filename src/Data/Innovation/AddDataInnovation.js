@@ -68,7 +68,7 @@ const AddDataInnovation = () => {
             Swal.fire({
                 icon: 'success',
                 title: 'Success!',
-                text: 'Successfully added Innovation data',
+                text: 'Berhasil menambah data Innovation',
                 showConfirmButton: false,
                 timer: 1000,
             }).then(() => {
@@ -79,7 +79,7 @@ const AddDataInnovation = () => {
 
             Swal.fire({
                 title: 'Error!',
-                text: 'An error occurred while adding data. Please try again.',
+                text: 'Gagal menambah data Innovation.',
                 icon: 'error',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'OK',

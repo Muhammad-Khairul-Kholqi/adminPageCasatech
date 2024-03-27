@@ -35,7 +35,40 @@ const Side = () => {
                          <Link to="/company-data">
                             <div className="icon-teks flex items-center mx-[10px]">
                                 <AiFillDatabase className="icon-link mr-2 text-[18px]" />
-                                <p className="menu-link text-[13px]">Company Data</p>
+                                <p className="menu-link text-[13px]">Company </p>
+                            </div>
+                        </Link>
+                    </li>
+                    
+                    <li className = "text-black mb-2 hover:bg-[#1762EF] py-[10px] rounded-[10px] hover:text-white transition duration-75" >
+                         <Link to="/data-solutions">
+                            <div className="icon-teks flex items-center mx-[10px]">
+                                <IoMdHelpCircle  className="icon-link mr-2 text-[18px]" />
+                                <p className="menu-link text-[13px]"> Solutions</p>
+                            </div>
+                        </Link>
+                    </li>
+                    <li className = "text-black mb-2 hover:bg-[#1762EF] py-[10px] rounded-[10px] hover:text-white transition duration-75" >
+                         <Link to="/data-innovation">
+                            <div className="icon-teks flex items-center mx-[10px]">
+                                <FaLightbulb  className="icon-link mr-2 text-[18px]" />
+                                <p className="menu-link text-[13px]"> Innovation</p>
+                            </div>
+                        </Link>
+                    </li>
+                    <li className = "text-black mb-2 hover:bg-[#1762EF] py-[10px] rounded-[10px] hover:text-white transition duration-75" >
+                         <Link to = "/testimonial-data" >
+                            <div className="icon-teks flex items-center mx-[10px]">
+                                <AiFillMessage className="icon-link mr-2 text-[18px]" />
+                                <p className="menu-link text-[13px]">Testimonial </p>
+                            </div>
+                        </Link>
+                    </li>
+                    <li className = "text-black mb-2 hover:bg-[#1762EF] py-[10px] rounded-[10px] hover:text-white transition duration-75" >
+                         <Link to="/data-blog">
+                            <div className="icon-teks flex items-center mx-[10px]">
+                                <IoIosCamera className="icon-link mr-2 text-[18px]" />
+                                <p className="menu-link text-[13px]"> Blog</p>
                             </div>
                         </Link>
                     </li>
@@ -48,42 +81,10 @@ const Side = () => {
                         </Link>
                     </li>
                     <li className = "text-black mb-2 hover:bg-[#1762EF] py-[10px] rounded-[10px] hover:text-white transition duration-75" >
-                         <Link to="/data-solutions">
-                            <div className="icon-teks flex items-center mx-[10px]">
-                                <IoMdHelpCircle  className="icon-link mr-2 text-[18px]" />
-                                <p className="menu-link text-[13px]">Data Solutions</p>
-                            </div>
-                        </Link>
-                    </li>
-                    <li className = "text-black mb-2 hover:bg-[#1762EF] py-[10px] rounded-[10px] hover:text-white transition duration-75" >
-                         <Link to="/data-innovation">
-                            <div className="icon-teks flex items-center mx-[10px]">
-                                <FaLightbulb  className="icon-link mr-2 text-[18px]" />
-                                <p className="menu-link text-[13px]">Data Innovation</p>
-                            </div>
-                        </Link>
-                    </li>
-                    <li className = "text-black mb-2 hover:bg-[#1762EF] py-[10px] rounded-[10px] hover:text-white transition duration-75" >
-                         <Link to = "/testimonial-data" >
-                            <div className="icon-teks flex items-center mx-[10px]">
-                                <AiFillMessage className="icon-link mr-2 text-[18px]" />
-                                <p className="menu-link text-[13px]">Testimonial Data</p>
-                            </div>
-                        </Link>
-                    </li>
-                    <li className = "text-black mb-2 hover:bg-[#1762EF] py-[10px] rounded-[10px] hover:text-white transition duration-75" >
-                         <Link to="/category-blog">
-                            <div className="icon-teks flex items-center mx-[10px]">
-                                <IoIosCamera className="icon-link mr-2 text-[18px]" />
-                                <p className="menu-link text-[13px]">Data Blog</p>
-                            </div>
-                        </Link>
-                    </li>
-                    <li className = "text-black mb-2 hover:bg-[#1762EF] py-[10px] rounded-[10px] hover:text-white transition duration-75" >
                          <Link to = "/data-portfolio" >
                             <div className="icon-teks flex items-center mx-[10px]">
                                 <AiFillPicture className="icon-link mr-2 text-[18px]" />
-                                <p className="menu-link text-[13px]">Portfolio Data</p>
+                                <p className="menu-link text-[13px]">Portfolio </p>
                             </div>
                         </Link>
                     </li>
@@ -91,7 +92,7 @@ const Side = () => {
                          <Link to="/data-teams">
                             <div className="icon-teks flex items-center mx-[10px]">
                                 <FaUsers className="icon-link mr-2 text-[18px]" />
-                                <p className="menu-link text-[13px]">Data Teams</p>
+                                <p className="menu-link text-[13px]"> Teams</p>
                             </div>
                         </Link>
                     </li>
@@ -99,7 +100,7 @@ const Side = () => {
                          <Link to="/data-services">
                             <div className="icon-teks flex items-center mx-[10px]">
                                 <IoIosSettings className="icon-link mr-2 text-[18px]" />
-                                <p className="menu-link text-[13px]">Services Data</p>
+                                <p className="menu-link text-[13px]">Services </p>
                             </div>
                         </Link>
                     </li>

@@ -25,7 +25,7 @@ const DataCulture = () => {
         const fetchData = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const response = await axios.get(`${BaseUrl}innovation`, {
+                const response = await axios.get(`${BaseUrl}culture`, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
@@ -65,7 +65,7 @@ const DataCulture = () => {
             if (result.isConfirmed) {
                 try {
                     const token = localStorage.getItem('token');
-                    await Promise.all(selectedItems.map(id => axios.delete(`${BaseUrl}innovation/${id}`, {
+                    await Promise.all(selectedItems.map(id => axios.delete(`${BaseUrl}culture/${id}`, {
                          headers: {
                             Authorization: `Bearer ${token}`
                         }
@@ -167,13 +167,13 @@ const DataCulture = () => {
                                                 {item.image}
                                             </td>
                                             <td className="px-6 py-4 w-[300px]">
-                                                {item.tittle}
+                                                {item.tittle_culture}
                                             </td>
                                             <td className="px-6 py-4 w-[300px]">
-                                                {item.description}
+                                                {item.description_culture}
                                             </td>
                                             <td className="px-6 py-4 flex gap-[10px]">
-                                                <Link to="/edit-data-culture">
+                                                <Link to={`/edit-data-culture/${item.id}`}>
                                                     <div className="icon-text text-[15px] flex gap-[5px] items-center text-blue-600 hover:underline">
                                                         <FaRegPenToSquare />
                                                         <p className="text-link">Edit</p>

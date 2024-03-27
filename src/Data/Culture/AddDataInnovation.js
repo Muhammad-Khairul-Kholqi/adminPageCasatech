@@ -15,7 +15,7 @@ const AddDataCulture = () => {
     }, []);
 
     const [image, setImage] = useState(null);
-    const [tittle, setTitle] = useState('');
+    const [tittle_culture, setTitle] = useState('');
     const [editorContent, setEditorContent] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
@@ -38,7 +38,7 @@ const AddDataCulture = () => {
     const handleFormSubmit = async (event) => {
         event.preventDefault();
 
-        if (!image || !tittle.trim() || !editorContent.trim()) {
+        if (!image || !tittle_culture.trim() || !editorContent.trim()) {
             Swal.fire({
                 title: 'Error!',
                 text: 'Image, Title, and Description must be filled!',
@@ -52,11 +52,11 @@ const AddDataCulture = () => {
         try {
             const formData = new FormData();
             formData.append('image', image);
-            formData.append('tittle', tittle);
-            formData.append('description', editorContent);
+            formData.append('tittle_culture', tittle_culture);
+            formData.append('description_culture', editorContent);
 
             const token = localStorage.getItem('token');
-            const response = await axios.post(`${BaseUrl}innovation`, formData, {
+            const response = await axios.post(`${BaseUrl}culture`, formData, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     'Content-Type': 'multipart/form-data',
@@ -68,18 +68,18 @@ const AddDataCulture = () => {
             Swal.fire({
                 icon: 'success',
                 title: 'Success!',
-                text: 'Successfully added Innovation data',
+                text: 'Berhasil menambah data Culture',
                 showConfirmButton: false,
                 timer: 1000,
             }).then(() => {
-                navigate('/data-innovation');
+                navigate('/data-culture');
             });
         } catch (error) {
             console.error('Error creating data:', error);
 
             Swal.fire({
                 title: 'Error!',
-                text: 'An error occurred while adding data. Please try again.',
+                text: 'Gagal menambah data Culture.',
                 icon: 'error',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'OK',
@@ -121,7 +121,7 @@ const AddDataCulture = () => {
                             className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] pl-[10px] pr-[10px]"
                             type="text"
                             id="tittle"
-                            value={tittle}
+                            value={tittle_culture}
                             onChange={handleTitleChange}
                             autoComplete="off"
                         />

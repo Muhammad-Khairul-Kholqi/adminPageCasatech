@@ -38,7 +38,10 @@ const Login = () => {
 
         try {
             const response = await axios.post(`${BaseUrl}auth/login`, { username, password });
-            const { token } = response.data;
+            const { token, fullname } = response.data; 
+
+            // Simpan fullname di local storage
+            localStorage.setItem('fullname', fullname);
 
             // Simpan token di local storage
             localStorage.setItem('token', token);
@@ -115,7 +118,7 @@ const Login = () => {
                 </form>
                 <p className="for-signup mt-[20px]">
                     Don't have an account yet?
-                    <Link to="/registrasi" className="text-blue-600 ml-1 hover:underline">
+                    <Link to="/registrasi" className    ="text-blue-600 ml-1 hover:underline">
                         <span>Registrasi</span>
                     </Link>
                 </p>

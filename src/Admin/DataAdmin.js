@@ -5,7 +5,6 @@ import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 import backgImg from '../Assets/bg.png';
 import { FaRegPenToSquare } from "react-icons/fa6";
-import { FiPlusCircle } from "react-icons/fi";
 import { IoTrashOutline } from "react-icons/io5";
 
 const DataAdmin = () => {
@@ -174,7 +173,7 @@ const DataAdmin = () => {
                                         {item.place_date_birth}
                                     </td>    
                                     <td className="px-6 py-4">
-                                        {item.address}
+                                        {item.addres}
                                     </td>    
                                     <td className="px-6 py-4 flex gap-[10px]">
                                         <Link to={`/edit-data-admin/${item.id}`}>
