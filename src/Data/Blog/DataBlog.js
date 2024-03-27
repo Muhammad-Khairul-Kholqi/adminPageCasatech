@@ -1,25 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import backgImg from '../../Assets/bg.png';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
+import backgImg from '../../Assets/bg.png';
 import { FaRegPenToSquare } from "react-icons/fa6";
 import { FiPlusCircle } from "react-icons/fi";
 import { IoTrashOutline } from "react-icons/io5";
-import Swal from 'sweetalert2';
-import axios from 'axios';
 
 // api
-import BaseUrl from '../../Api/BaseUrl';
+import BaseUrl from "../../Api/BaseUrl";
 
 const DataBlog = () => {
-    useEffect(() => {
-        document.title = "Data Blog | Casatech";
-    }, []);
-
     const itemsPerPage = 5;
 
     const [data, setData] = useState(null);
     const [selectedItems, setSelectedItems] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
+
+    useEffect(() => {
+        document.title = "Data Blog | Casatech";
+    }, []);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -132,6 +132,8 @@ const DataBlog = () => {
                                 </div>
                             </Link>
                         </div>
+                        <p className="pb-[5px]">{data ? `${data.length}` : 0} Data Blog</p>
+                        <p className="pb-[10px] italic">Klik checkbox untuk hapus data</p>
                         <div className = "relative overflow-x-auto border-solid border-[1px] border-black" >
                             <table className = "w-full text-sm text-left rtl:text-right" >
                                 <thead className = "text-[15px] bg-blue-100 border-b-[1px] border-black" >
@@ -164,14 +166,14 @@ const DataBlog = () => {
                                             <td className="px-6 py-4">
                                                 {item.image}
                                             </td>
-                                            <td className = "px-6 py-4 w-[300px]" >
+                                            <td className="px-6 py-4 w-[300px]">
                                                 {item.tittle}
                                             </td>
-                                            <td className = "px-6 py-4 w-[300px]" >
+                                            <td className="px-6 py-4 w-[300px]">
                                                 {item.description}
                                             </td>
                                             <td className="px-6 py-4 flex gap-[10px]">
-                                                <Link to="">
+                                                <Link to={`/edit-data-blog/${item.id}`}>
                                                     <div className="icon-text text-[15px] flex gap-[5px] items-center text-blue-600 hover:underline">
                                                         <FaRegPenToSquare />
                                                         <p className="text-link">Edit</p>

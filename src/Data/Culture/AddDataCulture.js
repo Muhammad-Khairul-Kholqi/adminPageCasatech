@@ -155,7 +155,6 @@ const AddDataCulture = () => {
                             ]}
                             required
                         />
-                        {error && <p className="text-red-500 mt-2">{error}</p>}
                     </div>
                     <button type="submit" className="mt-[20px] rounded-[3px] w-full bg-gray-500 hover:bg-gray-600 text-white py-[5px]">Submit</button>
                 </form>
