@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import BaseUrl from "../Api/BaseUrl";
 import Swal from 'sweetalert2';
@@ -8,8 +9,8 @@ import { FaRegPenToSquare } from "react-icons/fa6";
 import { IoTrashOutline } from "react-icons/io5";
 
 const DataAdmin = () => {
+    const navigate = useNavigate();
     const itemsPerPage = 5;
-
     const [selectedItems, setSelectedItems] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
 
@@ -23,14 +24,20 @@ const DataAdmin = () => {
         const fetchData = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const response = await axios.get(`${BaseUrl}users`, {
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    }
-                });
-                const sortedData = response.data.data.sort((a, b) => b.id - a.id);
+                if (!token) {
+                    navigate('/');
+                } else {
+                    const response = await axios.get(`${BaseUrl}users`, {
+                        headers: {
+                            Authorization: `Bearer ${token}`
+                        }
+                    });
+                    
+                    const sortedData = response.data.data.sort((a, b) => b.id - a.id);
 
-                setData(sortedData);
+                    setData(sortedData);
+                }
+
             } catch (error) {
                 console.error("Error fetching data:", error);
             }

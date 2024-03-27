@@ -14,11 +14,36 @@ const AddDataInnovation = () => {
         document.title = "Add Data Innovation | Casatech";
     }, []);
 
+    const [data, setData] = useState(null);
+    const navigate = useNavigate();
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const token = localStorage.getItem('token');
+                if (!token) {
+                    navigate('/');
+                } else {
+                    const response = await axios.get(`${BaseUrl}innovation`, {
+                        headers: {
+                            Authorization: `Bearer ${token}`
+                        }
+                    });
+                    const sortedData = response.data.data.sort((a, b) => b.id - a.id);
+
+                    setData(sortedData);
+                }
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        };
+
+        fetchData();
+    }, [navigate]);
+
     const [image, setImage] = useState(null);
     const [tittle, setTitle] = useState('');
     const [editorContent, setEditorContent] = useState('');
     const [error, setError] = useState('');
-    const navigate = useNavigate();
 
     const handleTitleChange = (event) => {
         setTitle(event.target.value);
