@@ -12,34 +12,15 @@ import backgImg from '../../Assets/bg.png';
 import BaseUrl from "../../Api/BaseUrl";
 
 const EditDataCulture = () => {
-    const { id } = useParams();
-    const navigate = useNavigate();
-
     useEffect(() => {
         document.title = 'Edit Data Culture | Casatech';
-        fetchData();
     }, []);
 
+    const { id } = useParams();
+    const navigate = useNavigate();
     const [image, setImage] = useState('');
-    const [tittle, setTitle] = useState('');
+    const [tittle_culture, setTitle] = useState('');
     const [editorContent, setEditorContent] = useState('');
-
-    const fetchData = async () => {
-        try {
-            const token = localStorage.getItem('token');
-            const response = await axios.get(`${BaseUrl}innovation/${id}`, {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            });
-            const { image, tittle, description } = response.data;
-            setImage(image);
-            setTitle(tittle);
-            setEditorContent(description);
-        } catch (error) {
-            console.error('Error fetching data:', error);
-        }
-    };
 
     const handleChange = (content) => {
         setEditorContent(content);
@@ -51,6 +32,58 @@ const EditDataCulture = () => {
 
     const handleImageChange = (event) => {
         setImage(event.target.files[0]);
+    };
+
+    const handleUpdate = async (event) => {
+        event.preventDefault();
+
+        if (!image || !tittle_culture.trim() || !editorContent.trim()) {
+            Swal.fire({
+                title: 'Error!',
+                text: 'Image, Title dan Description harus diisi!',
+                icon: 'error',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'OK',
+            });
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('image', image);
+        formData.append('tittle_culture', tittle_culture);
+        formData.append('description_culture', editorContent);
+
+        try {
+            const token = localStorage.getItem('token');
+            const response = await axios.patch(`${BaseUrl}culture/${id}`, formData, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+
+           console.log('Response from server:', response.data);
+
+           Swal.fire({
+               title: 'Sukses!',
+               text: 'Data berhasil diupdate.',
+               icon: 'success',
+               showConfirmButton: false,
+               timer: 1000
+           }).then(() => {
+               navigate('/data-culture');
+           });
+       } catch (error) {
+           console.error('Error updating data:', error);
+
+           Swal.fire({
+               title: 'Error!',
+               text: 'Terjadi kesalahan saat mengupdate data. Silakan coba lagi.',
+               icon: 'error',
+               confirmButtonColor: '#3085d6',
+               confirmButtonText: 'OK',
+           });
+       }
     };
 
     const modules = {
@@ -80,55 +113,6 @@ const EditDataCulture = () => {
         'bullet',
         'link',
     ];
-
-    const handleUpdate = async (event) => {
-        event.preventDefault();
-
-        if (!image || !tittle.trim() || !editorContent.trim()) {
-            Swal.fire({
-                title: 'Error!',
-                text: 'Image, Title dan Description harus diisi!',
-                icon: 'error',
-                confirmButtonColor: '#3085d6',
-                confirmButtonText: 'OK',
-            });
-            return;
-        }
-
-        try {
-           const token = localStorage.getItem('token');
-           const response = await axios.patch(`${BaseUrl}innovation/${id}`, {
-               image: image,
-               tittle: tittle,
-               description: editorContent,
-           }, {
-               headers: {
-                   Authorization: `Bearer ${token}`
-               }
-           });
-
-           console.log('Response from server:', response.data);
-           Swal.fire({
-               title: 'Sukses!',
-               text: 'Data berhasil diupdate.',
-               icon: 'success',
-               showConfirmButton: false,
-               timer: 1000
-           }).then(() => {
-               navigate('/data-innovation');
-           });
-       } catch (error) {
-           console.error('Error updating data:', error);
-
-           Swal.fire({
-               title: 'Error!',
-               text: 'Terjadi kesalahan saat mengupdate data. Silakan coba lagi.',
-               icon: 'error',
-               confirmButtonColor: '#3085d6',
-               confirmButtonText: 'OK',
-           });
-       }
-    };
 
     return (
         <div>
@@ -166,7 +150,7 @@ const EditDataCulture = () => {
                                 className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] pl-[10px] pr-[10px]"
                                 type="text"
                                 id="tittle"
-                                value={tittle}
+                                value={tittle_culture}
                                 onChange={handleTitleChange}
                                 autoComplete="off"
                         />

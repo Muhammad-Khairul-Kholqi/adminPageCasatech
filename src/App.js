@@ -14,7 +14,7 @@ import EditData from './Data/Company/EditData';
 
 import DataCulture from './Data/Culture/DataCulture';
 import AddDataCulture from './Data/Culture/AddDataInnovation';
-import EditDataCulture from './Data/Culture/EditDataInnovation';
+import EditDataCulture from './Data/Culture/EditDataCulture';
 
 import SolutionsData from './Data/Solutioins/SolutionsData';
 import AddDataSolutions from './Data/Solutioins/AddDataSolutions';
@@ -40,7 +40,6 @@ import DataService from './Data/Service/DataService';
 import AddDataService from './Data/Service/AddDataService';
 import EditDataService from './Data/Service/EditDataService';
 
-import CategoryBlog from './Data/Blog/CategoryBlog';
 import DataBlog from './Data/Blog/DataBlog';
 import AddDataBlog from './Data/Blog/AddDataBlog';
 import EditDataBlog from './Data/Blog/EditDataBlog';
@@ -130,7 +129,7 @@ const App = () => {
                             }
                         />
                         <Route
-                            path="/edit-data-culture"
+                            path="/edit-data-culture/:id"
                             element={
                                 <DefaultLayout>
                                     <EditDataCulture />
@@ -302,15 +301,7 @@ const App = () => {
 
                         {/* blog */}
                         <Route
-                            path = "/category-blog"
-                            element={
-                                <DefaultLayout>
-                                    <CategoryBlog />
-                                </DefaultLayout>
-                            }
-                        />
-                        <Route
-                            path = "/data-blog/:id"
+                            path = "/data-blog"
                             element={
                                 <DefaultLayout>
                                     <DataBlog />

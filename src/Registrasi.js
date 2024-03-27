@@ -143,7 +143,7 @@ const Registrasi = () => {
                                 </div>
 
                                 <div className="mt-[15px]">
-                                    <label htmlFor="pdb">Place date of birth: </label>
+                                    <label htmlFor="pdb">Birth: </label>
                                     <input 
                                         id="pdb"
                                         type="date"
