@@ -13,7 +13,7 @@ import CompanyData from './Data/Company/CompanyData';
 import EditData from './Data/Company/EditData';
 
 import DataCulture from './Data/Culture/DataCulture';
-import AddDataCulture from './Data/Culture/AddDataInnovation';
+import AddDataCulture from './Data/Culture/AddDataCulture';
 import EditDataCulture from './Data/Culture/EditDataCulture';
 
 import SolutionsData from './Data/Solutioins/SolutionsData';
@@ -319,7 +319,7 @@ const App = () => {
                         />
 
                         <Route
-                            path = "/edit-data-blog"
+                            path = "/edit-data-blog/:id"
                             element={
                                 <DefaultLayout>
                                     <EditDataBlog />
