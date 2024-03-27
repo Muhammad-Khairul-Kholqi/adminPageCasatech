@@ -72,11 +72,17 @@ const TableAllData = () => {
                 </div>
 
                 <div className="mt-[20px]">
-                    <h1 className="mb-[20px] text-[20px] italic">Vision & Mision_</h1>
+                    <h1 className="mb-[20px] text-[20px] italic">Data About_</h1>
                     <div className="relative overflow-x-auto border-solid border-[1px] border-black">
                         <table className="w-full text-sm text-left rtl:text-right">
                             <thead className="text-[15px] bg-blue-100 border-b-[1px] border-black">
                                 <tr>
+                                    <th scope="col" className="px-6 py-3">
+                                        Image
+                                    </th>
+                                    <th scope="col" className="px-6 py-3">
+                                        Description
+                                    </th>
                                     <th scope="col" className="px-6 py-3">
                                         Vision
                                     </th>
@@ -89,40 +95,16 @@ const TableAllData = () => {
                                 {data && data.map((item) => (
                                     <tr key={item.id} className="text-[13px]">
                                         <td className="px-6 py-4">
-                                            {item.visi}
-                                        </td>
-                                        <td className="px-6 py-4">
-                                            {item.misi}
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div className="mt-[20px]">
-                    <h1 className="mb-[20px] text-[20px] italic">Data About_</h1>
-                    <div className="relative overflow-x-auto border-solid border-[1px] border-black">
-                        <table className="w-full text-sm text-left rtl:text-right">
-                            <thead className="text-[15px] bg-blue-100 border-b-[1px] border-black">
-                                <tr>
-                                    <th scope="col" className="px-6 py-3">
-                                        Image
-                                    </th>
-                                    <th scope="col" className="px-6 py-3">
-                                        Description
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {data && data.map((item) => (
-                                    <tr key={item.id} className="text-[13px]">
-                                        <td className="px-6 py-4">
                                             {item.image_about}
                                         </td>
                                         <td className = "px-6 py-4 w-[300px]" >
                                             {item.description_about}
+                                        </td>
+                                        <td className="px-6 py-4">
+                                            {item.visi}
+                                        </td>
+                                        <td className="px-6 py-4">
+                                            {item.misi}
                                         </td>
                                     </tr>
                                 ))}
@@ -146,6 +128,9 @@ const TableAllData = () => {
                                     <th scope="col" className="px-6 py-3">
                                         Average Ratings
                                     </th> 
+                                    <th scope="col" className="px-6 py-3">
+                                        Image Client
+                                    </th> 
                                 </tr>
                             </thead>
                             <tbody>
@@ -159,6 +144,9 @@ const TableAllData = () => {
                                         </td>
                                         <td className = "px-6 py-4 w-[300px]" >
                                             {item.rating}
+                                        </td>
+                                        <td className = "px-6 py-4 w-[300px]" >
+                                            {item.image_client}
                                         </td>
                                     </tr>
                                 ))}

@@ -7,7 +7,6 @@ import 'react-quill/dist/quill.bubble.css';
 import '../../Style/Company/StyleEditCompany.css';
 
 import Integrated from './FormEdit/Integragted';
-import VisiMisi from './FormEdit/VisiMisi';
 import About from './FormEdit/About';
 import Sponsorship from './FormEdit/Sponsorship';
 import ContactCatalog from './FormEdit/ContactCatalog';
@@ -44,9 +43,6 @@ const EditData = () => {
                 <button onClick={() => handleTabClick(1)} className="{activeTab === 1 ? 'active' : ''} text-blue-600 hover:text-blue-900 hover:underline underline-offset-8">
                 Integrated
                 </button>
-                <button onClick={() => handleTabClick(2)} className="{activeTab === 2 ? 'active' : ''} text-blue-600 hover:text-blue-900 hover:underline underline-offset-8">
-                Vision & Mision
-                </button>
                 <button onClick={() => handleTabClick(3)} className="{activeTab === 3 ? 'active' : ''} text-blue-600 hover:text-blue-900 hover:underline underline-offset-8">
                 About
                 </button>
@@ -61,11 +57,6 @@ const EditData = () => {
             {/* integrated */}
             <div>
                 {activeTab === 1 && <Integrated />}
-            </div>
-
-            {/* vision - mision */}
-            <div>
-                {activeTab === 2 && <VisiMisi /> }
             </div>
 
             {/* About */}

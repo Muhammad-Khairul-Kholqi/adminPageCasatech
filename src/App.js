@@ -1,13 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+// import PrivateRoute from './AuthRoute '; 
 
 import Sidebar from './Template/Side';
 
 import Header from './Template/Header';
 
 import Dashboard from './Dashboard';
-
-import AccountAdmin from './Admin/AccountAdmin';
 
 import CompanyData from './Data/Company/CompanyData';
 import EditData from './Data/Company/EditData';
@@ -323,17 +322,6 @@ const App = () => {
                             element={
                                 <DefaultLayout>
                                     <EditDataBlog />
-                                </DefaultLayout>
-                            }
-                        />
-
-
-                        {/* account admin */}
-                        <Route
-                            path="/account-admin"
-                            element={
-                                <DefaultLayout>
-                                    <AccountAdmin />
                                 </DefaultLayout>
                             }
                         />

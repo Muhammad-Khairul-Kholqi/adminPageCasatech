@@ -59,6 +59,26 @@ const About = () => {
                             formats={formats}
                         />
                     </div>
+                    <div className = "mt-[15px]" >
+                        <span for="desc">Vision:</span>
+                        <br />
+                        <ReactQuill id="desc" className="mt-[15px]"
+                            value={editorContent}
+                            onChange={handleChange}
+                            modules={modules}
+                            formats={formats}
+                        />
+                    </div>
+                    <div className = "mt-[15px]" >
+                        <span for="desc">Mision:</span>
+                        <br />
+                        <ReactQuill id="desc" className="mt-[15px]" 
+                            value={editorContent}
+                            onChange={handleChange}
+                            modules={modules}
+                            formats={formats}
+                        />
+                    </div>
                     <button className="mt-[20px] rounded-[3px] w-full bg-gray-500 hover:bg-gray-600 text-white py-[5px]">Save Changes</button>
                 </form>
         </div>

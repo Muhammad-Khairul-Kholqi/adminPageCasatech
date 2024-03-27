@@ -151,14 +151,6 @@ const Header = () => {
                     <div className="account-logout absolute top-full right-0 bg-white shadow-md rounded-md p-5 text-[15px] z-10">
                         <ul>
                             <li>
-                                <Link to="/account-admin">
-                                    <div className="flex items-center gap-[5px] hover:bg-[#1A9FA3] p-[5px] rounded-[5px] hover:text-white">
-                                        <MdOutlineAccountCircle className="icon-log-acc text-[17px]" />
-                                        <p>Account</p>
-                                    </div>
-                                </Link>
-                            </li>
-                            <li>
                                 <Link to="/data-admin">
                                     <div className="flex items-center gap-[5px] hover:bg-blue-500 p-[5px] rounded-[5px] hover:text-white">
                                         <RiAdminLine  className="icon-log-acc text-[17px]" />
