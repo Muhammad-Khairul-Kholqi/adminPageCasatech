@@ -38,10 +38,7 @@ const Login = () => {
 
         try {
             const response = await axios.post(`${BaseUrl}auth/login`, { username, password });
-            const { token, fullname } = response.data; 
-
-            // Simpan fullname di local storage
-            localStorage.setItem('fullname', fullname);
+            const { token } = response.data; 
 
             // Simpan token di local storage
             localStorage.setItem('token', token);

@@ -125,7 +125,7 @@ const EditDataAdmin = () => {
                     <h1 className="text-center font-bold text-[20px] mb-[20px]">Edit Data Admin</h1>
                     <form onSubmit={handleUpdate}>
                         <div className="mt-[10px]">
-                            <span for="image">Image:</span>
+                            <span htmlFor="image">Image:</span>
                             <br />
                             <input 
                                 id="image" 
@@ -135,7 +135,7 @@ const EditDataAdmin = () => {
                             />
                         </div>
                         <div>
-                            <span for="name">FullName:</span>
+                            <span htmlFor="name">FullName:</span>
                             <br />
                             <input
                                 className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] pl-[10px] pr-[10px]"
@@ -147,7 +147,7 @@ const EditDataAdmin = () => {
                         />
                         </div>
                         <div className = "mt-[15px]" >
-                            <span for="position">Position:</span>
+                            <span htmlFor="position">Position:</span>
                             <br />
                             <input 
                                 className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] pl-[10px] pr-[10px]" 
@@ -159,7 +159,7 @@ const EditDataAdmin = () => {
                             />
                         </div>
                         <div className = "mt-[15px]" >
-                            <span for="ttl">Birth:</span>
+                            <span htmlFor="ttl">Birth:</span>
                             <br />
                             <input 
                                 className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] pl-[10px] pr-[10px]" 
@@ -171,7 +171,7 @@ const EditDataAdmin = () => {
                             />
                         </div>
                         <div className = "mt-[15px]" >
-                            <span for="address">Address:</span>
+                            <span htmlFor="address">Address:</span>
                             <br />
                             <input 
                                 className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] pl-[10px] pr-[10px]" 
