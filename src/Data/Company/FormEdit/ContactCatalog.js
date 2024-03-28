@@ -97,7 +97,7 @@ const ContactCatalog = () => {
                         formats={formats}
                     />
                 </div>
-                <button className="mt-[20px] rounded-[3px] w-full bg-gray-500 hover:bg-gray-600 text-white py-[5px]">Save Changes</button>
+                {/* <button className="mt-[20px] rounded-[3px] w-full bg-gray-500 hover:bg-gray-600 text-white py-[5px]">Save Changes</button> */}
             </form>
         </div>
     )
