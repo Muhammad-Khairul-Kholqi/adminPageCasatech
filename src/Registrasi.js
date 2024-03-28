@@ -99,7 +99,7 @@ const Registrasi = () => {
             Swal.fire({
                 icon: 'success',
                 title: 'Sukses!',
-                text: 'Berhasil menambah data Testimoni',
+                text: 'Registrasi data berhasil',
                 showConfirmButton: false,
                 timer: 1000,
             }).then(() => {
