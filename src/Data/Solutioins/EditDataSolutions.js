@@ -173,6 +173,7 @@ const EditDataSolutions = () => {
                             autoComplete="off"
                         />
                     </div>
+
                     <div className="mt-[15px]">
                         <label htmlFor="desc">Description:</label>
                         <ReactQuill

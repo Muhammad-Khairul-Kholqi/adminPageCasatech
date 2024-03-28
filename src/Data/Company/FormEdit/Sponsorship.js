@@ -21,7 +21,7 @@ const Sponsorship = () => {
                     <input className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px]" type="text" id="ratings" />
                 </div>
                 <div className="mt-[10px]">
-                        <span for="image">Image:</span>
+                        <span for="image">Image Client:</span>
                         <br />
                         <input 
                             id="image" 
@@ -29,7 +29,7 @@ const Sponsorship = () => {
                             type="file" 
                         />
                      </div>
-                <button className="mt-[20px] rounded-[3px] w-full bg-gray-500 hover:bg-gray-600 text-white py-[5px]">Save Changes</button>
+                {/* <button className="mt-[20px] rounded-[3px] w-full bg-gray-500 hover:bg-gray-600 text-white py-[5px]">Save Changes</button> */}
             </form>
         </div>
     )
