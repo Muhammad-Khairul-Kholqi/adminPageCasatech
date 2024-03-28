@@ -6,20 +6,45 @@ import backgImg from '../../Assets/bg.png';
 import { FaRegPenToSquare } from "react-icons/fa6";
 import { FiPlusCircle } from "react-icons/fi";
 import { IoTrashOutline } from "react-icons/io5";
+import { useNavigate } from 'react-router-dom';
 
 // api
 import BaseUrl from "../../Api/BaseUrl";
 
 const DataBlog = () => {
-    const itemsPerPage = 5;
+    useEffect(() => {
+        document.title = "Data Blog | Casatech";
+    }, []);
 
+    const itemsPerPage = 5;
     const [data, setData] = useState(null);
     const [selectedItems, setSelectedItems] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
 
+    const navigate = useNavigate();
     useEffect(() => {
-        document.title = "Data Blog | Casatech";
-    }, []);
+        const fetchData = async () => {
+            try {
+                const token = localStorage.getItem('token');
+                if (!token) {
+                    navigate('/');
+                } else {
+                    const response = await axios.get(`${BaseUrl}blog`, {
+                        headers: {
+                            Authorization: `Bearer ${token}`
+                        }
+                    });
+                    const sortedData = response.data.data.sort((a, b) => b.id - a.id);
+
+                    setData(sortedData);
+                }
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        };
+
+        fetchData();
+    }, [navigate]);
 
     useEffect(() => {
         const fetchData = async () => {

@@ -16,8 +16,33 @@ const EditDataPortfolio = () => {
         document.title = 'Edit Data Portfolio | Casatech';
     }, []);
 
-    const { id } = useParams();
+const [data, setData] = useState(null);
     const navigate = useNavigate();
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const token = localStorage.getItem('token');
+                if (!token) {
+                    navigate('/');
+                } else {
+                    const response = await axios.get(`${BaseUrl}portfolio`, {
+                        headers: {
+                            Authorization: `Bearer ${token}`
+                        }
+                    });
+                    const sortedData = response.data.data.sort((a, b) => b.id - a.id);
+
+                    setData(sortedData);
+                }
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        };
+
+        fetchData();
+    }, [navigate]);
+
+    const { id } = useParams();
     const [image, setImage] = useState('');
     const [title, setTitle] = useState('');
     const [software_name, setSoftware] = useState('');

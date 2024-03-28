@@ -14,11 +14,36 @@ const AddDataTeams = () => {
          document.title = "Add Data Teams | Casatech";
      }, []);
 
+    const [data, setData] = useState(null);
+    const navigate = useNavigate();
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const token = localStorage.getItem('token');
+                if (!token) {
+                    navigate('/');
+                } else {
+                    const response = await axios.get(`${BaseUrl}team`, {
+                        headers: {
+                            Authorization: `Bearer ${token}`
+                        }
+                    });
+                    const sortedData = response.data.data.sort((a, b) => b.id - a.id);
+
+                    setData(sortedData);
+                }
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        };
+
+        fetchData();
+    }, [navigate]);
+
      const [image, setImage] = useState('');
      const [name, setName] = useState('');
      const [position, setPosition] = useState('');
      const [error, setError] = useState('');
-     const navigate = useNavigate();
 
      const handleImageChange = (event) => {
          setImage(event.target.files[0]);

@@ -6,6 +6,7 @@ import backgImg from '../../Assets/bg.png';
 import { FaRegPenToSquare } from "react-icons/fa6";
 import { FiPlusCircle } from "react-icons/fi";
 import { IoTrashOutline } from "react-icons/io5";
+import { useNavigate } from 'react-router-dom';
 
 // api
 import BaseUrl from "../../Api/BaseUrl";
@@ -21,25 +22,30 @@ const DataCulture = () => {
         document.title = "Data Culture | Casatech";
     }, []);
 
+    const navigate = useNavigate();
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const response = await axios.get(`${BaseUrl}culture`, {
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    }
-                });
-                const sortedData = response.data.data.sort((a, b) => b.id - a.id);
+                if (!token) {
+                    navigate('/');
+                } else {
+                    const response = await axios.get(`${BaseUrl}culture`, {
+                        headers: {
+                            Authorization: `Bearer ${token}`
+                        }
+                    });
+                    const sortedData = response.data.data.sort((a, b) => b.id - a.id);
 
-                setData(sortedData);
+                    setData(sortedData);
+                }
             } catch (error) {
                 console.error("Error fetching data:", error);
             }
         };
 
         fetchData();
-    }, []);
+    }, [navigate]);
 
     const handleDelete = async () => {
         if (selectedItems.length === 0) {
