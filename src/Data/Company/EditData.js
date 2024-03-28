@@ -153,7 +153,7 @@ const EditData = () => {
             console.log('Response from server:', response.data);
             Swal.fire({
                 title: 'Success!',
-                text: 'Data updated successfully.',
+                text: 'Berhasil update data company.',
                 icon: 'success',
                 showConfirmButton: false,
                 timer: 1000
@@ -165,7 +165,7 @@ const EditData = () => {
 
             Swal.fire({
                 title: 'Error!',
-                text: 'An error occurred while updating data. Please try again.',
+                text: 'Tambahkan kembali input gambar karena tidak menggunakan data sebelumnya.',
                 icon: 'error',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'OK',
@@ -447,15 +447,16 @@ const EditData = () => {
                                     onChange={(e) => setMap(e.target.value)}
                             /></div>
 
-                            <div className = "mt-[15px]" >
-                                <span for="address">Address:</span>
-                                <ReactQuill id="address" className="mt-[15px]"
-                                    modules={modules}
-                                    formats={formats}
+                            <div className="mt-[15px]">
+                                <span for="map">Address:</span>
+                                <br />
+                                <input 
+                                    className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px]" 
+                                    type="text" 
+                                    id="map" 
                                     value={addres || ''}
-                                    onChange={setAddres}
-                                />
-                            </div>
+                                    onChange={(e) => setAddres(e.target.value)}
+                            /></div>
                         </div>
                         <button className="mt-[20px] rounded-[3px] w-full bg-gray-500 hover:bg-gray-600 text-white py-[5px]" type="submit">
                             Save Changes

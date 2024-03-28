@@ -206,19 +206,19 @@ const TableAllData = () => {
                                             {item.addres}
                                         </td>
                                         <td className="px-6 py-4">
-                                            <a href={item.link_linkedin} className="text-blue-600 hover:underline">{item.link_linkedin}</a>
+                                            <a target="_blank" href={item.linkedin} className="text-blue-600 hover:underline">{item.linkedin}</a>
                                         </td>
                                         <td className="px-6 py-4">
-                                            <a href={item.link_ig} className="text-blue-600 hover:underline">{item.link_ig}</a>
+                                            <a target="_blank" href={item.instagram} className="text-blue-600 hover:underline">{item.instagram}</a>
                                         </td>
                                         <td className="px-6 py-4">
-                                            <a href={item.link_youtube} className="text-blue-600 hover:underline">{item.link_youtube}</a>
+                                            <a target="_blank" href={item.youtube} className="text-blue-600 hover:underline">{item.youtube}</a>
                                         </td>
                                         <td className = "px-6 py-4" >
-                                        <a href={item.link_telegram} className="text-blue-600 hover:underline">{item.link_telegram}</a>
+                                        <a target="_blank" href={item.telegram} className="text-blue-600 hover:underline">{item.telegram}</a>
                                         </td>
                                         <td className = "px-6 py-4" >
-                                        <a href={item.link_map} className="text-blue-600 hover:underline">{item.link_map}</a>
+                                        <a target="_blank" href={item.map} className="text-blue-600 hover:underline">{item.map}</a>
                                         </td>
                                     </tr>
                                 ))}
