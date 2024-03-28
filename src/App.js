@@ -111,7 +111,7 @@ const App = () => {
 
                         {/* culture */}
                         <Route
-                            path="/data-culture"
+                            path="/data-culture"    
                             element={
                                 <DefaultLayout>
                                     <DataCulture />

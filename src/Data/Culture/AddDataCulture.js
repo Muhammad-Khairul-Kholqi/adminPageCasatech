@@ -14,11 +14,36 @@ const AddDataCulture = () => {
         document.title = "Add Data Culture | Casatech";
     }, []);
 
+    const [data, setData] = useState(null);
+    const navigate = useNavigate();
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const token = localStorage.getItem('token');
+                if (!token) {
+                    navigate('/');
+                } else {
+                    const response = await axios.get(`${BaseUrl}culture`, {
+                        headers: {
+                            Authorization: `Bearer ${token}`
+                        }
+                    });
+                    const sortedData = response.data.data.sort((a, b) => b.id - a.id);
+
+                    setData(sortedData);
+                }
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        };
+
+        fetchData();
+    }, [navigate]);
+
     const [image, setImage] = useState(null);
     const [tittle_culture, setTitle] = useState('');
     const [editorContent, setEditorContent] = useState('');
     const [error, setError] = useState('');
-    const navigate = useNavigate();
 
     const handleTitleChange = (event) => {
         setTitle(event.target.value);

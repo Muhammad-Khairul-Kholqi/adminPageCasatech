@@ -6,40 +6,45 @@ import backgImg from '../../Assets/bg.png';
 import { FaRegPenToSquare } from "react-icons/fa6";
 import { FiPlusCircle } from "react-icons/fi";
 import { IoTrashOutline } from "react-icons/io5";
+import { useNavigate } from 'react-router-dom';
 
 // api
 import BaseUrl from "../../Api/BaseUrl";
 
 const DataPortfolio = () => {
-    const itemsPerPage = 5;
-
-    const [data, setData] = useState(null);
-    const [selectedItems, setSelectedItems] = useState([]);
-    const [currentPage, setCurrentPage] = useState(1);
-
     useEffect(() => {
         document.title = "Data Portfolio | Casatech";
     }, []);
 
+    const itemsPerPage = 5;
+    const [data, setData] = useState(null);
+    const [selectedItems, setSelectedItems] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+
+const navigate = useNavigate();
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const token = localStorage.getItem('token');
-                const response = await axios.get(`${BaseUrl}portfolio`, {
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    }
-                });
-                const sortedData = response.data.data.sort((a, b) => b.id - a.id);
+                if (!token) {
+                    navigate('/');
+                } else {
+                    const response = await axios.get(`${BaseUrl}portfolio`, {
+                        headers: {
+                            Authorization: `Bearer ${token}`
+                        }
+                    });
+                    const sortedData = response.data.data.sort((a, b) => b.id - a.id);
 
-                setData(sortedData);
+                    setData(sortedData);
+                }
             } catch (error) {
                 console.error("Error fetching data:", error);
             }
         };
 
         fetchData();
-    }, []);
+    }, [navigate]);
 
     const handleDelete = async () => {
         if (selectedItems.length === 0) {
