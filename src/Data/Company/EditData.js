@@ -311,7 +311,7 @@ const EditData = () => {
                                 <span for="client">Clients:</span>
                                 <br />
                                 <input 
-                                    className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px]" 
+                                    className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] px-[5px]" 
                                     type="number" 
                                     id="client" 
                                     value={client || ''}
@@ -322,7 +322,7 @@ const EditData = () => {
                                 <span for="sponsor">Sponsors:</span>
                                 <br />
                                 <input 
-                                    className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px]" 
+                                    className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] px-[5px]" 
                                     type="number" 
                                     id="sponsor" 
                                     value={sponsor || ''}
@@ -333,7 +333,7 @@ const EditData = () => {
                                 <span for="ratings">Ratings:</span>
                                 <br />
                                 <input 
-                                    className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px]" 
+                                    className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] px-[5px]" 
                                     type="text" 
                                     id="ratings" 
                                     value={rating || ''}
@@ -357,7 +357,7 @@ const EditData = () => {
                                 <span for="wa">No Whatsapp:</span>
                                 <br />
                                 <input 
-                                    className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px]" 
+                                    className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] px-[5px]" 
                                     type="text" 
                                     id="wa" 
                                     value={no_wa || ''}
@@ -369,7 +369,7 @@ const EditData = () => {
                                 <span for="telephone">No Telephone:</span>
                                 <br />
                                 <input 
-                                    className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px]" 
+                                    className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] px-[5px]" 
                                     type="text" 
                                     id="telephone" 
                                     value={no_telephone || ''}
@@ -381,7 +381,7 @@ const EditData = () => {
                                 <span for="email">Email:</span>
                                 <br />
                                 <input 
-                                    className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px]" 
+                                    className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] px-[5px]" 
                                     type="text" 
                                     id="email" 
                                     value={email || ''}
@@ -393,7 +393,7 @@ const EditData = () => {
                                 <span for="linkedin">Link Linkedin:</span>
                                 <br />
                                 <input 
-                                    className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px]" 
+                                    className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] px-[5px]" 
                                     type="text" 
                                     id="linkedin" 
                                     value={linkedin || ''}
@@ -405,7 +405,7 @@ const EditData = () => {
                                 <span for="ig">Link Instagram:</span>
                                 <br />
                                 <input 
-                                    className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px]" 
+                                    className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] px-[5px]" 
                                     type="text" 
                                     id="ig" 
                                     value={instagram || ''}
@@ -417,7 +417,7 @@ const EditData = () => {
                                 <span for="yt">Link Youtube:</span>
                                 <br />
                                 <input 
-                                    className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px]" 
+                                    className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] px-[5px]" 
                                     type="text" 
                                     id="yt" 
                                     value={youtube || ''}
@@ -429,7 +429,7 @@ const EditData = () => {
                                 <span for="tele">Link Telegram:</span>
                                 <br />
                                 <input 
-                                    className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px]" 
+                                    className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] px-[5px]" 
                                     type="text" 
                                     id="tele" 
                                     value={telegram || ''}
@@ -440,7 +440,7 @@ const EditData = () => {
                                 <span for="map">Link Map:</span>
                                 <br />
                                 <input 
-                                    className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px]" 
+                                    className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] px-[5px]" 
                                     type="text" 
                                     id="map" 
                                     value={map || ''}
@@ -451,7 +451,7 @@ const EditData = () => {
                                 <span for="map">Address:</span>
                                 <br />
                                 <input 
-                                    className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px]" 
+                                    className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] px-[5px]" 
                                     type="text" 
                                     id="map" 
                                     value={addres || ''}
