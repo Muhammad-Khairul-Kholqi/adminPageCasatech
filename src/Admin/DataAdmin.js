@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
-import BaseUrl from "../Api/BaseUrl";
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 import backgImg from '../Assets/bg.png';
 import { FaRegPenToSquare } from "react-icons/fa6";
 import { IoTrashOutline } from "react-icons/io5";
+
+// base url
+import BaseUrl from "../Api/BaseUrl";
 
 const DataAdmin = () => {
     const navigate = useNavigate();
