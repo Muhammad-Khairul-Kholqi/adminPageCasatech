@@ -1,120 +1,53 @@
-@media (max-width:915px) {
-    .ilustrasi {
-        width: 350px;
+input::placeholder {
+    font-size: 12px;
+    font-style: italic;
+}
+
+@media (max-width:635px) {
+    .tittle-login {
+        font-size: 17px;
     }
 }
 
-@media (max-width:850px) {
-    .ilustrasi {
-        width: 300px;
-        margin-top: 30px;
-    }
-
-    .type-input {
+@media (max-width:600px) {
+    .abstrack-bg {
         width: 250px;
     }
+}
 
-    .button {
-        width: 250px;
+@media (max-width:555px) {
+    .abstrack-bg {
+        width: 200px;
     }
 
-    .for-signup {
+    .tittle-login {
         font-size: 15px;
     }
 }
 
-@media (max-width:745px) {
-    .ilustrasi {
-        width: 250px;
-        margin-top: 50px;
+@media (max-width:500px) {
+    .abstrack-bg {
+        width: 150px;
     }
 
-    .type-input {
-        width: 220px;
-    }
-
-    .button {
-        width: 220px;
-    }
-
-    .for-signup {
-        font-size: 13px;
-    }
-
-    .garis {
-        width: 50px;
-    }
-}
-
-@media (max-width:625px) {
-    .content-login {
-        flex-direction: column;
-        align-items: center;
-        margin-top: -1px;
-        margin-top: 10px;
-    }
-
-    .type-input {
-        width: 300px;
-    }
-
-    .button {
-        width: 300px;
-    }
-
-    .garis {
-        width: 80px;
-    }
-
-    .for-signup {
+    .tittle-login {
         font-size: 15px;
     }
+}
 
-    .ilustrasi {
-        width: 350px;
+@media (max-width:400px) {
+    .abstrack-bg {
+        width: 100px;
     }
 }
 
-@media (max-width:430px) {
-    .type-input {
-        width: 250px;
+@media (max-width:330px) {
+    .abstrack-bg {
+        display: none;
     }
 
-    .button {
-        width: 250px;
-    }
-
-    .garis {
-        width: 50px;
-    }
-
-    .for-signup {
-        font-size: 13px;
-    }
-
-    .ilustrasi {
-        width: 250px;
-    }
-}
-
-@media (max-width:310px) {
-    .type-input {
-        width: 200px;
-    }
-
-    .button {
-        width: 200px;
-    }
-
-    .garis {
-        width: 30px;
-    }
-
-    .for-signup {
-        font-size: 12px;
-    }
-
-    .ilustrasi {
-        width: 200px;
+    .form-login {
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
     }
 }

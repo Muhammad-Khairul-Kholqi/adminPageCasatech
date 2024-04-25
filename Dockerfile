@@ -15,5 +15,5 @@ COPY . .
 
 EXPOSE 3000
 
-# Menjalankan aplikasi Express
+# Menjalankan aplikasi React
 CMD npm start

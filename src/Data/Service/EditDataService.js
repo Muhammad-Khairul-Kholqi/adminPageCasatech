@@ -13,7 +13,7 @@ import BaseUrl from "../../Api/BaseUrl";
 
 const EditDataInnovation = () => {
     useEffect(() => {
-        document.title = 'Edit Data Testimoni | Casatech';
+        document.title = 'Edit Data Service | Casatech';
     }, []);
 
     const [data, setData] = useState(null);
@@ -80,7 +80,7 @@ const EditDataInnovation = () => {
 
         try {
             const token = localStorage.getItem('token')
-            const response = await axios.patch(`http://localhost:4000/service/${id}`, formData, {
+            const response = await axios.patch(`${BaseUrl}service/${id}`, formData, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     'Content-Type': 'multipart/form-data'
@@ -155,7 +155,7 @@ const EditDataInnovation = () => {
                 </div>
             </div>
             <div className="bg-white p-[20px] rounded-[10px] mt-[20px]">
-                    <h1 className="text-center font-bold text-[20px] mb-[20px]">Edit Data Innovation</h1>
+                    <h1 className="text-center font-bold text-[20px] mb-[20px]">Edit Data Services</h1>
                     <form onSubmit = {handleUpdate} >
                         <div className="mt-[10px]">
                             <span for="image">Image:</span>
