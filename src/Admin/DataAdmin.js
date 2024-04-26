@@ -148,6 +148,12 @@ const DataAdmin = () => {
                                     Full Name
                                 </th>
                                 <th scope="col" className="px-6 py-3">
+                                    Username
+                                </th>
+                                <th scope="col" className="px-6 py-3">
+                                    Password
+                                </th> 
+                                <th scope="col" className="px-6 py-3">
                                     Position
                                 </th>
                                 <th scope="col" className="px-6 py-3">
@@ -174,6 +180,12 @@ const DataAdmin = () => {
                                     </td>
                                     <td className="px-6 py-4">
                                         {item.fullname}
+                                    </td>
+                                    <td className="px-6 py-4">
+                                        {item.username}
+                                    </td>
+                                    <td className="px-6 py-4">
+                                        {item.password}
                                     </td>
                                     <td className="px-6 py-4">
                                         {item.position}
