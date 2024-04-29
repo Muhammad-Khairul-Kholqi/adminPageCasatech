@@ -15,7 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --tag casatech/compro-api:latest
+      run: docker build . --tag casatech/compro-admin:latest
 
     - name: Login to DockerHub
       uses: docker/login-action@v1
@@ -24,4 +24,4 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
     - name: Push Docker image
-      run: docker push casatech/compro-api:latest
+      run: docker push casatech/compro-admin:latest
