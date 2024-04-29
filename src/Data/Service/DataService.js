@@ -174,7 +174,7 @@ const DataService = () => {
                                                 {item.tittle}
                                             </td>
                                             <td className="px-6 py-4 w-[300px]">
-                                                {item.description}
+                                                <div dangerouslySetInnerHTML={{ __html: item.description }} />
                                             </td>
                                             <td className="px-6 py-4 flex gap-[10px]">
                                                 <Link to={`/edit-data-services/${item.id}`}>

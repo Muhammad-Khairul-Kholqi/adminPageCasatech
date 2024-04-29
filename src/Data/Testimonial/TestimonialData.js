@@ -181,8 +181,8 @@ const TestimonialData = () => {
                                             <td className = "px-6 py-4" >
                                                 {item.position}
                                             </td>
-                                            <td className = "px-6 py-4 w-[300px]" >
-                                                {item.description}
+                                            <td className="px-6 py-4 w-[300px]">
+                                                <div dangerouslySetInnerHTML={{ __html: item.description }} />
                                             </td>
                                             <td className="px-6 py-4 flex gap-[10px]">
                                                 <Link to={`/edit-data-testimonial/${item.id}`}>

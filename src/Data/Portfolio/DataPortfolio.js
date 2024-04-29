@@ -183,11 +183,11 @@ const navigate = useNavigate();
                                             <td className = "px-6 py-4" >
                                                 {item.software_name}
                                             </td>
-                                            <td className="px-6 py-4 w-[300px]">
-                                                {item.description}
-                                            </td>
                                             <td className = "px-6 py-4" >
                                                 {item.amount}
+                                            </td>
+                                            <td className="px-6 py-4 w-[300px]">
+                                                <div dangerouslySetInnerHTML={{ __html: item.description }} />
                                             </td>
                                             <td className="px-6 py-4 flex gap-[10px]">
                                                 <Link to={`/edit-data-portfolio/${item.id}`}>
