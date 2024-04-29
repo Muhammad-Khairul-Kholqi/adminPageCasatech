@@ -61,8 +61,8 @@ const TableAllData = () => {
                                         <td className = "px-6 py-4 w-[300px]" >
                                             {item.tittle_company}
                                         </td>
-                                        <td className = "px-6 py-4 w-[300px]" >
-                                            {item.description_company}
+                                        <td className="px-6 py-4 w-[300px]">
+                                            <div dangerouslySetInnerHTML={{ __html: item.description_company }} />
                                         </td>
                                     </tr>
                                 ))}
@@ -97,14 +97,14 @@ const TableAllData = () => {
                                         <td className="px-6 py-4">
                                             {item.image_about}
                                         </td>
-                                        <td className = "px-6 py-4 w-[300px]" >
-                                            {item.description_about}
+                                        <td className="px-6 py-4 w-[300px]">
+                                            <div dangerouslySetInnerHTML={{ __html: item.description_about }} />
                                         </td>
-                                        <td className="px-6 py-4">
-                                            {item.visi}
+                                        <td className="px-6 py-4 w-[300px]">
+                                            <div dangerouslySetInnerHTML={{ __html: item.visi }} />
                                         </td>
-                                        <td className="px-6 py-4">
-                                            {item.misi}
+                                        <td className="px-6 py-4 w-[300px]">
+                                            <div dangerouslySetInnerHTML={{ __html: item.misi }} />
                                         </td>
                                     </tr>
                                 ))}

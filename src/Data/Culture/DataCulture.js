@@ -176,7 +176,7 @@ const DataCulture = () => {
                                                 {item.tittle_culture}
                                             </td>
                                             <td className="px-6 py-4 w-[300px]">
-                                                {item.description_culture}
+                                                <div dangerouslySetInnerHTML={{ __html: item.description_culture }} />
                                             </td>
                                             <td className="px-6 py-4 flex gap-[10px]">
                                                 <Link to={`/edit-data-culture/${item.id}`}>

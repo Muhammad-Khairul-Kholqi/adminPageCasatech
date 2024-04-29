@@ -166,8 +166,8 @@ const SolutionsData = () => {
                                     <td className="px-6 py-4 w-[300px]">
                                         {item.title}
                                     </td>
-                                    <td className="px-6 py-4 w-[400px]">
-                                        {item.description}
+                                    <td className="px-6 py-4 w-[300px]">
+                                        <div dangerouslySetInnerHTML={{ __html: item.description }} />
                                     </td>
                                     <td className="px-6 py-4 flex gap-[10px]">
                                         <Link to={`/edit-data-solutions/${item.id}`}>
