@@ -243,7 +243,8 @@ const EditData = () => {
                                     className="mt-[10px] w-full mb-5 text-sm text-black border-2 border-gray-600 p-[5px] rounded-[3px] cursor-pointer" 
                                     type="file"
                                     onChange={(e) => setImageCompany(e.target.files[0])}
-                            /></div>
+                            />
+                            </div>
                             <div>
                                 <span for="tittle">Title:</span>
                                 <br />

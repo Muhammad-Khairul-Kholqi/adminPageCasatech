@@ -50,7 +50,7 @@ const Header = () => {
         <div className="container flex justify-between flex-wrap gap-[50px] px-[5%] items-center">
             <div className="teks-header">
                 Welcome back, <br />
-                <span className="name-admin text-[25px] font-bold">{username}</span>
+                <span className="name-admin text-[25px] font-bold font-jetbrains-mono">{username}</span>
             </div>
             <div className="relative">
                 <div className="flex gap-[5px] items-center cursor-pointer" onClick={toggleDropdown}>

@@ -53,7 +53,7 @@ const DashboardCard = () => {
                     <div className="bg-icon bg-[#BBF7D0] p-[10px] rounded-[50%] items-center">
                         <FaUsers className="icon text-[40px] text-[#16A34A]" />
                     </div>
-                    <div className="text-jml font-bold">
+                    <div className="text-jml font-bold font-butler">
                         <p className="title-card text-[20px]">Teams</p>
                         <h1 className="jumlah text-[30px] ">{dataTeam ? `${dataTeam.length}` : 0}</h1>
                     </div>
@@ -67,13 +67,13 @@ const DashboardCard = () => {
                     </div>
                     {threeData && threeData.length > 0 ? (
                         threeData.map((item) => (
-                            <div key={item.id} className="text-jml font-bold">
+                            <div key={item.id} className="text-jml font-bold font-butler">
                                 <p className="title-card text-[20px]">Clients</p>
                                 <h1 className="jumlah text-[30px] ">{item.client}</h1>
                             </div>
                         ))
                     ) : (
-                        <div className="text-jml font-bold">
+                        <div className="text-jml font-bold font-butler">
                             <p className="title-card text-[20px]">Clients</p>
                             <h1 className="jumlah text-[30px] ">0</h1>
                         </div>
@@ -88,13 +88,13 @@ const DashboardCard = () => {
                     </div>
                     {threeData && threeData.length > 0 ? (
                         threeData.map((item) => (
-                            <div key={item.id} className="text-jml font-bold">
+                            <div key={item.id} className="text-jml font-bold font-butler">
                                 <p className="title-card text-[20px]">Ratings</p>
                                 <h1 className="jumlah text-[30px] ">{item.rating}</h1>
                             </div>
                         ))
                     ) : (
-                        <div className="text-jml font-bold">
+                        <div className="text-jml font-bold font-butler">
                             <p className="title-card text-[20px]">Ratings</p>
                             <h1 className="jumlah text-[30px] ">0</h1>
                         </div>
@@ -109,13 +109,13 @@ const DashboardCard = () => {
                     </div>
                     {threeData && threeData.length > 0 ? (
                         threeData.map((item) => (
-                            <div key={item.id} className="text-jml font-bold">
+                            <div key={item.id} className="text-jml font-bold font-butler">
                                 <p className="title-card text-[20px]">Sponsors</p>
                                 <h1 className="jumlah text-[30px] ">{item.sponsor}</h1>
                             </div>
                         ))
                     ) : (
-                        <div className="text-jml font-bold">
+                        <div className="text-jml font-bold font-butler">
                             <p className="title-card text-[20px]">Sponsors</p>
                             <h1 className="jumlah text-[30px] ">0</h1>
                         </div>

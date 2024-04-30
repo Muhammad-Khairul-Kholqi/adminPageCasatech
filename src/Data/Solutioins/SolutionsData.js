@@ -169,20 +169,21 @@ const SolutionsData = () => {
                                     <td className="px-6 py-4 w-[300px]">
                                         <div dangerouslySetInnerHTML={{ __html: item.description }} />
                                     </td>
-                                    <td className="px-6 py-4 flex gap-[10px]">
-                                        <Link to={`/edit-data-solutions/${item.id}`}>
-                                            <div className="icon-text text-[15px] flex gap-[5px] items-center text-blue-600 hover:underline">
-                                                <FaRegPenToSquare />
-                                                <p className="text-link">Edit</p>
-                                            </div>
-                                        </Link>
-                                        <p>|</p>
-                                        <button
-                                            className="flex gap-[5px] items-center text-red-600 hover:underline"
-                                            onClick={(e) => handleDelete(item.id, e)}>
-                                            <IoTrashOutline />
-                                            <p>Delete</p>
-                                        </button>
+                                    <td className="px-6 py-4">
+                                        <div className="flex gap-[10px]">
+                                            <Link to={`/edit-data-solutions/${item.id}`}>
+                                                <div className="icon-text text-[15px] flex gap-[5px] items-center text-blue-600 hover:underline">
+                                                    <FaRegPenToSquare />
+                                                    <p className="text-link">Edit</p>
+                                                </div>
+                                            </Link>
+                                            <button
+                                                className="flex gap-[5px] items-center text-red-600 hover:underline"
+                                                onClick={(e) => handleDelete(item.id, e)}>
+                                                <IoTrashOutline />
+                                                <p>Delete</p>
+                                            </button>
+                                        </div>
                                     </td>
                                     <td className="px-6 py-4">
                                         <input

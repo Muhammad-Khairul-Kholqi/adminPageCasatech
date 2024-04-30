@@ -90,7 +90,7 @@ const Login = () => {
                             <p className="font-bold text-[12px] text-gray-600">Welcome back admin</p>
                          </div>
 
-                        <h1 className="tittle-login text-[20px] mt-[10px]">
+                        <h1 className="tittle-login text-[17px] font-bold mt-[10px] font-Bellefair">
                             Login to access your <br /> Dashboard and Settings.
                         </h1>
 
