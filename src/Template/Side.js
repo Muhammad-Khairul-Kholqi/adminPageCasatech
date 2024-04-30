@@ -27,7 +27,7 @@ const Side = () => {
                          <Link to="/dashboard-admin">
                             <div className="icon-teks flex items-center mx-[10px]">
                                 <MdDashboard className="icon-link mr-2 text-[18px]" />
-                                <p className="menu-link text-[13px]">Dashboard</p>
+                                <p className="menu-link text-[13px] font-helvetica">Dashboard</p>
                             </div>
                         </Link>
                     </li>
@@ -35,7 +35,7 @@ const Side = () => {
                          <Link to="/company-data">
                             <div className="icon-teks flex items-center mx-[10px]">
                                 <AiFillDatabase className="icon-link mr-2 text-[18px]" />
-                                <p className="menu-link text-[13px]">Company </p>
+                                <p className="menu-link text-[13px] font-helvetica">Company </p>
                             </div>
                         </Link>
                     </li>
@@ -44,7 +44,7 @@ const Side = () => {
                          <Link to="/data-solutions">
                             <div className="icon-teks flex items-center mx-[10px]">
                                 <IoMdHelpCircle  className="icon-link mr-2 text-[18px]" />
-                                <p className="menu-link text-[13px]"> Solutions</p>
+                                <p className="menu-link text-[13px] font-helvetica"> Solutions</p>
                             </div>
                         </Link>
                     </li>
@@ -52,7 +52,7 @@ const Side = () => {
                          <Link to="/data-innovation">
                             <div className="icon-teks flex items-center mx-[10px]">
                                 <FaLightbulb  className="icon-link mr-2 text-[18px]" />
-                                <p className="menu-link text-[13px]"> Innovation</p>
+                                <p className="menu-link text-[13px] font-helvetica"> Innovation</p>
                             </div>
                         </Link>
                     </li>
@@ -60,7 +60,7 @@ const Side = () => {
                          <Link to = "/testimonial-data" >
                             <div className="icon-teks flex items-center mx-[10px]">
                                 <AiFillMessage className="icon-link mr-2 text-[18px]" />
-                                <p className="menu-link text-[13px]">Testimonial </p>
+                                <p className="menu-link text-[13px] font-helvetica">Testimonial </p>
                             </div>
                         </Link>
                     </li>
@@ -68,7 +68,7 @@ const Side = () => {
                          <Link to="/data-blog">
                             <div className="icon-teks flex items-center mx-[10px]">
                                 <IoIosCamera className="icon-link mr-2 text-[18px]" />
-                                <p className="menu-link text-[13px]"> Blog</p>
+                                <p className="menu-link text-[13px] font-helvetica"> Blog</p>
                             </div>
                         </Link>
                     </li>
@@ -76,7 +76,7 @@ const Side = () => {
                          <Link to="/data-culture">
                             <div className="icon-teks flex items-center mx-[10px]">
                                 <FaBuildingFlag className="icon-link mr-2 text-[18px]" />
-                                <p className="menu-link text-[13px]">Culture</p>
+                                <p className="menu-link text-[13px] font-helvetica">Culture</p>
                             </div>
                         </Link>
                     </li>
@@ -84,7 +84,7 @@ const Side = () => {
                          <Link to = "/data-portfolio" >
                             <div className="icon-teks flex items-center mx-[10px]">
                                 <AiFillPicture className="icon-link mr-2 text-[18px]" />
-                                <p className="menu-link text-[13px]">Portfolio </p>
+                                <p className="menu-link text-[13px] font-helvetica">Portfolio </p>
                             </div>
                         </Link>
                     </li>
@@ -92,7 +92,7 @@ const Side = () => {
                          <Link to="/data-teams">
                             <div className="icon-teks flex items-center mx-[10px]">
                                 <FaUsers className="icon-link mr-2 text-[18px]" />
-                                <p className="menu-link text-[13px]"> Teams</p>
+                                <p className="menu-link text-[13px] font-helvetica"> Teams</p>
                             </div>
                         </Link>
                     </li>
@@ -100,7 +100,7 @@ const Side = () => {
                          <Link to="/data-services">
                             <div className="icon-teks flex items-center mx-[10px]">
                                 <IoIosSettings className="icon-link mr-2 text-[18px]" />
-                                <p className="menu-link text-[13px]">Services </p>
+                                <p className="menu-link text-[13px] font-helvetica">Services </p>
                             </div>
                         </Link>
                     </li>

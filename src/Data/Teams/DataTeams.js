@@ -167,29 +167,34 @@ const DataTeams = () => {
                                             <td className="px-6 py-4">
                                                 {item.pageNo}
                                             </td>
-                                            <td className="px-6 py-4">
-                                                {item.image}
+                                            <td className="py-4 px-2">
+                                                <img  
+                                                    className="w-[100px] border"      
+                                                    src={`https://casatech.id/compro-api${item.image}`} 
+                                                    alt="img"
+                                                />
                                             </td>
-                                            <td className = "px-6 py-4" >
+                                            <td className = "px-6 py-4 w-[150px]" >
                                                 {item.name}
                                             </td>
-                                            <td className = "px-6 py-4" >
+                                            <td className = "px-6 py-4 w-[150px]" >
                                                 {item.position}
                                             </td>
-                                            <td className="px-6 py-4 flex gap-[10px]">
-                                                <Link to = {`/edit-data-teams/${item.id}`} >
-                                                    <div className="icon-text text-[15px] flex gap-[5px] items-center text-blue-600 hover:underline">
-                                                        <FaRegPenToSquare />
-                                                        <p className="text-link">Edit</p>
-                                                    </div>
-                                                </Link>
-                                                <p>|</p>
-                                                <button
-                                                    className="flex gap-[5px] items-center text-red-600 hover:underline"
-                                                    onClick={(e) => handleDelete(item.id, e)}>
-                                                    <IoTrashOutline />
-                                                    <p>Delete</p>
-                                                </button>
+                                            <td className="px-6 py-4">
+                                                <div className="flex gap-[10px]">
+                                                    <Link to={`/edit-data-teams/${item.id}`}>
+                                                        <div className="icon-text text-[15px] flex gap-[5px] items-center text-blue-600 hover:underline">
+                                                            <FaRegPenToSquare />
+                                                            <p className="text-link">Edit</p>
+                                                        </div>
+                                                    </Link>
+                                                    <button
+                                                        className="flex gap-[5px] items-center text-red-600 hover:underline"
+                                                        onClick={(e) => handleDelete(item.id, e)}>
+                                                        <IoTrashOutline />
+                                                        <p>Delete</p>
+                                                    </button>
+                                                </div>
                                             </td>
                                             <td className="px-6 py-4">
                                                 <input

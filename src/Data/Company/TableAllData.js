@@ -30,7 +30,7 @@ const TableAllData = () => {
     return(
         <div>
             <div className="mt-[20px]">
-                    <h1 className="mb-[20px] text-[20px] italic">Data Integrated_</h1>
+                    <h1 className="mb-[20px] text-[20px] font-lato">Data Integrated</h1>
                     <div className = "relative overflow-x-auto border-solid border-[1px] border-black" >
                         <table className = "w-full text-sm text-left rtl:text-right" >
                             <thead className="text-[15px] bg-blue-100 border-b-[1px] border-black">
@@ -55,8 +55,12 @@ const TableAllData = () => {
                                         <td className="px-6 py-4">
                                             {item.company_name}
                                         </td>
-                                        <td className="px-6 py-4">
-                                            {item.image_company}
+                                        <td className="py-4 px-2">
+                                            <img  
+                                                className="w-[100px] border"      
+                                                src={`https://casatech.id/compro-api${item.image_company}`} 
+                                                alt="img"
+                                            />
                                         </td>
                                         <td className = "px-6 py-4 w-[300px]" >
                                             {item.tittle_company}
@@ -72,7 +76,7 @@ const TableAllData = () => {
                 </div>
 
                 <div className="mt-[20px]">
-                    <h1 className="mb-[20px] text-[20px] italic">Data About_</h1>
+                    <h1 className="mb-[20px] text-[20px] font-lato">Data About</h1>
                     <div className="relative overflow-x-auto border-solid border-[1px] border-black">
                         <table className="w-full text-sm text-left rtl:text-right">
                             <thead className="text-[15px] bg-blue-100 border-b-[1px] border-black">
@@ -94,8 +98,12 @@ const TableAllData = () => {
                             <tbody>
                                 {data && data.map((item) => (
                                     <tr key={item.id} className="text-[13px]">
-                                        <td className="px-6 py-4">
-                                            {item.image_about}
+                                        <td className="py-4 px-2">
+                                            <img  
+                                                className="w-[100px] border"      
+                                                src={`https://casatech.id/compro-api${item.image_about}`} 
+                                                alt="img"
+                                            />
                                         </td>
                                         <td className="px-6 py-4 w-[300px]">
                                             <div dangerouslySetInnerHTML={{ __html: item.description_about }} />
@@ -114,7 +122,7 @@ const TableAllData = () => {
                 </div>
 
                 <div className="mt-[20px]">
-                    <h1 className="mb-[20px] text-[20px] italic">Data Sponsorship_</h1>
+                    <h1 className="mb-[20px] text-[20px] font-lato">Data Sponsorship</h1>
                     <div className="relative overflow-x-auto border-solid border-[1px] border-black">
                         <table className="w-full text-sm text-left rtl:text-right">
                             <thead className="text-[15px] bg-blue-100 border-b-[1px] border-black">
@@ -145,8 +153,12 @@ const TableAllData = () => {
                                         <td className = "px-6 py-4 w-[300px]" >
                                             {item.rating}
                                         </td>
-                                        <td className = "px-6 py-4 w-[300px]" >
-                                            {item.image_client}
+                                        <td className="py-4 px-2">
+                                            <img  
+                                                className="w-[100px] border"      
+                                                src={`https://casatech.id/compro-api${item.image_client}`} 
+                                                alt="img"
+                                            />
                                         </td>
                                     </tr>
                                 ))}
@@ -156,7 +168,7 @@ const TableAllData = () => {
                 </div>
 
                 <div className="mt-[20px]">
-                    <h1 className="mb-[20px] text-[20px] italic">Contact Catalog_</h1>
+                    <h1 className="mb-[20px] text-[20px] font-lato">Contact Catalog</h1>
                     <div className="relative overflow-x-auto border-solid border-[1px] border-black">
                         <table className="w-full text-sm text-left rtl:text-right">
                             <thead className="text-[15px] bg-blue-100 border-b-[1px] border-black">

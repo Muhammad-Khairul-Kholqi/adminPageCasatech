@@ -59,7 +59,7 @@ const Dashboard = () => {
 
                 <div className="overflow-hidden bg-white p-[20px] mt-[20px] rounded-[10px]">
                     {data && data.map((item) => (
-                        <marquee key={item.id} className="text-[20px] text-blue-600 animate-marquee delay-5000">
+                        <marquee key={item.id} className="text-[20px] text-blue-600 animate-marquee delay-5000 font-roboto-slab">
                             {item.company_name}, {item.addres}
                         </marquee>
                     ))}
