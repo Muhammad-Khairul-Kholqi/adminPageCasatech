@@ -10,16 +10,20 @@ import backgImg from '../../Assets/bg.png';
 import BaseUrl from '../../Api/BaseUrl';
 
 const AddDataBlog = () => {
+    // fungsi tittle agar berubah
     useEffect(() => {
         document.title = "Add Data Blog | Casatech";
     }, []);
 
     const [data, setData] = useState(null);
     const navigate = useNavigate();
+
     useEffect(() => {
         const fetchData = async () => {
             try {
+                // mengambil token lalu di simpan di local storage
                 const token = localStorage.getItem('token');
+                // jika tidak ada token maka akan di arahkan ke halaman login
                 if (!token) {
                     navigate('/');
                 } else {
@@ -63,6 +67,7 @@ const AddDataBlog = () => {
     const handleFormSubmit = async (event) => {
         event.preventDefault();
 
+        // fungsi harus isi data jika tidak maka akan ada peringatan
         if (!image || !tittle.trim() || !editorContent.trim()) {
             Swal.fire({
                 title: 'Error!',
@@ -88,8 +93,10 @@ const AddDataBlog = () => {
                 },
             });
 
+            // respon server
             console.log('API Response:', response.data);
 
+            // alert berhasil
             Swal.fire({
                 icon: 'success',
                 title: 'Success!',
@@ -100,8 +107,10 @@ const AddDataBlog = () => {
                 navigate('/data-blog');
             });
         } catch (error) {
+            // pesan error server 
             console.error('Error creating data:', error);
 
+            // alert gagal
             Swal.fire({
                 title: 'Error!',
                 text: 'Gagal menambah data Blog.',

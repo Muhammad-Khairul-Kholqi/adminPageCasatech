@@ -119,6 +119,16 @@ const TestimonialData = () => {
         setCurrentPage(newPage);
     };
 
+    // mengatur jika kata lebih dari 25 maka tidak di tampilkan
+    const truncateDescription = (description, wordLimit) => {
+    const words = description.split(' ');
+        if (words.length > wordLimit) {
+            return words.slice(0, wordLimit).join(' ') + '...';
+        } else {
+            return description;
+        }
+    };
+
     return (
         <div>
             <div className = "container bg-cover bg-center mt-[20px] py-[50px] rounded-[10px]"
@@ -185,8 +195,8 @@ const TestimonialData = () => {
                                             <td className = "px-6 py-4" >
                                                 {item.position}
                                             </td>
-                                            <td className="px-6 py-4 w-[300px]">
-                                                <div dangerouslySetInnerHTML={{ __html: item.description }} />
+                                            <td className="px-6 py-4 w-[300px] text-[10px]">
+                                                <div dangerouslySetInnerHTML={{ __html: truncateDescription(item.description, 25) }} />
                                             </td>
                                             <td className="px-6 py-4">
                                                 <div className="flex gap-[10px]">

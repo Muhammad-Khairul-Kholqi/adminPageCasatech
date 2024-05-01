@@ -11,7 +11,7 @@ import backgImg from '../../Assets/bg.png';
 // api
 import BaseUrl from "../../Api/BaseUrl";
 
-const EditDataInnovation = () => {
+const EditDataService = () => {
     useEffect(() => {
         document.title = 'Edit Data Service | Casatech';
     }, []);
@@ -199,11 +199,4 @@ const EditDataInnovation = () => {
     )
 }
 
-export default EditDataInnovation;
-
-
-
-
-
-
-
+export default EditDataService;

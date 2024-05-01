@@ -14,6 +14,7 @@ const DashboardCard = () => {
     const [dataTeam, setDataTeam] = useState(null);
     const [threeData, setThreeData] = useState(null);
 
+    // ambil data dari api
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -33,6 +34,7 @@ const DashboardCard = () => {
                     }
                 });
 
+                // Mengurutkan data yang diterima dari respons API berdasarkan ID mereka dalam urutan menurun.
                 const sortedDataTeam = responseTeam.data.data.sort((a, b) => b.id - a.id);
                 const sortedData = responseClientRatingSponsor.data.data.sort((a, b) => b.id - a.id);
 
@@ -55,6 +57,7 @@ const DashboardCard = () => {
                     </div>
                     <div className="text-jml font-bold font-butler">
                         <p className="title-card text-[20px]">Teams</p>
+                        {/* jika data tidak ada akan di tampilkan 0 */}
                         <h1 className="jumlah text-[30px] ">{dataTeam ? `${dataTeam.length}` : 0}</h1>
                     </div>
                 </div>
@@ -65,6 +68,7 @@ const DashboardCard = () => {
                     <div className="bg-icon bg-[#FECACA] p-[10px] rounded-[50%] items-center">
                         <IoExtensionPuzzle className="icon text-[40px] text-[#DC2626]" />
                     </div>
+                    {/* jika data tidak ada akan di tampilkan 0 */}
                     {threeData && threeData.length > 0 ? (
                         threeData.map((item) => (
                             <div key={item.id} className="text-jml font-bold font-butler">
@@ -86,6 +90,7 @@ const DashboardCard = () => {
                     <div className="bg-icon bg-[#BFDBFE] p-[10px] rounded-[50%] items-center">
                         <FaStar className="icon text-[40px] text-[#2563EB]" />
                     </div>
+                    {/* jika data tidak ada akan di tampilkan 0 */}
                     {threeData && threeData.length > 0 ? (
                         threeData.map((item) => (
                             <div key={item.id} className="text-jml font-bold font-butler">
@@ -107,6 +112,7 @@ const DashboardCard = () => {
                     <div className="bg-icon bg-[#FFCF96] p-[10px] rounded-[50%] items-center">
                         <IoHeart className="icon text-[40px] text-[#FF8911]" />
                     </div>
+                    {/* jika data tidak ada akan di tampilkan 0 */}
                     {threeData && threeData.length > 0 ? (
                         threeData.map((item) => (
                             <div key={item.id} className="text-jml font-bold font-butler">
