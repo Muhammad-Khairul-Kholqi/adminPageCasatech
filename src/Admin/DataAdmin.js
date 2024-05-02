@@ -184,9 +184,8 @@ const DataAdmin = () => {
                                     </td>
                                     <td className="py-4 px-2">
                                         <img  
-                                            className="w-[100px] border"      
+                                            className="w-[100px]"      
                                             src={`https://casatech.id/compro-api${item.image}`} 
-                                            alt="img"
                                         />
                                     </td>
                                     <td className="px-6 py-4">
@@ -196,7 +195,7 @@ const DataAdmin = () => {
                                         {item.username}
                                     </td>
                                     <td className="px-6 py-4">
-                                        {item.password.length > 20 ? item.password.slice(0, 20) + '...' : item.password}
+                                        {item.password.length > 20 ? item.password.slice(0, 15) + '...' : item.password}
                                     </td>
                                     <td className="px-6 py-4">
                                         {item.position}

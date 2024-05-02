@@ -17,7 +17,6 @@ const DataInnovation = () => {
     }, []);
     
     const itemsPerPage = 5;
-
     const [data, setData] = useState(null);
     const [selectedItems, setSelectedItems] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
@@ -181,9 +180,8 @@ const DataInnovation = () => {
                                             </td>
                                             <td className="py-4 px-2">
                                                 <img  
-                                                    className="w-[100px] border"      
-                                                    src={`https://casatech.id/compro-api${item.image}`} 
-                                                    alt="img"
+                                                    className="w-[100px]"      
+                                                    src={`https://casatech.id/compro-api${item.image}`}
                                                 />
                                             </td>
                                             <td className="px-6 py-4 w-[300px]">

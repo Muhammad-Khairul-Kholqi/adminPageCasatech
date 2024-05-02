@@ -184,9 +184,8 @@ const TestimonialData = () => {
                                             </td>
                                             <td className="py-4 px-2">
                                                 <img  
-                                                    className="w-[100px] border"      
+                                                    className="w-[100px]"      
                                                     src={`https://casatech.id/compro-api${item.image}`} 
-                                                    alt="img"
                                                 />
                                             </td>
                                             <td className = "px-6 py-4" >

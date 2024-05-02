@@ -227,7 +227,7 @@ const Registrasi = () => {
                         <button 
                             className="w-full bg-blue-600 py-[5px] text-white hover:bg-blue-700 mt-[20px] rounded-[3px]"
                             type="submit">
-                            Registrasi
+                            Registration
                         </button>
                     </form>
                     <Link to='/'>

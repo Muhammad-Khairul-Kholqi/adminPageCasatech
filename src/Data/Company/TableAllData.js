@@ -67,9 +67,8 @@ const TableAllData = () => {
                                         </td>
                                         <td className="py-4 px-2">
                                             <img  
-                                                className="w-[100px] border"      
+                                                className="w-[100px]"      
                                                 src={`https://casatech.id/compro-api${item.image_company}`} 
-                                                alt="img"
                                             />
                                         </td>
                                         <td className = "px-6 py-4 w-[300px]" >
@@ -110,9 +109,8 @@ const TableAllData = () => {
                                     <tr key={item.id} className="text-[13px]">
                                         <td className="py-4 px-2">
                                             <img  
-                                                className="w-[100px] border"      
-                                                src={`https://casatech.id/compro-api${item.image_about}`} 
-                                                alt="img"
+                                                className="w-[100px]"      
+                                                src={`https://casatech.id/compro-api${item.image_about}`}
                                             />
                                         </td>
                                         <td className="px-6 py-4 w-[300px] text-[10px]">
@@ -165,9 +163,8 @@ const TableAllData = () => {
                                         </td>
                                         <td className="py-4 px-2">
                                             <img  
-                                                className="w-[100px] border"      
+                                                className="w-[100px]"      
                                                 src={`https://casatech.id/compro-api${item.image_client}`} 
-                                                alt="img"
                                             />
                                         </td>
                                     </tr>
