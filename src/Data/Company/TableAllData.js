@@ -27,6 +27,16 @@ const TableAllData = () => {
         fetchData();
     }, []);
 
+    // mengatur jika kata lebih dari 25 maka tidak di tampilkan
+    const truncateContainer = (container, wordLimit) => {
+    const words = container.split(' ');
+        if (words.length > wordLimit) {
+            return words.slice(0, wordLimit).join(' ') + '...';
+        } else {
+            return container;
+        }
+    };
+
     return(
         <div>
             <div className="mt-[20px]">
@@ -57,16 +67,15 @@ const TableAllData = () => {
                                         </td>
                                         <td className="py-4 px-2">
                                             <img  
-                                                className="w-[100px] border"      
+                                                className="w-[100px]"      
                                                 src={`https://casatech.id/compro-api${item.image_company}`} 
-                                                alt="img"
                                             />
                                         </td>
                                         <td className = "px-6 py-4 w-[300px]" >
                                             {item.tittle_company}
                                         </td>
-                                        <td className="px-6 py-4 w-[300px]">
-                                            <div dangerouslySetInnerHTML={{ __html: item.description_company }} />
+                                        <td className="px-6 py-4 w-[300px] text-[10px]">
+                                            <div dangerouslySetInnerHTML={{ __html: truncateContainer(item.description_company, 25) }} />
                                         </td>
                                     </tr>
                                 ))}
@@ -100,19 +109,18 @@ const TableAllData = () => {
                                     <tr key={item.id} className="text-[13px]">
                                         <td className="py-4 px-2">
                                             <img  
-                                                className="w-[100px] border"      
-                                                src={`https://casatech.id/compro-api${item.image_about}`} 
-                                                alt="img"
+                                                className="w-[100px]"      
+                                                src={`https://casatech.id/compro-api${item.image_about}`}
                                             />
                                         </td>
-                                        <td className="px-6 py-4 w-[300px]">
-                                            <div dangerouslySetInnerHTML={{ __html: item.description_about }} />
+                                        <td className="px-6 py-4 w-[300px] text-[10px]">
+                                            <div dangerouslySetInnerHTML={{ __html: truncateContainer(item.description_about, 25) }} />
                                         </td>
-                                        <td className="px-6 py-4 w-[300px]">
-                                            <div dangerouslySetInnerHTML={{ __html: item.visi }} />
+                                        <td className="px-6 py-4 w-[300px] text-[10px]">
+                                            <div dangerouslySetInnerHTML={{ __html: truncateContainer(item.visi, 25) }} />
                                         </td>
-                                        <td className="px-6 py-4 w-[300px]">
-                                            <div dangerouslySetInnerHTML={{ __html: item.misi }} />
+                                        <td className="px-6 py-4 w-[300px] text-[10px]">
+                                            <div dangerouslySetInnerHTML={{ __html: truncateContainer(item.misi, 25) }} />
                                         </td>
                                     </tr>
                                 ))}
@@ -155,9 +163,8 @@ const TableAllData = () => {
                                         </td>
                                         <td className="py-4 px-2">
                                             <img  
-                                                className="w-[100px] border"      
+                                                className="w-[100px]"      
                                                 src={`https://casatech.id/compro-api${item.image_client}`} 
-                                                alt="img"
                                             />
                                         </td>
                                     </tr>

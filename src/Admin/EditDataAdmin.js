@@ -12,14 +12,17 @@ import { HiEye, HiEyeOff } from 'react-icons/hi';
 import BaseUrl from '../Api/BaseUrl';
 
 const EditDataAdmin = () => {
+    // mengatur tittle agar berubah
+    useEffect(() => {
+        document.title = "Edit Data Admin | Casatech";
+    }, []);
+
+    // untuk melihat password
     const [showPassword, setShowPassword] = useState(false);
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
 
-    useEffect(() => {
-        document.title = "Edit Data Admin | Casatech";
-    }, []);
 
     const { id } = useParams();
     const navigate = useNavigate();
@@ -60,10 +63,13 @@ const EditDataAdmin = () => {
          setPassword(event.target.value);
      };
 
-     const handleUpdate = async (event) => {
+    
+    // fungsi update data per id
+    const handleUpdate = async (event) => {
          event.preventDefault();
-
-         if (!image ||
+        //  fungsi agar data di bawah ini harus di isi
+        // jika tidak maka akan muncul alert peringatan
+        if (!image ||
              !fullname.trim() ||
              !place_date_birth.trim() ||
              !position.trim() ||
@@ -90,7 +96,7 @@ const EditDataAdmin = () => {
         formData.append('username', username);
         formData.append('password', addres);
 
-         try {
+        try {
             const token = localStorage.getItem('token');
             const response = await axios.patch(`${BaseUrl}users/${id}`, formData, {
                  headers: {
@@ -100,8 +106,10 @@ const EditDataAdmin = () => {
 
             });
 
-             console.log('Response from server:', response.data);
+            // respon server jika berhasil atau gagal
+            console.log('Response from server:', response.data);
              
+            // respon berhasil update data
              Swal.fire({
                  title: 'Sukses!',
                  text: 'Data berhasil diupdate.',
@@ -112,8 +120,9 @@ const EditDataAdmin = () => {
                  navigate('/data-admin');
              });
          } catch (error) {
+            // respon server jika error update data
              console.error('Error updating data:', error);
-
+            //  respon alert gagal update data
              Swal.fire({
                  title: 'Error!',
                  text: 'Terjadi kesalahan saat mengupdate data. Silakan coba lagi.',

@@ -11,21 +11,24 @@ import { IoTrashOutline } from "react-icons/io5";
 import BaseUrl from "../Api/BaseUrl";
 
 const DataAdmin = () => {
-    const navigate = useNavigate();
-    const itemsPerPage = 5;
-    const [selectedItems, setSelectedItems] = useState([]);
-    const [currentPage, setCurrentPage] = useState(1);
-
+    // mengatur tittle agar berubah
     useEffect(() => {
         document.title = "Data Admin | Casatech";
     }, []);
 
+    const navigate = useNavigate();
+    const itemsPerPage = 5;
+    const [selectedItems, setSelectedItems] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
     const [data, setData] = useState(null);
 
+    // mengambil data dari api
     useEffect(() => {
         const fetchData = async () => {
             try {
+                // mengambil token lalu di simpan di local storage
                 const token = localStorage.getItem('token');
+                // jika tidak ada token maka akan di arahkan ke halaman login
                 if (!token) {
                     navigate('/');
                 } else {
@@ -48,6 +51,7 @@ const DataAdmin = () => {
         fetchData();
     }, []);
 
+    // fungsi hapus data
     const handleDelete = async () => {
         if (selectedItems.length === 0) {
             Swal.fire({
@@ -91,6 +95,7 @@ const DataAdmin = () => {
         });
     };
 
+    // checkbox untuk hapus data per id
     const handleCheckboxChange = (id) => {
         const updatedSelection = selectedItems.includes(id) ?
             selectedItems.filter(item => item !== id) :
@@ -99,6 +104,7 @@ const DataAdmin = () => {
         setSelectedItems(updatedSelection);
     };
 
+    // paginate
     const paginateData = () => {
         if (!data) {
             return [];
@@ -116,6 +122,7 @@ const DataAdmin = () => {
 
     const totalPages = Math.ceil((data?.length || 0) / itemsPerPage);
 
+    // mengganti ke paginate selanjutnya
     const changePage = (newPage) => {
         setCurrentPage(newPage);
     };
@@ -177,9 +184,8 @@ const DataAdmin = () => {
                                     </td>
                                     <td className="py-4 px-2">
                                         <img  
-                                            className="w-[100px] border"      
+                                            className="w-[100px]"      
                                             src={`https://casatech.id/compro-api${item.image}`} 
-                                            alt="img"
                                         />
                                     </td>
                                     <td className="px-6 py-4">
@@ -189,7 +195,7 @@ const DataAdmin = () => {
                                         {item.username}
                                     </td>
                                     <td className="px-6 py-4">
-                                        {item.password}
+                                        {item.password.length > 20 ? item.password.slice(0, 15) + '...' : item.password}
                                     </td>
                                     <td className="px-6 py-4">
                                         {item.position}

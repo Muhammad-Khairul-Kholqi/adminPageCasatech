@@ -165,7 +165,7 @@ const EditData = () => {
 
             Swal.fire({
                 title: 'Error!',
-                text: 'Tambahkan kembali input gambar karena tidak menggunakan data sebelumnya.',
+                text: 'Tambahkan kembali gambar.',
                 icon: 'error',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'OK',

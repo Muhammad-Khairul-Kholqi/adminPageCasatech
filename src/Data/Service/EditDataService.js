@@ -3,21 +3,26 @@ import { Link, useParams } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import ReactQuill from 'react-quill';
-import Swal from 'sweetalert2';
 import 'react-quill/dist/quill.snow.css';
+import Swal from 'sweetalert2';
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import backgImg from '../../Assets/bg.png';
 
 // api
 import BaseUrl from "../../Api/BaseUrl";
 
-const EditDataInnovation = () => {
+const EditDataService = () => {
     useEffect(() => {
         document.title = 'Edit Data Service | Casatech';
     }, []);
 
-    const [data, setData] = useState(null);
+    const { id } = useParams();
     const navigate = useNavigate();
+    const [image, setImage] = useState('');
+    const [tittle, setTitle] = useState('');
+    const [editorContent, setEditorContent] = useState('');
+    const [selectedFile, setSelectedFile] = useState(null);
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -25,14 +30,19 @@ const EditDataInnovation = () => {
                 if (!token) {
                     navigate('/');
                 } else {
-                    const response = await axios.get(`${BaseUrl}service`, {
+                    const response = await axios.get(`${BaseUrl}service/${id}`, {
                         headers: {
                             Authorization: `Bearer ${token}`
                         }
                     });
-                    const sortedData = response.data.data.sort((a, b) => b.id - a.id);
-
-                    setData(sortedData);
+                    const { image, tittle, description } = response.data.data;
+                    setImage(image);
+                    setTitle(tittle);
+                    setEditorContent(description);
+                    if (image && typeof image === 'string') {
+                        const filename = image.split('/').pop(); 
+                        setSelectedFile({ name: filename, size: 0 });
+                    }
                 }
             } catch (error) {
                 console.error("Error fetching data:", error);
@@ -40,12 +50,7 @@ const EditDataInnovation = () => {
         };
 
         fetchData();
-    }, [navigate]);
-
-    const { id } = useParams();
-    const [image, setImage] = useState('');
-    const [tittle, setTitle] = useState('');
-    const [editorContent, setEditorContent] = useState('');
+    }, [id, navigate]);
 
     const handleChange = (content) => {
         setEditorContent(content);
@@ -56,16 +61,16 @@ const EditDataInnovation = () => {
     };
 
     const handleImageChange = (event) => {
-        setImage(event.target.files[0]);
+        setSelectedFile(event.target.files[0]);
     };
 
     const handleUpdate = async (event) => {
         event.preventDefault();
 
-        if (!image || !tittle.trim() || !editorContent.trim()) {
+        if (!tittle.trim() || !editorContent.trim()) {
             Swal.fire({
                 title: 'Error!',
-                text: 'Image, Title dan Description harus diisi!',
+                text: 'Image, Tittle dan Description harus diisi!',
                 icon: 'error',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'OK',
@@ -74,12 +79,16 @@ const EditDataInnovation = () => {
         }
 
         const formData = new FormData();
-        formData.append('image', image);
         formData.append('tittle', tittle);
         formData.append('description', editorContent);
+        if (selectedFile) {
+            formData.append('image', selectedFile);
+        } else {
+            formData.append('image', image);
+        }
 
         try {
-            const token = localStorage.getItem('token')
+            const token = localStorage.getItem('token');
             const response = await axios.patch(`${BaseUrl}service/${id}`, formData, {
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -102,13 +111,14 @@ const EditDataInnovation = () => {
 
             Swal.fire({
                 title: 'Error!',
-                text: 'Terjadi kesalahan saat mengupdate data. Silakan coba lagi.',
+                text: 'Tambahkan kembali gambar.',
                 icon: 'error',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'OK',
             });
         }
     };
+
 
     const modules = {
         toolbar: [
@@ -158,8 +168,18 @@ const EditDataInnovation = () => {
                     <h1 className="text-center font-bold text-[20px] mb-[20px]">Edit Data Services</h1>
                     <form onSubmit = {handleUpdate} >
                         <div className="mt-[10px]">
-                            <span for="image">Image:</span>
+                            <span htmlFor="image">Image:</span>
                             <br />
+                            {/* file sebelumnya */}
+                            {selectedFile && (
+                                <div className="flex items-center gap-[10px] py-[10px]">
+                                    <p className="">Previous Image </p>
+                                    <img
+                                        className="w-[100px]"
+                                        src={`https://casatech.id/compro-api${image}`}
+                                    />
+                                </div>
+                            )}
                             <input 
                                 id="image" 
                                 className="mt-[10px] w-full mb-5 text-sm text-black border-2 border-gray-600 p-[5px] rounded-[3px] cursor-pointer" 
@@ -168,7 +188,7 @@ const EditDataInnovation = () => {
                             />
                         </div>
                         <div>
-                            <span for="tittle">Title:</span>
+                            <span htmlFor="tittle">Title:</span>
                             <br />
                             <input
                                 className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] pl-[10px] pr-[10px]"
@@ -199,11 +219,7 @@ const EditDataInnovation = () => {
     )
 }
 
-export default EditDataInnovation;
-
-
-
-
+export default EditDataService;
 
 
 

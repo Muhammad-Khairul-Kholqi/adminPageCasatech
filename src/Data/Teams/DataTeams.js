@@ -169,9 +169,8 @@ const DataTeams = () => {
                                             </td>
                                             <td className="py-4 px-2">
                                                 <img  
-                                                    className="w-[100px] border"      
-                                                    src={`https://casatech.id/compro-api${item.image}`} 
-                                                    alt="img"
+                                                    className="w-[100px]"      
+                                                    src={`https://casatech.id/compro-api${item.image}`}
                                                 />
                                             </td>
                                             <td className = "px-6 py-4 w-[150px]" >

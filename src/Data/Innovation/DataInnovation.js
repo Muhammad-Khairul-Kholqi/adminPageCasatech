@@ -17,7 +17,6 @@ const DataInnovation = () => {
     }, []);
     
     const itemsPerPage = 5;
-
     const [data, setData] = useState(null);
     const [selectedItems, setSelectedItems] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
@@ -119,6 +118,16 @@ const DataInnovation = () => {
         setCurrentPage(newPage);
     };
 
+    // mengatur jika kata lebih dari 25 maka tidak di tampilkan
+    const truncateDescription = (description, wordLimit) => {
+    const words = description.split(' ');
+        if (words.length > wordLimit) {
+            return words.slice(0, wordLimit).join(' ') + '...';
+        } else {
+            return description;
+        }
+    };
+
     return (
         <div>
             <div className = "container bg-cover bg-center mt-[20px] py-[50px] rounded-[10px]"
@@ -171,16 +180,15 @@ const DataInnovation = () => {
                                             </td>
                                             <td className="py-4 px-2">
                                                 <img  
-                                                    className="w-[100px] border"      
-                                                    src={`https://casatech.id/compro-api${item.image}`} 
-                                                    alt="img"
+                                                    className="w-[100px]"      
+                                                    src={`https://casatech.id/compro-api${item.image}`}
                                                 />
                                             </td>
                                             <td className="px-6 py-4 w-[300px]">
                                                 {item.tittle}
                                             </td>
-                                            <td className="px-6 py-4 w-[300px]">
-                                                <div dangerouslySetInnerHTML={{ __html: item.description }} />
+                                            <td className="px-6 py-4 w-[300px] text-[10px]">
+                                                <div dangerouslySetInnerHTML={{ __html: truncateDescription(item.description, 25) }} />
                                             </td>
                                             <td className="px-6 py-4">
                                                 <div className="flex gap-[10px]">
