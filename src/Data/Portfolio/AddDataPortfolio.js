@@ -170,7 +170,7 @@ const AddDataPortfolio = () => {
                             />
                         </div>
                         <div className = "mt-[15px]" >
-                            <span for="software">Software Name:</span>
+                            <span htmlFor="software">Software Name:</span>
                             <br />
                             <input 
                                 className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] pl-[10px] pr-[10px]" 
@@ -182,7 +182,7 @@ const AddDataPortfolio = () => {
                             />
                         </div>
                         <div className = "mt-[15px]" >
-                            <span for="amount">Amount:</span>
+                            <span htmlFor="amount">Amount:</span>
                             <br />
                             <input 
                                 className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] pl-[10px] pr-[10px]" 

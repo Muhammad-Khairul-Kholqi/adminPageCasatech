@@ -16,8 +16,8 @@ const EditDataService = () => {
         document.title = 'Edit Data Service | Casatech';
     }, []);
 
-    const { id } = useParams();
     const navigate = useNavigate();
+    const { id } = useParams();
     const [image, setImage] = useState('');
     const [tittle, setTitle] = useState('');
     const [editorContent, setEditorContent] = useState('');
@@ -35,10 +35,12 @@ const EditDataService = () => {
                             Authorization: `Bearer ${token}`
                         }
                     });
+
                     const { image, tittle, description } = response.data.data;
                     setImage(image);
                     setTitle(tittle);
                     setEditorContent(description);
+
                     if (image && typeof image === 'string') {
                         const filename = image.split('/').pop(); 
                         setSelectedFile({ name: filename, size: 0 });
@@ -81,6 +83,7 @@ const EditDataService = () => {
         const formData = new FormData();
         formData.append('tittle', tittle);
         formData.append('description', editorContent);
+
         if (selectedFile) {
             formData.append('image', selectedFile);
         } else {
@@ -97,6 +100,7 @@ const EditDataService = () => {
             });
 
             console.log('Response from server:', response.data);
+            
             Swal.fire({
                 title: 'Sukses!',
                 text: 'Data berhasil diupdate.',
@@ -118,7 +122,6 @@ const EditDataService = () => {
             });
         }
     };
-
 
     const modules = {
         toolbar: [
@@ -220,6 +223,3 @@ const EditDataService = () => {
 }
 
 export default EditDataService;
-
-
-

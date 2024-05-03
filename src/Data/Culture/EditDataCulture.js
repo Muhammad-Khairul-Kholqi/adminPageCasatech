@@ -159,7 +159,7 @@ const EditDataCulture = () => {
                     <h1 className="text-center font-bold text-[20px] mb-[20px]">Edit Data Culture</h1>
                     <form onSubmit = {handleUpdate} >
                         <div className="mt-[10px]">
-                            <span for="image">Image:</span>
+                            <span htmlFor="image">Image:</span>
                             <br />
                             <input 
                                 id="image" 
@@ -169,7 +169,7 @@ const EditDataCulture = () => {
                             />
                         </div>
                         <div>
-                            <span for="tittle">Title:</span>
+                            <span htmlFor="tittle">Title:</span>
                             <br />
                             <input
                                 className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] pl-[10px] pr-[10px]"

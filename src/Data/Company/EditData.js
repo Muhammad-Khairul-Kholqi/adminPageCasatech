@@ -225,7 +225,7 @@ const EditData = () => {
                         <div className="ini-integrated">
                             <h1 className="text-center font-bold text-[20px] mb-[20px]">Integragted Data</h1>
                             <div>
-                                <span for="name">Company Name:</span>
+                                <span htmlFor="name">Company Name:</span>
                                 <br />
                                 <input 
                                     className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] pl-[10px] pr-[10px]" 
@@ -236,7 +236,7 @@ const EditData = () => {
                                     onChange={(e) => setCompanyName(e.target.value)}
                             /></div>
                             <div className="mt-[10px]"> 
-                                <span for="image">Image:</span>
+                                <span htmlFor="image">Image:</span>
                                 <br />
                                 <input 
                                     id="image" 
@@ -246,7 +246,7 @@ const EditData = () => {
                             />
                             </div>
                             <div>
-                                <span for="tittle">Title:</span>
+                                <span htmlFor="tittle">Title:</span>
                                 <br />
                                 <input
                                     className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] pl-[10px] pr-[10px]"
@@ -271,7 +271,7 @@ const EditData = () => {
                         <div className="ini-about mt-[50px]">
                             <h1 className="text-center font-bold text-[20px] mb-[20px]">About Data</h1>
                             <div className="mt-[10px]">
-                                <span for="image">Image:</span>
+                                <span htmlFor="image">Image:</span>
                                 <br />
                                 <input id="image" 
                                 className="mt-[10px] w-full mb-5 text-sm text-black border-2 border-gray-600 p-[5px] rounded-[3px] cursor-pointer" 
@@ -279,7 +279,7 @@ const EditData = () => {
                                 onChange={(e) => setImageAbout(e.target.files[0])}
                              /></div>
                             <div className = "mt-[15px]" >
-                                <span for="desc">Description:</span>
+                                <span htmlFor="desc">Description:</span>
                                 <ReactQuill id="desc" className="mt-[15px]"
                                     modules={modules}
                                     formats={formats}
@@ -287,7 +287,7 @@ const EditData = () => {
                                     onChange={setDescriptionAbout}
                             /></div>
                             <div className = "mt-[15px]" >
-                                <span for="desc">Vision:</span>
+                                <span htmlFor="desc">Vision:</span>
                                 <br />
                                 <ReactQuill id="desc" className="mt-[15px]"
                                     modules={modules}
@@ -296,7 +296,7 @@ const EditData = () => {
                                     onChange={setVisi}
                             /></div>
                             <div className = "mt-[15px]" >
-                                <span for="desc">Mision:</span>
+                                <span htmlFor="desc">Mision:</span>
                                 <br />
                                 <ReactQuill id="desc" className="mt-[15px]" 
                                     modules={modules}
@@ -309,7 +309,7 @@ const EditData = () => {
                         <div className="ini-sponsorship mt-[50px]">
                             <h1 className="text-center font-bold text-[20px] mb-[20px]">Sponsorship</h1>
                             <div className="mt-[15px]">
-                                <span for="client">Clients:</span>
+                                <span htmlFor="client">Clients:</span>
                                 <br />
                                 <input 
                                     className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] px-[5px]" 
@@ -320,7 +320,7 @@ const EditData = () => {
                                 />
                             </div>
                             <div className="mt-[15px]">
-                                <span for="sponsor">Sponsors:</span>
+                                <span htmlFor="sponsor">Sponsors:</span>
                                 <br />
                                 <input 
                                     className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] px-[5px]" 
@@ -331,7 +331,7 @@ const EditData = () => {
                                 />
                             </div>
                             <div className="mt-[15px]">
-                                <span for="ratings">Ratings:</span>
+                                <span htmlFor="ratings">Ratings:</span>
                                 <br />
                                 <input 
                                     className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] px-[5px]" 
@@ -342,7 +342,7 @@ const EditData = () => {
                                 />
                             </div>
                             <div className="mt-[10px]">
-                                <span for="image">Image Client:</span>
+                                <span htmlFor="image">Image Client:</span>
                                 <br />
                                 <input 
                                     id="image" 
@@ -355,7 +355,7 @@ const EditData = () => {
                         <div className="ini-contact mt-[50px]">
                             <h1 className="text-center font-bold text-[20px] mb-[20px]">Contact Catalog</h1>
                             <div className="mt-[15px]">
-                                <span for="wa">No Whatsapp:</span>
+                                <span htmlFor="wa">No Whatsapp:</span>
                                 <br />
                                 <input 
                                     className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] px-[5px]" 
@@ -367,7 +367,7 @@ const EditData = () => {
                             </div>
 
                             <div className="mt-[15px]">
-                                <span for="telephone">No Telephone:</span>
+                                <span htmlFor="telephone">No Telephone:</span>
                                 <br />
                                 <input 
                                     className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] px-[5px]" 
@@ -379,7 +379,7 @@ const EditData = () => {
                             </div>
 
                             <div className="mt-[15px]">
-                                <span for="email">Email:</span>
+                                <span htmlFor="email">Email:</span>
                                 <br />
                                 <input 
                                     className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] px-[5px]" 
@@ -391,7 +391,7 @@ const EditData = () => {
                             </div>
 
                             <div className="mt-[15px]">
-                                <span for="linkedin">Link Linkedin:</span>
+                                <span htmlFor="linkedin">Link Linkedin:</span>
                                 <br />
                                 <input 
                                     className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] px-[5px]" 
@@ -403,7 +403,7 @@ const EditData = () => {
                             </div>
 
                             <div className="mt-[15px]">
-                                <span for="ig">Link Instagram:</span>
+                                <span htmlFor="ig">Link Instagram:</span>
                                 <br />
                                 <input 
                                     className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] px-[5px]" 
@@ -415,7 +415,7 @@ const EditData = () => {
                             </div>
 
                             <div className="mt-[15px]">
-                                <span for="yt">Link Youtube:</span>
+                                <span htmlFor="yt">Link Youtube:</span>
                                 <br />
                                 <input 
                                     className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] px-[5px]" 
@@ -427,7 +427,7 @@ const EditData = () => {
                             </div>
 
                             <div className="mt-[15px]">
-                                <span for="tele">Link Telegram:</span>
+                                <span htmlFor="tele">Link Telegram:</span>
                                 <br />
                                 <input 
                                     className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] px-[5px]" 
@@ -438,7 +438,7 @@ const EditData = () => {
                             /></div>
 
                             <div className="mt-[15px]">
-                                <span for="map">Link Map:</span>
+                                <span htmlFor="map">Link Map:</span>
                                 <br />
                                 <input 
                                     className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] px-[5px]" 
@@ -449,7 +449,7 @@ const EditData = () => {
                             /></div>
 
                             <div className="mt-[15px]">
-                                <span for="map">Address:</span>
+                                <span htmlFor="map">Address:</span>
                                 <br />
                                 <input 
                                     className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] px-[5px]" 
