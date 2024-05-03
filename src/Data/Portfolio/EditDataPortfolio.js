@@ -16,7 +16,7 @@ const EditDataPortfolio = () => {
         document.title = 'Edit Data Portfolio | Casatech';
     }, []);
 
-const [data, setData] = useState(null);
+    const [data, setData] = useState(null);
     const navigate = useNavigate();
     useEffect(() => {
         const fetchData = async () => {
@@ -171,7 +171,7 @@ const [data, setData] = useState(null);
                     <h1 className="text-center font-bold text-[20px] mb-[20px]">Edit Data Portfolio</h1>
                     <form onSubmit={handleUpdate}>
                         <div className="mt-[10px]">
-                            <span for="image">Image:</span>
+                            <span htmlFor="image">Image:</span>
                             <br />
                             <input 
                                 id="image" 
@@ -181,7 +181,7 @@ const [data, setData] = useState(null);
                             />
                         </div>
                         <div>
-                            <span for="tittle">Title:</span>
+                            <span htmlFor="tittle">Title:</span>
                             <br />
                             <input
                                 className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] pl-[10px] pr-[10px]"
@@ -193,7 +193,7 @@ const [data, setData] = useState(null);
                         />
                         </div>
                         <div className = "mt-[15px]" >
-                            <span for="software">Software Name:</span>
+                            <span htmlFor="software">Software Name:</span>
                             <br />
                             <input 
                                 className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] pl-[10px] pr-[10px]" 
@@ -204,7 +204,7 @@ const [data, setData] = useState(null);
                             />
                         </div>
                         <div className = "mt-[15px]" >
-                            <span for="amount">Amount:</span>
+                            <span htmlFor="amount">Amount:</span>
                             <br />
                             <input 
                                 className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] pl-[10px] pr-[10px]" 
@@ -215,7 +215,7 @@ const [data, setData] = useState(null);
                             />
                         </div>
                         <div className = "mt-[15px]" >
-                            <span for="desc">Description:</span>
+                            <span htmlFor="desc">Description:</span>
                             <ReactQuill id="desc" className="mt-[15px]"
                                 value={editorContent}
                                 onChange={handleChange}

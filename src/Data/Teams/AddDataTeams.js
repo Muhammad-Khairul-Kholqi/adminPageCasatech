@@ -142,7 +142,7 @@ const AddDataTeams = () => {
                             />
                         </div>
                         <div>
-                            <span for="name">Name:</span>
+                            <span htmlFor="name">Name:</span>
                             <br />
                             <input 
                                 className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] pl-[10px] pr-[10px]" 
@@ -154,7 +154,7 @@ const AddDataTeams = () => {
                             />
                         </div>
                         <div className = "mt-[15px]" >
-                            <span for="position">Position:</span>
+                            <span htmlFor="position">Position:</span>
                             <br />
                             <input 
                                 className = "w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] pl-[10px] pr-[10px]"

@@ -165,7 +165,7 @@ const EditDataTestimoni = () => {
                     <h1 className="text-center font-bold text-[20px] mb-[20px]">Edit Data Testimonial</h1>
                     <form onSubmit={handleUpdate}>
                         <div className="mt-[10px]">
-                            <span for="image">Image:</span>
+                            <span htmlFor="image">Image:</span>
                             <br />
                             <input 
                                 id="image" 
@@ -175,7 +175,7 @@ const EditDataTestimoni = () => {
                             />
                         </div>
                         <div>
-                            <span for="name">Name:</span>
+                            <span htmlFor="name">Name:</span>
                             <br />
                             <input 
                                 className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] pl-[10px] pr-[10px]" 
@@ -187,7 +187,7 @@ const EditDataTestimoni = () => {
                                 />
                         </div>
                         <div className = "mt-[15px]" >
-                            <span for="position">Position:</span>
+                            <span htmlFor="position">Position:</span>
                             <br />
                             <input 
                                 className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] pl-[10px] pr-[10px]" 
@@ -199,7 +199,7 @@ const EditDataTestimoni = () => {
                                 />
                         </div>
                         <div className = "mt-[15px]" >
-                            <span for="desc">Description:</span>
+                            <span htmlFor="desc">Description:</span>
                             <ReactQuill id="desc" className="mt-[15px]"
                                 value={editorContent}
                                 onChange={handleChange}
