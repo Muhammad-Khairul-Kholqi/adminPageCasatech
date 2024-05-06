@@ -52,8 +52,20 @@ const Registrasi = () => {
      };
 
     const handleImageChange = (event) => {
-        setImage(event.target.files[0]);
-        setError('');
+        const selectedImage = event.target.files[0];
+        if (selectedImage && selectedImage.size > 5 * 1024 * 1024) {
+            setError('File size exceeds 5 MB.');
+            Swal.fire({
+                title: 'Error!',
+                text: 'Ukuran file tidak boleh melebihi 5 MB.',
+                icon: 'error',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'OK',
+            });
+        } else {
+            setImage(selectedImage);
+            setError('');
+        }
     };
 
     const handleAddresChange = (event) => {

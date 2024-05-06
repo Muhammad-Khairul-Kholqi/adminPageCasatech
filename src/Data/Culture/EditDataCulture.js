@@ -18,6 +18,8 @@ const EditDataCulture = () => {
 
     const [data, setData] = useState(null);
     const navigate = useNavigate();
+    const [error, setError] = useState('');
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -56,9 +58,21 @@ const EditDataCulture = () => {
     };
 
     const handleImageChange = (event) => {
-        setImage(event.target.files[0]);
+        const selectedImage = event.target.files[0];
+        if (selectedImage && selectedImage.size > 5 * 1024 * 1024) {
+            setError('File size exceeds 5 MB.');
+            Swal.fire({
+                title: 'Error!',
+                text: 'Ukuran file tidak boleh melebihi 5 MB.',
+                icon: 'error',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'OK',
+            });
+        } else {
+            setImage(selectedImage);
+            setError('');
+        }
     };
-
     const handleUpdate = async (event) => {
         event.preventDefault();
 

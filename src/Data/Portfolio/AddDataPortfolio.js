@@ -16,8 +16,9 @@ const AddDataPortfolio = () => {
          document.title = "Add Data Portfolio | Casatech";
      }, []);
 
-     const [data, setData] = useState(null);
+    const [data, setData] = useState(null);
     const navigate = useNavigate();
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -50,9 +51,21 @@ const AddDataPortfolio = () => {
      const [error, setError] = useState('');
 
      const handleImageChange = (event) => {
-         setImage(event.target.files[0]);
-         setError('');
-     };
+        const selectedImage = event.target.files[0];
+        if (selectedImage && selectedImage.size > 5 * 1024 * 1024) {
+            setError('File size exceeds 5 MB.');
+            Swal.fire({
+                title: 'Error!',
+                text: 'Ukuran file tidak boleh melebihi 5 MB.',
+                icon: 'error',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'OK',
+            });
+        } else {
+            setImage(selectedImage);
+            setError('');
+        }
+    };
 
      const handleTitleChange = (event) => {
          setTitle(event.target.value);
@@ -221,7 +234,6 @@ const AddDataPortfolio = () => {
                                 ]}
                                 required
                             />
-                            {error && <p className="text-red-500 mt-2">{error}</p>}
                         </div>
                         <button type="submit" className="mt-[20px] rounded-[3px] w-full bg-gray-500 hover:bg-gray-600 text-white py-[5px]">
                             Submit
