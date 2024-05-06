@@ -18,6 +18,7 @@ const EditDataSolutions = () => {
 
     const [data, setData] = useState(null);
     const navigate = useNavigate();
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -45,6 +46,16 @@ const EditDataSolutions = () => {
     const { id } = useParams();
     const [title, setTitle] = useState('');
     const [editorContent, setEditorContent] = useState('');
+
+    useEffect(() => {
+        if (data) {
+            const selectedData = data.find(item => item.id === parseInt(id));
+            if (selectedData) {
+                setTitle(selectedData.title);
+                setEditorContent(selectedData.description);
+            }
+        }
+    }, [data, id]);
 
     const handleChange = (content) => {
         setEditorContent(content);

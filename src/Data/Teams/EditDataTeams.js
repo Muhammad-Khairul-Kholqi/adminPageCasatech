@@ -47,6 +47,17 @@ const EditDataTeams = () => {
     const [position, setPosition] = useState('');
     const [error, setError] = useState('');
 
+    useEffect(() => {
+        if (data) {
+            const selectedData = data.find(item => item.id === parseInt(id));
+            if (selectedData) {
+                setImage(selectedData.image);
+                setName(selectedData.name);
+                setPosition(selectedData.position);
+            }
+        }
+    }, [data, id]);
+
     const handleNameChange = (event) => {
         setName(event.target.value);
     };
@@ -146,6 +157,13 @@ const EditDataTeams = () => {
                         <div className="mt-[10px]">
                             <span htmlFor="image">Image:</span>
                             <br />
+                            <div className="flex items-center gap-[10px]">
+                                <p>Previous Image: </p>
+                                <img
+                                    className="w-[100px]"
+                                    src={`http://localhost:4000/${image}`}
+                                />
+                            </div>
                             <input 
                                 id="image" 
                                 className="mt-[10px] w-full mb-5 text-sm text-black border-2 border-gray-600 p-[5px] rounded-[3px] cursor-pointer" 
