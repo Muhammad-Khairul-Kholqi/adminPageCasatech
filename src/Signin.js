@@ -126,7 +126,7 @@ const Login = () => {
                             </div>
 
                             <button className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-[3px] mt-[20px] block">
-                                Sign In
+                                SignIn
                             </button>
 
                             <div className="flex flex-wrap justify-center gap-[5px] text-[12px] mt-[10px]">
