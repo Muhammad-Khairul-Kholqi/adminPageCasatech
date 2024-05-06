@@ -27,6 +27,7 @@ const EditDataAdmin = () => {
     const navigate = useNavigate();
     const [error, setError] = useState('');
     const [data, setData] = useState(null);
+    const [searchQuery, setSearchQuery] = useState("");
 
 
     useEffect(() => {

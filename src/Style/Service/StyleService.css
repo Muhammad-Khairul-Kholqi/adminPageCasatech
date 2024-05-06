@@ -5,3 +5,17 @@
 .table-striped tbody tr:nth-child(even) {
     background-color: #EEF2FF; /* Warna putih untuk baris genap */
 }
+
+@media  (max-width: 755px) {
+    .header-content {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media  (max-width: 585px) {
+    .search-count {
+        display: flex;
+        flex-direction: column;
+    }
+}

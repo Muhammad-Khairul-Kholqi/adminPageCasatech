@@ -41,9 +41,9 @@ const TableAllData = () => {
         <div>
             <div className="mt-[20px]">
                     <h1 className="mb-[20px] text-[20px] font-lato">Data Integrated</h1>
-                    <div className = "relative overflow-x-auto border-solid border-[1px] border-black" >
-                        <table className = "w-full text-sm text-left rtl:text-right" >
-                            <thead className="text-[15px] bg-blue-100 border-b-[1px] border-black">
+                    <div className = "relative overflow-x-auto" >
+                        <table className="table-striped w-full text-sm text-left rtl:text-right">
+                            <thead className = "text-[15px] bg-indigo-50" >
                                 <tr>
                                     <th scope="col" className="px-6 py-3">
                                         Company Name
@@ -81,14 +81,15 @@ const TableAllData = () => {
                                 ))}
                             </tbody>
                         </table>
+                        <hr />
                     </div>
                 </div>
 
                 <div className="mt-[20px]">
                     <h1 className="mb-[20px] text-[20px] font-lato">Data About</h1>
-                    <div className="relative overflow-x-auto border-solid border-[1px] border-black">
-                        <table className="w-full text-sm text-left rtl:text-right">
-                            <thead className="text-[15px] bg-blue-100 border-b-[1px] border-black">
+                    <div className = "relative overflow-x-auto" >
+                        <table className="table-striped w-full text-sm text-left rtl:text-right">
+                            <thead className = "text-[15px] bg-indigo-50" >
                                 <tr>
                                     <th scope="col" className="px-6 py-3">
                                         Image
@@ -126,14 +127,15 @@ const TableAllData = () => {
                                 ))}
                             </tbody>
                         </table>
+                        <hr />
                     </div>
                 </div>
 
                 <div className="mt-[20px]">
                     <h1 className="mb-[20px] text-[20px] font-lato">Data Sponsorship</h1>
-                    <div className="relative overflow-x-auto border-solid border-[1px] border-black">
-                        <table className="w-full text-sm text-left rtl:text-right">
-                            <thead className="text-[15px] bg-blue-100 border-b-[1px] border-black">
+                    <div className = "relative overflow-x-auto" >
+                        <table className="table-striped w-full text-sm text-left rtl:text-right">
+                            <thead className = "text-[15px] bg-indigo-50" >
                                 <tr>
                                     <th scope="col" className="px-6 py-3">
                                         Amount Clients
@@ -171,14 +173,15 @@ const TableAllData = () => {
                                 ))}
                             </tbody>
                         </table>
+                        <hr />
                     </div>
                 </div>
 
                 <div className="mt-[20px]">
                     <h1 className="mb-[20px] text-[20px] font-lato">Contact Catalog</h1>
-                    <div className="relative overflow-x-auto border-solid border-[1px] border-black">
-                        <table className="w-full text-sm text-left rtl:text-right">
-                            <thead className="text-[15px] bg-blue-100 border-b-[1px] border-black">
+                    <div className = "relative overflow-x-auto" >
+                        <table className="table-striped w-full text-sm text-left rtl:text-right">
+                            <thead className = "text-[15px] bg-indigo-50" >
                                 <tr>
                                     <th scope="col" className="px-6 py-3">
                                         No Whatsapp
@@ -243,6 +246,7 @@ const TableAllData = () => {
                                 ))}
                             </tbody>
                         </table>
+                        <hr />
                     </div>
                 </div>
         </div>
