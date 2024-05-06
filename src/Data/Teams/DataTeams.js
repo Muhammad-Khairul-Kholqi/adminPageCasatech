@@ -145,7 +145,7 @@ const DataTeams = () => {
                                         <th scope="col" className="px-6 py-3">
                                             No
                                         </th>
-                                        <th scope="col" className="px-6 py-3 w-[300px]">
+                                        <th scope="col" className="px-6 py-3">
                                             Image
                                         </th>
                                         <th scope="col" className="px-6 py-3">

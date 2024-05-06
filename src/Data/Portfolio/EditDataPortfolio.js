@@ -51,6 +51,19 @@ const EditDataPortfolio = () => {
     const [amount, setAmount] = useState('');
     const [editorContent, setEditorContent] = useState('');
 
+    useEffect(() => {
+        if (data) {
+            const selectedData = data.find(item => item.id === parseInt(id));
+            if (selectedData) {
+                setImage(selectedData.image);
+                setTitle(selectedData.title);
+                setSoftware(selectedData.software_name);
+                setAmount(selectedData.amount);
+                setEditorContent(selectedData.description);
+            }
+        }
+    }, [data, id]);
+
     const handleImageChange = (event) => {
         const selectedImage = event.target.files[0];
         if (selectedImage && selectedImage.size > 5 * 1024 * 1024) {
@@ -188,6 +201,13 @@ const EditDataPortfolio = () => {
                         <div className="mt-[10px]">
                             <span htmlFor="image">Image:</span>
                             <br />
+                            <div className="flex items-center gap-[10px]">
+                                <p>Previous Image: </p>
+                                <img
+                                    className="w-[100px]"
+                                    src={`http://localhost:4000/${image}`}
+                                />
+                            </div>
                             <input 
                                 id="image" 
                                 className="mt-[10px] w-full mb-5 text-sm text-black border-2 border-gray-600 p-[5px] rounded-[3px] cursor-pointer" 

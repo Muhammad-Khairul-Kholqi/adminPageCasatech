@@ -41,7 +41,7 @@ input::placeholder {
     }
 }
 
-@media (max-width:330px) {
+@media (max-width:345px) {
     .abstrack-bg {
         display: none;
     }

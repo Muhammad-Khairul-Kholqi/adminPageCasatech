@@ -69,7 +69,7 @@ const Login = () => {
             }
         };
     return (
-        <div>
+        <div className="bg-[#ededed]">
             <div className="h-screen flex justify-center items-center">
                 <div className="img-form flex justify-center px-[20px]">
                     <img 

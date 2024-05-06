@@ -23,18 +23,57 @@ const EditDataAdmin = () => {
         setShowPassword(!showPassword);
     };
 
-
     const { id } = useParams();
     const navigate = useNavigate();
     const [error, setError] = useState('');
+    const [data, setData] = useState(null);
 
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const token = localStorage.getItem('token');
+                if (!token) {
+                    navigate('/');
+                } else {
+                    const response = await axios.get(`${BaseUrl}users`, {
+                        headers: {
+                            Authorization: `Bearer ${token}`
+                        }
+                    });
+                    const sortedData = response.data.data.sort((a, b) => b.id - a.id);
+                    setData(sortedData);
+                }
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        };
+
+        fetchData();
+    }, [navigate]);
+
+    const [image, setImage] = useState('');
     const [fullname, setFullname] = useState('');
     const [place_date_birth, setBirth] = useState('');
     const [position, setPosition] = useState('');
-    const [image, setImage] = useState('');
     const [addres, setAddres] = useState('');
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+
+    useEffect(() => {
+        if (data) {
+            const selectedData = data.find(item => item.id === parseInt(id));
+            if (selectedData) {
+                setImage(selectedData.image);
+                setFullname(selectedData.fullname);
+                setBirth(selectedData.place_date_birth);
+                setPosition(selectedData.position);
+                setAddres(selectedData.addres);
+                setUsername(selectedData.username);
+                setPassword(selectedData.password);
+            }
+        }
+    }, [data, id]);
 
     const handleImageChange = (event) => {
         const selectedImage = event.target.files[0];
@@ -170,6 +209,13 @@ const EditDataAdmin = () => {
                         <div className="mt-[10px]">
                             <span htmlFor="image">Image:</span>
                             <br />
+                            <div className="flex items-center gap-[10px]">
+                                <p>Previous Image: </p>
+                                <img
+                                    className="w-[100px]"
+                                    src={`http://localhost:4000/${image}`}
+                                />
+                            </div>
                             <input 
                                 id="image" 
                                 className="mt-[10px] w-full mb-5 text-sm text-black border-2 border-gray-600 p-[5px] rounded-[3px] cursor-pointer" 

@@ -16,10 +16,10 @@ const EditDataInnovation = () => {
         document.title = 'Edit Data Innovation | Casatech';
     }, []);
 
-    const [data, setData] = useState(null);
     const navigate = useNavigate();
     const [error, setError] = useState('');
-
+    const [data, setData] = useState(null);
+    
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -33,7 +33,6 @@ const EditDataInnovation = () => {
                         }
                     });
                     const sortedData = response.data.data.sort((a, b) => b.id - a.id);
-
                     setData(sortedData);
                 }
             } catch (error) {
@@ -48,6 +47,17 @@ const EditDataInnovation = () => {
     const [image, setImage] = useState('');
     const [tittle, setTitle] = useState('');
     const [editorContent, setEditorContent] = useState('');
+
+    useEffect(() => {
+        if (data) {
+            const selectedData = data.find(item => item.id === parseInt(id));
+            if (selectedData) {
+                setImage(selectedData.image);
+                setTitle(selectedData.tittle);
+                setEditorContent(selectedData.description);
+            }
+        }
+    }, [data, id]);
 
     const handleChange = (content) => {
         setEditorContent(content);
@@ -102,28 +112,28 @@ const EditDataInnovation = () => {
                 }
             });
 
-           console.log('Response from server:', response.data);
+            console.log('Response from server:', response.data);
 
-           Swal.fire({
-               title: 'Sukses!',
-               text: 'Data berhasil diupdate.',
-               icon: 'success',
-               showConfirmButton: false,
-               timer: 1000
-           }).then(() => {
-               navigate('/data-innovation');
-           });
-       } catch (error) {
-           console.error('Error updating data:', error);
+            Swal.fire({
+                title: 'Sukses!',
+                text: 'Data berhasil diupdate.',
+                icon: 'success',
+                showConfirmButton: false,
+                timer: 1000
+            }).then(() => {
+                navigate('/data-innovation');
+            });
+        } catch (error) {
+            console.error('Error updating data:', error);
 
-           Swal.fire({
-               title: 'Error!',
-               text: 'Terjadi kesalahan saat mengupdate data. Silakan coba lagi.',
-               icon: 'error',
-               confirmButtonColor: '#3085d6',
-               confirmButtonText: 'OK',
-           });
-       }
+            Swal.fire({
+                title: 'Error!',
+                text: 'Terjadi kesalahan saat mengupdate data. Silakan coba lagi.',
+                icon: 'error',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'OK',
+            });
+        }
     };
 
     const modules = {
@@ -159,11 +169,11 @@ const EditDataInnovation = () => {
             <div
                 className="container bg-cover bg-center mt-[20px] py-[50px] rounded-[10px]"
                 style={{ backgroundImage: `url(${backgImg})` }}>
-                <h1 className = "title text-center item-center text-white text-[40px] font-bold px-[20px] font-roboto-slab tracking-[2px]" >
+                <h1 className="title text-center item-center text-white text-[40px] font-bold px-[20px] font-roboto-slab tracking-[2px]">
                     Edit Data Innovation
                 </h1>
-                <div className = "link flex flex-wrap px-[10px] items-center text-white gap-[5px] justify-center mt-[15px]" >
-                    <Link to = "/data-innovation" >
+                <div className="link flex flex-wrap px-[10px] items-center text-white gap-[5px] justify-center mt-[15px]">
+                    <Link to="/data-innovation">
                         <p className="hover:underline">Data Innovation</p>
                     </Link>
                     <MdOutlineKeyboardArrowRight className="mt-[3px]" />
@@ -171,51 +181,55 @@ const EditDataInnovation = () => {
                 </div>
             </div>
             <div className="bg-white p-[20px] rounded-[10px] mt-[20px]">
-                    <h1 className="text-center font-bold text-[20px] mb-[20px]">Edit Data Innovation</h1>
-                    <form onSubmit = {handleUpdate} >
-                        <div className="mt-[10px]">
-                            <span htmlFor="image">Image:</span>
-                            <br />
-                            <input 
-                                id="image" 
-                                className="mt-[10px] w-full mb-5 text-sm text-black border-2 border-gray-600 p-[5px] rounded-[3px] cursor-pointer" 
-                                type="file" 
-                                onChange={handleImageChange}
+                <h1 className="text-center font-bold text-[20px] mb-[20px]">Edit Data Innovation</h1>
+                <form onSubmit={handleUpdate}>
+                    <div className="mt-[10px]">
+                        <span htmlFor="image">Image:</span>
+                        <br />
+                        <div className="flex items-center gap-[10px]">
+                            <p>Previous Image: </p>
+                            <img
+                                className="w-[100px]"
+                                src={`http://localhost:4000/${image}`}
                             />
                         </div>
-                        <div>
-                            <span htmlFor="tittle">Title:</span>
-                            <br />
-                            <input
-                                className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] pl-[10px] pr-[10px]"
-                                type="text"
-                                id="tittle"
-                                value={tittle}
-                                onChange={handleTitleChange}
-                                autoComplete="off"
+                        <input
+                            id="image"
+                            className="mt-[10px] w-full mb-5 text-sm text-black border-2 border-gray-600 p-[5px] rounded-[3px] cursor-pointer"
+                            type="file"
+                            onChange={handleImageChange}
                         />
-                        </div>
-                        <div className="mt-[15px]">
-                            <label htmlFor="desc">Description:</label>
-                            <ReactQuill
-                                id="desc"
-                                className="mt-[15px]"
-                                value={editorContent}
-                                onChange={handleChange}
-                                modules={modules}
-                                formats={formats}
-                            />
-                        </div>
-                        <button className="mt-[20px] rounded-[3px] w-full bg-gray-500 hover:bg-gray-600 text-white py-[5px]" type="submit">
-                            Save Changes
-                        </button>
-                    </form>
+                    </div>
+                    <div>
+                        <span htmlFor="tittle">Title:</span>
+                        <br />
+                        <input
+                            className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] pl-[10px] pr-[10px]"
+                            type="text"
+                            id="tittle"
+                            value={tittle}
+                            onChange={handleTitleChange}
+                            autoComplete="off"
+                        />
+                    </div>
+                    <div className="mt-[15px]">
+                        <label htmlFor="desc">Description:</label>
+                        <ReactQuill
+                            id="desc"
+                            className="mt-[15px]"
+                            value={editorContent}
+                            onChange={handleChange}
+                            modules={modules}
+                            formats={formats}
+                        />
+                    </div>
+                    <button className="mt-[20px] rounded-[3px] w-full bg-gray-500 hover:bg-gray-600 text-white py-[5px]" type="submit">
+                        Save Changes
+                    </button>
+                </form>
             </div>
         </div>
     )
 }
 
 export default EditDataInnovation;
-
-
-
