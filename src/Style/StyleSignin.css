@@ -1,6 +1,5 @@
 input::placeholder {
-    font-size: 12px;
-    font-style: italic;
+    font-size: 13px;
 }
 
 @media (max-width:635px) {

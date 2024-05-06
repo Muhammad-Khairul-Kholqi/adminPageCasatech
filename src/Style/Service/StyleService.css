@@ -1,0 +1,7 @@
+.table-striped tbody tr:nth-child(odd) {
+    background-color: #fff; /* Warna ungu untuk baris ganjil */
+}
+
+.table-striped tbody tr:nth-child(even) {
+    background-color: #EEF2FF; /* Warna putih untuk baris genap */
+}
