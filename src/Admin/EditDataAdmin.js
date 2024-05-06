@@ -26,6 +26,7 @@ const EditDataAdmin = () => {
 
     const { id } = useParams();
     const navigate = useNavigate();
+    const [error, setError] = useState('');
 
     const [fullname, setFullname] = useState('');
     const [place_date_birth, setBirth] = useState('');
@@ -36,8 +37,21 @@ const EditDataAdmin = () => {
     const [password, setPassword] = useState('');
 
     const handleImageChange = (event) => {
-         setImage(event.target.files[0]);
-     };
+        const selectedImage = event.target.files[0];
+        if (selectedImage && selectedImage.size > 5 * 1024 * 1024) {
+            setError('File size exceeds 5 MB.');
+            Swal.fire({
+                title: 'Error!',
+                text: 'Ukuran file tidak boleh melebihi 5 MB.',
+                icon: 'error',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'OK',
+            });
+        } else {
+            setImage(selectedImage);
+            setError('');
+        }
+    };
 
      const handleFullnameChange = (event) => {
          setFullname(event.target.value);

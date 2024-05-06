@@ -16,6 +16,7 @@ const EditDataTeams = () => {
 
     const [data, setData] = useState(null);
     const navigate = useNavigate();
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -44,6 +45,7 @@ const EditDataTeams = () => {
     const [image, setImage] = useState('');
     const [name, setName] = useState('');
     const [position, setPosition] = useState('');
+    const [error, setError] = useState('');
 
     const handleNameChange = (event) => {
         setName(event.target.value);
@@ -54,7 +56,20 @@ const EditDataTeams = () => {
     };
 
     const handleImageChange = (event) => {
-        setImage(event.target.files[0]);
+        const selectedImage = event.target.files[0];
+        if (selectedImage && selectedImage.size > 5 * 1024 * 1024) {
+            setError('File size exceeds 5 MB.');
+            Swal.fire({
+                title: 'Error!',
+                text: 'Ukuran file tidak boleh melebihi 5 MB.',
+                icon: 'error',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'OK',
+            });
+        } else {
+            setImage(selectedImage);
+            setError('');
+        }
     };
 
     const handleUpdate = async (event) => {
@@ -172,19 +187,3 @@ const EditDataTeams = () => {
 }
 
 export default EditDataTeams;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

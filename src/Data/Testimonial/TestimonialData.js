@@ -12,15 +12,14 @@ import { useNavigate } from 'react-router-dom';
 import BaseUrl from "../../Api/BaseUrl";
 
 const TestimonialData = () => {
-    const itemsPerPage = 5;
-
-    const [data, setData] = useState(null);
-    const [selectedItems, setSelectedItems] = useState([]);
-    const [currentPage, setCurrentPage] = useState(1);
-
     useEffect(() => {
         document.title = "Data Testimoni | Casatech";
     }, []);
+
+    const itemsPerPage = 5;
+    const [data, setData] = useState(null);
+    const [selectedItems, setSelectedItems] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
 
     const navigate = useNavigate();
     useEffect(() => {

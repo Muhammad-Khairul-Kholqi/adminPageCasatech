@@ -379,6 +379,19 @@ const EditData = () => {
                             </div>
 
                             <div className="mt-[15px]">
+                                <span htmlFor="ig">Instagram Name: </span>
+                                <br />
+                                <input 
+                                    className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] px-[5px]" 
+                                    type="text" 
+                                    id="ig" 
+                                    value={instagram || ''}
+                                    onChange={(e) => setInstagram(e.target.value)}
+                                />
+                                <p className="text-[13px] text-red-600 italic">Enter Instagram name without @</p>
+                            </div>
+
+                            <div className="mt-[15px]">
                                 <span htmlFor="email">Email:</span>
                                 <br />
                                 <input 
@@ -400,18 +413,6 @@ const EditData = () => {
                                     value={linkedin || ''}
                                     onChange={(e) => setLinkedin(e.target.value)}
                                     />
-                            </div>
-
-                            <div className="mt-[15px]">
-                                <span htmlFor="ig">Link Instagram:</span>
-                                <br />
-                                <input 
-                                    className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] px-[5px]" 
-                                    type="text" 
-                                    id="ig" 
-                                    value={instagram || ''}
-                                    onChange={(e) => setInstagram(e.target.value)}
-                                />
                             </div>
 
                             <div className="mt-[15px]">

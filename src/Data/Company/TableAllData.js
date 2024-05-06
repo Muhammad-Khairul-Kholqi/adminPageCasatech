@@ -187,6 +187,9 @@ const TableAllData = () => {
                                         No Telephone
                                     </th>
                                     <th scope="col" className="px-6 py-3">
+                                        Instagram Name
+                                    </th>
+                                    <th scope="col" className="px-6 py-3">
                                         Email
                                     </th>
                                     <th scope="col" className="px-6 py-3">
@@ -194,9 +197,6 @@ const TableAllData = () => {
                                     </th>
                                     <th scope="col" className="px-6 py-3">
                                         Link Linkedin
-                                    </th>
-                                    <th scope="col" className="px-6 py-3">
-                                        Link Instagram
                                     </th>
                                     <th scope="col" className="px-6 py-3">
                                         Link Youtube
@@ -219,6 +219,9 @@ const TableAllData = () => {
                                             {item.no_telephone}
                                         </td>
                                         <td className="px-6 py-4">
+                                            {item.instagram}
+                                        </td>
+                                        <td className="px-6 py-4">
                                             {item.email}
                                         </td>
                                         <td className = "px-6 py-4" >
@@ -226,9 +229,6 @@ const TableAllData = () => {
                                         </td>
                                         <td className="px-6 py-4">
                                             <a target="_blank" href={item.linkedin} className="text-blue-600 hover:underline">{item.linkedin}</a>
-                                        </td>
-                                        <td className="px-6 py-4">
-                                            <a target="_blank" href={item.instagram} className="text-blue-600 hover:underline">{item.instagram}</a>
                                         </td>
                                         <td className="px-6 py-4">
                                             <a target="_blank" href={item.youtube} className="text-blue-600 hover:underline">{item.youtube}</a>

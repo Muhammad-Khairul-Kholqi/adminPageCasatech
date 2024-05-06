@@ -16,6 +16,7 @@ const AddDataTeams = () => {
 
     const [data, setData] = useState(null);
     const navigate = useNavigate();
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -40,77 +41,89 @@ const AddDataTeams = () => {
         fetchData();
     }, [navigate]);
 
-     const [image, setImage] = useState('');
-     const [name, setName] = useState('');
-     const [position, setPosition] = useState('');
-     const [error, setError] = useState('');
+    const [image, setImage] = useState('');
+    const [name, setName] = useState('');
+    const [position, setPosition] = useState('');
+    const [error, setError] = useState('');
 
-     const handleImageChange = (event) => {
-         setImage(event.target.files[0]);
-         setError('');
-     };
+    const handleImageChange = (event) => {
+        const selectedImage = event.target.files[0];
+        if (selectedImage && selectedImage.size > 5 * 1024 * 1024) {
+            setError('File size exceeds 5 MB.');
+            Swal.fire({
+                title: 'Error!',
+                text: 'Ukuran file tidak boleh melebihi 5 MB.',
+                icon: 'error',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'OK',
+            });
+        } else {
+            setImage(selectedImage);
+            setError('');
+        }
+    };
 
-     const handleNameChange = (event) => {
-         setName(event.target.value);
-         setError('');
-     };
+    const handleNameChange = (event) => {
+        setName(event.target.value);
+        setError('');
+    };
 
-     const handlePositionChange = (event) => {
-         setPosition(event.target.value);
-         setError('');
-     };
+    const handlePositionChange = (event) => {
+        setPosition(event.target.value);
+        setError('');
+    };
 
-     const handleFormSubmit = async (event) => {
-         event.preventDefault();
+    const handleFormSubmit = async (event) => {
+        event.preventDefault();
 
-         if (!image || !name.trim() || !position.trim()) {
-             Swal.fire({
-                 title: 'Error!',
-                 text: 'Image, Name dan Position harus diisi!',
-                 icon: 'error',
-                 confirmButtonColor: '#3085d6',
-                 confirmButtonText: 'OK',
-             });
-             return;
-         }
+        if (!image || !name.trim() || !position.trim()) {
+            Swal.fire({
+                title: 'Error!',
+                text: 'Image, Name dan Position harus diisi!',
+                icon: 'error',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'OK',
+            });
+            return;
+        }
 
-         const formData = new FormData();
-         formData.append('image', image);
-         formData.append('name', name);
-         formData.append('position', position);
+        const formData = new FormData();
+        formData.append('image', image);
+        formData.append('name', name);
+        formData.append('position', position);
 
-         try {
-            const token = localStorage.getItem('token');
-             const response = await axios.post(`${BaseUrl}team`, formData, {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                    'Content-Type': 'multipart/form-data'
-                }
-             });
+        try {
+           const token = localStorage.getItem('token');
+            const response = await axios.post(`${BaseUrl}team`, formData, {
+               headers: {
+                   Authorization: `Bearer ${token}`,
+                   'Content-Type': 'multipart/form-data'
+               }
+            });
 
-             console.log('API Response:', response.data);
+            console.log('API Response:', response.data);
 
-             Swal.fire({
-                 icon: 'success',
-                 title: 'Sukses!',
-                 text: 'Berhasil menambah data Team',
-                 showConfirmButton: false,
-                 timer: 1000,
-             }).then(() => {
-                 navigate('/data-teams');
-             });
-         } catch (error) {
-             console.error('Error creating data:', error);
+            Swal.fire({
+                icon: 'success',
+                title: 'Sukses!',
+                text: 'Berhasil menambah data Team',
+                showConfirmButton: false,
+                timer: 1000,
+            }).then(() => {
+                navigate('/data-teams');
+            });
+        } catch (error) {
+            console.error('Error creating data:', error);
 
-             Swal.fire({
-                 title: 'Error!',
-                 text: 'Terjadi kesalahan saat menambahkan data. Silakan coba lagi.',
-                 icon: 'error',
-                 confirmButtonColor: '#3085d6',
-                 confirmButtonText: 'OK',
-             });
-         }
-     };
+            Swal.fire({
+                title: 'Error!',
+                text: 'Terjadi kesalahan saat menambahkan data. Silakan coba lagi.',
+                icon: 'error',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'OK',
+            });
+        }
+    };
 
     return (
         <div>
