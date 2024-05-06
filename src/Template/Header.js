@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import '../Style/StyleHeader.css';
 import { FaUser } from "react-icons/fa";
@@ -10,7 +10,21 @@ import Swal from 'sweetalert2';
 
 const Header = () => {
     const [isDropdownOpen, setDropdownOpen] = useState(false);
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
+    const dropdownRef = useRef(null);
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setDropdownOpen(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
 
     useEffect(() => {
         const username = localStorage.getItem('username');
@@ -52,7 +66,7 @@ const Header = () => {
                 Welcome back, <br />
                 <span className="name-admin text-[25px] font-bold font-jetbrains-mono">{username}</span>
             </div>
-            <div className="relative">
+            <div className="relative" ref={dropdownRef}>
                 <div className="flex gap-[5px] items-center cursor-pointer" onClick={toggleDropdown}>
                     <FaUser className="icon-admin" />
                     <p className="admin">Administrator</p>
@@ -64,14 +78,14 @@ const Header = () => {
                         <ul>
                             <li>
                                 <Link to="/data-admin">
-                                    <div className="flex items-center gap-[5px] hover:bg-blue-500 p-[5px] rounded-[5px] hover:text-white">
+                                    <div className="flex items-center gap-[5px] hover:bg-blue-500 p-[5px] rounded-[5px] hover:text-white" onClick={() => setDropdownOpen(false)}>
                                         <RiAdminLine  className="icon-log-acc text-[17px]" />
                                         <p>Data</p>
                                     </div>
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/" onClick={handleLogout}>
+                                <Link to="/" onClick={(e) => { handleLogout(e); setDropdownOpen(false); }}>
                                     <div className="flex items-center gap-[5px] mt-[5px] hover:bg-red-500 p-[5px] rounded-[5px] hover:text-white">
                                         <BiLogOut className="icon-log-acc text-[17px]" />
                                         <p>Logout</p>
@@ -87,7 +101,3 @@ const Header = () => {
 };
 
 export default Header;
-
-
-
-
