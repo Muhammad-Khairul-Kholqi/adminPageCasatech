@@ -12,11 +12,12 @@ import { useNavigate } from 'react-router-dom';
 import BaseUrl from "../../Api/BaseUrl";
 
 const SolutionsData = () => {
-    const itemsPerPage = 5;
-
+    
+    const itemsPerPage = 6;
     const [data, setData] = useState(null);
     const [selectedItems, setSelectedItems] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
+    const [searchQuery, setSearchQuery] = useState("");
 
     useEffect(() => {
         document.title = "Data Solutions | Casatech";
@@ -107,7 +108,11 @@ const SolutionsData = () => {
         const startIndex = (currentPage - 1) * itemsPerPage;
         const endIndex = startIndex + itemsPerPage;
 
-        return data.slice(startIndex, endIndex).map((item, index) => ({
+        const filteredData = data.filter(item =>
+            item.title.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+
+        return filteredData.slice(startIndex, endIndex).map((item, index) => ({
             ...item,
             pageNo: startIndex + index + 1
         }));
@@ -136,21 +141,41 @@ const SolutionsData = () => {
                 <h1 className="title text-center item-center text-white text-[40px] font-bold px-[20px] font-roboto-slab tracking-[2px]">Data Solutions</h1>
             </div>
 
-            <div className="bg-white p-[20px] rounded-[10px] mt-[20px]">
-                <div className="flex justify-end mb-[20px]">
-                    <Link to="/add-data-solutions">
-                        <div className="flex justify-center gap-[5px] py-[5px] px-[10px] items-center border-solid border-2 border-blue-600 rounded-[100px] hover:bg-blue-600 hover:text-white">
-                            <FiPlusCircle />
-                            <div>Add Data</div>
+            <div className="header-content bg-white p-[20px] rounded-[10px] gap-[20px] flex items-center flex-wrap justify-between mt-[20px]">
+                    <div className="search-count flex flex-wrap gap-[20px] items-center">
+                        <div>
+                            <input
+                                className="w-full border h-[40px] px-[5px] rounded-[5px]"
+                                autoComplete="off"
+                                placeholder="Search by title"
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                            />
                         </div>
-                    </Link>
+
+                        <div className="px-[15px] py-[10px] border rounded-[5px]" style={{ display: 'inline-block' }}>
+                            <p className="font-bold text-blue-600">{data ? `${data.length}` : 0} Data Solutions</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <Link to="/add-data-solutions">
+                            <div className = "flex justify-center gap-[5px] py-[5px] px-[10px] items-center border-solid border-2 border-blue-600 rounded-[100px] hover:bg-blue-600 hover:text-white" >
+                                <FiPlusCircle />
+                                <div>Add Data</div>
+                            </div>
+                        </Link>
+                    </div>
                 </div>
-                <p className="pb-[5px]">{data ? `${data.length}` : 0} Data Solutions</p>
-                <p className="pb-[10px] italic">Klik checkbox untuk hapus data</p>
-                <div className="relative overflow-x-auto border-solid border-[1px] border-black">
-                    <table className="w-full text-sm text-left rtl:text-right">
-                        <thead className="text-[15px] bg-blue-100 border-b-[1px] border-black">
+
+            <div className="bg-white p-[20px] rounded-[10px] mt-[20px]">
+                <div className = "relative overflow-x-auto" >
+                    <table className="table-striped w-full text-sm text-left rtl:text-right">
+                        <thead className = "text-[15px] bg-indigo-50" >
                             <tr>
+                                <th scope="col" className="px-6 py-3">
+                                    Check
+                                </th>
                                 <th scope="col" className="px-6 py-3">
                                     No
                                 </th>
@@ -163,13 +188,19 @@ const SolutionsData = () => {
                                 <th scope="col" className="px-6 py-3">
                                     Action
                                 </th>
-                                <th scope="col" className="px-6 py-3">
-                                </th>
                             </tr>
                         </thead>
                         <tbody>
                             {paginateData().map((item) => (
                                 <tr key={item.id} className="text-[13px]">
+                                    <td className="px-6 py-4">
+                                        <input
+                                            type="checkbox"
+                                            checked={selectedItems.includes(item.id)}
+                                            onChange={() => handleCheckboxChange(item.id)}
+                                            className="cursor-pointer"
+                                        />
+                                    </td>
                                     <td className='px-6 py-4'>
                                         {item.pageNo}
                                     </td>
@@ -195,20 +226,13 @@ const SolutionsData = () => {
                                             </button>
                                         </div>
                                     </td>
-                                    <td className="px-6 py-4">
-                                        <input
-                                            type="checkbox"
-                                            checked={selectedItems.includes(item.id)}
-                                            onChange={() => handleCheckboxChange(item.id)}
-                                            className="cursor-pointer"
-                                        />
-                                    </td>
                                 </tr>
                             ))}
                         </tbody>
                     </table>
+                    <hr />
                 </div>
-                <div className="flex justify-between mt-[10px]">
+                <div className="flex justify-between mt-[30px]">
                     <button
                         className="flex gap-[5px] items-center text-red-600 hover:underline"
                         onClick={handleDelete}>

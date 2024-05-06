@@ -144,22 +144,16 @@ const DataService = () => {
                 }>
                 <h1 className="title text-center item-center text-white text-[40px] font-bold px-[20px] font-roboto-slab tracking-[2px]">Data Services</h1></div>
 
-                <div className="bg-white p-[20px] rounded-[10px] gap-[20px] flex items-center flex-wrap justify-between mt-[20px]">
-                    <div className="flex flex-wrap gap-[20px] items-center">
+                <div className="header-content bg-white p-[20px] rounded-[10px] gap-[20px] flex items-center flex-wrap justify-between mt-[20px]">
+                    <div className="search-count flex flex-wrap gap-[20px] items-center">
                         <div>
-                            <form className="flex">
-                                <input
-                                    className="w-full border h-[40px] px-[5px] rounded-bl-[5px] rounded-tl-[5px]"
-                                    autoComplete="off"
-                                    placeholder="Search by title"
-                                    value={searchQuery}
-                                    onChange={(e) => setSearchQuery(e.target.value)}
-                                />
-
-                                <button className="bg-blue-600 hover:bg-blue-700 px-[10px] text-white text-[25px] rounded-br-[5px] rounded-tr-[5px]">
-                                    <IoSearch />
-                                </button>
-                            </form>
+                            <input
+                                className="w-full border h-[40px] px-[5px] rounded-[5px]"
+                                autoComplete="off"
+                                placeholder="Search by title"
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                            />
                         </div>
 
                         <div className="px-[15px] py-[10px] border rounded-[5px]" style={{ display: 'inline-block' }}>
@@ -244,6 +238,7 @@ const DataService = () => {
                                     ))}
                                 </tbody>
                             </table>
+                            <hr />
                         </div>
                         <div className="flex justify-between mt-[30px]">
                             <button
