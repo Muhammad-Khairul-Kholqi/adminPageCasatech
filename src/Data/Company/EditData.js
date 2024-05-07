@@ -238,6 +238,13 @@ const EditData = () => {
                             <div className="mt-[10px]"> 
                                 <span htmlFor="image">Image:</span>
                                 <br />
+                                <div className="flex items-center gap-[10px]">
+                                    <p>Previous Image: </p>
+                                    <img
+                                        className="w-[100px]"
+                                        src={`https://casatech.id/compro-api${image_company}`}
+                                    />
+                                </div>
                                 <input 
                                     id="image" 
                                     className="mt-[10px] w-full mb-5 text-sm text-black border-2 border-gray-600 p-[5px] rounded-[3px] cursor-pointer" 
@@ -273,11 +280,19 @@ const EditData = () => {
                             <div className="mt-[10px]">
                                 <span htmlFor="image">Image:</span>
                                 <br />
+                                <div className="flex items-center gap-[10px]">
+                                    <p>Previous Image: </p>
+                                    <img
+                                        className="w-[100px]"
+                                        src={`https://casatech.id/compro-api${image_about}`}
+                                    />
+                                </div>
                                 <input id="image" 
-                                className="mt-[10px] w-full mb-5 text-sm text-black border-2 border-gray-600 p-[5px] rounded-[3px] cursor-pointer" 
-                                type="file"
-                                onChange={(e) => setImageAbout(e.target.files[0])}
-                             /></div>
+                                    className="mt-[10px] w-full mb-5 text-sm text-black border-2 border-gray-600 p-[5px] rounded-[3px] cursor-pointer" 
+                                    type="file"
+                                    onChange={(e) => setImageAbout(e.target.files[0])}
+                             />
+                            </div>
                             <div className = "mt-[15px]" >
                                 <span htmlFor="desc">Description:</span>
                                 <ReactQuill id="desc" className="mt-[15px]"
@@ -344,6 +359,13 @@ const EditData = () => {
                             <div className="mt-[10px]">
                                 <span htmlFor="image">Image Client:</span>
                                 <br />
+                                <div className="flex items-center gap-[10px]">
+                                    <p>Previous Image: </p>
+                                    <img
+                                        className="w-[100px]"
+                                        src={`https://casatech.id/compro-api${image_client}`}
+                                    />
+                                </div>
                                 <input 
                                     id="image" 
                                     className="mt-[10px] w-full mb-5 text-sm text-black border-2 border-gray-600 p-[5px] rounded-[3px] cursor-pointer" 
@@ -471,3 +493,10 @@ const EditData = () => {
 };
 
 export default EditData;
+
+
+
+
+
+
+
