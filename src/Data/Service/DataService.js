@@ -7,7 +7,6 @@ import { FaRegPenToSquare } from "react-icons/fa6";
 import { FiPlusCircle } from "react-icons/fi";
 import { IoTrashOutline } from "react-icons/io5";
 import { useNavigate } from 'react-router-dom';
-import { IoSearch } from "react-icons/io5";
 import '../../Style/Service/StyleService.css';
 
 // api
@@ -105,12 +104,16 @@ const DataService = () => {
             return [];
         }
 
-        const startIndex = (currentPage - 1) * itemsPerPage;
-        const endIndex = startIndex + itemsPerPage;
-
         const filteredData = data.filter(item =>
             item.tittle.toLowerCase().includes(searchQuery.toLowerCase())
         );
+
+        if (filteredData.length === 0) {
+            return [];
+        }
+
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
 
         return filteredData.slice(startIndex, endIndex).map((item, index) => ({
             ...item,
@@ -172,7 +175,8 @@ const DataService = () => {
                 </div>
 
                 <div className = "bg-white p-[20px] rounded-[10px] mt-[20px]" >
-                        <div className = "relative overflow-x-auto" >
+                    {paginateData().length > 0 ? (
+                        <div className="relative overflow-x-auto">
                             <table className="table-striped w-full text-sm text-left rtl:text-right">
                                 <thead className = "text-[15px] bg-indigo-50" >
                                     <tr>
@@ -199,7 +203,7 @@ const DataService = () => {
                                 <tbody>
                                     {paginateData().map((item) => (
                                         <tr key={item.id} className="text-[13px]">
-                                             <td className="px-6 py-4">
+                                            <td className="px-6 py-4">
                                                 <input
                                                     type="checkbox"
                                                     checked={selectedItems.includes(item.id)}
@@ -240,28 +244,31 @@ const DataService = () => {
                             </table>
                             <hr />
                         </div>
-                        <div className="flex justify-between mt-[30px]">
+                    ) : (
+                        <div className="text-center py-4 text-red-600">Tidak ada data!</div>
+                    )}
+                    <div className="flex justify-between mt-[30px]">
+                        <button
+                            className="flex gap-[5px] items-center text-red-600 hover:underline"
+                            onClick={handleDelete}>
+                            <IoTrashOutline />
+                            <p className="text-[13px]">Delete</p>
+                        </button>
+                        <div className="flex gap-[5px] items-center">
                             <button
-                                className="flex gap-[5px] items-center text-red-600 hover:underline"
-                                onClick={handleDelete}>
-                                <IoTrashOutline />
-                                <p className="text-[13px]">Delete</p>
+                                className={`text-blue-600 hover:underline ${currentPage === 1 ? 'cursor-not-allowed text-gray-400' : ''}`}
+                                onClick={() => changePage(currentPage - 1)}
+                                disabled={currentPage === 1}>
+                                Previous
                             </button>
-                            <div className="flex gap-[5px] items-center">
-                                <button
-                                    className={`text-blue-600 hover:underline ${currentPage === 1 ? 'cursor-not-allowed text-gray-400' : ''}`}
-                                    onClick={() => changePage(currentPage - 1)}
-                                    disabled={currentPage === 1}>
-                                    Previous
-                                </button>
-                                <button
-                                    className={`text-blue-600 hover:underline ${currentPage === totalPages ? 'cursor-not-allowed text-gray-400' : ''}`}
-                                    onClick={() => changePage(currentPage + 1)}
-                                    disabled={currentPage === totalPages}>
-                                    Next
-                                </button>
-                            </div>
+                            <button
+                                className={`text-blue-600 hover:underline ${currentPage === totalPages ? 'cursor-not-allowed text-gray-400' : ''}`}
+                                onClick={() => changePage(currentPage + 1)}
+                                disabled={currentPage === totalPages}>
+                                Next
+                            </button>
                         </div>
+                    </div>
                 </div>
         </div>
     )

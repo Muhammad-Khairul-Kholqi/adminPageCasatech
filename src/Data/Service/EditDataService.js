@@ -191,7 +191,7 @@ const EditDataService = () => {
                                 <p>Previous Image: </p>
                                 <img
                                     className="w-[100px]"
-                                    src={`http://localhost:4000/${image}`}
+                                    src={`https://casatech.id/compro-api${image}`}
                                 />
                             </div>
                             <input 
@@ -234,6 +234,3 @@ const EditDataService = () => {
 }
 
 export default EditDataService;
-
-
-

@@ -104,12 +104,16 @@ const DataCulture = () => {
             return [];
         }
 
-        const startIndex = (currentPage - 1) * itemsPerPage;
-        const endIndex = startIndex + itemsPerPage;
-
         const filteredData = data.filter(item =>
             item.tittle_culture.toLowerCase().includes(searchQuery.toLowerCase())
         );
+
+        if (filteredData.length === 0) {
+            return [];
+        }
+
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
 
         return filteredData.slice(startIndex, endIndex).map((item, index) => ({
             ...item,
@@ -173,6 +177,7 @@ const DataCulture = () => {
                 </div>
 
                 <div className = "bg-white p-[20px] rounded-[10px] mt-[20px]" >
+                    {paginateData().length > 0 ? (
                         <div className = "relative overflow-x-auto" >
                             <table className="table-striped w-full text-sm text-left rtl:text-right">
                                 <thead className = "text-[15px] bg-indigo-50" >
@@ -245,6 +250,9 @@ const DataCulture = () => {
                             </table>
                             <hr />
                         </div>
+                        ) : (
+                            <div className="text-center py-4 text-red-600">Tidak ada data!</div>
+                        )}
                         <div className="flex justify-between mt-[30px]">
                             <button
                                 className="flex gap-[5px] items-center text-red-600 hover:underline"
