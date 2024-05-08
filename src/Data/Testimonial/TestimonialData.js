@@ -13,7 +13,7 @@ import BaseUrl from "../../Api/BaseUrl";
 
 const TestimonialData = () => {
     useEffect(() => {
-        document.title = "Data Testimoni | Casatech";
+        document.title = "Data Testimonials | Casatech";
     }, []);
 
     const itemsPerPage = 6;
@@ -126,7 +126,7 @@ const TestimonialData = () => {
         setCurrentPage(newPage);
     };
 
-    // mengatur jika kata lebih dari 25 maka tidak di tampilkan
+    // mengatur jika kata lebih dari 7 maka tidak di tampilkan
     const truncateDescription = (description, wordLimit) => {
     const words = description.split(' ');
         if (words.length > wordLimit) {
@@ -144,7 +144,7 @@ const TestimonialData = () => {
                         backgroundImage: `url(${backgImg})`
                     }
                 }>
-                <h1 className="title text-center item-center text-white text-[40px] font-bold px-[20px] font-roboto-slab tracking-[2px]">Testimonial Data</h1></div>
+                <h1 className="title text-center item-center text-white text-[40px] font-bold px-[20px] font-roboto-slab tracking-[2px]">Testimonials Data</h1></div>
 
                 <div className="header-content bg-white p-[20px] rounded-[10px] gap-[20px] flex items-center flex-wrap justify-between mt-[20px]">
                     <div className="search-count flex flex-wrap gap-[20px] items-center">
@@ -159,7 +159,7 @@ const TestimonialData = () => {
                         </div>
 
                         <div className="px-[15px] py-[10px] border rounded-[5px]" style={{ display: 'inline-block' }}>
-                            <p className="font-bold text-blue-600">{data ? `${data.length}` : 0} Data Testimoni</p>
+                            <p className="font-bold text-blue-600">{data ? `${data.length}` : 0} Data Testimonials</p>
                         </div>
                     </div>
 
@@ -229,7 +229,7 @@ const TestimonialData = () => {
                                                 {item.position}
                                             </td>
                                             <td className="px-6 py-4 w-[300px] text-[10px]">
-                                                <div dangerouslySetInnerHTML={{ __html: truncateDescription(item.description, 25) }} />
+                                                <div dangerouslySetInnerHTML={{ __html: truncateDescription(item.description, 7) }} />
                                             </td>
                                             <td className="px-6 py-4">
                                                 <div className="flex gap-[10px]">

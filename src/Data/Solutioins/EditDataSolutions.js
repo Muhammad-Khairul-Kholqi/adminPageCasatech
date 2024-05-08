@@ -13,7 +13,7 @@ import BaseUrl from "../../Api/BaseUrl";
 
 const EditDataSolutions = () => {
     useEffect(() => {
-        document.title = 'Edit Data Solutions | Casatech';
+        document.title = 'Edit Data Solution | Casatech';
     }, []);
 
     const [data, setData] = useState(null);

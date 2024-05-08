@@ -13,7 +13,7 @@ import BaseUrl from "../../Api/BaseUrl";
 
 const EditDataTestimoni = () => {
     useEffect(() => {
-        document.title = 'Edit Data Testimoni | Casatech';
+        document.title = 'Edit Data Testimonial | Casatech';
     }, []);
 
     const [data, setData] = useState(null);
@@ -178,11 +178,11 @@ const EditDataTestimoni = () => {
                 className="container bg-cover bg-center mt-[20px] py-[50px] rounded-[10px]"
                 style={{ backgroundImage: `url(${backgImg})` }}>
                 <h1 className = "title text-center item-center text-white text-[40px] font-bold px-[20px] font-roboto-slab tracking-[2px]" >
-                    Edit Data Testimoni
+                    Edit Data Testimonial
                 </h1>
                 <div className = "link flex flex-wrap px-[10px] items-center text-white gap-[5px] justify-center mt-[15px]" >
                     <Link to = "/testimonial-data" >
-                        <p className="hover:underline">Data Testimonial</p>
+                        <p className="hover:underline">Data Testimonials</p>
                     </Link>
                     <MdOutlineKeyboardArrowRight className="mt-[3px]" />
                     <p className="text-blue-600">Edit Data Testimonial</p>
@@ -206,6 +206,7 @@ const EditDataTestimoni = () => {
                                 className="mt-[10px] w-full mb-5 text-sm text-black border-2 border-gray-600 p-[5px] rounded-[3px] cursor-pointer" 
                                 type="file" 
                                 onChange={handleImageChange}
+                                required
                             />
                         </div>
                         <div>

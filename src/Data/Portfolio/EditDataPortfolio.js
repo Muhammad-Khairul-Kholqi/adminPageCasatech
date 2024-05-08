@@ -189,7 +189,7 @@ const EditDataPortfolio = () => {
                 </h1>
                 <div className = "link flex flex-wrap px-[10px] items-center text-white gap-[5px] justify-center mt-[15px]" >
                     <Link to = "/data-portfolio" >
-                        <p className="hover:underline">Data Portfolio</p>
+                        <p className="hover:underline">Data Portfolios</p>
                     </Link>
                     <MdOutlineKeyboardArrowRight className="mt-[3px]" />
                     <p className="text-blue-600">Edit Data Portfolio</p>
@@ -213,6 +213,7 @@ const EditDataPortfolio = () => {
                                 className="mt-[10px] w-full mb-5 text-sm text-black border-2 border-gray-600 p-[5px] rounded-[3px] cursor-pointer" 
                                 type="file" 
                                 onChange={handleImageChange}
+                                required
                             />
                         </div>
                         <div>

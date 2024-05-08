@@ -214,7 +214,7 @@ const EditData = () => {
                         <p className="hover:underline">Company Data</p>
                     </Link>
                     <MdOutlineKeyboardArrowRight className="mt-[3px]" />
-                    <p className="text-blue-600">Edit Company Data</p>
+                    <p className="text-blue-600">Edit Data Company</p>
                 </div>
             </div>
 

@@ -13,7 +13,7 @@ import BaseUrl from '../../Api/BaseUrl';
 
 const AddDataSolutions = () => {
     useEffect(() => {
-        document.title = "Add Data Solutions | Casatech";
+        document.title = "Add Data Solution | Casatech";
     }, []);
 
     const [data, setData] = useState(null);
@@ -123,12 +123,12 @@ const AddDataSolutions = () => {
                         <p className="hover:underline">Data Solutions</p>
                     </Link>
                     <MdOutlineKeyboardArrowRight className="mt-[3px]" />
-                    <p className="text-blue-600">Add Data Solutions</p>
+                    <p className="text-blue-600">Add Data Solution</p>
                 </div>
             </div>
 
             <div className="bg-white p-[20px] rounded-[10px] mt-[20px]">
-                <h1 className="text-center font-bold text-[20px] mb-[20px]">Add Data Solutions</h1>
+                <h1 className="text-center font-bold text-[20px] mb-[20px]">Add Data Solution</h1>
                 <form onSubmit={handleFormSubmit}>
                     <div>
                         <label htmlFor="title">Title:</label>

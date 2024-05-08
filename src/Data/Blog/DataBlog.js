@@ -13,7 +13,7 @@ import BaseUrl from "../../Api/BaseUrl";
 
 const DataBlog = () => {
     useEffect(() => {
-        document.title = "Data Blog | Casatech";
+        document.title = "Data Blogs | Casatech";
     }, []);
 
     const itemsPerPage = 6;
@@ -165,7 +165,7 @@ const DataBlog = () => {
                         backgroundImage: `url(${backgImg})`
                     }
                 }>
-                <h1 className="title text-center item-center text-white text-[40px] font-bold px-[20px] font-roboto-slab tracking-[2px]">Data Blog</h1></div>
+                <h1 className="title text-center item-center text-white text-[40px] font-bold px-[20px] font-roboto-slab tracking-[2px]">Data Blogs</h1></div>
 
                 <div className="header-content bg-white p-[20px] rounded-[10px] gap-[20px] flex items-center flex-wrap justify-between mt-[20px]">
                     <div className="search-count flex flex-wrap gap-[20px] items-center">
@@ -180,7 +180,7 @@ const DataBlog = () => {
                         </div>
 
                         <div className="px-[15px] py-[10px] border rounded-[5px]" style={{ display: 'inline-block' }}>
-                            <p className="font-bold text-blue-600">{data ? `${data.length}` : 0} Data Blog</p>
+                            <p className="font-bold text-blue-600">{data ? `${data.length}` : 0} Data Blogs</p>
                         </div>
                     </div>
 

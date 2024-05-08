@@ -13,7 +13,7 @@ import BaseUrl from "../../Api/BaseUrl";
 
 const AddDataTestimoni = () => {
     useEffect(() => {
-        document.title = 'Add Data Testimoni | Casatech';
+        document.title = 'Add Data Testimonial | Casatech';
     }, []);
 
     const [data, setData] = useState(null);
@@ -141,7 +141,7 @@ const AddDataTestimoni = () => {
                 </h1>
                 <div className = "link flex flex-wrap px-[10px] items-center text-white gap-[5px] justify-center mt-[15px]" >
                     <Link to = "/testimonial-data" >
-                        <p className="hover:underline">Data Testimonial</p>
+                        <p className="hover:underline">Data Testimonials</p>
                     </Link>
                     <MdOutlineKeyboardArrowRight className="mt-[3px]" />
                     <p className="text-blue-600">Add Data Testimonial</p>
