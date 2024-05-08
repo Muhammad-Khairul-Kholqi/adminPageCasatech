@@ -12,7 +12,7 @@ import BaseUrl from "../../Api/BaseUrl";
 
 const CompanyData = () => {
     useEffect(() => {
-        document.title = "Integrated Data | Casatech";
+        document.title = "Company Data | Casatech";
     }, []);
 
     const [data, setData] = useState(null);

@@ -13,7 +13,7 @@ import BaseUrl from "../Api/BaseUrl";
 const DataAdmin = () => {
     // mengatur tittle agar berubah
     useEffect(() => {
-        document.title = "Data Admin | Casatech";
+        document.title = "Data Admins | Casatech";
     }, []);
 
     const navigate = useNavigate();
@@ -144,7 +144,7 @@ const DataAdmin = () => {
                         backgroundImage: `url(${backgImg})`
                     }
                 }>
-                <h1 className="title text-center item-center text-white text-[40px] font-bold px-[20px] font-roboto-slab tracking-[2px]">Data Admin</h1>
+                <h1 className="title text-center item-center text-white text-[40px] font-bold px-[20px] font-roboto-slab tracking-[2px]">Data Admins</h1>
             </div>
 
             <div className="search-count bg-white p-[20px] rounded-[10px] flex flex-wrap gap-[20px] items-center mt-[20px]">
@@ -159,7 +159,7 @@ const DataAdmin = () => {
                 </div>
 
                 <div className="px-[15px] py-[10px] border rounded-[5px]" style={{ display: 'inline-block' }}>
-                    <p className="font-bold text-blue-600">{data ? `${data.length}` : 0} Data Admin</p>
+                    <p className="font-bold text-blue-600">{data ? `${data.length}` : 0} Data Admins</p>
                 </div>
             </div>
 
@@ -181,12 +181,12 @@ const DataAdmin = () => {
                                 <th scope="col" className="px-6 py-3">
                                     Full Name
                                 </th>
-                                <th scope="col" className="px-6 py-3">
+                                {/* <th scope="col" className="px-6 py-3">
                                     Username
                                 </th>
                                 <th scope="col" className="px-6 py-3">
                                     Password
-                                </th> 
+                                </th>  */}
                                 <th scope="col" className="px-6 py-3">
                                     Position
                                 </th>
@@ -224,12 +224,12 @@ const DataAdmin = () => {
                                     <td className="px-6 py-4">
                                         {item.fullname}
                                     </td>
-                                    <td className="px-6 py-4">
+                                    {/* <td className="px-6 py-4">
                                         {item.username}
                                     </td>
                                     <td className="px-6 py-4">
                                         {item.password.length > 20 ? item.password.slice(0, 15) + '...' : item.password}
-                                    </td>
+                                    </td> */}
                                     <td className="px-6 py-4">
                                         {item.position}
                                     </td>

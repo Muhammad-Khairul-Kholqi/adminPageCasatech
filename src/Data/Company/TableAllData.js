@@ -27,7 +27,7 @@ const TableAllData = () => {
         fetchData();
     }, []);
 
-    // mengatur jika kata lebih dari 25 maka tidak di tampilkan
+    // mengatur jika kata lebih dari 7 maka tidak di tampilkan
     const truncateContainer = (container, wordLimit) => {
     const words = container.split(' ');
         if (words.length > wordLimit) {
@@ -75,7 +75,7 @@ const TableAllData = () => {
                                             {item.tittle_company}
                                         </td>
                                         <td className="px-6 py-4 w-[300px] text-[10px]">
-                                            <div dangerouslySetInnerHTML={{ __html: truncateContainer(item.description_company, 25) }} />
+                                            <div dangerouslySetInnerHTML={{ __html: truncateContainer(item.description_company, 7) }} />
                                         </td>
                                     </tr>
                                 ))}
@@ -86,7 +86,7 @@ const TableAllData = () => {
                 </div>
 
                 <div className="mt-[20px]">
-                    <h1 className="mb-[20px] text-[20px] font-lato">Data About</h1>
+                    <h1 className="mb-[20px] text-[20px] font-lato">Data About Us</h1>
                     <div className = "relative overflow-x-auto" >
                         <table className="table-striped w-full text-sm text-left rtl:text-right">
                             <thead className = "text-[15px] bg-indigo-50" >
@@ -115,13 +115,13 @@ const TableAllData = () => {
                                             />
                                         </td>
                                         <td className="px-6 py-4 w-[300px] text-[10px]">
-                                            <div dangerouslySetInnerHTML={{ __html: truncateContainer(item.description_about, 25) }} />
+                                            <div dangerouslySetInnerHTML={{ __html: truncateContainer(item.description_about, 7) }} />
                                         </td>
                                         <td className="px-6 py-4 w-[300px] text-[10px]">
-                                            <div dangerouslySetInnerHTML={{ __html: truncateContainer(item.visi, 25) }} />
+                                            <div dangerouslySetInnerHTML={{ __html: truncateContainer(item.visi, 7) }} />
                                         </td>
                                         <td className="px-6 py-4 w-[300px] text-[10px]">
-                                            <div dangerouslySetInnerHTML={{ __html: truncateContainer(item.misi, 25) }} />
+                                            <div dangerouslySetInnerHTML={{ __html: truncateContainer(item.misi, 7) }} />
                                         </td>
                                     </tr>
                                 ))}

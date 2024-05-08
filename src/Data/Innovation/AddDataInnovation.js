@@ -131,7 +131,7 @@ const AddDataInnovation = () => {
                 <h1 className="title text-center item-center text-white text-[40px] font-bold px-[20px] font-roboto-slab tracking-[2px]">Add Data Innovation</h1>
                 <div className="link flex flex-wrap px-[10px] items-center text-white gap-[5px] justify-center mt-[15px]">
                     <Link to="/data-innovation">
-                        <p className="hover:underline">Data Innovation</p>
+                        <p className="hover:underline">Data Innovations</p>
                     </Link>
                     <MdOutlineKeyboardArrowRight className="mt-[3px]" />
                     <p className="text-blue-600">Add Data Innovation</p>

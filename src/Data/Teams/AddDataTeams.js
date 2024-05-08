@@ -11,7 +11,7 @@ import BaseUrl from "../../Api/BaseUrl";
 
 const AddDataTeams = () => {
     useEffect(() => {
-         document.title = "Add Data Teams | Casatech";
+         document.title = "Add Data Team | Casatech";
      }, []);
 
     const [data, setData] = useState(null);
@@ -131,18 +131,18 @@ const AddDataTeams = () => {
                 className="container bg-cover bg-center mt-[20px] py-[50px] rounded-[10px]"
                 style={{ backgroundImage: `url(${backgImg})` }}>
                 <h1 className = "title text-center item-center text-white text-[40px] font-bold px-[20px] font-roboto-slab tracking-[2px]" >
-                    Add Data Teams
+                    Add Data Team
                 </h1>
                 <div className = "link flex flex-wrap px-[10px] items-center text-white gap-[5px] justify-center mt-[15px]" >
                     <Link to = "/data-teams" >
                         <p className="hover:underline">Data Teams</p>
                     </Link>
                     <MdOutlineKeyboardArrowRight className="mt-[3px]" />
-                    <p className="text-blue-600">Add Data Teams</p>
+                    <p className="text-blue-600">Add Data Team</p>
                 </div>
             </div>
             <div className="bg-white p-[20px] rounded-[10px] mt-[20px]">
-                    <h1 className="text-center font-bold text-[20px] mb-[20px]">Add Data Teams</h1>
+                    <h1 className="text-center font-bold text-[20px] mb-[20px]">Add Data Team</h1>
                     <form onSubmit={handleFormSubmit}>
                         <div className="mt-[10px]">
                             <label htmlFor="image">Image:</label>

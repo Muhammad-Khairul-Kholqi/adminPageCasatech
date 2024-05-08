@@ -151,7 +151,7 @@ const AddDataPortfolio = () => {
                 </h1>
                 <div className = "link flex flex-wrap px-[10px] items-center text-white gap-[5px] justify-center mt-[15px]" >
                     <Link to = "/data-portfolio" >
-                        <p className="hover:underline">Data Portfolio</p>
+                        <p className="hover:underline">Data Portfolios</p>
                     </Link>
                     <MdOutlineKeyboardArrowRight className="mt-[3px]" />
                     <p className="text-blue-600">Add Data Portfolio</p>

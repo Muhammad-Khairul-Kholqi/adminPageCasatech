@@ -128,7 +128,7 @@ const SolutionsData = () => {
         setCurrentPage(newPage);
     };
 
-    // mengatur jika kata lebih dari 25 maka tidak di tampilkan
+    // mengatur jika kata lebih dari 7 maka tidak di tampilkan
     const truncateDescription = (description, wordLimit) => {
     const words = description.split(' ');
         if (words.length > wordLimit) {
@@ -213,7 +213,7 @@ const SolutionsData = () => {
                                         {item.title}
                                     </td>
                                     <td className="px-6 py-4 w-[300px] text-[10px]">
-                                        <div dangerouslySetInnerHTML={{ __html: truncateDescription(item.description, 25) }} />
+                                        <div dangerouslySetInnerHTML={{ __html: truncateDescription(item.description, 7) }} />
                                     </td>
                                     <td className="px-6 py-4">
                                         <div className="flex gap-[10px]">

@@ -6,7 +6,6 @@ import Swal from 'sweetalert2';
 import 'react-quill/dist/quill.snow.css';
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import backgImg from '../Assets/bg.png';
-import { HiEye, HiEyeOff } from 'react-icons/hi';
 
 // API
 import BaseUrl from '../Api/BaseUrl';
@@ -17,18 +16,10 @@ const EditDataAdmin = () => {
         document.title = "Edit Data Admin | Casatech";
     }, []);
 
-    // untuk melihat password
-    const [showPassword, setShowPassword] = useState(false);
-    const togglePasswordVisibility = () => {
-        setShowPassword(!showPassword);
-    };
-
     const { id } = useParams();
     const navigate = useNavigate();
     const [error, setError] = useState('');
     const [data, setData] = useState(null);
-    const [searchQuery, setSearchQuery] = useState("");
-
 
     useEffect(() => {
         const fetchData = async () => {
@@ -58,8 +49,6 @@ const EditDataAdmin = () => {
     const [place_date_birth, setBirth] = useState('');
     const [position, setPosition] = useState('');
     const [addres, setAddres] = useState('');
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
 
     useEffect(() => {
         if (data) {
@@ -70,8 +59,6 @@ const EditDataAdmin = () => {
                 setBirth(selectedData.place_date_birth);
                 setPosition(selectedData.position);
                 setAddres(selectedData.addres);
-                setUsername(selectedData.username);
-                setPassword(selectedData.password);
             }
         }
     }, [data, id]);
@@ -108,15 +95,6 @@ const EditDataAdmin = () => {
      const handleAddresChange = (event) => {
          setAddres(event.target.value);
      };
-
-     const handleUsernameChange = (event) => {
-         setUsername(event.target.value);
-     };
-
-     const handlePasswordChange = (event) => {
-         setPassword(event.target.value);
-     };
-
     
     // fungsi update data per id
     const handleUpdate = async (event) => {
@@ -127,9 +105,7 @@ const EditDataAdmin = () => {
              !fullname.trim() ||
              !place_date_birth.trim() ||
              !position.trim() ||
-             !addres.trim() ||
-             !username.trim() ||
-             !password.trim() 
+             !addres.trim() 
              ) {
              Swal.fire({
                  title: 'Error!',
@@ -147,8 +123,6 @@ const EditDataAdmin = () => {
         formData.append('place_date_birth', place_date_birth);
         formData.append('position', position);
         formData.append('addres', addres);
-        formData.append('username', username);
-        formData.append('password', addres);
 
         try {
             const token = localStorage.getItem('token');
@@ -197,7 +171,7 @@ const EditDataAdmin = () => {
                 </h1>
                 <div className = "link flex flex-wrap px-[10px] items-center text-white gap-[5px] justify-center mt-[15px]" >
                     <Link to = "/data-admin" >
-                        <p className="hover:underline">Data Admin</p>
+                        <p className="hover:underline">Data Admins</p>
                     </Link>
                     <MdOutlineKeyboardArrowRight className="mt-[3px]" />
                     <p className="text-blue-600">Edit Data Admin</p>
@@ -222,6 +196,7 @@ const EditDataAdmin = () => {
                                 className="mt-[10px] w-full mb-5 text-sm text-black border-2 border-gray-600 p-[5px] rounded-[3px] cursor-pointer" 
                                 type="file"
                                 onChange={handleImageChange}
+                                required
                             />
                         </div>
                         <div>
@@ -235,42 +210,6 @@ const EditDataAdmin = () => {
                                 value={fullname}
                                 onChange={handleFullnameChange}
                         />
-                        </div>
-                        <div className = "mt-[15px]">
-                            <span htmlFor="username">Username:</span>
-                            <br />
-                            <input
-                                className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] pl-[10px] pr-[10px]"
-                                type="text"
-                                id="username"
-                                autoComplete="off"
-                                value={username}
-                                onChange={handleUsernameChange}
-                        />
-                        </div>
-                        <div className = "mt-[15px]">
-                            <span htmlFor="password">Password:</span>
-                            <br />
-                            <div className="relative">
-                                <input
-                                    className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] pl-[10px] pr-[10px]"
-                                    type={showPassword ? "text" : "password"}
-                                    id="password"
-                                    autoComplete="off"
-                                    value={password}
-                                    onChange={handlePasswordChange}
-                                />
-                                <button
-                                    type="button"
-                                    className="absolute inset-y-0 right-0 flex items-center px-2"
-                                    onClick={togglePasswordVisibility}>
-                                    {showPassword ? (
-                                        <HiEyeOff className="w-[12px] text-gray-600 mt-[12px]" />
-                                    ) : (
-                                        <HiEye className="w-[12px] text-gray-600 mt-[12px]" />
-                                    )}
-                                </button>
-                            </div>
                         </div>
                         <div className = "mt-[15px]" >
                             <span htmlFor="position">Position:</span>

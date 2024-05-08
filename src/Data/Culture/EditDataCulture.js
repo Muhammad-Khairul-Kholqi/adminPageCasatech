@@ -198,6 +198,7 @@ const EditDataCulture = () => {
                                 className="mt-[10px] w-full mb-5 text-sm text-black border-2 border-gray-600 p-[5px] rounded-[3px] cursor-pointer" 
                                 type="file" 
                                 onChange={handleImageChange}
+                                required
                             />
                         </div>
                         <div>

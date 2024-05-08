@@ -13,7 +13,7 @@ import BaseUrl from "../../Api/BaseUrl";
 
 const DataPortfolio = () => {
  useEffect(() => {
-        document.title = "Data Portfolio | Casatech";
+        document.title = "Data Portfolios | Casatech";
     }, []);
 
     const itemsPerPage = 6;
@@ -143,7 +143,7 @@ const DataPortfolio = () => {
                         backgroundImage: `url(${backgImg})`
                     }
                 }>
-                <h1 className="title text-center item-center text-white text-[40px] font-bold px-[20px] font-roboto-slab tracking-[2px]">Data Portfolio</h1></div>
+                <h1 className="title text-center item-center text-white text-[40px] font-bold px-[20px] font-roboto-slab tracking-[2px]">Data Portfolios</h1></div>
 
                 <div className="header-content bg-white p-[20px] rounded-[10px] gap-[20px] flex items-center flex-wrap justify-between mt-[20px]">
                     <div className="search-count flex flex-wrap gap-[20px] items-center">
@@ -158,7 +158,7 @@ const DataPortfolio = () => {
                         </div>
 
                         <div className="px-[15px] py-[10px] border rounded-[5px]" style={{ display: 'inline-block' }}>
-                            <p className="font-bold text-blue-600">{data ? `${data.length}` : 0} Data Portfolio</p>
+                            <p className="font-bold text-blue-600">{data ? `${data.length}` : 0} Data Portfolios</p>
                         </div>
                     </div>
 
@@ -234,7 +234,7 @@ const DataPortfolio = () => {
                                                 {item.amount}
                                             </td>
                                             <td className="px-6 py-4 w-[300px] text-[10px]">
-                                                <div dangerouslySetInnerHTML={{ __html: truncateDescription(item.description, 25) }} />
+                                                <div dangerouslySetInnerHTML={{ __html: truncateDescription(item.description, 7) }} />
                                             </td>
                                             <td className="px-6 py-4">
                                                 <div className="flex gap-[10px]">

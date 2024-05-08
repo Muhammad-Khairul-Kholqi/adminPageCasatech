@@ -145,7 +145,7 @@ const EditDataTeams = () => {
                 </h1>
                 <div className = "link flex flex-wrap px-[10px] items-center text-white gap-[5px] justify-center mt-[15px]" >
                     <Link to = "/data-teams" >
-                        <p className="hover:underline">Data Team</p>
+                        <p className="hover:underline">Data Teams</p>
                     </Link>
                     <MdOutlineKeyboardArrowRight className="mt-[3px]" />
                     <p className="text-blue-600">Edit Data Team</p>
@@ -169,6 +169,7 @@ const EditDataTeams = () => {
                                 className="mt-[10px] w-full mb-5 text-sm text-black border-2 border-gray-600 p-[5px] rounded-[3px] cursor-pointer" 
                                 type="file" 
                                 onChange={handleImageChange}
+                                required
                             />
                         </div>
                         <div>
