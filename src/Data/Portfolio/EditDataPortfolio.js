@@ -16,9 +16,15 @@ const EditDataPortfolio = () => {
         document.title = 'Edit Data Portfolio | Casatech';
     }, []);
 
-    const [data, setData] = useState(null);
     const navigate = useNavigate();
+    const [data, setData] = useState(null);
     const [error, setError] = useState('');
+    const { id } = useParams();
+    const [image, setImage] = useState('');
+    const [title, setTitle] = useState('');
+    const [software_name, setSoftware] = useState('');
+    const [amount, setAmount] = useState('');
+    const [editorContent, setEditorContent] = useState('');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -44,13 +50,6 @@ const EditDataPortfolio = () => {
         fetchData();
     }, [navigate]);
 
-    const { id } = useParams();
-    const [image, setImage] = useState('');
-    const [title, setTitle] = useState('');
-    const [software_name, setSoftware] = useState('');
-    const [amount, setAmount] = useState('');
-    const [editorContent, setEditorContent] = useState('');
-
     useEffect(() => {
         if (data) {
             const selectedData = data.find(item => item.id === parseInt(id));
@@ -67,7 +66,7 @@ const EditDataPortfolio = () => {
     const handleImageChange = (event) => {
         const selectedImage = event.target.files[0];
         if (selectedImage && selectedImage.size > 5 * 1024 * 1024) {
-            setError('File size exceeds 5 MB.');
+            setError('Ukuran file melebihi 5 MB.');
             Swal.fire({
                 title: 'Error!',
                 text: 'Ukuran file tidak boleh melebihi 5 MB.',
@@ -102,9 +101,9 @@ const EditDataPortfolio = () => {
 
        if (!image || !title.trim() || !software_name.trim() || !editorContent.trim()) {
            Swal.fire({
-               title: 'Error!',
+               title: 'Peringatan!',
                text: 'Image, Title, Software, Amount dan Description harus diisi!',
-               icon: 'error',
+               icon: 'warning',
                confirmButtonColor: '#3085d6',
                confirmButtonText: 'OK',
            });
@@ -131,7 +130,7 @@ const EditDataPortfolio = () => {
 
             Swal.fire({
                 title: 'Sukses!',
-                text: 'Data berhasil diupdate.',
+                text: 'Berhasul update Data Portfolio.',
                 icon: 'success',
                 showConfirmButton: false,
                 timer: 1000

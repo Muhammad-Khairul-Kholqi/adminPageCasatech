@@ -16,8 +16,13 @@ const AddDataService = () => {
          document.title = "Add Data Service | Casatech";
      }, []);
 
-    const [data, setData] = useState(null);
-    const navigate = useNavigate();
+     const navigate = useNavigate();
+     const [data, setData] = useState(null);
+    const [image, setImage] = useState('');
+    const [tittle, setTitle] = useState('');
+    const [editorContent, setEditorContent] = useState('');
+    const [error, setError] = useState('');
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -42,11 +47,6 @@ const AddDataService = () => {
         fetchData();
     }, [navigate]);
 
-    const [image, setImage] = useState('');
-    const [tittle, setTitle] = useState('');
-    const [editorContent, setEditorContent] = useState('');
-    const [error, setError] = useState('');
-
      const handleChange = (content) => {
          setEditorContent(content);
          setError('');
@@ -60,7 +60,7 @@ const AddDataService = () => {
      const handleImageChange = (event) => {
         const selectedImage = event.target.files[0];
         if (selectedImage && selectedImage.size > 5 * 1024 * 1024) {
-            setError('File size exceeds 5 MB.');
+            setError('Ukiran file melebihi 5 MB.');
             Swal.fire({
                 title: 'Error!',
                 text: 'Ukuran file tidak boleh melebihi 5 MB.',
@@ -79,9 +79,9 @@ const AddDataService = () => {
 
         if (!image || !tittle.trim() || !editorContent.trim()) {
             Swal.fire({
-                title: 'Error!',
+                title: 'Peringatan!',
                 text: 'Image, Title dan Description harus diisi!',
-                icon: 'error',
+                icon: 'warning',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'OK',
             });

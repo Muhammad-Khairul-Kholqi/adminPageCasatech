@@ -14,8 +14,13 @@ const EditDataTeams = () => {
         document.title = 'Edit Data Team | Casatech';
     }, []);
 
-    const [data, setData] = useState(null);
     const navigate = useNavigate();
+    const [data, setData] = useState(null);
+    const { id } = useParams();
+    const [image, setImage] = useState('');
+    const [name, setName] = useState('');
+    const [position, setPosition] = useState('');
+    const [error, setError] = useState('');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -41,12 +46,6 @@ const EditDataTeams = () => {
         fetchData();
     }, [navigate]);
 
-    const { id } = useParams();
-    const [image, setImage] = useState('');
-    const [name, setName] = useState('');
-    const [position, setPosition] = useState('');
-    const [error, setError] = useState('');
-
     useEffect(() => {
         if (data) {
             const selectedData = data.find(item => item.id === parseInt(id));
@@ -69,7 +68,7 @@ const EditDataTeams = () => {
     const handleImageChange = (event) => {
         const selectedImage = event.target.files[0];
         if (selectedImage && selectedImage.size > 5 * 1024 * 1024) {
-            setError('File size exceeds 5 MB.');
+            setError('Ukuran file melebihi 5 MB.');
             Swal.fire({
                 title: 'Error!',
                 text: 'Ukuran file tidak boleh melebihi 5 MB.',
@@ -88,9 +87,9 @@ const EditDataTeams = () => {
 
         if (!image || !name.trim() || !position.trim()) {
             Swal.fire({
-                title: 'Error!',
+                title: 'Peringatan!',
                 text: 'Image, Name dan Position harus diisi!',
-                icon: 'error',
+                icon: 'warning',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'OK',
             });
@@ -115,7 +114,7 @@ const EditDataTeams = () => {
 
            Swal.fire({
                title: 'Sukses!',
-               text: 'Data berhasil diupdate.',
+               text: 'Berhasil update Data Team.',
                icon: 'success',
                showConfirmButton: false,
                timer: 1000

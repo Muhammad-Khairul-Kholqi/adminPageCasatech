@@ -15,8 +15,12 @@ const AddDataBlog = () => {
         document.title = "Add Data Blog | Casatech";
     }, []);
 
-    const [data, setData] = useState(null);
     const navigate = useNavigate();
+    const [data, setData] = useState(null);
+    const [image, setImage] = useState(null);
+    const [tittle, setTitle] = useState('');
+    const [editorContent, setEditorContent] = useState('');
+    const [error, setError] = useState('');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -44,11 +48,6 @@ const AddDataBlog = () => {
         fetchData();
     }, [navigate]);
 
-    const [image, setImage] = useState(null);
-    const [tittle, setTitle] = useState('');
-    const [editorContent, setEditorContent] = useState('');
-    const [error, setError] = useState('');
-
     const handleTitleChange = (event) => {
         setTitle(event.target.value);
         setError('');
@@ -62,11 +61,11 @@ const AddDataBlog = () => {
     const handleImageChange = (event) => {
         const selectedImage = event.target.files[0];
         if (selectedImage && selectedImage.size > 5 * 1024 * 1024) {
-            setError('File size exceeds 5 MB.');
+            setError('Ukuran file melebihi 5 MB.');
             Swal.fire({
-                title: 'Error!',
+                title: 'Peringatan!',
                 text: 'Ukuran file tidak boleh melebihi 5 MB.',
-                icon: 'error',
+                icon: 'warning',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'OK',
             });
@@ -82,9 +81,9 @@ const AddDataBlog = () => {
         // fungsi harus isi data jika tidak maka akan ada peringatan
         if (!image || !tittle.trim() || !editorContent.trim()) {
             Swal.fire({
-                title: 'Error!',
-                text: 'Image, Title, and Description must be filled!',
-                icon: 'error',
+                title: 'Oops...',
+                text: 'Image, Title, dan Description harus di isi!',
+                icon: 'warning',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'OK',
             });
@@ -112,7 +111,7 @@ const AddDataBlog = () => {
             Swal.fire({
                 icon: 'success',
                 title: 'Success!',
-                text: 'Berhasil menambah data Blog',
+                text: 'Berhasil menambah Data Blog',
                 showConfirmButton: false,
                 timer: 1000,
             }).then(() => {
@@ -125,7 +124,7 @@ const AddDataBlog = () => {
             // alert gagal
             Swal.fire({
                 title: 'Error!',
-                text: 'Gagal menambah data Blog.',
+                text: 'Gagal menambah data Blog, silahkan coba lagi',
                 icon: 'error',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'OK',

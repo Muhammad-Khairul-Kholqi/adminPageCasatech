@@ -57,7 +57,7 @@ const DataAdmin = () => {
         if (selectedItems.length === 0) {
             Swal.fire({
                 title: 'Peringatan!',
-                text: 'Pilih setidaknya satu data untuk dihapus.',
+                text: 'Klik Checkbox terlebih dahulu.',
                 icon: 'warning',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'OK',
@@ -181,12 +181,6 @@ const DataAdmin = () => {
                                 <th scope="col" className="px-6 py-3">
                                     Full Name
                                 </th>
-                                {/* <th scope="col" className="px-6 py-3">
-                                    Username
-                                </th>
-                                <th scope="col" className="px-6 py-3">
-                                    Password
-                                </th>  */}
                                 <th scope="col" className="px-6 py-3">
                                     Position
                                 </th>
@@ -224,12 +218,6 @@ const DataAdmin = () => {
                                     <td className="px-6 py-4">
                                         {item.fullname}
                                     </td>
-                                    {/* <td className="px-6 py-4">
-                                        {item.username}
-                                    </td>
-                                    <td className="px-6 py-4">
-                                        {item.password.length > 20 ? item.password.slice(0, 15) + '...' : item.password}
-                                    </td> */}
                                     <td className="px-6 py-4">
                                         {item.position}
                                     </td>
@@ -250,8 +238,8 @@ const DataAdmin = () => {
                                             <button
                                                 className="flex gap-[5px] items-center text-red-600 hover:underline"
                                                 onClick={(e) => handleDelete(item.id, e)}>
-                                                <IoTrashOutline />
-                                                <p>Delete</p>
+                                                <IoTrashOutline className="icon-text" />
+                                                <p className="text-link">Delete</p>
                                             </button>
                                         </div>
                                     </td>

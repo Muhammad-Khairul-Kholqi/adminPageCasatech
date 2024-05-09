@@ -16,9 +16,13 @@ const EditDataCulture = () => {
         document.title = 'Edit Data Culture | Casatech';
     }, []);
 
-    const [data, setData] = useState(null);
     const navigate = useNavigate();
+    const [data, setData] = useState(null);
     const [error, setError] = useState('');
+    const { id } = useParams();
+    const [image, setImage] = useState('');
+    const [tittle_culture, setTitle] = useState('');
+    const [editorContent, setEditorContent] = useState('');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -44,11 +48,6 @@ const EditDataCulture = () => {
         fetchData();
     }, [navigate]);
 
-    const { id } = useParams();
-    const [image, setImage] = useState('');
-    const [tittle_culture, setTitle] = useState('');
-    const [editorContent, setEditorContent] = useState('');
-
     useEffect(() => {
         if (data) {
             const selectedData = data.find(item => item.id === parseInt(id));
@@ -71,11 +70,11 @@ const EditDataCulture = () => {
     const handleImageChange = (event) => {
         const selectedImage = event.target.files[0];
         if (selectedImage && selectedImage.size > 5 * 1024 * 1024) {
-            setError('File size exceeds 5 MB.');
+            setError('Ukuran file melebihi 5 MB.');
             Swal.fire({
-                title: 'Error!',
+                title: 'Peringatan!',
                 text: 'Ukuran file tidak boleh melebihi 5 MB.',
-                icon: 'error',
+                icon: 'warning',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'OK',
             });
@@ -89,9 +88,9 @@ const EditDataCulture = () => {
 
         if (!image || !tittle_culture.trim() || !editorContent.trim()) {
             Swal.fire({
-                title: 'Error!',
+                title: 'Peringatan!',
                 text: 'Image, Title dan Description harus diisi!',
-                icon: 'error',
+                icon: 'warning',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'OK',
             });
@@ -116,7 +115,7 @@ const EditDataCulture = () => {
 
            Swal.fire({
                title: 'Sukses!',
-               text: 'Data berhasil diupdate.',
+               text: 'Berhasil update Data Culture.',
                icon: 'success',
                showConfirmButton: false,
                timer: 1000

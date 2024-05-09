@@ -1,4 +1,5 @@
 import React from 'react';
+import './Style/StyleApp.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import Sidebar from './Template/Side';
@@ -48,7 +49,6 @@ import EditDataAdmin from './Admin/EditDataAdmin';
 import Signin from './Signin';
 import Registrasi from './Registrasi';
 import NotFound from './NotFound';
-import './Style/StyleApp.css';
 
 const DefaultLayout = ({ children }) => {
     return (

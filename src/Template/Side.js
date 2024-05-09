@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import Logo from '.././Assets/logo.png';
+import Logo from '.././Assets/logo-icon.png';
 import '../Style/StyleSidebar.css';
 import { MdDashboard } from 'react-icons/md';
 import { AiFillDatabase } from "react-icons/ai";
@@ -18,8 +18,9 @@ const Side = () => {
     return (
         <>
         <div className = "sidebar bg-white shadow-lg shadow-gray-400 h-screen w-[190px] overflow-auto px-[15px] fixed" id="sidebar">
-            <div className = "flex justify-center mt-[20px]" >
-                <img className="logo-company w-[100px]" src={Logo} alt="Deskripsi Gambar" draggable="false" />
+            <div className = "flex flex-col items-center mt-[20px]" >
+                <img className="logo-company w-[40px]" src={Logo} alt="Deskripsi Gambar" draggable="false" />
+                <p className="text-logo font-bold text-[#222258]">Casatech</p>
             </div>
             <hr className="mt-[20px] border-t-2 border-gray-200" />
             <div className="sidebar-menus">
@@ -61,7 +62,7 @@ const Side = () => {
                          <Link to = "/testimonial-data" >
                             <div className="icon-teks flex items-center mx-[10px]">
                                 <AiFillMessage className="icon-link mr-2 text-[18px]" />
-                                <p className="menu-link text-[13px] font-helvetica">Testimonial</p>
+                                <p className="menu-link text-[13px] font-helvetica">Testimoni</p>
                             </div>
                         </Link>
                     </li>

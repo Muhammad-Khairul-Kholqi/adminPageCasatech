@@ -29,7 +29,7 @@ const Header = () => {
     useEffect(() => {
         const username = localStorage.getItem('username');
         if (username) {
-            setUsername(username);
+            setUsername(username.length > 10 ? username.slice(0, 10) + '...' : username);
         }
     }, []);
 

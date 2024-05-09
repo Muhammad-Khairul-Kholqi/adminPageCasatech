@@ -9,38 +9,28 @@
 }
 
 @media (max-width:520px) {
-    /* .logo-company {
-        width: 70px;
-    }
-    
-    .icon-link {
-        margin-left: 10px;
-    }
-
-    .sidebar {
-        width: 90px;
-    }
-
-    .menu-link {
-        display: none;
-    } */
-
     .icon-teks {
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center; 
-}
+    }
+
+    .sidebar {
+        width: 60px;
+    }
 
     .icon-link {
-        font-size: 18px;
-        margin-bottom: 5px; 
+        font-size: 20px;
         margin-left: 10px;
     }
 
     .menu-link {
-        font-size: 10px;
-        margin-top: 5px;
+        display: none;
+    }
+    
+    .text-logo {
+        display: none;
     }
 
 }

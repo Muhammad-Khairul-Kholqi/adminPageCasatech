@@ -70,9 +70,9 @@ const EditDataSolutions = () => {
 
         if (!title.trim() || !editorContent.trim()) {
             Swal.fire({
-                title: 'Error!',
+                title: 'Peringatan!',
                 text: 'Judul dan Deskripsi harus diisi!',
-                icon: 'error',
+                icon: 'warning',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'OK',
             });
@@ -97,7 +97,7 @@ const EditDataSolutions = () => {
 
             Swal.fire({
                 title: 'Sukses!',
-                text: 'Data berhasil diupdate.',
+                text: 'Berhasil update data Solution.',
                 icon: 'success',
                 showConfirmButton: false,
                 timer: 1000
