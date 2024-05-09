@@ -51,7 +51,7 @@ const TestimonialData = () => {
         if (selectedItems.length === 0) {
             Swal.fire({
                 title: 'Peringatan!',
-                text: 'Pilih setidaknya satu data untuk dihapus.',
+                text: 'Klik Checkbox terlebih dahulu.',
                 icon: 'warning',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'OK',
@@ -242,8 +242,8 @@ const TestimonialData = () => {
                                                     <button
                                                         className="flex gap-[5px] items-center text-red-600 hover:underline"
                                                         onClick={(e) => handleDelete(item.id, e)}>
-                                                        <IoTrashOutline />
-                                                        <p>Delete</p>
+                                                        <IoTrashOutline className="icon-text" />
+                                                        <p className="text-link">Delete</p>
                                                     </button>
                                                 </div>
                                             </td>

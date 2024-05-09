@@ -18,6 +18,29 @@ const EditData = () => {
 
     const [data, setData] = useState(null);
     const navigate = useNavigate();
+    const { id } = useParams();
+    const [company_name, setCompanyName] = useState('');
+    const [image_company, setImageCompany] = useState('');
+    const [tittle_company, setTittleCompany] = useState('');
+    const [description_company, setDescriptionCompany] = useState('');
+    const [client, setClient] = useState('');
+    const [sponsor, setSponsor] = useState('');
+    const [rating, setRating] = useState('');
+    const [image_client, setImageClient] = useState('');
+    const [image_about, setImageAbout] = useState('');
+    const [description_about, setDescriptionAbout] = useState('');
+    const [visi, setVisi] = useState('');
+    const [misi, setMisi] = useState('');
+    const [no_wa, setNoWa] = useState('');
+    const [no_telephone, setNoTelephone] = useState('');
+    const [email, setEmail] = useState('');
+    const [addres, setAddres] = useState('');
+    const [linkedin, setLinkedin] = useState('');
+    const [instagram, setInstagram] = useState('');
+    const [youtube, setYoutube] = useState('');
+    const [telegram, setTelegram] = useState('');
+    const [map, setMap] = useState('');
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -41,29 +64,6 @@ const EditData = () => {
 
         fetchData();
     }, [navigate]);
-
-    const { id } = useParams();
-    const [company_name, setCompanyName] = useState('');
-    const [image_company, setImageCompany] = useState('');
-    const [tittle_company, setTittleCompany] = useState('');
-    const [description_company, setDescriptionCompany] = useState('');
-    const [client, setClient] = useState('');
-    const [sponsor, setSponsor] = useState('');
-    const [rating, setRating] = useState('');
-    const [image_client, setImageClient] = useState('');
-    const [image_about, setImageAbout] = useState('');
-    const [description_about, setDescriptionAbout] = useState('');
-    const [visi, setVisi] = useState('');
-    const [misi, setMisi] = useState('');
-    const [no_wa, setNoWa] = useState('');
-    const [no_telephone, setNoTelephone] = useState('');
-    const [email, setEmail] = useState('');
-    const [addres, setAddres] = useState('');
-    const [linkedin, setLinkedin] = useState('');
-    const [instagram, setInstagram] = useState('');
-    const [youtube, setYoutube] = useState('');
-    const [telegram, setTelegram] = useState('');
-    const [map, setMap] = useState('');
 
     useEffect(() => {
         if (data) {
@@ -153,7 +153,7 @@ const EditData = () => {
             console.log('Response from server:', response.data);
             Swal.fire({
                 title: 'Success!',
-                text: 'Berhasil update data company.',
+                text: 'Berhasil update Data company.',
                 icon: 'success',
                 showConfirmButton: false,
                 timer: 1000

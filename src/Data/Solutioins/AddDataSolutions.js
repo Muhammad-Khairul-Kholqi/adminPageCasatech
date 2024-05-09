@@ -16,8 +16,12 @@ const AddDataSolutions = () => {
         document.title = "Add Data Solution | Casatech";
     }, []);
 
-    const [data, setData] = useState(null);
     const navigate = useNavigate();
+    const [data, setData] = useState(null);
+    const [title, setTitle] = useState('');
+    const [editorContent, setEditorContent] = useState('');
+    const [error, setError] = useState('');
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -42,10 +46,6 @@ const AddDataSolutions = () => {
         fetchData();
     }, [navigate]);
 
-    const [title, setTitle] = useState('');
-    const [editorContent, setEditorContent] = useState('');
-    const [error, setError] = useState('');
-
     const handleTitleChange = (event) => {
         setTitle(event.target.value);
         setError('');
@@ -61,9 +61,9 @@ const AddDataSolutions = () => {
 
         if (!title.trim() || !editorContent.trim()) {
              Swal.fire({
-                title: 'Error!',
+                title: 'Peringatan!',
                 text: 'Title dan Description harus diisi!',
-                icon: 'error',
+                icon: 'warning',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'OK',
             });
@@ -90,7 +90,7 @@ const AddDataSolutions = () => {
             Swal.fire({
                 icon: 'success',
                 title: 'Sukses!',
-                text: 'Berhasil menambah data Solutions',
+                text: 'Berhasil menambah Data Solution',
                 showConfirmButton: false,
                 timer: 1000,
             }).then(() => {

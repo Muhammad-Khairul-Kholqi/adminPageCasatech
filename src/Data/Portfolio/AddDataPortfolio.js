@@ -16,8 +16,14 @@ const AddDataPortfolio = () => {
          document.title = "Add Data Portfolio | Casatech";
      }, []);
 
-    const [data, setData] = useState(null);
-    const navigate = useNavigate();
+     const navigate = useNavigate();
+     const [data, setData] = useState(null);
+    const [image, setImage] = useState('');
+     const [title, setTitle] = useState('');
+     const [software_name, setSoftware] = useState('');
+     const [amount, setAmount] = useState('');
+     const [editorContent, setEditorContent] = useState('');
+     const [error, setError] = useState('');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -43,17 +49,10 @@ const AddDataPortfolio = () => {
         fetchData();
     }, [navigate]);
 
-     const [image, setImage] = useState('');
-     const [title, setTitle] = useState('');
-     const [software_name, setSoftware] = useState('');
-     const [amount, setAmount] = useState('');
-     const [editorContent, setEditorContent] = useState('');
-     const [error, setError] = useState('');
-
      const handleImageChange = (event) => {
         const selectedImage = event.target.files[0];
         if (selectedImage && selectedImage.size > 5 * 1024 * 1024) {
-            setError('File size exceeds 5 MB.');
+            setError('Ukuran file melebihi 5 MB.');
             Swal.fire({
                 title: 'Error!',
                 text: 'Ukuran file tidak boleh melebihi 5 MB.',
@@ -92,9 +91,9 @@ const AddDataPortfolio = () => {
 
         if (!image || !title.trim() || !software_name.trim() || !editorContent.trim()) {
             Swal.fire({
-                title: 'Error!',
+                title: 'Peringatan!',
                 text: 'Image, Title, Software, Amount dan Description harus diisi!',
-                icon: 'error',
+                icon: 'warning',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'OK',
             });
@@ -122,7 +121,7 @@ const AddDataPortfolio = () => {
             Swal.fire({
                 icon: 'success',
                 title: 'Sukses!',
-                text: 'Berhasil menambah data Portfolio',
+                text: 'Berhasil menambah Data Portfolio',
                 showConfirmButton: false,
                 timer: 1000,
             }).then(() => {

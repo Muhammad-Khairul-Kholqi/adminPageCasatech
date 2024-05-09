@@ -27,9 +27,22 @@ const Registrasi = () => {
     const navigate = useNavigate();
 
     const handleUsernameChange = (event) => {
-         setUsername(event.target.value);
-         setError('');
-     };
+        const enteredUsername = event.target.value;
+        if (enteredUsername.length > 10) {
+            setError('Username tidak boleh lebih dari 10 huruf.');
+            Swal.fire({
+                title: 'Error!',
+                text: 'Username tidak boleh lebih dari 10 huruf.',
+                icon: 'error',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'OK',
+            });
+        } else {
+            setUsername(enteredUsername);
+            setError('');
+        }
+    };
+
 
      const handlePasswordChange = (event) => {
          setPassword(event.target.value);
@@ -84,7 +97,7 @@ const Registrasi = () => {
             !position.trim() ||
             !addres.trim()) {
             Swal.fire({
-                title: 'Error!',
+                title: 'Oops...',
                 text: 'Seluruh data harus diisi!',
                 icon: 'error',
                 confirmButtonColor: '#3085d6',
@@ -111,7 +124,7 @@ const Registrasi = () => {
             Swal.fire({
                 icon: 'success',
                 title: 'Sukses!',
-                text: 'Registrasi data berhasil',
+                text: 'Registrasi data diri berhasil',
                 showConfirmButton: false,
                 timer: 1000,
             }).then(() => {
@@ -122,7 +135,7 @@ const Registrasi = () => {
 
             Swal.fire({
                 title: 'Error!',
-                text: 'Terjadi kesalahan saat membuat data. Silakan coba lagi.',
+                text: 'Terjadi kesalahan saat membuat data, silakan coba lagi.',
                 icon: 'error',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'OK',

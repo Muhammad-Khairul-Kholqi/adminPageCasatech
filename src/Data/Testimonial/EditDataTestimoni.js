@@ -16,9 +16,14 @@ const EditDataTestimoni = () => {
         document.title = 'Edit Data Testimonial | Casatech';
     }, []);
 
-    const [data, setData] = useState(null);
     const navigate = useNavigate();
+    const { id } = useParams();
+    const [data, setData] = useState(null);
     const [error, setError] = useState('');
+    const [image, setImage] = useState('');
+    const [name, setName] = useState('');
+    const [position, setPosition] = useState('');
+    const [editorContent, setEditorContent] = useState('');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -44,12 +49,6 @@ const EditDataTestimoni = () => {
         fetchData();
     }, [navigate]);
 
-    const { id } = useParams();
-    const [image, setImage] = useState('');
-    const [name, setName] = useState('');
-    const [position, setPosition] = useState('');
-    const [editorContent, setEditorContent] = useState('');
-
     useEffect(() => {
         if (data) {
             const selectedData = data.find(item => item.id === parseInt(id));
@@ -65,11 +64,11 @@ const EditDataTestimoni = () => {
     const handleImageChange = (event) => {
         const selectedImage = event.target.files[0];
         if (selectedImage && selectedImage.size > 5 * 1024 * 1024) {
-            setError('File size exceeds 5 MB.');
+            setError('Ukuran file melebihi 5 MB.');
             Swal.fire({
-                title: 'Error!',
+                title: 'Peringatan!',
                 text: 'Ukuran file tidak boleh melebihi 5 MB.',
-                icon: 'error',
+                icon: 'warning',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'OK',
             });
@@ -96,9 +95,9 @@ const EditDataTestimoni = () => {
 
         if (!image || !name.trim() || !position.trim() || !editorContent.trim()) {
             Swal.fire({
-                title: 'Error!',
+                title: 'Peringatan!',
                 text: 'Image, Title dan Description harus diisi!',
-                icon: 'error',
+                icon: 'warning',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'OK',
             });
@@ -124,7 +123,7 @@ const EditDataTestimoni = () => {
 
             Swal.fire({
                 title: 'Sukses!',
-                text: 'Data berhasil diupdate.',
+                text: 'Berhasil update Data Testimoni.',
                 icon: 'success',
                 showConfirmButton: false,
                 timer: 1000

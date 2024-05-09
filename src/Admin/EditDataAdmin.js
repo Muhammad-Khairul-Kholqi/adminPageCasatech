@@ -20,6 +20,11 @@ const EditDataAdmin = () => {
     const navigate = useNavigate();
     const [error, setError] = useState('');
     const [data, setData] = useState(null);
+    const [image, setImage] = useState('');
+    const [fullname, setFullname] = useState('');
+    const [place_date_birth, setBirth] = useState('');
+    const [position, setPosition] = useState('');
+    const [addres, setAddres] = useState('');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -44,12 +49,6 @@ const EditDataAdmin = () => {
         fetchData();
     }, [navigate]);
 
-    const [image, setImage] = useState('');
-    const [fullname, setFullname] = useState('');
-    const [place_date_birth, setBirth] = useState('');
-    const [position, setPosition] = useState('');
-    const [addres, setAddres] = useState('');
-
     useEffect(() => {
         if (data) {
             const selectedData = data.find(item => item.id === parseInt(id));
@@ -66,11 +65,11 @@ const EditDataAdmin = () => {
     const handleImageChange = (event) => {
         const selectedImage = event.target.files[0];
         if (selectedImage && selectedImage.size > 5 * 1024 * 1024) {
-            setError('File size exceeds 5 MB.');
+            setError('Ukuran file melebihi 5 MB.');
             Swal.fire({
-                title: 'Error!',
+                title: 'Peringatan!',
                 text: 'Ukuran file tidak boleh melebihi 5 MB.',
-                icon: 'error',
+                icon: 'warning',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'OK',
             });
@@ -108,9 +107,9 @@ const EditDataAdmin = () => {
              !addres.trim() 
              ) {
              Swal.fire({
-                 title: 'Error!',
+                 title: 'Peringatan!',
                  text: 'Seluruh data harus diisi!',
-                 icon: 'error',
+                 icon: 'warning',
                  confirmButtonColor: '#3085d6',
                  confirmButtonText: 'OK',
              });
@@ -140,7 +139,7 @@ const EditDataAdmin = () => {
             // respon berhasil update data
              Swal.fire({
                  title: 'Sukses!',
-                 text: 'Data berhasil diupdate.',
+                 text: 'Berhasil edit Data Admin.',
                  icon: 'success',
                  showConfirmButton: false,
                  timer: 1000

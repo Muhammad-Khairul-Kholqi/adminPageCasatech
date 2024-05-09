@@ -14,8 +14,12 @@ const AddDataCulture = () => {
         document.title = "Add Data Culture | Casatech";
     }, []);
 
-    const [data, setData] = useState(null);
     const navigate = useNavigate();
+    const [data, setData] = useState(null);
+    const [image, setImage] = useState(null);
+    const [tittle_culture, setTitle] = useState('');
+    const [editorContent, setEditorContent] = useState('');
+    const [error, setError] = useState('');
     
     useEffect(() => {
         const fetchData = async () => {
@@ -41,11 +45,6 @@ const AddDataCulture = () => {
         fetchData();
     }, [navigate]);
 
-    const [image, setImage] = useState(null);
-    const [tittle_culture, setTitle] = useState('');
-    const [editorContent, setEditorContent] = useState('');
-    const [error, setError] = useState('');
-
     const handleTitleChange = (event) => {
         setTitle(event.target.value);
         setError('');
@@ -59,11 +58,11 @@ const AddDataCulture = () => {
     const handleImageChange = (event) => {
         const selectedImage = event.target.files[0];
         if (selectedImage && selectedImage.size > 5 * 1024 * 1024) {
-            setError('File size exceeds 5 MB.');
+            setError('Ukuran file melebihi 5 MB.');
             Swal.fire({
-                title: 'Error!',
+                title: 'Peringatan!',
                 text: 'Ukuran file tidak boleh melebihi 5 MB.',
-                icon: 'error',
+                icon: 'warning',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'OK',
             });
@@ -78,9 +77,9 @@ const AddDataCulture = () => {
 
         if (!image || !tittle_culture.trim() || !editorContent.trim()) {
             Swal.fire({
-                title: 'Error!',
+                title: 'Peringatan!',
                 text: 'Image, Title, and Description must be filled!',
-                icon: 'error',
+                icon: 'warning',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'OK',
             });
