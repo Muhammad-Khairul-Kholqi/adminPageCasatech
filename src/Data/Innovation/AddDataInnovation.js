@@ -60,9 +60,9 @@ const AddDataInnovation = () => {
         if (selectedImage && selectedImage.size > 5 * 1024 * 1024) {
             setError('Ukuran file melebihi 5 MB.');
             Swal.fire({
-                title: 'Error!',
+                title: 'Peringatan!',
                 text: 'Ukuran file tidak boleh melebihi 5 MB.',
-                icon: 'error',
+                icon: 'warning',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'OK',
             });

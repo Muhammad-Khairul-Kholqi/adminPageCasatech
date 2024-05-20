@@ -60,11 +60,11 @@ const AddDataService = () => {
      const handleImageChange = (event) => {
         const selectedImage = event.target.files[0];
         if (selectedImage && selectedImage.size > 5 * 1024 * 1024) {
-            setError('Ukiran file melebihi 5 MB.');
+            setError('Ukuran file melebihi 5 MB.');
             Swal.fire({
-                title: 'Error!',
+                title: 'Peringatan!',
                 text: 'Ukuran file tidak boleh melebihi 5 MB.',
-                icon: 'error',
+                icon: 'warning',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'OK',
             });
@@ -196,7 +196,6 @@ const AddDataService = () => {
                             ]}
                             required
                         />
-                        {error && <p className="text-red-500 mt-2">{error}</p>}
                     </div>
                     <button type="submit" className="mt-[20px] rounded-[3px] w-full bg-gray-500 hover:bg-gray-600 text-white py-[5px]">
                         Submit

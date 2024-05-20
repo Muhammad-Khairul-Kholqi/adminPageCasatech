@@ -72,9 +72,9 @@ const EditDataService = () => {
         if (selectedImage && selectedImage.size > 5 * 1024 * 1024) {
             setError('Ukuran file melebihi 5 MB.');
             Swal.fire({
-                title: 'Error!',
+                title: 'Peringatan!',
                 text: 'Ukuran file tidak boleh melebihi 5 MB.',
-                icon: 'error',
+                icon: 'warning',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'OK',
             });
@@ -87,7 +87,7 @@ const EditDataService = () => {
     const handleUpdate = async (event) => {
         event.preventDefault();
 
-        if (!image || !tittle.trim() || !editorContent.trim()) {
+        if (!tittle.trim() || !editorContent.trim()) {
             Swal.fire({
                 title: 'Peringatan!',
                 text: 'Image, Tittle dan Description harus diisi!',
@@ -190,7 +190,7 @@ const EditDataService = () => {
                                 <p>Previous Image: </p>
                                 <img
                                     className="w-[100px]"
-                                    src={`https://casatech.id/compro-api${image}`}
+                                    src={`http://localhost:4000/${image}`}
                                 />
                             </div>
                             <input 
@@ -234,3 +234,4 @@ const EditDataService = () => {
 }
 
 export default EditDataService;
+
