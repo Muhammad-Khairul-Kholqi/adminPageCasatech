@@ -215,7 +215,7 @@ const DataService = () => {
                                             <td className="py-4 px-2">
                                                 <img  
                                                     className="w-[100px]"      
-                                                    src={`http://localhost:4000/${item.image}`}
+                                                    src={`https://casatech.id/compro-api/${item.image}`}
                                                 />
                                             </td>
                                             <td className="px-6 py-4 w-[150px]">{item.tittle}</td>
