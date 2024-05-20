@@ -410,7 +410,7 @@ const EditData = () => {
                                     value={instagram || ''}
                                     onChange={(e) => setInstagram(e.target.value)}
                                 />
-                                <p className="text-[13px] text-red-600 italic">Enter Instagram name without @</p>
+                                <p className="text-[13px] text-red-600 italic">Masukan nama Instagram tanpa @</p>
                             </div>
 
                             <div className="mt-[15px]">

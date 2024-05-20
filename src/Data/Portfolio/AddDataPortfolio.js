@@ -14,16 +14,16 @@ import BaseUrl from "../../Api/BaseUrl";
 const AddDataPortfolio = () => {
     useEffect(() => {
          document.title = "Add Data Portfolio | Casatech";
-     }, []);
+    }, []);
 
-     const navigate = useNavigate();
-     const [data, setData] = useState(null);
+    const navigate = useNavigate();
+    const [data, setData] = useState(null);
     const [image, setImage] = useState('');
-     const [title, setTitle] = useState('');
-     const [software_name, setSoftware] = useState('');
-     const [amount, setAmount] = useState('');
-     const [editorContent, setEditorContent] = useState('');
-     const [error, setError] = useState('');
+    const [title, setTitle] = useState('');
+    const [software_name, setSoftware] = useState('');
+    const [amount, setAmount] = useState('');
+    const [editorContent, setEditorContent] = useState('');
+    const [error, setError] = useState('');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -49,14 +49,14 @@ const AddDataPortfolio = () => {
         fetchData();
     }, [navigate]);
 
-     const handleImageChange = (event) => {
+    const handleImageChange = (event) => {
         const selectedImage = event.target.files[0];
         if (selectedImage && selectedImage.size > 5 * 1024 * 1024) {
             setError('Ukuran file melebihi 5 MB.');
             Swal.fire({
-                title: 'Error!',
+                title: 'Peringatan!',
                 text: 'Ukuran file tidak boleh melebihi 5 MB.',
-                icon: 'error',
+                icon: 'warning',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'OK',
             });
@@ -66,20 +66,20 @@ const AddDataPortfolio = () => {
         }
     };
 
-     const handleTitleChange = (event) => {
-         setTitle(event.target.value);
-         setError('');
-     };
+    const handleTitleChange = (event) => {
+        setTitle(event.target.value);
+        setError('');
+    };
 
-     const handleSoftwareChange = (event) => {
-         setSoftware(event.target.value);
-         setError('');
-     };
+    const handleSoftwareChange = (event) => {
+        setSoftware(event.target.value);
+        setError('');
+    };
 
-     const handleAmountChange = (event) => {
-         setAmount(event.target.value);
-         setError('');
-     };
+    const handleAmountChange = (event) => {
+        setAmount(event.target.value);
+        setError('');
+    };
 
     const handleChange = (content) => {
         setEditorContent(content);
@@ -244,3 +244,9 @@ const AddDataPortfolio = () => {
 }
 
 export default AddDataPortfolio;
+
+
+
+
+
+
