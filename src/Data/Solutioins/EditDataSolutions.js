@@ -121,9 +121,6 @@ const EditDataSolutions = () => {
         toolbar: [
             ['bold', 'italic', 'underline'],
             [{
-                color: []
-            }],
-            [{
                 list: 'ordered'
             }, {
                 list: 'bullet'
@@ -139,7 +136,6 @@ const EditDataSolutions = () => {
         'bold',
         'italic',
         'underline',
-        'color',
         'list',
         'bullet',
         'link',
