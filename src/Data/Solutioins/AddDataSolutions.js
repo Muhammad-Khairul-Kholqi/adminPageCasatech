@@ -152,7 +152,6 @@ const AddDataSolutions = () => {
                             modules={{
                                 toolbar: [
                                     ['bold', 'italic', 'underline'],
-                                    [{ color: [] }],
                                     [{ list: 'ordered' }, { list: 'bullet' }],
                                     ['link'],
                                 ],
@@ -164,7 +163,6 @@ const AddDataSolutions = () => {
                                 'bold',
                                 'italic',
                                 'underline',
-                                'color',
                                 'list',
                                 'bullet',
                                 'link',

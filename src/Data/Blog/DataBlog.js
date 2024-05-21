@@ -249,17 +249,11 @@ const DataBlog = () => {
                                             <td className="px-6 py-4">
                                                 <div className="flex gap-[10px]">
                                                     <Link to={`/edit-data-blog/${item.id}`}>
-                                                        <div className="icon-text text-[15px] flex gap-[5px] items-center text-blue-600 hover:underline">
+                                                        <div className="icon-text text-[15px] flex justify-center gap-[5px] items-center text-blue-600 border border-blue-600 py-[3px] px-[5px] rounded-[3px] hover:bg-blue-600 hover:text-white">
                                                             <FaRegPenToSquare />
                                                             <p className="text-link">Edit</p>
                                                         </div>
                                                     </Link>
-                                                    <button
-                                                        className="flex gap-[5px] items-center text-red-600 hover:underline"
-                                                        onClick={(e) => handleDelete(item.id, e)}>
-                                                        <IoTrashOutline className="icon-text" />
-                                                        <p className="text-link">Delete</p>
-                                                    </button>
                                                 </div>
                                             </td>
                                         </tr>
@@ -273,7 +267,7 @@ const DataBlog = () => {
                         )}
                         <div className="flex justify-between mt-[30px]">
                             <button
-                                className="flex gap-[5px] items-center text-red-600 hover:underline"
+                                className="flex gap-[5px] items-center text-red-600 hover:bg-red-600 border hover:text-white border-red-600 p-[4px] rounded-[3px]"
                                 onClick={handleDelete}>
                                 <IoTrashOutline />
                                 <p className="text-[13px]">Delete</p>

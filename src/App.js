@@ -2,6 +2,8 @@ import React from 'react';
 import './Style/StyleApp.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
+import ErrorServer from './ErrorServer';
+
 import Sidebar from './Template/Side';
 
 import Header from './Template/Header';
@@ -80,6 +82,9 @@ const App = () => {
 
                         {/* not found */}
                         <Route path="*" element={<NotFound />} />
+
+                        {/* error server 500 */}
+                        <Route path="/500" element={<ErrorServer />} />
 
                         {/* dashboard */}
                         <Route
