@@ -18,6 +18,7 @@ const DataCulture = () => {
     const [selectedItems, setSelectedItems] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [searchQuery, setSearchQuery] = useState("");
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         document.title = "Data Cultures | Casatech";
@@ -42,6 +43,8 @@ const DataCulture = () => {
                 }
             } catch (error) {
                 console.error("Error fetching data:", error);
+            } finally {
+                setLoading(false);
             }
         };
 
@@ -177,7 +180,9 @@ const DataCulture = () => {
                 </div>
 
                 <div className = "bg-white p-[20px] rounded-[10px] mt-[20px]" >
-                    {paginateData().length > 0 ? (
+                    {loading ? (
+                        <div className="text-center text-blue-600">Loading...</div>
+                    ) : paginateData().length > 0 ? (
                         <div className = "relative overflow-x-auto" >
                             <table className="table-striped w-full text-sm text-left rtl:text-right">
                                 <thead className = "text-[15px] bg-indigo-50" >
