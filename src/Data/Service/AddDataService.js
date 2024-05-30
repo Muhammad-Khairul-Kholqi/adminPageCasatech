@@ -16,8 +16,8 @@ const AddDataService = () => {
          document.title = "Add Data Service | Casatech";
      }, []);
 
-     const navigate = useNavigate();
-     const [data, setData] = useState(null);
+    const navigate = useNavigate();
+    const [data, setData] = useState(null);
     const [image, setImage] = useState('');
     const [tittle, setTitle] = useState('');
     const [editorContent, setEditorContent] = useState('');

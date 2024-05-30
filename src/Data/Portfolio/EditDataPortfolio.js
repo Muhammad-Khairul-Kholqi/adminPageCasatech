@@ -204,7 +204,7 @@ const EditDataPortfolio = () => {
                                 <p>Previous Image: </p>
                                 <img
                                     className="w-[100px]"
-                                    src={`https://casatech.id/compro-api${image}`}
+                                    src={`${BaseUrl}${image}`}
                                 />
                             </div>
                             <input 

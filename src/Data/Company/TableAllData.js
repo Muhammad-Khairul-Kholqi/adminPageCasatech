@@ -68,7 +68,7 @@ const TableAllData = () => {
                                         <td className="py-4 px-2">
                                             <img  
                                                 className="w-[100px]"      
-                                                src={`https://casatech.id/compro-api${item.image_company}`} 
+                                                src={`${BaseUrl}${item.image_company}`} 
                                             />
                                         </td>
                                         <td className = "px-6 py-4 w-[300px]" >
@@ -111,7 +111,7 @@ const TableAllData = () => {
                                         <td className="py-4 px-2">
                                             <img  
                                                 className="w-[100px]"      
-                                                src={`https://casatech.id/compro-api${item.image_about}`}
+                                                src={`${BaseUrl}${item.image_about}`}
                                             />
                                         </td>
                                         <td className="px-6 py-4 w-[300px] text-[10px]">
@@ -166,7 +166,7 @@ const TableAllData = () => {
                                         <td className="py-4 px-2">
                                             <img  
                                                 className="w-[100px]"      
-                                                src={`https://casatech.id/compro-api${item.image_client}`} 
+                                                src={`${BaseUrl}${item.image_client}`} 
                                             />
                                         </td>
                                     </tr>

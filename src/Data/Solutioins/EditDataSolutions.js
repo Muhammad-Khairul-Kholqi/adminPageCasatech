@@ -11,13 +11,18 @@ import backgImg from '../../Assets/bg.png';
 // api
 import BaseUrl from "../../Api/BaseUrl";
 
-const EditDataSolutions = () => {
+const EditDataService = () => {
     useEffect(() => {
         document.title = 'Edit Data Solution | Casatech';
     }, []);
 
-    const [data, setData] = useState(null);
     const navigate = useNavigate();
+    const { id } = useParams();
+    const [data, setData] = useState(null);
+    const [error, setError] = useState('');
+    const [image, setImage] = useState('');
+    const [title, setTitle] = useState('');
+    const [editorContent, setEditorContent] = useState('');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -43,14 +48,11 @@ const EditDataSolutions = () => {
         fetchData();
     }, [navigate]);
 
-    const { id } = useParams();
-    const [title, setTitle] = useState('');
-    const [editorContent, setEditorContent] = useState('');
-
     useEffect(() => {
         if (data) {
             const selectedData = data.find(item => item.id === parseInt(id));
             if (selectedData) {
+                setImage(selectedData.image);
                 setTitle(selectedData.title);
                 setEditorContent(selectedData.description);
             }
@@ -65,13 +67,30 @@ const EditDataSolutions = () => {
         setTitle(event.target.value);
     };
 
+    const handleImageChange = (event) => {
+        const selectedImage = event.target.files[0];
+        if (selectedImage && selectedImage.size > 5 * 1024 * 1024) {
+            setError('Ukuran file melebihi 5 MB.');
+            Swal.fire({
+                title: 'Peringatan!',
+                text: 'Ukuran file tidak boleh melebihi 5 MB.',
+                icon: 'warning',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'OK',
+            });
+        } else {
+            setImage(selectedImage);
+            setError('');
+        }
+    };
+
     const handleUpdate = async (event) => {
         event.preventDefault();
 
         if (!title.trim() || !editorContent.trim()) {
             Swal.fire({
                 title: 'Peringatan!',
-                text: 'Judul dan Deskripsi harus diisi!',
+                text: 'Image, Tittle dan Description harus diisi!',
                 icon: 'warning',
                 confirmButtonColor: '#3085d6',
                 confirmButtonText: 'OK',
@@ -79,47 +98,50 @@ const EditDataSolutions = () => {
             return;
         }
 
-        const dataToUpdate = {
-            title: title,
-            description: editorContent
-        };
+        const formData = new FormData();
+        formData.append('image', image);
+        formData.append('title', title);
+        formData.append('description', editorContent);
 
         try {
             const token = localStorage.getItem('token');
-            const response = await axios.patch(`${BaseUrl}solution/${id}`, dataToUpdate, {
+            const response = await axios.patch(`${BaseUrl}solution/${id}`, formData, {
                 headers: {
                     Authorization: `Bearer ${token}`,
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'multipart/form-data'
                 }
             });
 
-            console.log('Response from server:', response.data);
+           console.log('Response from server:', response.data);
 
-            Swal.fire({
-                title: 'Sukses!',
-                text: 'Berhasil update data Solution.',
-                icon: 'success',
-                showConfirmButton: false,
-                timer: 1000
-            }).then(() => {
-                navigate('/data-solutions');
-            });
-        } catch (error) {
-            console.error('Error updating data:', error);
+           Swal.fire({
+               title: 'Sukses!',
+               text: 'Berhasil update Data Service.',
+               icon: 'success',
+               showConfirmButton: false,
+               timer: 1000
+           }).then(() => {
+               navigate('/data-solutions');
+           });
+       } catch (error) {
+           console.error('Error updating data:', error);
 
-            Swal.fire({
-                title: 'Error!',
-                text: 'Terjadi kesalahan saat mengupdate data. Silakan coba lagi.',
-                icon: 'error',
-                confirmButtonColor: '#3085d6',
-                confirmButtonText: 'OK',
-            });
-        }
+           Swal.fire({
+               title: 'Error!',
+               text: 'Terjadi kesalahan saat mengupdate data. Silakan coba lagi.',
+               icon: 'error',
+               confirmButtonColor: '#3085d6',
+               confirmButtonText: 'OK',
+           });
+       }
     };
 
     const modules = {
         toolbar: [
             ['bold', 'italic', 'underline'],
+            [{
+                color: []
+            }],
             [{
                 list: 'ordered'
             }, {
@@ -136,6 +158,7 @@ const EditDataSolutions = () => {
         'bold',
         'italic',
         'underline',
+        'color',
         'list',
         'bullet',
         'link',
@@ -160,8 +183,26 @@ const EditDataSolutions = () => {
             <div className="bg-white p-[20px] rounded-[10px] mt-[20px]">
                     <h1 className="text-center font-bold text-[20px] mb-[20px]">Edit Data Solution</h1>
                     <form onSubmit = {handleUpdate} >
+                        <div className="mt-[10px]">
+                            <span htmlFor="image">Image:</span>
+                            <br />
+                            <div className="flex items-center gap-[10px]">
+                                <p>Previous Image: </p>
+                                <img
+                                    className="w-[100px]"
+                                    src={`${BaseUrl}${image}`}
+                                />
+                            </div>
+                            <input 
+                                id="image" 
+                                className="mt-[10px] w-full mb-5 text-sm text-black border-2 border-gray-600 p-[5px] rounded-[3px] cursor-pointer" 
+                                type="file" 
+                                onChange={handleImageChange}
+                                required
+                            />
+                        </div>
                         <div>
-                            <span htmlFor="tittle">Title:</span>
+                            <span htmlFor="tittle">Tittle:</span>
                             <br />
                             <input
                                 className="w-full mt-[10px] border-solid border-2 border-gray-600 rounded-[3px] pl-[10px] pr-[10px]"
@@ -192,4 +233,5 @@ const EditDataSolutions = () => {
     )
 }
 
-export default EditDataSolutions;
+export default EditDataService;
+

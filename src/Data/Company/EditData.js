@@ -242,7 +242,7 @@ const EditData = () => {
                                     <p>Previous Image: </p>
                                     <img
                                         className="w-[100px]"
-                                        src={`https://casatech.id/compro-api${image_company}`}
+                                        src={`${BaseUrl}${image_company}`}
                                     />
                                 </div>
                                 <input 
@@ -284,7 +284,7 @@ const EditData = () => {
                                     <p>Previous Image: </p>
                                     <img
                                         className="w-[100px]"
-                                        src={`https://casatech.id/compro-api${image_about}`}
+                                        src={`${BaseUrl}${image_about}`}
                                     />
                                 </div>
                                 <input id="image" 
@@ -363,7 +363,7 @@ const EditData = () => {
                                     <p>Previous Image: </p>
                                     <img
                                         className="w-[100px]"
-                                        src={`https://casatech.id/compro-api${image_client}`}
+                                        src={`${BaseUrl}${image_client}`}
                                     />
                                 </div>
                                 <input 
