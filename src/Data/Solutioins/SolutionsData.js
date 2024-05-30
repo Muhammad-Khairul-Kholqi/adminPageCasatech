@@ -189,6 +189,9 @@ const SolutionsData = () => {
                                 <th scope="col" className="px-6 py-3">
                                     No
                                 </th>
+                                 <th scope="col" className="px-6 py-3">
+                                    Image
+                                </th>
                                 <th scope="col" className="px-6 py-3">
                                     Title
                                 </th>
@@ -213,6 +216,12 @@ const SolutionsData = () => {
                                     </td>
                                     <td className='px-6 py-4'>
                                         {item.pageNo}
+                                    </td>
+                                    <td className="py-4 px-2">
+                                        <img
+                                            className="w-[100px]"
+                                            src={`${BaseUrl}${item.image}`}
+                                        />
                                     </td>
                                     <td className="px-6 py-4 w-[300px]">
                                         {item.title}
