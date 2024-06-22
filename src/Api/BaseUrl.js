@@ -1,5 +1,5 @@
-// base url
-// tambahkan slash (/) di akhir url
-const BaseUrl = "https://casatech.id/compro-api/";
+// base url (from .env)
+
+const BaseUrl = process.env.REACT_APP_API_KEY;
 
 export default BaseUrl;
